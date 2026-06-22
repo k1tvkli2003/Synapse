@@ -1,0 +1,18 @@
+name: synapse_core
+description: >
+  Shared domain models (immutable, value-equality), the knowledge-graph spine,
+  the unified content model and the typed in-app event bus for Synapse.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  meta: ^1.12.0
+  collection: ^1.18.0
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  test: ^1.25.0

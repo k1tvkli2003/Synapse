@@ -1,0 +1,13 @@
+name: synapse_config
+description: Environment loader, feature flags and version constants for Synapse.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  meta: ^1.12.0
+
+dev_dependencies:
+  flutter_lints: ^4.0.0

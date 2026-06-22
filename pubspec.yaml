@@ -1,0 +1,11 @@
+name: synapse_workspace
+description: >
+  Synapse — a unified, cross-platform medical super-app built with a single
+  Flutter codebase for Android, iOS, macOS, Windows, Linux and Web.
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dev_dependencies:
+  melos: ^6.3.2

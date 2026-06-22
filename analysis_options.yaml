@@ -1,0 +1,21 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # Pragmatic relaxations for a large, fast-moving codebase.
+    avoid_print: warning
+    deprecated_member_use: warning
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/build/**"
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_final_fields: true
+    use_key_in_widget_constructors: true
+    sort_child_properties_last: true
+    avoid_unnecessary_containers: true
+    prefer_single_quotes: true
