@@ -1,0 +1,21 @@
+name: synapse_services
+description: >
+  Offline-first repositories + seed data for Synapse. The app boots on these
+  local repositories with no backend credentials; a Supabase-backed
+  implementation can be swapped in behind the same interfaces.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  synapse_core:
+    path: ../core
+  synapse_engines:
+    path: ../engines
+  meta: ^1.12.0
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  test: ^1.25.0
