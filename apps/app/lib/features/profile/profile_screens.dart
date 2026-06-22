@@ -1,0 +1,522 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:synapse_core/synapse_core.dart';
+import 'package:synapse_engines/synapse_engines.dart';
+import 'package:synapse_ui/synapse_ui.dart';
+
+import '../../router/routes.dart';
+import '../../state/app_providers.dart';
+import '../../state/game_provider.dart';
+import '../../state/notifications_provider.dart';
+import '../../state/settings_provider.dart';
+import '../../state/user_provider.dart';
+
+class ProfileScreen extends ConsumerWidget {
+  const ProfileScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final user = ref.watch(userProvider);
+    final xp = ref.watch(xpProvider);
+    final streak = ref.watch(streakProvider);
+    final league = ref.watch(leagueProvider);
+    final mastered = ref.watch(gameProvider).masteredCount;
+
+    final links = [
+      (Icons.emoji_events_rounded, 'Rewards', Routes.rewards),
+      (Icons.military_tech_rounded, 'Achievements', Routes.achievements),
+      (Icons.task_alt_rounded, 'Quests', Routes.quests),
+      (Icons.insights_rounded, 'Insights', Routes.insights),
+      (Icons.notifications_rounded, 'Inbox', Routes.notifications),
+      (Icons.settings_rounded, 'Settings', Routes.settings),
+    ];
+
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: ContentBounds(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 16, 20, 100),
+            children: [
+              Row(
+                children: [
+                  AppAvatar(name: user.displayName, radius: 32),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(user.displayName, style: Theme.of(context).textTheme.headlineSmall),
+                        Text('@${user.handle} · ${user.specialty ?? _roleLabel(user.role)}', style: TextStyle(color: t.textMuted)),
+                      ],
+                    ),
+                  ),
+                  AppIconButton(icon: Icons.edit_rounded, tooltip: 'Edit', onPressed: () => _editSheet(context, ref)),
+                ],
+              ),
+              if (user.bio != null) ...[
+                const SizedBox(height: 12),
+                Text(user.bio!, style: TextStyle(color: t.textMuted, height: 1.4)),
+              ],
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(child: StatTile(value: 'Lv ${xp.level}', label: 'Level', icon: Icons.bolt_rounded)),
+                  const SizedBox(width: 12),
+                  Expanded(child: StatTile(value: '${streak.current}', label: 'Day streak', icon: Icons.local_fire_department_rounded, accent: const Color(0xFFFF8A3D))),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(child: StatTile(value: league.label, label: 'League', icon: Icons.shield_rounded, accent: LeagueBadge.colorOf(league))),
+                  const SizedBox(width: 12),
+                  Expanded(child: StatTile(value: '$mastered', label: 'Mastered', icon: Icons.psychology_rounded, accent: t.success)),
+                ],
+              ),
+              const SizedBox(height: 24),
+              GridView.count(
+                crossAxisCount: context.bp.isCompact ? 2 : 3,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 2.4,
+                children: links
+                    .map((l) => AppCard(
+                          onTap: () => context.push(l.$3),
+                          padding: const EdgeInsets.all(14),
+                          child: Row(
+                            children: [
+                              Icon(l.$1, color: t.primary, size: 20),
+                              const SizedBox(width: 10),
+                              Expanded(child: Text(l.$2, style: Theme.of(context).textTheme.titleSmall)),
+                            ],
+                          ),
+                        ))
+                    .toList(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _editSheet(BuildContext context, WidgetRef ref) {
+    final user = ref.read(userProvider);
+    final nameC = TextEditingController(text: user.displayName);
+    final specC = TextEditingController(text: user.specialty ?? '');
+    final bioC = TextEditingController(text: user.bio ?? '');
+    showAppSheet(context, builder: (context) => Padding(
+          padding: EdgeInsets.fromLTRB(20, 8, 20, MediaQuery.viewInsetsOf(context).bottom + 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Edit profile', style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 16),
+              AppTextField(controller: nameC, label: 'Display name'),
+              const SizedBox(height: 12),
+              AppTextField(controller: specC, label: 'Specialty'),
+              const SizedBox(height: 12),
+              AppTextField(controller: bioC, label: 'Bio', maxLines: 3),
+              const SizedBox(height: 16),
+              AppButton(label: 'Save', expand: true, onPressed: () {
+                ref.read(userProvider.notifier).edit(displayName: nameC.text.trim(), specialty: specC.text.trim(), bio: bioC.text.trim());
+                Navigator.of(context).pop();
+              }),
+            ],
+          ),
+        ));
+  }
+
+  String _roleLabel(UserRole r) => r.name[0].toUpperCase() + r.name.substring(1);
+}
+
+class RewardsScreen extends ConsumerWidget {
+  const RewardsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final game = ref.watch(gameProvider).game;
+    final rank = LeagueEngine.simulatedRank(game.weekXp);
+    return ModuleScaffold(
+      title: 'Rewards',
+      scrollable: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          AppCard(child: XpBar(xp: game.xp)),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(child: StatTile(value: '${game.wallet.gems}', label: 'Gems', icon: Icons.diamond_rounded, accent: t.info)),
+              const SizedBox(width: 12),
+              Expanded(child: StatTile(value: '${game.hearts.current}/${game.hearts.max}', label: 'Hearts', icon: Icons.favorite_rounded, accent: t.danger)),
+            ],
+          ),
+          const SizedBox(height: 20),
+          const SectionHeader(title: 'League'),
+          AppCard(
+            child: Row(
+              children: [
+                LeagueBadge(league: game.league, size: 44),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${game.league.label} League', style: Theme.of(context).textTheme.titleMedium),
+                      Text('Rank #$rank · ${game.weekXp} XP this week', style: TextStyle(color: t.textMuted, fontSize: 13)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text('Earn ${LeagueEngine.promoteThreshold} weekly XP to be promoted.', style: TextStyle(color: t.textFaint, fontSize: 12)),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
+}
+
+class AchievementsScreen extends ConsumerWidget {
+  const AchievementsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final list = ref.watch(achievementsProvider);
+    final unlocked = list.where((a) => a.isUnlocked).length;
+    return ModuleScaffold(
+      title: 'Achievements',
+      subtitle: '$unlocked / ${list.length} unlocked',
+      body: GridView.builder(
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 40),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: context.bp.isCompact ? 2 : 3,
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+          childAspectRatio: 0.95,
+        ),
+        itemCount: list.length,
+        itemBuilder: (context, i) {
+          final a = list[i];
+          final color = a.isUnlocked ? const Color(0xFFFFC773) : t.textFaint;
+          return AppCard(
+            padding: const EdgeInsets.all(14),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Opacity(
+                  opacity: a.isUnlocked ? 1 : 0.4,
+                  child: Container(
+                    width: 52,
+                    height: 52,
+                    decoration: BoxDecoration(color: color.withValues(alpha: 0.16), shape: BoxShape.circle),
+                    child: Icon(iconForKey(a.icon), color: color, size: 26),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(a.title, textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleSmall, maxLines: 1, overflow: TextOverflow.ellipsis),
+                const SizedBox(height: 2),
+                Text(a.desc, textAlign: TextAlign.center, style: TextStyle(color: t.textMuted, fontSize: 11), maxLines: 2, overflow: TextOverflow.ellipsis),
+                if (!a.isUnlocked) ...[
+                  const SizedBox(height: 8),
+                  AppProgressBar(value: a.ratio, height: 5),
+                  Text('${a.progress}/${a.goal}', style: TextStyle(color: t.textFaint, fontSize: 10)),
+                ],
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class QuestsScreen extends ConsumerWidget {
+  const QuestsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final quests = ref.watch(questsListProvider);
+    return ModuleScaffold(
+      title: 'Quests',
+      scrollable: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          ...quests.map((q) => Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: AppCard(
+                  accent: q.isComplete ? t.success : null,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          AppBadge(label: q.period.name.toUpperCase(), subtle: true, color: t.primary),
+                          const SizedBox(width: 8),
+                          Text(q.title, style: Theme.of(context).textTheme.titleMedium),
+                          const Spacer(),
+                          Text('+${q.rewardXp} XP · +${q.rewardGems}💎', style: TextStyle(color: t.success, fontWeight: FontWeight.w700, fontSize: 12)),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      ...q.goals.map((g) => Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Row(
+                              children: [
+                                Icon(g.isDone ? Icons.check_circle_rounded : Icons.circle_outlined, size: 16, color: g.isDone ? t.success : t.textFaint),
+                                const SizedBox(width: 8),
+                                Expanded(child: Text(g.label, style: TextStyle(color: t.text, fontSize: 13))),
+                                Text('${g.progress}/${g.target}', style: TextStyle(color: t.textMuted, fontSize: 12)),
+                              ],
+                            ),
+                          )),
+                      const SizedBox(height: 8),
+                      if (q.isClaimed)
+                        Row(children: [Icon(Icons.check_rounded, color: t.success, size: 16), const SizedBox(width: 6), Text('Claimed', style: TextStyle(color: t.success))])
+                      else
+                        AppButton(
+                          label: q.isComplete ? 'Claim reward' : 'In progress',
+                          expand: true,
+                          size: AppButtonSize.small,
+                          onPressed: q.isComplete ? () => ref.read(gameProvider.notifier).claimQuest(q.id) : null,
+                        ),
+                    ],
+                  ),
+                ),
+              )),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
+}
+
+class InsightsScreen extends ConsumerWidget {
+  const InsightsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final mastery = ref.watch(masteryMapProvider);
+    final repo = ref.watch(repositoryProvider);
+    final weak = ref.watch(weakConceptsProvider);
+    final studied = mastery.values.toList()..sort((a, b) => b.mastery.compareTo(a.mastery));
+
+    return ModuleScaffold(
+      title: 'Insights',
+      subtitle: 'Mastery across every module',
+      scrollable: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          if (mastery.isEmpty)
+            EmptyState(
+              icon: Icons.insights_rounded,
+              title: 'No data yet',
+              message: 'Study anything — a term, an ECG, a lab — and your mastery heatmap fills in here.',
+            )
+          else ...[
+            const SectionHeader(title: 'Concept mastery'),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: studied.map((m) {
+                final c = repo.concept(m.conceptId);
+                final color = Color.lerp(t.danger, t.success, m.mastery)!;
+                return GestureDetector(
+                  onTap: () => context.push(Routes.concept(m.conceptId)),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: color.withValues(alpha: 0.18),
+                      borderRadius: BorderRadius.circular(99),
+                      border: Border.all(color: color.withValues(alpha: 0.5)),
+                    ),
+                    child: Text('${c?.name ?? m.conceptId} · ${(m.mastery * 100).round()}%',
+                        style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.w600)),
+                  ),
+                );
+              }).toList(),
+            ),
+            if (weak.isNotEmpty) ...[
+              const SizedBox(height: 24),
+              SectionHeader(title: 'Focus areas', subtitle: '${weak.length} weak concept(s)'),
+              ...weak.take(6).map((m) {
+                final c = repo.concept(m.conceptId);
+                return ListRow(
+                  title: c?.name ?? m.conceptId,
+                  subtitle: 'Mastery ${(m.mastery * 100).round()}% · ${m.attempts} attempts',
+                  leadingIcon: Icons.trending_down_rounded,
+                  accent: t.warning,
+                  trailing: const Icon(Icons.chevron_right_rounded, size: 18),
+                  onTap: () => context.push(Routes.concept(m.conceptId)),
+                );
+              }),
+            ],
+          ],
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
+}
+
+class SettingsScreen extends ConsumerWidget {
+  const SettingsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final prefs = ref.watch(settingsProvider);
+    final notifier = ref.read(settingsProvider.notifier);
+    return ModuleScaffold(
+      title: 'Settings',
+      scrollable: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          const SectionHeader(title: 'Appearance'),
+          AppCard(
+            child: Column(
+              children: [
+                _ThemeSelector(current: prefs.theme, onChanged: notifier.setTheme),
+                const SizedBox(height: 4),
+                AppSwitchTile(
+                  title: 'Reduce motion',
+                  subtitle: 'Minimise animations',
+                  icon: Icons.animation_rounded,
+                  value: prefs.reduceMotion,
+                  onChanged: notifier.setReduceMotion,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          const SectionHeader(title: 'Privacy'),
+          AppCard(
+            child: AppSwitchTile(
+              title: 'Anonymous analytics',
+              subtitle: 'Help improve Synapse',
+              icon: Icons.analytics_rounded,
+              value: prefs.analyticsOptIn,
+              onChanged: notifier.setAnalyticsOptIn,
+            ),
+          ),
+          const SizedBox(height: 16),
+          const SectionHeader(title: 'About'),
+          const AppCard(child: DisclaimerBanner()),
+          const SizedBox(height: 12),
+          Text('Synapse · one codebase, six platforms.\nFor educational training only.',
+              style: TextStyle(color: t.textFaint, fontSize: 12, height: 1.5)),
+          const SizedBox(height: 40),
+        ],
+      ),
+    );
+  }
+}
+
+class _ThemeSelector extends StatelessWidget {
+  const _ThemeSelector({required this.current, required this.onChanged});
+  final ThemeModePref current;
+  final ValueChanged<ThemeModePref> onChanged;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.tokens;
+    return Row(
+      children: ThemeModePref.values.map((m) {
+        final selected = m == current;
+        return Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(4),
+            child: GestureDetector(
+              onTap: () => onChanged(m),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                decoration: BoxDecoration(
+                  color: selected ? t.primary.withValues(alpha: 0.16) : t.surfaceAlt,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: selected ? t.primary : t.border),
+                ),
+                child: Column(
+                  children: [
+                    Icon(switch (m) {
+                      ThemeModePref.dark => Icons.dark_mode_rounded,
+                      ThemeModePref.light => Icons.light_mode_rounded,
+                      ThemeModePref.system => Icons.brightness_auto_rounded,
+                    }, color: selected ? t.primary : t.textMuted, size: 20),
+                    const SizedBox(height: 4),
+                    Text(m.name, style: TextStyle(color: selected ? t.primary : t.textMuted, fontSize: 12, fontWeight: FontWeight.w600)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+}
+
+class NotificationsScreen extends ConsumerWidget {
+  const NotificationsScreen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final list = ref.watch(notificationsProvider);
+    return ModuleScaffold(
+      title: 'Inbox',
+      actions: [
+        TextButton(onPressed: () => ref.read(notificationsProvider.notifier).markAllRead(), child: const Text('Read all')),
+      ],
+      body: list.isEmpty
+          ? const EmptyState(icon: Icons.inbox_rounded, title: 'All clear', message: 'No notifications right now.')
+          : ListView.separated(
+              padding: const EdgeInsets.only(top: 8, bottom: 40),
+              itemCount: list.length,
+              separatorBuilder: (_, _) => const SizedBox(height: 8),
+              itemBuilder: (context, i) {
+                final n = list[i];
+                return AppCard(
+                  color: n.isRead ? null : t.primary.withValues(alpha: 0.06),
+                  onTap: () {
+                    ref.read(notificationsProvider.notifier).markRead(n.id);
+                    if (n.route != null) context.push(n.route!);
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(color: t.primary.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(12)),
+                        child: Icon(iconForKey(n.iconKey), color: t.primary, size: 18),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(n.title, style: Theme.of(context).textTheme.titleSmall),
+                            Text(n.body, style: TextStyle(color: t.textMuted, fontSize: 13)),
+                          ],
+                        ),
+                      ),
+                      if (!n.isRead) Container(width: 8, height: 8, decoration: BoxDecoration(color: t.primary, shape: BoxShape.circle)),
+                    ],
+                  ),
+                );
+              },
+            ),
+    );
+  }
+}
