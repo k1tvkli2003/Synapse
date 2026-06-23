@@ -31,20 +31,27 @@ everywhere; a concept learned in one place raises its mastery in all.
 - SRS scheduler (SM-2 variant) + forgetting forecast.
 - A deterministic, versioned **lab rule engine** (CBC/BMP/LFT) with an audit trail.
 - An **ECG waveform generator** (no image assets — tracings are synthesised).
+- A data-driven **clinical calculator engine** + a **drug-interaction checker**.
+- A predictive **Learner Model** — Bayesian Knowledge Tracing + retention
+  forecast + a shared difficulty policy used by every module.
 
 **The twelve modules + flagship features**
 | Area | Modules |
 |------|---------|
 | Learn | **Terms** (Duolingo-style, 8 exercise types) · **Cards** (flashcards + SRS) · **Mnemonics** (community, votes, contribute) |
-| Clinical | **ECG** (generated tracings + drill) · **Sounds** (auscultation quiz + audio bar) · **Labs** (live rule engine) · **Algorithms** (flowchart player) · **OR Lab** (audio drama with synced cues) |
-| Social | **Rounds** (audio feed) · **Study Buddies** (matching) · **Arena** (antibiotic-vs-bacteria lane battle) |
-| Glue | **Copilot** (grounded, cited AI tutor) · **Cases** (multi-module Virtual Patient) · Daily Review · Global Search · Concept Hub · Insights · Rewards/Quests/Achievements |
+| Clinical | **ECG** (generated tracings + drill) · **Sounds** (auscultation quiz) · **Labs** (live rule engine) · **Algorithms** (flowchart player) · **OR Lab** (audio drama) · **OSCE** (AI standardized patient, rubric-scored) |
+| Social | **Rounds** (audio feed) · **Study Buddies** (matching) · **Arena** (antibiotic-vs-bacteria battle) · **Community** (live rooms, channels, events, leaderboard) |
+| Glue | **Copilot** (grounded, cited, safety-guarded) · **Cases** (Virtual Patient) · **Study Plan** (adaptive daily orchestrator) · Command Palette (⌘K) · Daily Review · Global Search · Concept Hub · Insights |
+| Reference (Part III) | **Diseases** compendium · **Drug Bank** + class layer + interaction checker · data-driven **Calculators** · **Library** (atlas, imaging, procedures, guidelines, journal) — all Concept-anchored & evidence-governed |
+| Platform | Cosmetic **Shop** · **Synapse Pro** (ethical entitlements) · full **Settings** (export/delete/privacy) · **CMS/admin** + authoring · **Cohort mode** (educator + classes) · Import/Export |
 
 **Integration backbone** — every activity flows through one `GameNotifier` entry
 point that awards rewards, updates Concept Mastery, advances quests/achievements
-and publishes `SynapseEvent`s on the Event Bus. The `/concept/:id` hub shows
-every related item across all modules — the "see also" that makes the knowledge
-feel connected.
+and publishes `SynapseEvent`s on the Event Bus. A pure-Dart **Learner Model**
+powers the Study Plan, Insights and adaptive difficulty. The `/concept/:id` hub
+shows every related item across all modules **and the reference banks** — the
+"see also" that makes the knowledge feel connected. See [`ROUTES.md`](ROUTES.md)
+for the complete route map.
 
 ---
 
@@ -85,9 +92,10 @@ melos run test
 ## Verify
 
 ```bash
-cd packages/engines && dart test     # 17 engine tests
+cd packages/engines && dart test     # 26 engine tests
 cd apps/app && flutter test          # app boot smoke test
-cd apps/app && flutter analyze       # zero issues
+flutter analyze                      # zero issues across the workspace
+flutter build web --release          # verified
 ```
 
 ---

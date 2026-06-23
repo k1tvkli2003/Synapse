@@ -22,16 +22,23 @@ The canonical, non-negotiable decisions every part of the app respects.
 synapse/
   apps/app/                 # the Flutter app — all 6 platforms, all UI
   packages/
-    core/      (synapse_core)     # domain models, Concept graph, Event Bus  (pure Dart)
-    ui/        (synapse_ui)       # tokens, theme, responsive, widget library
-    engines/   (synapse_engines)  # gamification, SRS, lab rules, ECG gen     (pure Dart)
-    services/  (synapse_services) # repositories + seed data (offline-first)
+    core/      (synapse_core)     # domain models, Concept graph, Event Bus,
+                                  #   reference + evidence models            (pure Dart)
+    ui/        (synapse_ui)       # tokens, theme, responsive, widget library,
+                                  #   reference widgets, haptics/sfx services
+    engines/   (synapse_engines)  # gamification, SRS, lab rules, ECG gen,
+                                  #   calculators, interactions, learner model (pure Dart)
+    services/  (synapse_services) # repositories + seed data (offline-first):
+                                  #   12 modules + Diseases/Drugs/Tools/Library/OSCE
     config/    (synapse_config)   # AppConfig, FeatureFlags, version
-  melos.yaml  pubspec.yaml  analysis_options.yaml
+  melos.yaml  pubspec.yaml  analysis_options.yaml  ROUTES.md
 ```
 Dependency direction: `config` ← `core` ← `engines`/`ui` ← `services` ← `app`.
-The shared packages guarantee the twelve modules reuse identical models, widgets
-and reward/SRS logic instead of forking.
+The shared packages guarantee the twelve modules **and the Part III reference
+banks** reuse identical models, widgets and reward/SRS/mastery logic instead of
+forking. Reference entries (diseases, drugs, tools, library) are Concept-anchored
+`LearnItem`s, so they are searchable and appear on the `/concept/:id` hub exactly
+like study content — reference and practice are one body of knowledge.
 
 ## 3. Responsive contract
 Breakpoints: `compact (<600)`, `medium (600–839)`, `expanded (840–1199)`,
