@@ -7,6 +7,7 @@ import 'package:synapse_ui/synapse_ui.dart';
 
 import '../../router/routes.dart';
 import '../../state/app_providers.dart';
+import '../../state/entitlement_provider.dart';
 import '../../state/game_provider.dart';
 import '../../state/notifications_provider.dart';
 import '../../state/settings_provider.dart';
@@ -379,6 +380,7 @@ class SettingsScreen extends ConsumerWidget {
     final t = context.tokens;
     final prefs = ref.watch(settingsProvider);
     final notifier = ref.read(settingsProvider.notifier);
+    final isPro = ref.watch(entitlementProvider);
     return ModuleScaffold(
       title: 'Settings',
       scrollable: true,
@@ -386,6 +388,14 @@ class SettingsScreen extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 8),
+          const SectionHeader(title: 'Account'),
+          AppCard(child: Column(children: [
+            _NavRow(icon: Icons.person_rounded, label: 'Edit profile', onTap: () => context.push('${Routes.profile}/edit')),
+            _NavRow(icon: Icons.workspace_premium_rounded, label: 'Subscription', value: isPro ? 'Pro' : 'Free', onTap: () => context.push(Routes.pro)),
+            _NavRow(icon: Icons.card_giftcard_rounded, label: 'Redeem a code', onTap: () => context.push('/settings/redeem')),
+            _NavRow(icon: Icons.brush_rounded, label: 'Customize identity', onTap: () => context.push(Routes.profileCustomize)),
+          ])),
+          const SizedBox(height: 16),
           const SectionHeader(title: 'Appearance'),
           AppCard(
             child: Column(
@@ -403,24 +413,84 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const SectionHeader(title: 'Privacy'),
-          AppCard(
-            child: AppSwitchTile(
+          const SectionHeader(title: 'Learning'),
+          AppCard(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Row(children: [
+                  Icon(Icons.flag_rounded, color: t.textMuted, size: 20),
+                  const SizedBox(width: 12),
+                  Text('Daily goal', style: Theme.of(context).textTheme.titleSmall),
+                  const Spacer(),
+                  Text('${prefs.dailyGoalXp} XP', style: TextStyle(color: t.primary, fontWeight: FontWeight.w700)),
+                ]),
+                Slider(
+                  value: prefs.dailyGoalXp.toDouble().clamp(20, 200),
+                  min: 20, max: 200, divisions: 18,
+                  label: '${prefs.dailyGoalXp} XP',
+                  onChanged: (v) => notifier.setDailyGoal(v.round()),
+                ),
+              ]),
+            ),
+            _NavRow(icon: Icons.timeline_rounded, label: 'Study plan & tracks', onTap: () => context.push(Routes.plan)),
+          ])),
+          const SizedBox(height: 16),
+          const SectionHeader(title: 'Notifications'),
+          AppCard(child: _NavRow(icon: Icons.notifications_rounded, label: 'Reminders & inbox', onTap: () => context.push(Routes.notifications))),
+          const SizedBox(height: 16),
+          const SectionHeader(title: 'Privacy & data'),
+          AppCard(child: Column(children: [
+            AppSwitchTile(
               title: 'Anonymous analytics',
               subtitle: 'Help improve Synapse',
               icon: Icons.analytics_rounded,
               value: prefs.analyticsOptIn,
               onChanged: notifier.setAnalyticsOptIn,
             ),
-          ),
+            _NavRow(icon: Icons.shield_rounded, label: 'Privacy & data controls', onTap: () => context.push('/settings/data')),
+          ])),
           const SizedBox(height: 16),
-          const SectionHeader(title: 'About'),
+          const SectionHeader(title: 'About & legal'),
+          AppCard(child: Column(children: [
+            _NavRow(icon: Icons.gavel_rounded, label: 'Terms, privacy & licenses', onTap: () => context.push('/legal/terms')),
+            _NavRow(icon: Icons.school_rounded, label: 'Clinical governance', onTap: () => context.push('/legal/governance')),
+          ])),
+          const SizedBox(height: 12),
           const AppCard(child: DisclaimerBanner()),
           const SizedBox(height: 12),
           Text('Synapse · one codebase, six platforms.\nFor educational training only.',
               style: TextStyle(color: t.textFaint, fontSize: 12, height: 1.5)),
           const SizedBox(height: 40),
         ],
+      ),
+    );
+  }
+}
+
+/// A standard navigation row used across the settings center.
+class _NavRow extends StatelessWidget {
+  const _NavRow({required this.icon, required this.label, this.value, this.onTap});
+  final IconData icon;
+  final String label;
+  final String? value;
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    final t = context.tokens;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: t.radii.cardR,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+        child: Row(children: [
+          Icon(icon, color: t.textMuted, size: 20),
+          const SizedBox(width: 12),
+          Expanded(child: Text(label, style: Theme.of(context).textTheme.titleSmall)),
+          if (value != null) Text(value!, style: TextStyle(color: t.textMuted, fontSize: 13)),
+          const SizedBox(width: 6),
+          Icon(Icons.chevron_right_rounded, color: t.textFaint, size: 20),
+        ]),
       ),
     );
   }

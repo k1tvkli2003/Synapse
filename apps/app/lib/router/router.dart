@@ -3,11 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:synapse_core/synapse_core.dart';
 
+import '../features/admin/admin_screens.dart';
 import '../features/algorithms/algorithms_screens.dart';
 import '../features/arena/arena_screens.dart';
 import '../features/cards/cards_screens.dart';
 import '../features/cases/cases_screens.dart';
 import '../features/common/coming_soon.dart';
+import '../features/community/community_screens.dart';
 import '../features/copilot/copilot_screen.dart';
 import '../features/ecg/ecg_screens.dart';
 import '../features/home/concept_hub_screen.dart';
@@ -23,11 +25,14 @@ import '../features/library/tools_screens.dart';
 import '../features/mnemonics/mnemonics_screens.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/onboarding/splash_screen.dart';
+import '../features/org/org_screens.dart';
 import '../features/orlab/orlab_screens.dart';
 import '../features/osce/osce_screens.dart';
 import '../features/plan/plan_screen.dart';
 import '../features/profile/profile_screens.dart';
 import '../features/review/review_screen.dart';
+import '../features/settings/settings_screens.dart';
+import '../features/shop/shop_screens.dart';
 import '../features/social/social_screens.dart';
 import '../features/sounds/sounds_screens.dart';
 import '../features/terms/terms_screens.dart';
@@ -156,6 +161,40 @@ GoRouter buildRouter() {
         GoRoute(path: kind.route, builder: (_, _) => LibraryBankScreen(kind: kind)),
         GoRoute(path: '${kind.route}/:id', builder: (_, s) => LibraryEntryScreen(kind: kind, id: s.pathParameters['id']!)),
       ],
+
+      // ---- Personalization & monetization (prompt 39 / 40) ----
+      GoRoute(path: Routes.shop, builder: (_, _) => const ShopScreen()),
+      GoRoute(path: Routes.pro, builder: (_, _) => const ProScreen()),
+      GoRoute(path: Routes.profileCustomize, builder: (_, _) => const CustomizeScreen()),
+
+      // ---- Settings sub-screens (prompt 42) ----
+      GoRoute(path: '/settings/data', builder: (_, _) => const PrivacyDataScreen()),
+      GoRoute(path: '/settings/privacy', builder: (_, _) => const PrivacyDataScreen()),
+      GoRoute(path: '/settings/redeem', builder: (_, _) => const RedeemScreen()),
+      GoRoute(path: '/settings/subscription', builder: (_, _) => const ProScreen()),
+      GoRoute(path: '/legal/:doc', builder: (_, s) => LegalScreen(doc: s.pathParameters['doc']!)),
+
+      // ---- Community, rooms, events & leaderboard (prompt 43) ----
+      GoRoute(path: Routes.rooms, builder: (_, _) => const RoomsScreen()),
+      GoRoute(path: '/social/rooms/:id', builder: (_, s) => RoomScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: Routes.community, builder: (_, _) => const CommunityScreen()),
+      GoRoute(path: Routes.events, builder: (_, _) => const EventsScreen()),
+      GoRoute(path: Routes.leaderboard, builder: (_, _) => const LeaderboardScreen()),
+
+      // ---- CMS / admin + authoring (prompt 41) ----
+      GoRoute(path: Routes.admin, builder: (_, _) => const AdminScreen()),
+      GoRoute(path: '/admin/:section', builder: (_, s) => AdminListScreen(section: s.pathParameters['section']!)),
+      GoRoute(path: Routes.create, builder: (_, _) => const CreateScreen()),
+
+      // ---- Institutional / cohort mode (prompt 55) ----
+      GoRoute(path: Routes.classes, builder: (_, _) => const ClassesScreen()),
+      GoRoute(path: Routes.org, builder: (_, _) => const OrgScreen()),
+
+      // ---- Account, inbox & chat (prompt 24 / 31 §F / 42) ----
+      GoRoute(path: '/profile/edit', builder: (_, _) => const ProfileEditScreen()),
+      GoRoute(path: Routes.inbox, builder: (_, _) => const InboxScreen()),
+      GoRoute(path: '/chat', builder: (_, _) => const InboxScreen()),
+      GoRoute(path: '/chat/:threadId', builder: (_, s) => ChatScreen(threadId: s.pathParameters['threadId'])),
     ],
     errorBuilder: (_, _) => const ComingSoonScreen(title: 'Not found'),
   );

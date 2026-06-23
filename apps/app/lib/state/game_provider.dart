@@ -234,6 +234,24 @@ class GameNotifier extends Notifier<GameState> {
     _persist();
   }
 
+  /// Spend gems on a cosmetic / convenience item (prompt 39 §2). Returns false
+  /// if the wallet can't cover it. Never gates clinical content (ethical rule).
+  bool spendGems(int amount) {
+    if (amount <= 0) return true;
+    final wallet = state.game.wallet;
+    if (wallet.gems < amount) return false;
+    state = state.copyWith(game: state.game.copyWith(wallet: wallet.copyWith(gems: wallet.gems - amount)));
+    _persist();
+    return true;
+  }
+
+  /// Grant gems (e.g. a promo / redeem code).
+  void grantGems(int amount) {
+    final wallet = state.game.wallet;
+    state = state.copyWith(game: state.game.copyWith(wallet: wallet.copyWith(gems: wallet.gems + amount)));
+    _persist();
+  }
+
   void grantPracticeHeart() {
     // Practice mode: top up one heart for free when empty (no-hearts mode).
     final h = state.game.hearts;
