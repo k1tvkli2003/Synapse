@@ -227,7 +227,7 @@ GoRouter buildRouter() {
 
       // ECG sub-routes.
       GoRoute(path: '/clinical/ecg/review', builder: (_, _) => const EcgDrillScreen()),
-      GoRoute(path: '/clinical/ecg/generative', builder: (_, _) => ComingSoonScreen(title: 'Generative ECG', accent: Color(ModuleKey.ecg.accentHex))),
+      GoRoute(path: '/clinical/ecg/generative', builder: (_, _) => const GenerativeEcgScreen()),
       GoRoute(path: '/clinical/ecg/stats', builder: (_, _) => const InsightsScreen()),
 
       // Sounds sub-routes.
@@ -238,7 +238,7 @@ GoRouter buildRouter() {
       // Labs sub-routes.
       GoRoute(path: '/clinical/labs/history', builder: (_, _) => ComingSoonScreen(title: 'Lab history', accent: Color(ModuleKey.labs.accentHex))),
       GoRoute(path: '/clinical/labs/result/:evaluationId', builder: (_, _) => const LabsHomeScreen()),
-      GoRoute(path: '/clinical/labs/ruleset', builder: (_, _) => const LabsHomeScreen()),
+      GoRoute(path: '/clinical/labs/ruleset', builder: (_, _) => const LabRulesetScreen()),
       GoRoute(path: '/clinical/labs/learn', builder: (_, _) => const LabsHomeScreen()),
 
       // Algorithms sub-routes.

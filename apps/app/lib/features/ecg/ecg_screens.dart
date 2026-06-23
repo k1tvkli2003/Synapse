@@ -34,6 +34,15 @@ class EcgHomeScreen extends ConsumerWidget {
                 HeartsRow(hearts: ref.watch(heartsProvider)),
                 const Spacer(),
                 AppButton(
+                  label: 'Generative',
+                  icon: Icons.auto_graph_rounded,
+                  size: AppButtonSize.small,
+                  variant: AppButtonVariant.secondary,
+                  accent: _accent,
+                  onPressed: () => context.push('/clinical/ecg/generative'),
+                ),
+                const SizedBox(width: 8),
+                AppButton(
                   label: 'Start drill',
                   icon: Icons.bolt_rounded,
                   size: AppButtonSize.small,
@@ -218,5 +227,109 @@ class _EcgDrillScreenState extends ConsumerState<EcgDrillScreen> {
         ],
       ),
     );
+  }
+}
+
+String ecgRhythmLabel(EcgRhythm r) => switch (r) {
+      EcgRhythm.sinus => 'Sinus rhythm',
+      EcgRhythm.tachycardia => 'Sinus tachycardia',
+      EcgRhythm.bradycardia => 'Sinus bradycardia',
+      EcgRhythm.afib => 'Atrial fibrillation',
+      EcgRhythm.flutter => 'Atrial flutter',
+      EcgRhythm.vtach => 'Ventricular tachycardia',
+      EcgRhythm.vfib => 'Ventricular fibrillation',
+      EcgRhythm.stemi => 'STEMI',
+      EcgRhythm.hyperkalemia => 'Hyperkalemia',
+      EcgRhythm.heartBlock => 'Complete heart block',
+      EcgRhythm.asystole => 'Asystole',
+    };
+
+String ecgRhythmTeaching(EcgRhythm r) => switch (r) {
+      EcgRhythm.sinus => 'Normal P-QRS-T at a regular rate; every P is followed by a QRS.',
+      EcgRhythm.tachycardia => 'Rate > 100 with preserved morphology — look for an underlying driver.',
+      EcgRhythm.bradycardia => 'Rate < 60; symptomatic bradycardia may need atropine or pacing.',
+      EcgRhythm.afib => 'Irregularly irregular with no discernible P waves and a fibrillatory baseline.',
+      EcgRhythm.flutter => 'Sawtooth flutter waves, often ~150 bpm with 2:1 conduction.',
+      EcgRhythm.vtach => 'Wide-complex tachycardia from below the AV node; can be pulseless.',
+      EcgRhythm.vfib => 'Chaotic, disorganized waveform — a shockable arrest rhythm.',
+      EcgRhythm.stemi => 'ST elevation in contiguous leads — acute coronary occlusion.',
+      EcgRhythm.hyperkalemia => 'Peaked T waves; as K⁺ rises the QRS widens toward a sine wave.',
+      EcgRhythm.heartBlock => 'P waves and QRS march out independently (AV dissociation).',
+      EcgRhythm.asystole => 'A near-flat line — confirm in two leads; not a shockable rhythm.',
+    };
+
+/// The generative ECG lab (prompt 14): synthesise any rhythm from parameters and
+/// see the tracing update live. Powered by the pure-Dart [EcgGenerator].
+class GenerativeEcgScreen extends ConsumerStatefulWidget {
+  const GenerativeEcgScreen({super.key});
+  @override
+  ConsumerState<GenerativeEcgScreen> createState() => _GenerativeEcgScreenState();
+}
+
+class _GenerativeEcgScreenState extends ConsumerState<GenerativeEcgScreen> {
+  EcgGenParams _p = const EcgGenParams();
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.tokens;
+    return ModuleScaffold(
+      title: 'Generative ECG',
+      subtitle: 'Synthesise any rhythm, live',
+      accent: _accent,
+      showDisclaimer: true,
+      scrollable: true,
+      onCopilot: () => context.push(Routes.copilot),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          AppCard(padding: const EdgeInsets.all(8), child: EcgStrip(params: _p, height: 200)),
+          const SizedBox(height: 8),
+          Text(ecgRhythmLabel(_p.rhythm), style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 2),
+          Text(ecgRhythmTeaching(_p.rhythm), style: TextStyle(color: t.textMuted, height: 1.4)),
+          const SizedBox(height: 16),
+          Text('Rhythm', style: Theme.of(context).textTheme.labelLarge),
+          const SizedBox(height: 8),
+          Wrap(spacing: 8, runSpacing: 8, children: [
+            for (final r in EcgRhythm.values)
+              AppChip(
+                label: ecgRhythmLabel(r),
+                selected: _p.rhythm == r,
+                accent: _accent,
+                onTap: () => setState(() => _p = EcgGenerator.paramsForRhythm(r)),
+              ),
+          ]),
+          const SizedBox(height: 16),
+          _slider('Rate', '${_p.rateBpm} bpm', _p.rateBpm.toDouble(), 20, 300, (v) => setState(() => _p = _p.copyWith(rateBpm: v.round()))),
+          if (_p.rhythm == EcgRhythm.hyperkalemia)
+            _slider('Potassium', '${_p.potassium.toStringAsFixed(1)} mmol/L', _p.potassium, 4, 9, (v) => setState(() => _p = _p.copyWith(potassium: v))),
+          if (_p.rhythm == EcgRhythm.stemi)
+            _slider('ST elevation', '+${(_p.stElevation * 10).toStringAsFixed(1)} mm', _p.stElevation, 0, 0.6, (v) => setState(() => _p = _p.copyWith(stElevation: v))),
+          const SizedBox(height: 16),
+          AppButton(
+            label: 'Quiz me on this tracing', icon: Icons.quiz_rounded, accent: _accent, variant: AppButtonVariant.secondary, expand: true,
+            onPressed: () {
+              ref.read(gameProvider.notifier).report(source: ModuleKey.ecg, kind: RewardKind.review, correct: true, xp: 6);
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Logged — generative practice counts toward mastery'), behavior: SnackBarBehavior.floating));
+            },
+          ),
+          const SizedBox(height: 24),
+        ],
+      ),
+    );
+  }
+
+  Widget _slider(String label, String value, double v, double min, double max, ValueChanged<double> onChanged) {
+    final t = context.tokens;
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Row(children: [
+        Text(label, style: Theme.of(context).textTheme.labelLarge),
+        const Spacer(),
+        Text(value, style: TextStyle(color: _accent, fontWeight: FontWeight.w700)),
+      ]),
+      Slider(value: v.clamp(min, max), min: min, max: max, activeColor: _accent, onChanged: onChanged),
+      SizedBox(height: 4, child: Container(color: t.bg)),
+    ]);
   }
 }

@@ -22,6 +22,9 @@ class LabsHomeScreen extends StatelessWidget {
       accent: _accent,
       showDisclaimer: true,
       onCopilot: () => context.push(Routes.copilot),
+      actions: [
+        AppIconButton(icon: Icons.rule_rounded, tooltip: 'Ruleset & ranges', onPressed: () => context.push('/clinical/labs/ruleset')),
+      ],
       scrollable: true,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,6 +309,95 @@ class _ResultView extends StatelessWidget {
           );
         }),
       ],
+    );
+  }
+}
+
+/// The ruleset & reference viewer (prompt 16 §3): the deterministic, versioned
+/// rules and reference ranges behind every interpretation — the audit surface.
+class LabRulesetScreen extends ConsumerWidget {
+  const LabRulesetScreen({super.key});
+
+  static const _rules = {
+    LabPanelType.cbc: [
+      ('cbc.anemia', 'Low hemoglobin → anemia, classified by MCV'),
+      ('cbc.leukocytosis', 'High WBC → consider infection/inflammation'),
+      ('cbc.leukopenia', 'Low WBC → immunosuppression risk'),
+      ('cbc.thrombocytopenia', 'Low platelets → bleeding risk'),
+    ],
+    LabPanelType.bmp: [
+      ('bmp.hagma', 'High anion gap → metabolic acidosis (MUDPILES)'),
+      ('bmp.hyperkalemia', 'High potassium → ECG changes / critical value'),
+      ('bmp.hypokalemia', 'Low potassium → weakness, arrhythmia'),
+      ('bmp.hyponatremia', 'Low sodium → correct slowly'),
+      ('bmp.hypernatremia', 'High sodium → free-water deficit'),
+      ('bmp.aki', 'Elevated creatinine → acute kidney injury'),
+      ('bmp.hyperglycemia', 'High glucose → evaluate for DKA/HHS'),
+    ],
+    LabPanelType.lft: [
+      ('lft.hepatocellular', 'AST/ALT-predominant → hepatocyte injury'),
+      ('lft.ast_alt_ratio', 'AST:ALT ≥ 2 → alcoholic pattern'),
+      ('lft.cholestatic', 'ALP-predominant → cholestasis/obstruction'),
+      ('lft.bilirubin', 'High bilirubin → jaundice'),
+      ('lft.albumin', 'Low albumin → impaired synthetic function'),
+    ],
+  };
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    return ModuleScaffold(
+      title: 'Lab ruleset',
+      subtitle: 'Deterministic · ${LabRuleEngine.version}',
+      accent: _accent,
+      showDisclaimer: true,
+      scrollable: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          AppCard(accent: _accent, child: Row(children: [
+            Icon(Icons.verified_rounded, color: _accent),
+            const SizedBox(width: 12),
+            Expanded(child: Text('Same input → same output. Every interpretation records the rule that fired and the ruleset version (${LabRuleEngine.version}).', style: TextStyle(color: t.text, height: 1.4))),
+          ])),
+          for (final panel in LabPanelType.values) ...[
+            const SizedBox(height: 16),
+            Text('${panel.label} — reference ranges', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            AppCard(padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6), child: Column(
+              children: [
+                for (final a in LabReference.analytes(panel))
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 6),
+                    child: Row(children: [
+                      Expanded(flex: 3, child: Text(a.name, style: TextStyle(color: t.text, fontSize: 13, fontWeight: FontWeight.w600))),
+                      Expanded(flex: 3, child: Text('${a.refLow}–${a.refHigh} ${a.unit}', style: TextStyle(color: t.textMuted, fontSize: 12.5))),
+                      Expanded(flex: 2, child: Text(a.criticalHigh != null ? '⚠ ${a.criticalHigh}' : '', textAlign: TextAlign.right, style: TextStyle(color: t.danger, fontSize: 12))),
+                    ]),
+                  ),
+              ],
+            )),
+            const SizedBox(height: 8),
+            Text('Rules', style: Theme.of(context).textTheme.titleSmall),
+            const SizedBox(height: 6),
+            for (final (id, desc) in _rules[panel]!)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(color: t.surfaceAlt, borderRadius: BorderRadius.circular(6)),
+                    child: Text(id, style: TextStyle(color: t.textMuted, fontSize: 11, fontFamily: 'monospace')),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(child: Text(desc, style: TextStyle(color: t.text, fontSize: 13, height: 1.35))),
+                ]),
+              ),
+          ],
+          const SizedBox(height: 24),
+        ],
+      ),
     );
   }
 }
