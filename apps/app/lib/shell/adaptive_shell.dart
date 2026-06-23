@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:synapse_core/synapse_core.dart';
 import 'package:synapse_ui/synapse_ui.dart';
 
+import '../features/search/command_palette.dart';
 import '../state/audio_provider.dart';
 import '../state/network_banner.dart';
 
@@ -37,8 +39,9 @@ class AdaptiveShell extends ConsumerWidget {
       ],
     );
 
+    final Widget scaffold;
     if (!useRail) {
-      return Scaffold(
+      scaffold = Scaffold(
         body: body,
         bottomNavigationBar: NavigationBar(
           selectedIndex: navigationShell.currentIndex,
@@ -52,30 +55,41 @@ class AdaptiveShell extends ConsumerWidget {
               .toList(),
         ),
       );
+    } else {
+      final extended = bp.usesDrawer;
+      scaffold = Scaffold(
+        body: Row(
+          children: [
+            _Rail(
+              index: navigationShell.currentIndex,
+              extended: extended,
+              onSelected: _go,
+              onPalette: () => showCommandPalette(context),
+            ),
+            const VerticalDivider(width: 1),
+            Expanded(child: body),
+          ],
+        ),
+      );
     }
 
-    final extended = bp.usesDrawer;
-    return Scaffold(
-      body: Row(
-        children: [
-          _Rail(
-            index: navigationShell.currentIndex,
-            extended: extended,
-            onSelected: _go,
-          ),
-          const VerticalDivider(width: 1),
-          Expanded(child: body),
-        ],
-      ),
+    // ⌘K / Ctrl-K opens the global command palette (prompt 36 §2).
+    return CallbackShortcuts(
+      bindings: {
+        const SingleActivator(LogicalKeyboardKey.keyK, control: true): () => showCommandPalette(context),
+        const SingleActivator(LogicalKeyboardKey.keyK, meta: true): () => showCommandPalette(context),
+      },
+      child: Focus(autofocus: true, child: scaffold),
     );
   }
 }
 
 class _Rail extends StatelessWidget {
-  const _Rail({required this.index, required this.extended, required this.onSelected});
+  const _Rail({required this.index, required this.extended, required this.onSelected, this.onPalette});
   final int index;
   final bool extended;
   final ValueChanged<int> onSelected;
+  final VoidCallback? onPalette;
 
   @override
   Widget build(BuildContext context) {
@@ -88,22 +102,44 @@ class _Rail extends StatelessWidget {
       backgroundColor: t.surface,
       leading: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Row(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [t.primary, t.info]),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Icon(Icons.hub_rounded, color: Colors.white, size: 22),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [t.primary, t.info]),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.hub_rounded, color: Colors.white, size: 22),
+                ),
+                if (extended) ...[
+                  const SizedBox(width: 10),
+                  Text('Synapse', style: Theme.of(context).textTheme.titleLarge),
+                ],
+              ],
             ),
-            if (extended) ...[
-              const SizedBox(width: 10),
-              Text('Synapse', style: Theme.of(context).textTheme.titleLarge),
-            ],
+            const SizedBox(height: 12),
+            if (onPalette != null)
+              Tooltip(
+                message: 'Command palette (Ctrl/⌘K)',
+                child: InkWell(
+                  onTap: onPalette,
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: extended ? 12 : 8, vertical: 8),
+                    decoration: BoxDecoration(color: t.surfaceAlt, borderRadius: BorderRadius.circular(10), border: Border.all(color: t.border)),
+                    child: Row(mainAxisSize: MainAxisSize.min, children: [
+                      Icon(Icons.search_rounded, size: 16, color: t.textMuted),
+                      if (extended) ...[const SizedBox(width: 8), Text('⌘K', style: TextStyle(color: t.textMuted, fontSize: 12))],
+                    ]),
+                  ),
+                ),
+              ),
           ],
         ),
       ),

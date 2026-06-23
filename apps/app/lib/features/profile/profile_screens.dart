@@ -11,6 +11,7 @@ import '../../state/entitlement_provider.dart';
 import '../../state/game_provider.dart';
 import '../../state/notifications_provider.dart';
 import '../../state/settings_provider.dart';
+import '../../state/study_plan_provider.dart';
 import '../../state/user_provider.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -311,24 +312,67 @@ class InsightsScreen extends ConsumerWidget {
     final mastery = ref.watch(masteryMapProvider);
     final repo = ref.watch(repositoryProvider);
     final weak = ref.watch(weakConceptsProvider);
+    final game = ref.watch(gameProvider);
+    final preds = ref.watch(conceptPredictionsProvider);
     final studied = mastery.values.toList()..sort((a, b) => b.mastery.compareTo(a.mastery));
+
+    // Exam readiness: blend of average mastery and coverage breadth.
+    final avg = mastery.isEmpty ? 0.0 : mastery.values.map((m) => m.mastery).reduce((a, b) => a + b) / mastery.length;
+    final coverage = repo.concepts.isEmpty ? 0.0 : mastery.length / repo.concepts.length;
+    final readiness = ((avg * 0.7 + coverage * 0.3) * 100).round();
+
+    // Per-module attempt breakdown aggregated from concept mastery.
+    final perModule = <ModuleKey, int>{};
+    for (final m in mastery.values) {
+      m.perModule.forEach((k, v) => perModule[k] = (perModule[k] ?? 0) + v);
+    }
+    final atRisk = preds.where((p) => p.atRisk).take(6).toList();
 
     return ModuleScaffold(
       title: 'Insights',
-      subtitle: 'Mastery across every module',
+      subtitle: 'The whole app, reflected back',
       scrollable: true,
+      onCopilot: () => context.push(Routes.copilot),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 8),
           if (mastery.isEmpty)
-            EmptyState(
+            const EmptyState(
               icon: Icons.insights_rounded,
               title: 'No data yet',
               message: 'Study anything — a term, an ECG, a lab — and your mastery heatmap fills in here.',
             )
           else ...[
-            const SectionHeader(title: 'Concept mastery'),
+            // Exam readiness.
+            AppCard(
+              accent: t.primary,
+              child: Row(children: [
+                ProgressRing(value: readiness / 100, size: 64, color: readiness >= 60 ? t.success : t.warning, child: Text('$readiness', style: const TextStyle(fontWeight: FontWeight.w800))),
+                const SizedBox(width: 16),
+                Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('Exam readiness', style: Theme.of(context).textTheme.titleLarge),
+                  Text(readiness >= 75 ? 'On track — keep the streak' : readiness >= 50 ? 'Building — focus weak areas' : 'Early days — stay consistent', style: TextStyle(color: t.textMuted)),
+                ])),
+              ]),
+            ),
+            const SizedBox(height: 12),
+            Row(children: [
+              Expanded(child: StatTile(value: '${game.game.streak.current}', label: 'Day streak', icon: Icons.local_fire_department_rounded, accent: const Color(0xFFFF8A3D))),
+              const SizedBox(width: 10),
+              Expanded(child: StatTile(value: '${game.masteredCount}', label: 'Mastered', icon: Icons.workspace_premium_rounded, accent: t.success)),
+              const SizedBox(width: 10),
+              Expanded(child: StatTile(value: '${game.game.xp.total}', label: 'Total XP', icon: Icons.bolt_rounded, accent: t.primary)),
+            ]),
+            const SizedBox(height: 20),
+            // Weekly recap (Copilot-style narrative).
+            AppCard(color: t.surfaceAlt, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Row(children: [Icon(Icons.auto_awesome_rounded, color: t.primary, size: 18), const SizedBox(width: 8), Text('Your week, summarized', style: Theme.of(context).textTheme.titleSmall)]),
+              const SizedBox(height: 6),
+              Text(_recap(studied, weak, repo, game.game.weekXp), style: TextStyle(color: t.text, height: 1.5)),
+            ])),
+            const SizedBox(height: 20),
+            const SectionHeader(title: 'Concept mastery heatmap'),
             Wrap(
               spacing: 8,
               runSpacing: 8,
@@ -350,9 +394,40 @@ class InsightsScreen extends ConsumerWidget {
                 );
               }).toList(),
             ),
+            if (perModule.isNotEmpty) ...[
+              const SizedBox(height: 24),
+              const SectionHeader(title: 'Where you practice'),
+              for (final e in (perModule.entries.toList()..sort((a, b) => b.value.compareTo(a.value))))
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Row(children: [
+                    Icon(Icons.circle, size: 10, color: Color(e.key.accentHex)),
+                    const SizedBox(width: 8),
+                    SizedBox(width: 96, child: Text(e.key.title, style: TextStyle(color: t.text, fontSize: 13))),
+                    Expanded(child: AppProgressBar(value: (e.value / (perModule.values.reduce((a, b) => a > b ? a : b))).clamp(0.0, 1.0), color: Color(e.key.accentHex))),
+                    const SizedBox(width: 8),
+                    Text('${e.value}', style: TextStyle(color: t.textMuted, fontSize: 12, fontWeight: FontWeight.w700)),
+                  ]),
+                ),
+            ],
+            if (atRisk.isNotEmpty) ...[
+              const SizedBox(height: 24),
+              SectionHeader(title: 'Forgetting forecast', subtitle: '${atRisk.length} concept(s) at risk'),
+              ...atRisk.map((p) {
+                final c = repo.concept(p.conceptId);
+                return ListRow(
+                  title: c?.name ?? p.conceptId,
+                  subtitle: p.willForgetInDays == 0 ? 'Review now · ${p.reason}' : 'Forgetting in ~${p.willForgetInDays}d · ${p.reason}',
+                  leadingIcon: Icons.schedule_rounded,
+                  accent: t.warning,
+                  trailing: TextButton(onPressed: () => context.push(Routes.review), child: const Text('Fix')),
+                  onTap: () => context.push(Routes.concept(p.conceptId)),
+                );
+              }),
+            ],
             if (weak.isNotEmpty) ...[
               const SizedBox(height: 24),
-              SectionHeader(title: 'Focus areas', subtitle: '${weak.length} weak concept(s)'),
+              SectionHeader(title: 'Weakest concepts', subtitle: '${weak.length} below 50%'),
               ...weak.take(6).map((m) {
                 final c = repo.concept(m.conceptId);
                 return ListRow(
@@ -370,6 +445,21 @@ class InsightsScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  String _recap(List<ConceptMastery> studied, List<ConceptMastery> weak, dynamic repo, int weekXp) {
+    if (studied.isEmpty) return 'Start studying to see your weekly recap.';
+    final strong = studied.first;
+    final strongName = repo.concept(strong.conceptId)?.name ?? 'a concept';
+    final buffer = StringBuffer('You earned $weekXp XP this week. ');
+    buffer.write('Your strongest area is $strongName (${(strong.mastery * 100).round()}%). ');
+    if (weak.isNotEmpty) {
+      final weakName = repo.concept(weak.first.conceptId)?.name ?? 'some concepts';
+      buffer.write('$weakName needs the most work — a few mixed sessions will lift it fast.');
+    } else {
+      buffer.write('No weak areas right now — push into new material to keep growing.');
+    }
+    return buffer.toString();
   }
 }
 

@@ -1,6 +1,6 @@
 /// The Synapse design system: tokens, theming, responsive primitives and the
 /// shared widget library every module is built from (prompt 03 / 30).
-library synapse_ui;
+library;
 
 export 'package:flutter_animate/flutter_animate.dart';
 
@@ -26,3 +26,6 @@ export 'src/widgets/shells.dart';
 export 'src/widgets/feedback.dart';
 export 'src/widgets/audio_player_bar.dart';
 export 'src/widgets/reference.dart';
+
+// Sensory design language (motion lives in tokens; sound + haptics here)
+export 'src/feedback/sensory.dart';

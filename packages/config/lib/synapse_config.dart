@@ -1,5 +1,5 @@
 /// Configuration layer for Synapse: environment, feature flags, versioning.
-library synapse_config;
+library;
 
 export 'src/app_config.dart';
 export 'src/feature_flags.dart';

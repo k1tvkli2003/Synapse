@@ -1,5 +1,5 @@
 /// Offline-first repositories + seed data for Synapse (prompt 05 / 23).
-library synapse_services;
+library;
 
 export 'src/repositories/content_repository.dart';
 

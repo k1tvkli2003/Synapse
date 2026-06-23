@@ -42,7 +42,33 @@ class CopilotNotifier extends Notifier<List<CopilotMessage>> {
 
   void clear() => state = build();
 
+  /// Safety guardrail (prompt 51 §2): refuse real-patient emergencies and
+  /// self-harm prompts, redirect to real help, never give individualized advice.
+  CopilotMessage? _safetyCheck(String q) {
+    final l = q.toLowerCase();
+    const crisis = ['suicide', 'kill myself', 'self harm', 'self-harm', 'end my life', 'want to die'];
+    const emergency = ['having a heart attack', 'i think i am dying', "i'm dying", 'someone is unconscious', 'not breathing', 'overdosed'];
+    if (crisis.any(l.contains)) {
+      return CopilotMessage(
+        role: 'assistant',
+        text: "I'm really sorry you're feeling this way — you deserve support right now. I can't help with this here, "
+            "but please contact a local crisis line or emergency services immediately. In the US you can call or text 988 "
+            "(Suicide & Crisis Lifeline). If you're in immediate danger, call your local emergency number.",
+      );
+    }
+    if (emergency.any(l.contains)) {
+      return CopilotMessage(
+        role: 'assistant',
+        text: "This sounds like it could be a real emergency. I'm an educational tool and can't assess or treat a real person. "
+            "Please call your local emergency number (e.g. 911) or get to the nearest emergency department now.",
+      );
+    }
+    return null;
+  }
+
   CopilotMessage _answer(String q) {
+    final safety = _safetyCheck(q);
+    if (safety != null) return safety;
     final repo = ref.read(repositoryProvider);
     final results = repo.search(q);
     if (results.concepts.isEmpty && results.items.isEmpty) {

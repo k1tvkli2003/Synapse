@@ -4,7 +4,7 @@
 /// Everything here is **pure Dart** (no Flutter import) so engines, services and
 /// tests can depend on it freely. Every module imports these shapes and never
 /// redefines them (prompt 04).
-library synapse_core;
+library;
 
 // Identity & primitives
 export 'src/models/ids.dart';

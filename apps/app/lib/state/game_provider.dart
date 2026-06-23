@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:synapse_core/synapse_core.dart';
 import 'package:synapse_engines/synapse_engines.dart';
 import 'package:synapse_services/synapse_services.dart';
+import 'package:synapse_ui/synapse_ui.dart';
 
 import 'app_providers.dart';
 import 'toast_provider.dart';
@@ -289,12 +290,14 @@ class GameNotifier extends Notifier<GameState> {
     for (final i in intents) {
       switch (i) {
         case LevelUpIntent(:final newLevel):
+          emitFeedback(Sensation.levelUp);
           toasts.push(ToastMessage(
               title: 'Level $newLevel!',
               subtitle: 'You levelled up',
               icon: Icons.trending_up_rounded,
               color: const Color(0xFF8E9BFF)));
         case StreakUpIntent(:final days):
+          emitFeedback(Sensation.success);
           toasts.push(ToastMessage(
               title: '$days-day streak!',
               subtitle: 'Keep it going',

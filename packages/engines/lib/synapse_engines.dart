@@ -1,5 +1,5 @@
 /// Pure-Dart shared engines for Synapse (prompt 09 / 16 / 22 / 14).
-library synapse_engines;
+library;
 
 export 'src/gamification/xp_curve.dart';
 export 'src/gamification/gamification_engine.dart';
