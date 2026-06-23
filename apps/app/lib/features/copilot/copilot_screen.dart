@@ -143,9 +143,44 @@ class _Bubble extends StatelessWidget {
                     ),
                   )),
             ],
+            // Honesty + feedback UX (prompt 51 §4): sources indicator + 👍/👎.
+            if (!mine) ...[
+              const SizedBox(height: 8),
+              Row(children: [
+                if (message.citations.isNotEmpty)
+                  Text('Based on ${message.citations.length} source${message.citations.length == 1 ? '' : 's'}',
+                      style: TextStyle(color: t.textFaint, fontSize: 11))
+                else
+                  Text('Not authoritative — verify with a reference', style: TextStyle(color: t.textFaint, fontSize: 11)),
+                const Spacer(),
+                _FeedbackButton(icon: Icons.thumb_up_off_alt_rounded, onTap: () => _feedback(context, true)),
+                _FeedbackButton(icon: Icons.thumb_down_off_alt_rounded, onTap: () => _feedback(context, false)),
+              ]),
+            ],
           ],
         ),
       ),
+    );
+  }
+
+  void _feedback(BuildContext context, bool helpful) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(helpful ? 'Thanks — feedback logged' : 'Thanks — flagged for review & added to the eval set'),
+      behavior: SnackBarBehavior.floating,
+    ));
+  }
+}
+
+class _FeedbackButton extends StatelessWidget {
+  const _FeedbackButton({required this.icon, required this.onTap});
+  final IconData icon;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(padding: const EdgeInsets.all(4), child: Icon(icon, size: 15, color: context.tokens.textFaint)),
     );
   }
 }

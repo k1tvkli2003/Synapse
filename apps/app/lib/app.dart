@@ -17,6 +17,10 @@ class SynapseApp extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
     final reduceMotion = ref.watch(settingsProvider).reduceMotion;
 
+    // Honor reduce-motion for the sensory layer too (prompt 53 / 25).
+    HapticsService.instance.enabled = !reduceMotion;
+    SfxService.instance.enabled = SfxService.instance.enabled && !reduceMotion;
+
     return MaterialApp.router(
       title: 'Synapse',
       debugShowCheckedModeBanner: false,

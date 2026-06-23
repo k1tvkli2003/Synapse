@@ -11,6 +11,7 @@ import '../../state/entitlement_provider.dart';
 import '../../state/game_provider.dart';
 import '../../state/notifications_provider.dart';
 import '../../state/settings_provider.dart';
+import '../../state/srs_provider.dart';
 import '../../state/study_plan_provider.dart';
 import '../../state/user_provider.dart';
 
@@ -639,15 +640,19 @@ class NotificationsScreen extends ConsumerWidget {
       actions: [
         TextButton(onPressed: () => ref.read(notificationsProvider.notifier).markAllRead(), child: const Text('Read all')),
       ],
-      body: list.isEmpty
-          ? const EmptyState(icon: Icons.inbox_rounded, title: 'All clear', message: 'No notifications right now.')
-          : ListView.separated(
-              padding: const EdgeInsets.only(top: 8, bottom: 40),
-              itemCount: list.length,
-              separatorBuilder: (_, _) => const SizedBox(height: 8),
-              itemBuilder: (context, i) {
-                final n = list[i];
-                return AppCard(
+      body: ListView(
+        padding: const EdgeInsets.only(top: 8, bottom: 40),
+        children: [
+          const _SmartReminders(),
+          if (list.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(left: 4, top: 8, bottom: 8),
+              child: Text('Activity', style: Theme.of(context).textTheme.titleSmall),
+            ),
+          for (final n in list)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: AppCard(
                   color: n.isRead ? null : t.primary.withValues(alpha: 0.06),
                   onTap: () {
                     ref.read(notificationsProvider.notifier).markRead(n.id);
@@ -674,9 +679,50 @@ class NotificationsScreen extends ConsumerWidget {
                       if (!n.isRead) Container(width: 8, height: 8, decoration: BoxDecoration(color: t.primary, shape: BoxShape.circle)),
                     ],
                   ),
-                );
-              },
+                ),
             ),
+        ],
+      ),
     );
+  }
+}
+
+/// Plan-aware "smart reminders" sourced from the unified plan/SRS/streak, not
+/// generic pings (prompt 38 §1).
+class _SmartReminders extends ConsumerWidget {
+  const _SmartReminders();
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final t = context.tokens;
+    final due = ref.watch(dueCountProvider);
+    final streak = ref.watch(streakProvider);
+    final plan = ref.watch(studyPlanProvider);
+    final reminders = <(IconData, String, String, Color, String)>[
+      if (due > 0) (Icons.replay_rounded, '$due reviews due', 'Clear them to protect your retention', const Color(0xFF8E9BFF), Routes.review),
+      if (streak.current > 0) (Icons.local_fire_department_rounded, 'Keep your ${streak.current}-day streak', 'A quick drill before the day ends saves it', const Color(0xFFFF8A3D), Routes.plan),
+      if (plan.remaining.isNotEmpty) (Icons.checklist_rounded, 'Today: ${plan.remaining.first.title}', '~${plan.minutesLeft} min left in your plan', t.primary, Routes.plan),
+      (Icons.local_hospital_rounded, 'Case of the day', 'A fresh Virtual Patient is ready', const Color(0xFFB794F6), Routes.cases),
+    ];
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Padding(padding: const EdgeInsets.only(left: 4, bottom: 8), child: Text('Smart reminders', style: Theme.of(context).textTheme.titleSmall)),
+      for (final (icon, title, body, color, route) in reminders)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: AppCard(
+            accent: color,
+            onTap: () => context.push(route),
+            padding: const EdgeInsets.all(12),
+            child: Row(children: [
+              Container(width: 40, height: 40, decoration: BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(12)), child: Icon(icon, color: color, size: 18)),
+              const SizedBox(width: 12),
+              Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(title, style: Theme.of(context).textTheme.titleSmall),
+                Text(body, style: TextStyle(color: t.textMuted, fontSize: 12.5)),
+              ])),
+              Icon(Icons.chevron_right_rounded, color: t.textFaint, size: 18),
+            ]),
+          ),
+        ),
+    ]);
   }
 }
