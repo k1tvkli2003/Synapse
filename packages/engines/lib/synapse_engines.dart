@@ -10,3 +10,6 @@ export 'src/srs/srs_engine.dart';
 export 'src/labs/lab_reference.dart';
 export 'src/labs/lab_rule_engine.dart';
 export 'src/ecg/ecg_generator.dart';
+export 'src/tools/calculator_engine.dart';
+export 'src/tools/interaction_engine.dart';
+export 'src/learner/learner_model.dart';

@@ -140,7 +140,7 @@ void main() {
 
   group('ConceptMastery', () {
     test('correct outcomes raise mastery, wrong ones lower it', () {
-      var m = ConceptMastery(conceptId: 'c');
+      var m = const ConceptMastery(conceptId: 'c');
       for (var i = 0; i < 6; i++) {
         m = m.applyOutcome(wasCorrect: true, source: ModuleKey.terms);
       }
@@ -156,6 +156,110 @@ void main() {
       expect(sinus.length, 300);
       final flat = EcgGenerator.generate(const EcgGenParams(rhythm: EcgRhythm.asystole), sampleCount: 100);
       expect(flat.every((v) => v.abs() < 0.1), isTrue);
+    });
+  });
+
+  group('CalculatorEngine', () {
+    const bmi = ClinicalTool(
+      id: 't', name: 'BMI', formulaKey: 'bmi', category: ToolCategory.formula,
+      inputs: [ToolInput(key: 'weight', label: 'W'), ToolInput(key: 'height', label: 'H')],
+      bands: [
+        OutputBand(min: 18.5, max: 24.99, label: 'Normal', interpretation: '', colorHex: 0),
+        OutputBand(min: 25, max: 100, label: 'Overweight', interpretation: '', colorHex: 0),
+      ],
+    );
+    const ag = ClinicalTool(
+      id: 't2', name: 'AG', formulaKey: 'anion_gap', category: ToolCategory.formula,
+      inputs: [ToolInput(key: 'na', label: ''), ToolInput(key: 'cl', label: ''), ToolInput(key: 'hco3', label: '')],
+      bands: [
+        OutputBand(min: -50, max: 12, label: 'Normal', interpretation: '', colorHex: 0),
+        OutputBand(min: 12.01, max: 100, label: 'High', interpretation: '', colorHex: 0),
+      ],
+    );
+    const score = ClinicalTool(
+      id: 't3', name: 'Score', formulaKey: 'sum', category: ToolCategory.score,
+      inputs: [
+        ToolInput(key: 'a', label: '', type: ToolInputType.boolean, points: 1),
+        ToolInput(key: 'b', label: '', type: ToolInputType.boolean, points: 2),
+        ToolInput(key: 'age', label: '', type: ToolInputType.select, options: [
+          ToolOption(label: 'old', value: 2, points: 2),
+        ]),
+      ],
+      bands: [OutputBand(min: 2, max: 9, label: 'High', interpretation: '', colorHex: 0)],
+    );
+
+    test('BMI computes and bands correctly', () {
+      final r = CalculatorEngine.evaluate(bmi, {'weight': 70, 'height': 175});
+      expect(r.value, closeTo(22.86, 0.05));
+      expect(r.band?.label, 'Normal');
+    });
+
+    test('additive score sums boolean + select points and bands high', () {
+      final r = CalculatorEngine.evaluate(score, {'a': true, 'b': true, 'age': 2.0});
+      expect(r.value, 5); // 1 + 2 + 2
+      expect(r.band?.label, 'High');
+    });
+
+    test('anion gap flags a high gap', () {
+      final r = CalculatorEngine.evaluate(ag, {'na': 140, 'cl': 100, 'hco3': 12});
+      expect(r.value, 28);
+      expect(r.band?.label, 'High');
+    });
+
+    test('missing inputs report an error, not a crash', () {
+      final r = CalculatorEngine.evaluate(bmi, {'weight': 70});
+      expect(r.hasError, isTrue);
+    });
+  });
+
+  group('InteractionEngine', () {
+    const warfarin = Drug(
+      id: 'warfarin', conceptId: 'c', genericName: 'Warfarin', mechanism: '', classIds: ['vka'],
+      interactions: [DrugInteraction(withDrugId: 'aspirin', severity: InteractionSeverity.major, effect: 'bleeding')],
+    );
+    const aspirin = Drug(id: 'aspirin', conceptId: 'c', genericName: 'Aspirin', mechanism: '', classIds: ['antiplatelet']);
+    const statin = Drug(
+      id: 'statin', conceptId: 'c', genericName: 'Atorvastatin', mechanism: '', classIds: ['statin'],
+      interactions: [DrugInteraction(withClassId: 'macrolide', severity: InteractionSeverity.moderate, effect: 'myopathy')],
+    );
+    const macrolide = Drug(id: 'azithro', conceptId: 'c', genericName: 'Azithromycin', mechanism: '', classIds: ['macrolide']);
+    const metformin = Drug(id: 'metformin', conceptId: 'c', genericName: 'Metformin', mechanism: '', classIds: ['biguanide']);
+
+    test('detects a major warfarin + aspirin interaction', () {
+      final found = InteractionEngine.check([warfarin, aspirin]);
+      expect(found, isNotEmpty);
+      expect(found.first.severity, InteractionSeverity.major);
+    });
+
+    test('detects class-level statin + macrolide interaction', () {
+      final found = InteractionEngine.check([statin, macrolide]);
+      expect(found.any((f) => f.severity == InteractionSeverity.moderate), isTrue);
+    });
+
+    test('no interaction for an unrelated pair', () {
+      final found = InteractionEngine.check([metformin, aspirin]);
+      expect(found, isEmpty);
+    });
+  });
+
+  group('LearnerModel', () {
+    test('pKnown rises with correct reps and difficulty scales with it', () {
+      const lm = LearnerModel();
+      var m = const ConceptMastery(conceptId: 'c');
+      for (var i = 0; i < 8; i++) {
+        m = m.applyOutcome(wasCorrect: true, source: ModuleKey.cards);
+      }
+      expect(lm.pKnown(m), greaterThan(0.6));
+      expect(lm.nextDifficulty(m), greaterThanOrEqualTo(3));
+    });
+
+    test('retention decays and a stale weak concept is at risk', () {
+      const lm = LearnerModel();
+      final old = DateTime.now().subtract(const Duration(days: 30));
+      final m = ConceptMastery(conceptId: 'c', mastery: 0.4, attempts: 3, correct: 1, lastStudied: old);
+      final pred = lm.predict(m);
+      expect(pred.retention, lessThan(0.6));
+      expect(pred.atRisk, isTrue);
     });
   });
 }

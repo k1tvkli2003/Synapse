@@ -13,6 +13,8 @@ enum ConceptDomain {
   lab,
   sound,
   microbiology,
+  endocrine,
+  neurology,
   other;
 
   String get label => switch (this) {
@@ -25,6 +27,8 @@ enum ConceptDomain {
         ConceptDomain.lab => 'Laboratory',
         ConceptDomain.sound => 'Auscultation',
         ConceptDomain.microbiology => 'Microbiology',
+        ConceptDomain.endocrine => 'Endocrinology',
+        ConceptDomain.neurology => 'Neurology',
         ConceptDomain.other => 'General',
       };
 }

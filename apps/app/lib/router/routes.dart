@@ -65,6 +65,47 @@ class Routes {
   static const settings = '/settings';
   static const notifications = '/notifications';
   static const insights = '/insights';
+  static const inbox = '/inbox';
+
+  // Library / reference banks (prompt 45–48)
+  static const library = '/library';
+  static const diseases = '/library/diseases';
+  static String disease(String id) => '/library/diseases/$id';
+  static String diseaseCompare(List<String> ids) => '/library/diseases/compare?ids=${ids.join(',')}';
+  static const drugs = '/library/drugs';
+  static String drug(String id) => '/library/drugs/$id';
+  static String drugClassRoute(String id) => '/library/drugs/class/$id';
+  static const drugInteractions = '/library/drugs/interactions';
+  static const tools = '/library/tools';
+  static String tool(String id) => '/library/tools/$id';
+  static String libraryEntryById(LibraryKind kind, String id) => '${kind.route}/$id';
+
+  // OSCE (prompt 52)
+  static const osce = '/clinical/osce';
+  static String osceStation(String id) => '/clinical/osce/$id';
+  static String oscePlay(String id) => '/clinical/osce/$id/play';
+
+  // Study plan (prompt 35)
+  static const plan = '/plan';
+  static String planTrack(String id) => '/plan/track/$id';
+
+  // Personalization & monetization (prompt 39 / 40)
+  static const shop = '/shop';
+  static const profileCustomize = '/profile/customize';
+  static const pro = '/pro';
+
+  // Community (prompt 43)
+  static const rooms = '/social/rooms';
+  static String room(String id) => '/social/rooms/$id';
+  static const community = '/social/community';
+  static const events = '/social/events';
+  static const leaderboard = '/social/leaderboard';
+
+  // Institutional, CMS & authoring (prompt 41 / 55)
+  static const classes = '/classes';
+  static const org = '/org';
+  static const admin = '/admin';
+  static const create = '/create';
 }
 
 /// Convenience navigation extensions.

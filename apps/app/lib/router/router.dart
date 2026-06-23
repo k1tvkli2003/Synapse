@@ -15,10 +15,17 @@ import '../features/home/hub_screen.dart';
 import '../features/home/search_screen.dart';
 import '../features/home/sub_hub_screen.dart';
 import '../features/labs/labs_screens.dart';
+import '../features/library/diseases_screens.dart';
+import '../features/library/drugs_screens.dart';
+import '../features/library/library_banks.dart';
+import '../features/library/library_hub.dart';
+import '../features/library/tools_screens.dart';
 import '../features/mnemonics/mnemonics_screens.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/onboarding/splash_screen.dart';
 import '../features/orlab/orlab_screens.dart';
+import '../features/osce/osce_screens.dart';
+import '../features/plan/plan_screen.dart';
 import '../features/profile/profile_screens.dart';
 import '../features/review/review_screen.dart';
 import '../features/social/social_screens.dart';
@@ -56,6 +63,13 @@ GoRouter buildRouter() {
       GoRoute(path: Routes.soundsQuiz, builder: (_, _) => const SoundsQuizScreen()),
       GoRoute(path: '/clinical/algorithms/:algorithmId/play', builder: (_, s) => AlgorithmPlayerScreen(algorithmId: s.pathParameters['algorithmId']!)),
       GoRoute(path: Routes.arenaBattle, builder: (_, _) => const ArenaBattleScreen()),
+
+      // Study plan (prompt 35) + OSCE simulator (prompt 52) — full-screen.
+      GoRoute(path: Routes.plan, builder: (_, _) => const PlanScreen()),
+      GoRoute(path: '/plan/track/:id', builder: (_, s) => TrackScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: Routes.osce, builder: (_, _) => const OsceListScreen()),
+      GoRoute(path: '/clinical/osce/:id', builder: (_, s) => OsceStationScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: '/clinical/osce/:id/play', builder: (_, s) => OscePlayScreen(id: s.pathParameters['id']!)),
 
       // The five-branch adaptive shell.
       StatefulShellRoute.indexedStack(
@@ -121,6 +135,27 @@ GoRouter buildRouter() {
       GoRoute(path: Routes.settings, builder: (_, _) => const SettingsScreen()),
       GoRoute(path: Routes.notifications, builder: (_, _) => const NotificationsScreen()),
       GoRoute(path: Routes.insights, builder: (_, _) => const InsightsScreen()),
+
+      // ---- Library / reference banks (prompt 45–48) ----
+      GoRoute(path: Routes.library, builder: (_, _) => const LibraryHubScreen()),
+      GoRoute(path: Routes.diseases, builder: (_, _) => const DiseasesListScreen()),
+      GoRoute(
+        path: '/library/diseases/compare',
+        builder: (_, s) => DiseaseCompareScreen(
+          ids: (s.uri.queryParameters['ids'] ?? '').split(',').where((e) => e.isNotEmpty).toList(),
+        ),
+      ),
+      GoRoute(path: '/library/diseases/:id', builder: (_, s) => DiseaseDetailScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: Routes.drugInteractions, builder: (_, _) => const InteractionCheckerScreen()),
+      GoRoute(path: Routes.drugs, builder: (_, _) => const DrugsListScreen()),
+      GoRoute(path: '/library/drugs/class/:id', builder: (_, s) => DrugClassScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: '/library/drugs/:id', builder: (_, s) => DrugDetailScreen(id: s.pathParameters['id']!)),
+      GoRoute(path: Routes.tools, builder: (_, _) => const ToolsListScreen()),
+      GoRoute(path: '/library/tools/:id', builder: (_, s) => ToolDetailScreen(id: s.pathParameters['id']!)),
+      for (final kind in LibraryKind.values) ...[
+        GoRoute(path: kind.route, builder: (_, _) => LibraryBankScreen(kind: kind)),
+        GoRoute(path: '${kind.route}/:id', builder: (_, s) => LibraryEntryScreen(kind: kind, id: s.pathParameters['id']!)),
+      ],
     ],
     errorBuilder: (_, _) => const ComingSoonScreen(title: 'Not found'),
   );

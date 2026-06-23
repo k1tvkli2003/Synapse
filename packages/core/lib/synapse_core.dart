@@ -21,6 +21,13 @@ export 'src/models/reward.dart';
 export 'src/models/quest.dart';
 export 'src/models/srs.dart';
 
+// Reference knowledge banks (Part III)
+export 'src/models/evidence.dart';
+export 'src/models/diseases.dart';
+export 'src/models/drugs.dart';
+export 'src/models/tools.dart';
+export 'src/models/library.dart';
+
 // Module domain models
 export 'src/models/terms.dart';
 export 'src/models/cards.dart';
@@ -34,6 +41,7 @@ export 'src/models/rounds.dart';
 export 'src/models/buddies.dart';
 export 'src/models/arena.dart';
 export 'src/models/cases.dart';
+export 'src/models/osce.dart';
 
 // Social spine
 export 'src/models/social.dart';

@@ -25,3 +25,4 @@ export 'src/widgets/module_tile.dart';
 export 'src/widgets/shells.dart';
 export 'src/widgets/feedback.dart';
 export 'src/widgets/audio_player_bar.dart';
+export 'src/widgets/reference.dart';

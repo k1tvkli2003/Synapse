@@ -9,6 +9,7 @@ import '../../state/game_provider.dart';
 import '../../state/notifications_provider.dart';
 import '../../state/srs_provider.dart';
 import '../../state/user_provider.dart';
+import '../plan/plan_screen.dart';
 
 class HubScreen extends ConsumerWidget {
   const HubScreen({super.key});
@@ -68,6 +69,10 @@ class HubScreen extends ConsumerWidget {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                 sliver: SliverToBoxAdapter(child: _LevelCard(xp: xp)),
               ),
+              const SliverPadding(
+                padding: EdgeInsets.fromLTRB(20, 16, 20, 0),
+                sliver: SliverToBoxAdapter(child: TodayPanel()),
+              ),
               SliverPadding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
                 sliver: SliverToBoxAdapter(child: _DailyReviewCard(due: due)),
@@ -75,6 +80,10 @@ class HubScreen extends ConsumerWidget {
               const SliverPadding(
                 padding: EdgeInsets.fromLTRB(20, 16, 20, 0),
                 sliver: SliverToBoxAdapter(child: _QuestsCard()),
+              ),
+              const SliverPadding(
+                padding: EdgeInsets.fromLTRB(20, 16, 20, 0),
+                sliver: SliverToBoxAdapter(child: _QuickAccessStrip()),
               ),
               SliverPadding(
                 padding: const EdgeInsets.fromLTRB(20, 24, 20, 8),
@@ -239,6 +248,58 @@ class _DailyReviewCard extends StatelessWidget {
           ),
           Icon(Icons.arrow_forward_rounded, color: t.primary),
         ],
+      ),
+    );
+  }
+}
+
+/// Quick access to the cross-cutting surfaces beyond the twelve modules.
+class _QuickAccessStrip extends StatelessWidget {
+  const _QuickAccessStrip();
+
+  @override
+  Widget build(BuildContext context) {
+    final items = <(String, IconData, Color, String)>[
+      ('Library', Icons.menu_book_rounded, const Color(0xFF7DD3FC), Routes.library),
+      ('Insights', Icons.insights_rounded, const Color(0xFF8E9BFF), Routes.insights),
+      ('Cases', Icons.local_hospital_rounded, const Color(0xFFB794F6), Routes.cases),
+      ('OSCE', Icons.record_voice_over_rounded, const Color(0xFF5FD9C4), Routes.osce),
+      ('Calculators', Icons.calculate_rounded, const Color(0xFF8C9EFF), Routes.tools),
+      ('Community', Icons.groups_rounded, const Color(0xFFF7A8C4), Routes.community),
+    ];
+    return SizedBox(
+      height: 84,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.zero,
+        itemCount: items.length,
+        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        itemBuilder: (context, i) {
+          final (label, icon, color, route) = items[i];
+          return GestureDetector(
+            onTap: () => context.push(route),
+            child: Container(
+              width: 78,
+              decoration: BoxDecoration(
+                color: context.tokens.surface,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: context.tokens.border),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 38, height: 38,
+                    decoration: BoxDecoration(color: color.withValues(alpha: 0.16), borderRadius: BorderRadius.circular(11)),
+                    child: Icon(icon, color: color, size: 20),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(label, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: context.tokens.textMuted)),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

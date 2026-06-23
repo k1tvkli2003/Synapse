@@ -241,8 +241,8 @@ class LabRuleEngine {
           detail: 'Transaminases (AST/ALT) are disproportionately elevated — suggests '
               'hepatocyte injury (viral, toxic, ischemic, NAFLD).',
           severity: InterpretationSeverity.concern,
-          conceptIds: const ['c_hepatocellular'],
-          nextSteps: const ['Viral hepatitis serologies', 'Medication/alcohol history', 'Ultrasound'],
+          conceptIds: ['c_hepatocellular'],
+          nextSteps: ['Viral hepatitis serologies', 'Medication/alcohol history', 'Ultrasound'],
           firedRuleId: 'lft.hepatocellular',
         ));
       }
@@ -268,8 +268,8 @@ class LabRuleEngine {
         detail: 'ALP is elevated out of proportion to transaminases — suggests biliary '
             'obstruction or cholestasis.',
         severity: InterpretationSeverity.concern,
-        conceptIds: const ['c_cholestasis'],
-        nextSteps: const ['GGT to confirm hepatic source', 'Right-upper-quadrant ultrasound'],
+        conceptIds: ['c_cholestasis'],
+        nextSteps: ['GGT to confirm hepatic source', 'Right-upper-quadrant ultrasound'],
         firedRuleId: 'lft.cholestatic',
       ));
     }
