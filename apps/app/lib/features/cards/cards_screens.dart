@@ -22,6 +22,10 @@ class CardsHomeScreen extends ConsumerWidget {
       subtitle: ModuleKey.cards.tagline,
       accent: _accent,
       onCopilot: () => context.push(Routes.copilot),
+      actions: [
+        AppIconButton(icon: Icons.hub_rounded, tooltip: 'Knowledge graph', onPressed: () => context.push('/learn/cards/graph')),
+        AppIconButton(icon: Icons.download_rounded, tooltip: 'Import', onPressed: () => context.push('/learn/cards/import')),
+      ],
       body: Column(
         children: [
           Padding(

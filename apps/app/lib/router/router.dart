@@ -7,6 +7,7 @@ import '../features/admin/admin_screens.dart';
 import '../features/algorithms/algorithms_screens.dart';
 import '../features/arena/arena_screens.dart';
 import '../features/cards/cards_screens.dart';
+import '../features/cards/knowledge_graph_screen.dart';
 import '../features/cases/cases_screens.dart';
 import '../features/common/coming_soon.dart';
 import '../features/community/community_screens.dart';
@@ -214,7 +215,7 @@ GoRouter buildRouter() {
       GoRoute(path: '/learn/terms/leaderboard', builder: (_, _) => const LeaderboardScreen()),
 
       // Cards sub-routes.
-      GoRoute(path: '/learn/cards/graph', builder: (_, _) => ComingSoonScreen(title: 'Knowledge graph', accent: Color(ModuleKey.cards.accentHex))),
+      GoRoute(path: '/learn/cards/graph', builder: (_, _) => const KnowledgeGraphScreen()),
       GoRoute(path: '/learn/cards/deck/:deckId/edit', builder: (_, _) => ComingSoonScreen(title: 'Edit deck', accent: Color(ModuleKey.cards.accentHex))),
       GoRoute(path: '/learn/cards/card/:cardId/edit', builder: (_, _) => ComingSoonScreen(title: 'Edit card', accent: Color(ModuleKey.cards.accentHex))),
 
