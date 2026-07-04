@@ -253,6 +253,12 @@ class GameNotifier extends Notifier<GameState> {
     _persist();
   }
 
+  /// Adopt gamification state pulled from the cloud (cross-device sync).
+  void hydrateFromCloud(GamificationState cloud) {
+    state = state.copyWith(game: cloud);
+    _persist();
+  }
+
   void grantPracticeHeart() {
     // Practice mode: top up one heart for free when empty (no-hearts mode).
     final h = state.game.hearts;

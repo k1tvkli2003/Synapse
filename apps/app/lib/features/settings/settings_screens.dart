@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:synapse_core/synapse_core.dart';
 import 'package:synapse_ui/synapse_ui.dart';
 
+import '../../state/cloud_sync_provider.dart';
 import '../../state/game_provider.dart';
 import '../../state/user_provider.dart';
 
@@ -64,9 +65,113 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Profile updated'), behavior: SnackBarBehavior.floating));
           Navigator.of(context).maybePop();
         }),
+        const _CloudSyncSection(),
         const SizedBox(height: 24),
       ]),
     );
+  }
+}
+
+/// Cross-device account sync (prompt 05/42) — email one-time-code sign-in.
+/// Invisible when no backend is configured; offline-first stays the default.
+class _CloudSyncSection extends ConsumerStatefulWidget {
+  const _CloudSyncSection();
+  @override
+  ConsumerState<_CloudSyncSection> createState() => _CloudSyncSectionState();
+}
+
+class _CloudSyncSectionState extends ConsumerState<_CloudSyncSection> {
+  final _email = TextEditingController();
+  final _code = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _code.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final sync = ref.watch(cloudSyncControllerProvider);
+    if (sync.phase == CloudSyncPhase.offline) return const SizedBox.shrink();
+    final t = context.tokens;
+    final notifier = ref.read(cloudSyncControllerProvider.notifier);
+
+    late final Widget body;
+    switch (sync.phase) {
+      case CloudSyncPhase.offline:
+        body = const SizedBox.shrink();
+      case CloudSyncPhase.signedOut:
+        body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('Sign in with email to sync your progress across devices.',
+              style: TextStyle(color: t.textMuted, fontSize: 12.5)),
+          const SizedBox(height: 12),
+          AppTextField(controller: _email, label: 'Email', hint: 'you@example.com'),
+          const SizedBox(height: 12),
+          AppButton(
+            label: 'Send code',
+            expand: true,
+            onPressed: () {
+              final email = _email.text.trim();
+              if (email.contains('@')) notifier.sendCode(email);
+            },
+          ),
+        ]);
+      case CloudSyncPhase.codeSent:
+        body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('We sent a 6-digit code to ${sync.email}.',
+              style: TextStyle(color: t.textMuted, fontSize: 12.5)),
+          const SizedBox(height: 12),
+          AppTextField(controller: _code, label: 'Code', hint: '123456'),
+          const SizedBox(height: 12),
+          Row(children: [
+            Expanded(
+              child: AppButton(
+                label: 'Verify',
+                expand: true,
+                onPressed: () {
+                  final email = sync.email;
+                  if (email != null && _code.text.trim().isNotEmpty) {
+                    notifier.confirmCode(email, _code.text.trim());
+                  }
+                },
+              ),
+            ),
+            const SizedBox(width: 8),
+            TextButton(onPressed: notifier.signOut, child: const Text('Change email')),
+          ]),
+        ]);
+      case CloudSyncPhase.syncing:
+        body = const Padding(
+          padding: EdgeInsets.symmetric(vertical: 8),
+          child: Row(children: [
+            SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2)),
+            SizedBox(width: 12),
+            Text('Syncing…'),
+          ]),
+        );
+      case CloudSyncPhase.signedIn:
+        body = Row(children: [
+          Icon(Icons.cloud_done_rounded, color: t.success, size: 20),
+          const SizedBox(width: 10),
+          Expanded(child: Text('Synced as ${sync.email}', style: const TextStyle(fontWeight: FontWeight.w600))),
+          TextButton(onPressed: notifier.signOut, child: const Text('Sign out')),
+        ]);
+      case CloudSyncPhase.error:
+        body = Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(sync.message ?? 'Something went wrong.', style: TextStyle(color: t.danger, fontSize: 12.5)),
+          const SizedBox(height: 8),
+          AppButton(label: 'Try again', expand: true, onPressed: notifier.signOut),
+        ]);
+    }
+
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      const SizedBox(height: 20),
+      const SectionHeader(title: 'Cloud sync'),
+      const SizedBox(height: 8),
+      AppCard(child: body),
+    ]);
   }
 }
 
