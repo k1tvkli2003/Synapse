@@ -1,0 +1,9 @@
+include: package:flutter_lints/flutter.yaml
+
+# Seed-data files mix const objects with non-const fields (e.g. DateTime
+# timestamps), which makes the const-literal lints noisy here. The runtime data
+# packages are exempt from these stylistic rules; all logic packages stay strict.
+linter:
+  rules:
+    prefer_const_literals_to_create_immutables: false
+    prefer_const_constructors: false
