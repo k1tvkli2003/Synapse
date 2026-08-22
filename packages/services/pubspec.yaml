@@ -19,7 +19,7 @@ dependencies:
     path: ../foundation
   crypto: ^3.0.7
   cryptography: ^2.9.0
-  drift: ^2.34.2
+  drift: 2.34.3
   http: ^1.5.0
   meta: ^1.12.0
 
