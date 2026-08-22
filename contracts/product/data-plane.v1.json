@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "contractId": "synapse.shared-data-plane.v1",
+  "authority": "docs/codex/2026-07-15-synapse-medical-learning-os/37-goal-charter-v2.md",
+  "principles": [
+    "Every capability names its canonical entity families and truth authority before implementation.",
+    "Published curriculum releases are immutable; learner and user state is versioned separately.",
+    "Offline work is explicit, idempotent, observable, resumable, and never silently discarded.",
+    "Derived projections never become an untraceable second source of truth.",
+    "Privacy, provenance, migration, conflict, audit, recovery, and deletion are product behavior rather than backend footnotes."
+  ],
+  "concerns": [
+    {
+      "id": "stable_identity",
+      "requirement": "Version stable IDs, aliases, universal resource references, and legacy mappings independently from labels and paths."
+    },
+    {
+      "id": "schema_migration",
+      "requirement": "Declare schema versions, forward and backward migration, fixtures, partial-failure behavior, and rollback."
+    },
+    {
+      "id": "provenance",
+      "requirement": "Retain source, author, reviewer, timestamps, hashes, transformation chain, citations, and model or prompt versions where applicable."
+    },
+    {
+      "id": "validation",
+      "requirement": "Run structural, semantic, referential, locale-pair, safety, range, and integrity validation before authority changes."
+    },
+    {
+      "id": "persistence",
+      "requirement": "Define local and remote repositories, transaction boundaries, atomic writes, corruption detection, and durable receipts."
+    },
+    {
+      "id": "indexing_search",
+      "requirement": "Define exact, filtered, cross-locale, personal-content, and semantic search behavior with deterministic fallback and reindex policy."
+    },
+    {
+      "id": "cache",
+      "requirement": "Name cache owner, freshness, invalidation, quota, eviction, prefetch, and stale presentation behavior."
+    },
+    {
+      "id": "offline_queue",
+      "requirement": "Define queued operations, idempotency, dependency ordering, retry, cancellation, expiry, and user-visible status."
+    },
+    {
+      "id": "synchronization",
+      "requirement": "Define change capture, revision protocol, tombstones, batching, partial failure, reconciliation, and lifecycle triggers."
+    },
+    {
+      "id": "conflict_resolution",
+      "requirement": "Choose domain-specific automatic or user-assisted merge, preserve audit history, and retain lossless fallback copies."
+    },
+    {
+      "id": "privacy_consent",
+      "requirement": "Classify data, minimize collection, enforce consent and local or remote boundaries, and support export, deletion, and redaction."
+    },
+    {
+      "id": "security_authority",
+      "requirement": "Name server, package, local, or derived authority; apply least privilege, secret isolation, access control, encryption posture, and abuse limits."
+    },
+    {
+      "id": "audit_history",
+      "requirement": "Record append-only truth events where needed with correlation IDs, actor, reason, timestamp, and replay or administrative evidence."
+    },
+    {
+      "id": "backup_recovery",
+      "requirement": "Define backup, restore, reindex, corrupt-record quarantine, migration rollback, cache rebuild, and disaster runbooks."
+    },
+    {
+      "id": "observability",
+      "requirement": "Expose privacy-safe metrics, traces, typed errors, sync and package health, SLOs, and actionable diagnostics."
+    }
+  ],
+  "profiles": [
+    {
+      "id": "curriculum_learning",
+      "entityFamilies": ["curriculum_release", "curriculum_node", "learning_session", "interaction", "attempt", "mastery_projection", "review_schedule"],
+      "truthAuthority": "Immutable published package for content; authoritative event ledger for attempts and rewards; local-first replay queue for offline attempts.",
+      "offlinePolicy": "Published packages and active queues are available offline; attempts use idempotent outbox records.",
+      "conflictPolicy": "Content never merges in place; release changes activate atomically. Attempt events deduplicate by stable event ID.",
+      "privacyClass": "learning_activity",
+      "searchPolicy": "Cross-locale curriculum, concepts, objectives, and learner-owned cards with release-aware indexes.",
+      "recoveryPolicy": "Rollback package channel, replay attempt ledger, rebuild projections and indexes."
+    },
+    {
+      "id": "workspace_knowledge",
+      "entityFamilies": ["document", "resource_anchor", "annotation", "note", "bookmark", "tag", "cross_reference", "reading_state"],
+      "truthAuthority": "Local-first user artifacts with versioned remote sync when enabled; content-addressed immutable source blobs.",
+      "offlinePolicy": "Read, annotate, edit, search cached content, and queue mutations offline with visible sync state.",
+      "conflictPolicy": "Field or operation-aware merge where safe; preserve both versions and anchors when ambiguity remains.",
+      "privacyClass": "user_generated_private",
+      "searchPolicy": "Exact, full-text, tag, anchor, and cross-locale personal search; semantic indexing is consent-gated.",
+      "recoveryPolicy": "Blob checksum verification, autosave journal, version history, export, restore, and reindex."
+    },
+    {
+      "id": "planning_lifecycle",
+      "entityFamilies": ["plan", "prescription", "availability_constraint", "task", "focus_session", "notification_intent", "widget_snapshot"],
+      "truthAuthority": "User plan and constraints are local-first; server coordination is authoritative only for shared assignments and delivery receipts.",
+      "offlinePolicy": "Planning and focus remain functional offline; delivery and shared changes queue with expiration semantics.",
+      "conflictPolicy": "Preserve explicit user edits; recompute derived prescriptions from the latest acknowledged constraints.",
+      "privacyClass": "schedule_and_behavior",
+      "searchPolicy": "Task, plan, and history filtering; no broad semantic indexing by default.",
+      "recoveryPolicy": "Rebuild recommendations from durable constraints and completion events; retain user-edited plan history."
+    },
+    {
+      "id": "rewards_progress",
+      "entityFamilies": ["learning_event", "reward_grant", "achievement_unlock", "quest_progress", "streak_state", "entitlement_projection", "presentation_receipt"],
+      "truthAuthority": "Server-authoritative idempotent event ledger; clients render signed or reconciled projections and durable one-time presentation receipts.",
+      "offlinePolicy": "Offline learning queues evidence events but does not mint authoritative grants; provisional UI is explicitly labelled.",
+      "conflictPolicy": "Replay and deduplicate by event and rule version; never add competing counters.",
+      "privacyClass": "learning_activity",
+      "searchPolicy": "Catalog and history filters only; no sensitive social ranking index by default.",
+      "recoveryPolicy": "Rebuild projections from ledger, reconcile presentations, and preserve compassionate continuity corrections."
+    },
+    {
+      "id": "clinical_evidence",
+      "entityFamilies": ["case", "case_decision", "clinical_observation", "evidence_record", "claim", "citation", "tool_definition", "tool_run"],
+      "truthAuthority": "Reviewed versioned evidence and tool definitions; learner responses are event-sourced. No patient-specific authority is implied.",
+      "offlinePolicy": "Reviewed cases, evidence snapshots, and tool definitions may be cached with visible freshness and limitation state.",
+      "conflictPolicy": "Evidence versions never merge silently; learner drafts preserve both versions when reference context changes.",
+      "privacyClass": "education_only_no_phi_by_default",
+      "searchPolicy": "Source, date, concept, claim, case, drug, disease, and tool indexes with freshness metadata.",
+      "recoveryPolicy": "Withdraw or roll back evidence/tool versions, invalidate caches, and preserve historical decision context."
+    },
+    {
+      "id": "ai_jobs",
+      "entityFamilies": ["ai_job", "job_input_ref", "job_activity", "draft_artifact", "citation_bundle", "review_decision", "quota_receipt"],
+      "truthAuthority": "Server job queue and reviewed artifact registry; model output remains a quarantined draft until explicit review and publication.",
+      "offlinePolicy": "Local drafts and job intents may queue; remote execution requires consent, connectivity, rights clearance, and exact source revision.",
+      "conflictPolicy": "Jobs are immutable attempts; retries create linked attempts and artifacts never overwrite reviewed output.",
+      "privacyClass": "context_dependent_sensitive",
+      "searchPolicy": "Private job and draft search with redaction and retention controls; no indexing of raw sensitive payloads.",
+      "recoveryPolicy": "Resume by activity cursor, cancel safely, harvest artifacts, quarantine incomplete output, and retain audit receipts."
+    },
+    {
+      "id": "social_collaboration",
+      "entityFamilies": ["organization", "cohort", "room", "thread", "message", "event", "assignment", "moderation_case", "report"],
+      "truthAuthority": "Server-authoritative tenancy, membership, shared content, moderation, and report state.",
+      "offlinePolicy": "Read cached allowed content and draft messages offline; send operations queue with membership and retention revalidation.",
+      "conflictPolicy": "Server order and moderation state win; drafts remain recoverable and edits retain history.",
+      "privacyClass": "shared_identity_and_content",
+      "searchPolicy": "Tenant- and role-scoped search with de-identification, block, report, and retention enforcement.",
+      "recoveryPolicy": "Restore drafts, replay permitted history, quarantine unsafe content, and preserve moderation audit."
+    },
+    {
+      "id": "identity_governance",
+      "entityFamilies": ["profile", "preference", "consent", "device_capability", "security_setting", "role", "data_request"],
+      "truthAuthority": "Server authority for account, role, consent receipts, and remote data requests; local authority for device-only preferences and capabilities.",
+      "offlinePolicy": "Device settings remain usable offline; security- or account-affecting changes wait for authoritative acknowledgement.",
+      "conflictPolicy": "Security and consent use newest acknowledged explicit choice with immutable receipts; device preferences stay device-scoped.",
+      "privacyClass": "identity_and_security",
+      "searchPolicy": "No global indexing; settings and role-filtered command discovery only.",
+      "recoveryPolicy": "Restore purchases/account state, reset device settings safely, export/delete, and audit every sensitive change."
+    },
+    {
+      "id": "platform_system",
+      "entityFamilies": ["domain_event", "outbox_record", "inbox_record", "sync_checkpoint", "connectivity_state", "command", "integration_job"],
+      "truthAuthority": "Domain-specific authority with durable transport receipts; connectivity and projections are derived.",
+      "offlinePolicy": "All supported mutations declare queue, cancellation, retry, and expiry semantics; unsupported actions fail before mutation.",
+      "conflictPolicy": "Idempotent consumers and domain handlers resolve conflicts; transport never invents domain merges.",
+      "privacyClass": "operational_metadata_minimized",
+      "searchPolicy": "Commands and user-visible job history only; raw transport payloads are not product-searchable.",
+      "recoveryPolicy": "Replay outbox/inbox safely, re-establish checkpoints, rebuild projections, and retain typed failure receipts."
+    },
+    {
+      "id": "commerce_entitlement",
+      "entityFamilies": ["product_offer", "purchase_receipt", "entitlement", "subscription_state", "restore_attempt"],
+      "truthAuthority": "Verified store or server receipt and signed entitlement projection.",
+      "offlinePolicy": "Explicit grace windows and cached signed entitlements; purchases and restores require authoritative verification.",
+      "conflictPolicy": "Receipt verification and latest valid entitlement interval win; never trust client flags.",
+      "privacyClass": "commerce_and_account",
+      "searchPolicy": "Offer discovery only; receipt data is never indexed.",
+      "recoveryPolicy": "Restore purchase, reverify receipts, reconcile grace, and preserve transparent history."
+    },
+    {
+      "id": "content_pipeline",
+      "entityFamilies": ["source_asset", "source_atom", "render_tree", "draft_artifact", "content_version", "review_state", "publication_receipt"],
+      "truthAuthority": "Immutable source and reviewed content package registries; drafts remain quarantined and provenance-complete.",
+      "offlinePolicy": "Local reading/rendering and draft capture may work offline; remote transforms require explicit eligibility and resume receipts.",
+      "conflictPolicy": "Create new versions rather than merging published bodies; retain lineage and reviewer decisions.",
+      "privacyClass": "source_dependent_rights_gated",
+      "searchPolicy": "Sanitized source, atom, version, and draft indexes with rights and scope enforcement.",
+      "recoveryPolicy": "Rebuild renders and indexes from immutable inputs, quarantine corrupt output, and roll back publication channels."
+    }
+  ]
+}

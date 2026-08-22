@@ -5,9 +5,163 @@ description: >
 publish_to: none
 
 environment:
-  sdk: ">=3.5.0 <4.0.0"
+  sdk: ^3.12.0
+
+workspace:
+  - apps/app
+  - packages/config
+  - packages/core
+  - packages/engines
+  - packages/foundation
+  - packages/fixtures
+  - packages/motion
+  - packages/observability
+  - packages/services
+  - packages/ui
 
 dev_dependencies:
-  melos: ^6.3.2
+  melos: ^7.0.0
   # Resolves the shared analysis_options include when analyzing at the root.
   flutter_lints: ^6.0.0
+
+melos:
+  command:
+    bootstrap:
+      runPubGetInParallel: false
+  scripts:
+    bootstrap:locked:
+      run: flutter pub get --enforce-lockfile
+      description: Resolve the complete workspace from the committed lockfile.
+
+    analyze:
+      run: dart analyze
+      description: Analyze the complete Pub workspace.
+
+    format:
+      run: dart format .
+      description: Format all Dart code.
+
+    format:check:
+      run: dart run tool/check_changed_dart_format.dart
+      description: Fail when changed Dart sources are not formatted.
+
+    test:
+      run: >-
+        dart run melos exec --concurrency=1 --fail-fast --dir-exists=test --
+        flutter test --no-pub
+      description: Run tests in every package that owns a test directory.
+
+    build:web:
+      steps:
+        - >-
+          dart run tool/prepare_web_build.dart
+        - >-
+          dart run melos exec --scope=synapse_app --
+          flutter build web --release --no-pub
+      description: Rebuild Web compiler state without erasing native plugin metadata.
+
+    preservation:
+      steps:
+        - >-
+          dart run tool/run_python.dart
+          tool/preservation/generate_preservation_contracts.py --check
+        - >-
+          dart run tool/run_python.dart
+          tool/preservation/verify_preservation_contracts.py
+      description: Recompute and verify the protected product contracts.
+
+    security:
+      steps:
+        - >-
+          dart run tool/run_python.dart -m unittest
+          tool/security/test_scan_secrets.py
+        - >-
+          dart run tool/run_python.dart tool/security/scan_secrets.py
+      description: Test the secret detector and scan all committable text.
+
+    integrity:
+      steps:
+        - >-
+          dart run tool/run_python.dart -m unittest
+          tool/integrity/test_verify_product_language.py
+        - >-
+          dart run tool/run_python.dart
+          tool/integrity/verify_product_language.py
+      description: Enforce one Synapse identity and functional names for every absorbed capability.
+
+    capabilities:
+      steps:
+        - >-
+          dart run tool/run_python.dart
+          tool/product/test_capability_completion.py
+        - >-
+          dart run tool/run_python.dart
+          tool/product/generate_capability_completion.py --check
+        - >-
+          dart run tool/run_python.dart
+          tool/product/verify_capability_completion.py
+      description: Require 76/76 capability coverage, the shared Data Plane, and evidence-backed masterpiece gates without false completion.
+
+    architecture:
+      steps:
+        - >-
+          dart run tool/run_python.dart -m unittest
+          tool/architecture/test_validate_architecture.py
+        - >-
+          dart run tool/run_python.dart
+          tool/architecture/validate_architecture.py
+      description: Enforce dependency direction and persistence wire safety.
+
+    actions:
+      steps:
+        - >-
+          dart run tool/run_python.dart -m unittest
+          tool/actions/test_verify_actions_workflows.py
+        - >-
+          dart run tool/run_python.dart
+          tool/actions/verify_actions_workflows.py
+      description: Enforce the least-privilege, SHA-pinned quality workflow boundary.
+
+    generated:check:
+      run: >-
+        dart run tool/run_python.dart tool/generated/verify_generated.py
+      description: Verify generated contracts and identity packages are current.
+
+    performance:
+      steps:
+        - >-
+          dart run tool/run_python.dart -m unittest
+          tool/performance/test_verify_performance_budgets.py
+        - >-
+          dart run tool/run_python.dart
+          tool/performance/verify_performance_budgets.py
+      description: Enforce deterministic artifact budgets and validate runtime/motion budget policy.
+
+    docs:structure:
+      steps:
+        - >-
+          dart run tool/run_python.dart tool/validate_wbs.py
+          docs/codex/2026-07-15-synapse-medical-learning-os/14-wbs.md
+          --expected 440
+        - >-
+          dart run tool/run_python.dart tool/validate_task_docs.py
+          docs/codex/2026-07-15-synapse-medical-learning-os --structure-only
+      description: Validate the atomic WBS and durable work-docs structure.
+
+    verify:
+      steps:
+        - dart run melos run bootstrap:locked
+        - dart run melos run format:check
+        - dart run melos run analyze
+        - dart run melos run test
+        - dart run melos run security
+        - dart run melos run integrity
+        - dart run melos run capabilities
+        - dart run melos run architecture
+        - dart run melos run actions
+        - dart run melos run preservation
+        - dart run melos run generated:check
+        - dart run melos run build:web
+        - dart run melos run performance
+        - dart run melos run docs:structure
+      description: Run the current root quality and web-build gate.

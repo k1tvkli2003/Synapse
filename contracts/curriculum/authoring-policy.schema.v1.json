@@ -1,0 +1,588 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://synapse.local/contracts/curriculum/authoring-policy.schema.v1.json",
+  "title": "Synapse medical authoring policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "policyId",
+    "status",
+    "contentContractId",
+    "canonicalLocale",
+    "requiredLocales",
+    "capabilityBoundary",
+    "sourceDiscipline",
+    "lessonWriting",
+    "embeddedQuizWriting",
+    "boundedReinforcementSummary",
+    "bilingualSemanticPair",
+    "clinicalSafety",
+    "legacyStudyHubDistillation",
+    "externalExecution",
+    "qualityGates"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "./authoring-policy.schema.v1.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "policyId": {
+      "const": "synapse.medical-authoring.v1"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "implementation_ready",
+        "retired"
+      ]
+    },
+    "contentContractId": {
+      "const": "synapse.medical-microlearning-content.v1"
+    },
+    "canonicalLocale": {
+      "const": "en"
+    },
+    "requiredLocales": {
+      "const": [
+        "en",
+        "fa"
+      ]
+    },
+    "capabilityBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowedAuthoringCapabilities",
+        "forbiddenProductionStages",
+        "singleAuthoringUnit",
+        "legacySidecarPolicy"
+      ],
+      "properties": {
+        "allowedAuthoringCapabilities": {
+          "const": [
+            "lesson_writing",
+            "embedded_quiz_writing",
+            "bounded_reinforcement_summary"
+          ]
+        },
+        "forbiddenProductionStages": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "contains": {
+            "const": "enrich_writing"
+          },
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "singleAuthoringUnit": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "legacySidecarPolicy": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "required": [
+            "derived_find_sidecar",
+            "derived_quiz_sidecar",
+            "derived_summary_sidecar",
+            "derived_enrich_sidecar",
+            "contributor_metadata_sidecar"
+          ]
+        }
+      }
+    },
+    "sourceDiscipline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "readAllInScopeArtifacts",
+        "executeSourceTypescript",
+        "sourceAtomLedgerRequired",
+        "sourceDocumentInventoryPercent",
+        "sourceAtomClassificationPercent",
+        "requiredAtomRepresentationPercent",
+        "summaryOnlyCoverageAllowed",
+        "silentDropAllowed",
+        "duplicatePolicy",
+        "coveragePolicy",
+        "sourceAuthorityPolicy"
+      ],
+      "properties": {
+        "readAllInScopeArtifacts": {
+          "const": true
+        },
+        "executeSourceTypescript": {
+          "const": false
+        },
+        "sourceAtomLedgerRequired": {
+          "const": true
+        },
+        "sourceDocumentInventoryPercent": {
+          "const": 100
+        },
+        "sourceAtomClassificationPercent": {
+          "const": 100
+        },
+        "requiredAtomRepresentationPercent": {
+          "const": 100
+        },
+        "summaryOnlyCoverageAllowed": {
+          "const": false
+        },
+        "silentDropAllowed": {
+          "const": false
+        },
+        "duplicatePolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "coveragePolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "sourceAuthorityPolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "lessonWriting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hierarchy",
+        "learnerPromise",
+        "sessionArcMinimum",
+        "reasoningPolicy",
+        "terminologyPolicy",
+        "vignettePolicy",
+        "mediaPolicy",
+        "sessionBudget",
+        "antiBloatRules"
+      ],
+      "properties": {
+        "hierarchy": {
+          "const": [
+            "course",
+            "chapter",
+            "unit",
+            "concept_cluster",
+            "micro_lesson",
+            "session",
+            "interaction"
+          ]
+        },
+        "learnerPromise": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "sessionArcMinimum": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "reasoningPolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "terminologyPolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "vignettePolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "mediaPolicy": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "sessionBudget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "targetMinutesPerLocale",
+            "hardMaximumMinutesPerLocale",
+            "targetInteractions",
+            "hardMaximumInteractions",
+            "targetNewConcepts",
+            "hardMaximumNewConcepts",
+            "maximumIndependentClaimsIntroduced",
+            "minimumInteractionFamilies",
+            "minimumActiveStepRatio",
+            "maximumConsecutivePassiveSteps",
+            "maximumConsecutiveSameTemplate",
+            "maximumSecondsWithoutLearnerAction"
+          ],
+          "properties": {
+            "targetMinutesPerLocale": {
+              "const": [
+                3,
+                6
+              ]
+            },
+            "hardMaximumMinutesPerLocale": {
+              "const": 8
+            },
+            "targetInteractions": {
+              "const": [
+                5,
+                9
+              ]
+            },
+            "hardMaximumInteractions": {
+              "const": 12
+            },
+            "targetNewConcepts": {
+              "const": [
+                1,
+                3
+              ]
+            },
+            "hardMaximumNewConcepts": {
+              "const": 4
+            },
+            "maximumIndependentClaimsIntroduced": {
+              "const": 9
+            },
+            "minimumInteractionFamilies": {
+              "const": 3
+            },
+            "minimumActiveStepRatio": {
+              "const": 0.45
+            },
+            "maximumConsecutivePassiveSteps": {
+              "const": 2
+            },
+            "maximumConsecutiveSameTemplate": {
+              "const": 2
+            },
+            "maximumSecondsWithoutLearnerAction": {
+              "const": 90
+            }
+          }
+        },
+        "antiBloatRules": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        }
+      }
+    },
+    "embeddedQuizWriting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "standaloneQuizFileRequired",
+        "fixedQuestionCountAllowed",
+        "assessmentPlacement",
+        "coverageTarget",
+        "questionRules",
+        "selectedResponseOptionRange",
+        "feedbackLayers"
+      ],
+      "properties": {
+        "standaloneQuizFileRequired": {
+          "const": false
+        },
+        "fixedQuestionCountAllowed": {
+          "const": false
+        },
+        "assessmentPlacement": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "coverageTarget": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "questionRules": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        },
+        "selectedResponseOptionRange": {
+          "const": [
+            4,
+            5
+          ]
+        },
+        "feedbackLayers": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "flash",
+            "deep"
+          ],
+          "properties": {
+            "flash": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "deep": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        }
+      }
+    },
+    "boundedReinforcementSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "standaloneProductionPhase",
+        "coverageRole",
+        "targetSecondsPerLocale",
+        "hardMaximumSecondsPerLocale",
+        "maximumTakeaways",
+        "minimumRetrievalPrompts",
+        "rules"
+      ],
+      "properties": {
+        "standaloneProductionPhase": {
+          "const": false
+        },
+        "coverageRole": {
+          "const": "reinforcement_only"
+        },
+        "targetSecondsPerLocale": {
+          "const": [
+            30,
+            60
+          ]
+        },
+        "hardMaximumSecondsPerLocale": {
+          "const": 75
+        },
+        "maximumTakeaways": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "minimumRetrievalPrompts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rules": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        }
+      }
+    },
+    "bilingualSemanticPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publicationPairing",
+        "authoringMode",
+        "fallbackForPublishedBodies",
+        "sharedInvariants",
+        "allowedLocaleAdaptation",
+        "english",
+        "persian"
+      ],
+      "properties": {
+        "publicationPairing": {
+          "const": "atomic"
+        },
+        "authoringMode": {
+          "const": "simultaneous_from_locale_neutral_skeleton"
+        },
+        "fallbackForPublishedBodies": {
+          "const": "none"
+        },
+        "sharedInvariants": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        },
+        "allowedLocaleAdaptation": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        },
+        "english": {
+          "$ref": "#/$defs/localeVoice"
+        },
+        "persian": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "register",
+            "orthography",
+            "medicalTerms",
+            "bidi",
+            "avoid"
+          ],
+          "properties": {
+            "register": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "orthography": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "medicalTerms": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "bidi": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "avoid": {
+              "$ref": "#/$defs/nonEmptyUniqueStringArray"
+            }
+          }
+        }
+      }
+    },
+    "clinicalSafety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "productMode",
+        "draftStatus",
+        "alwaysCurrentEvidenceTypes",
+        "hardStops"
+      ],
+      "properties": {
+        "productMode": {
+          "const": "education_not_patient_specific_guidance"
+        },
+        "draftStatus": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "alwaysCurrentEvidenceTypes": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        },
+        "hardStops": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        }
+      }
+    },
+    "legacyStudyHubDistillation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceSet",
+        "adoptedPrinciples",
+        "rejectedRules"
+      ],
+      "properties": {
+        "sourceSet": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "adoptedPrinciples": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        },
+        "rejectedRules": {
+          "type": "array",
+          "minItems": 7,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "rule",
+              "reason"
+            ],
+            "properties": {
+              "rule": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "reason": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          }
+        }
+      }
+    },
+    "externalExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "julesRole",
+        "julesMayChangePolicy",
+        "automaticPullRequest",
+        "planApprovalRequired",
+        "remoteMutationAllowedNow",
+        "activationGates",
+        "completionRule"
+      ],
+      "properties": {
+        "julesRole": {
+          "const": "execution_fabric_only"
+        },
+        "julesMayChangePolicy": {
+          "const": false
+        },
+        "automaticPullRequest": {
+          "const": false
+        },
+        "planApprovalRequired": {
+          "const": true
+        },
+        "remoteMutationAllowedNow": {
+          "const": false
+        },
+        "activationGates": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "contains": {
+            "const": "explicit_text_and_media_rights_clearance"
+          },
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "completionRule": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "qualityGates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requiredPercent",
+        "zeroTolerance"
+      ],
+      "properties": {
+        "requiredPercent": {
+          "type": "object",
+          "minProperties": 7,
+          "additionalProperties": {
+            "const": 100
+          }
+        },
+        "zeroTolerance": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonEmptyUniqueStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "localeVoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "register",
+        "voice",
+        "avoid"
+      ],
+      "properties": {
+        "register": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "voice": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "avoid": {
+          "$ref": "#/$defs/nonEmptyUniqueStringArray"
+        }
+      }
+    }
+  }
+}

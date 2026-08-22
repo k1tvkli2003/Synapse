@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "artifact": "archived-domain-fixtures.v1.json",
+      "restoreBoundary": "local persistence and archived model/event compatibility",
+      "sha256": "62FFD4B7829E6968307709313AFD082ED8F5F72C14A024074C6778A662060940"
+    },
+    {
+      "artifact": "capability-ledger.v1.json",
+      "restoreBoundary": "capability ownership and absorption compatibility",
+      "sha256": "4EBC8F78A6A8828E142848B564E169B0E608E1E31819E5A801BB8C7EAF4B719B"
+    },
+    {
+      "artifact": "deep-link-fixtures.v1.json",
+      "restoreBoundary": "route and deep-link compatibility",
+      "sha256": "BBAC321F55F42A8EA379F1E03DB114B1A8984AB12C87EAFED976A3A0E843813E"
+    },
+    {
+      "artifact": "module-registry.v1.json",
+      "restoreBoundary": "capability ownership and absorption compatibility",
+      "sha256": "178AECF5071512F2E34D0F9856F07D6E5100E63BA4A477794147C61DA7EE59AF"
+    },
+    {
+      "artifact": "persistence-keys.v1.json",
+      "restoreBoundary": "local persistence and archived model/event compatibility",
+      "sha256": "FC3CC22411E51B47B29E259D5E04287962AF93CCFF17E858D76390D4F01D3739"
+    },
+    {
+      "artifact": "route-registry.v1.json",
+      "restoreBoundary": "route and deep-link compatibility",
+      "sha256": "C44D66FFDB2D1A0C48479E2341A31B9487E6AE380D18F9432258EDF8A76A942C"
+    },
+    {
+      "artifact": "supabase-schema.v1.json",
+      "restoreBoundary": "cloud schema/policy/function compatibility",
+      "sha256": "E946FB4B1C83EADF8CD9770F388F7659B8972DA25DDBEA463D55A22DD496A8F9"
+    }
+  ],
+  "restoreProcedure": [
+    "stop before any destructive or compatibility-affecting operation",
+    "compare current sources and generated snapshots against this bundle",
+    "restore source from the protected Git commit or Synapse-App.rar baseline; never overwrite user data with fixture data",
+    "reapply immutable Supabase migrations only to a disposable recovery project and verify RLS before any production action",
+    "run tool/preservation/verify_preservation_contracts.py and the archived Dart fixture tests before resuming"
+  ],
+  "schemaVersion": 1,
+  "sourceCommit": "9067be0834ae80495e1112728ef0c82ae36100cc",
+  "sourceDate": "2026-07-21"
+}

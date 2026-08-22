@@ -1,0 +1,1928 @@
+{
+  "canonicalSource": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+  "entries": [
+    {
+      "baselineDetail": "limited",
+      "baselineState": "partial",
+      "canonicalOwner": "Achievement catalog aliases",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.8-achievements",
+      "label": "8 achievements",
+      "preservation": "No duplicate reward on import.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 22,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Map legacy unlocks to canonical IDs and retain unlock timestamp",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "dormant schema",
+      "baselineState": "dormant",
+      "canonicalOwner": "Server job queue",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.ai-jobs",
+      "label": "AI jobs",
+      "preservation": "Preserve job history/status; redact payloads.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 31,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Background, resumable, observable, cancelable, quota-aware",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial; client-secret risk",
+      "baselineState": "at-risk",
+      "canonicalOwner": "Secure AI gateway",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.ai-service-contracts",
+      "label": "AI service/contracts",
+      "preservation": "Remove embedded secrets/shared auth.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 15,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Node/document-scoped tutor/jobs with consent, redaction, citations, model/prompt audit",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Today/Recall widgets",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.android-widget",
+      "label": "Android widget",
+      "preservation": "Preserve migration channel/widget keys.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 27,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Next action, review count, focus/resume; privacy-safe glance states",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/schema-protected",
+      "baselineState": "operational",
+      "canonicalOwner": "Workspace annotations",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.annotations",
+      "label": "Annotations",
+      "preservation": "PDF and lesson annotations use universal resource refs.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 7,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Highlight, ink, comment, tag, resolve, share/export policy",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational",
+      "baselineState": "operational",
+      "canonicalOwner": "Workspace anchors",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.bookmarks",
+      "label": "Bookmarks",
+      "preservation": "Stable mapping through document hashes/versions.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 5,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Document/page/range anchors surfaced in chapter and personal search",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "schema-protected",
+      "baselineState": "operational",
+      "canonicalOwner": "Copilot thread",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.chat",
+      "label": "Chat",
+      "preservation": "Preserve legacy messages and content policy.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 16,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Threads scoped to a node/document/case; resumable and exportable",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "legacy/generic",
+      "baselineState": "partial",
+      "canonicalOwner": "Today",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.dashboard",
+      "label": "Dashboard",
+      "preservation": "Preserve intents, not duplicate layout.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 25,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Valuable metrics/actions are absorbed; old dashboard itself is not nested.",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Candidate evidence/detail inputs",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.enrich-mode",
+      "label": "Legacy `*_enrich.ts` artifacts",
+      "preservation": "No learner-visible `Enrich` mode, specialist stage, or separate content pipeline; filename grants no authority.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 11,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Review potentially useful explanations, diagrams, cases, and evidence inside the normal lesson-writing flow",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "dormant schema",
+      "baselineState": "dormant",
+      "canonicalOwner": "Curriculum enrollment",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.enrolled-courses",
+      "label": "Enrolled courses",
+      "preservation": "Alias legacy courses; quarantine ambiguous IDs.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 32,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Enrollment/goal/order/preferences against canonical Course IDs",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Contextual source search",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.find-mode",
+      "label": "Legacy `*_find.ts` artifacts",
+      "preservation": "Legacy filename stays in provenance only; no AI claim without a source span.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 9,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Locate key terms/claims inside source with concept/search links",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "dormant schema",
+      "baselineState": "dormant",
+      "canonicalOwner": "User-created artifact",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.lesson-forks",
+      "label": "Lesson forks",
+      "preservation": "Preserve fork parent/identity.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 30,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Personal/institutional fork with lineage, review, version, share scope",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational",
+      "baselineState": "operational",
+      "canonicalOwner": "Unified document renderer",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.markdown-latex-table-renderer",
+      "label": "Markdown/LaTeX/table renderer",
+      "preservation": "Security fixtures for unsafe markup.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 13,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Lesson/evidence/note rendering with sanitize and bidi semantics",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "prototype",
+      "baselineState": "prototype",
+      "canonicalOwner": "Mastery Thread / Workspace",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.mind-map",
+      "label": "Mind map",
+      "preservation": "Semantic outline equivalent and performance limits.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 24,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Concept map as one view, not a separate app/page",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Unified notification service",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.notifications",
+      "label": "Notifications",
+      "preservation": "Preserve legacy IDs via aliases.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 26,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Plan/review/import/focus reminders with one ID/deep-link registry",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Evidence ingestion action",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.ocr-mobile",
+      "label": "OCR mobile",
+      "preservation": "Never overwrite source; review before use.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 14,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Extract draft text from image/PDF with page anchors and confidence",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Unified onboarding",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.onboarding",
+      "label": "Onboarding",
+      "preservation": "Do not force RTL globally before locale.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 29,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Role/stage/goals/time/language/privacy/mascot setting; progressive, skippable",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Margin Workspace / Evidence Shelf",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.pdf-import",
+      "label": "PDF import",
+      "preservation": "Preserve file hash, remote/source IDs, user ownership, job history.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 1,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Import from chapter/course/global command; background validation and provenance",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "strongest operational capability",
+      "baselineState": "operational",
+      "canonicalOwner": "Margin Workspace",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.pdf-reader",
+      "label": "PDF reader",
+      "preservation": "Reader state is per document/user/device-sync policy.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 3,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Search, zoom, page progress, side-by-side lesson/evidence, compact bottom sheet",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "mobile/web implementations",
+      "baselineState": "partial",
+      "canonicalOwner": "Workspace document repository",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.pdf-storage",
+      "label": "PDF storage",
+      "preservation": "No base64 large blobs; preserve legacy byte/hash reconciliation.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 2,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Content-addressed user documents with quota/eviction/offline policy",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Today plan",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.planner",
+      "label": "Planner",
+      "preservation": "One scheduler/source of truth.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 19,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Unified constraints, availability, due reviews, goals, rotations, on-call grace",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Today focus mode",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.pomodoro-focus",
+      "label": "Pomodoro/focus",
+      "preservation": "Resume/cancel/notification behavior tested.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 23,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Start from prescription; distraction-safe; optional; no passive-time XP",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Creator draft pipeline",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.quiz-card-outline-generation",
+      "label": "Quiz/card/outline generation",
+      "preservation": "No automatic publication or reward.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 17,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Draft artifacts with source spans, confidence, review queue",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Embedded practice",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.quiz-mode",
+      "label": "Legacy `*_quiz.ts` artifacts",
+      "preservation": "Practice is embedded in sessions; attempts write durable events and the client cannot reward.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 12,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Node-linked interaction sets and generated-draft review",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational",
+      "baselineState": "operational",
+      "canonicalOwner": "Workspace anchor",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.reading-progress",
+      "label": "Reading progress",
+      "preservation": "Preserve reading-position fixtures.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 4,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Resume from Today and chapter; progress never equals lesson mastery",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "You settings/security",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.settings-biometric",
+      "label": "Settings/biometric",
+      "preservation": "Preserve keys and secure-store semantics.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 28,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "One registry/source of truth; device capabilities and fallbacks",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Workspace artifacts",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.smart-notes",
+      "label": "Smart notes",
+      "preservation": "Preserve created/updated timestamps and ownership.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 6,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Note linked to exact source selection, node, concept, and provenance",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Recall Clinic",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.srs",
+      "label": "SRS",
+      "preservation": "Reconcile intervals/history; preserve timestamps.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 20,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Migrate review history to canonical cards/concepts and calibrated scheduler",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Lesson recap",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.summary-mode",
+      "label": "Legacy `*_summary.ts` artifacts",
+      "preservation": "A recap never replaces instruction or satisfies source coverage.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 10,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Bounded retrieval recap inside a micro-lesson with source/version/review state",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "schema-protected",
+      "baselineState": "operational",
+      "canonicalOwner": "Unified personal taxonomy",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.tags-and-xrefs",
+      "label": "Tags and xrefs",
+      "preservation": "Preserve legacy keys and relationships.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 8,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Cross-link notes, documents, concepts, cases, and cards",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "partial/schema-protected",
+      "baselineState": "partial",
+      "canonicalOwner": "Media/accessibility service",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.tts-and-cache",
+      "label": "TTS and cache",
+      "preservation": "User controls, quota, cache invalidation.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 18,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Read source/note/lesson with locale voice, playback state, offline cache",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "no ledger",
+      "baselineState": "partial",
+      "canonicalOwner": "Reward projection",
+      "currentOwner": "StudyHUB-Flutter",
+      "currentRoutes": [],
+      "id": "studyhub.xp-constants",
+      "label": "XP constants",
+      "preservation": "No direct amount migration without audit.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 21,
+      "sourceSection": "Legacy Workspace Capability Absorption",
+      "targetContext": "Discard client authority, preserve historical intent through import alias if needed",
+      "verificationOwner": "WBS-321..345 StudyHUB fixture/import gates"
+    },
+    {
+      "baselineDetail": "limited catalog",
+      "baselineState": "partial",
+      "canonicalOwner": "You + relevant moments",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.achievements",
+      "label": "Achievements",
+      "preservation": "Stable localized catalog tied to meaningful competency/behavior, with secret/accessibility rules.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 11,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Stable localized catalog tied to meaningful competency/behavior, with secret/accessibility rules.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "unsafe role/self-approval risk",
+      "baselineState": "at-risk",
+      "canonicalOwner": "Global role workspace",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.admin-create",
+      "label": "Admin/create",
+      "preservation": "Evidence-gated studio; author/reviewer/approver/publisher separation; audit and staged preview.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 24,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Evidence-gated studio; author/reviewer/approver/publisher separation; audit and staged preview.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial; range enforcement gap",
+      "baselineState": "partial",
+      "canonicalOwner": "Clinical tools",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.calculators-tools",
+      "label": "Calculators/tools",
+      "preservation": "Validate inputs and bounds, show formula/source/version/units/limitations, store no PHI by default.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 21,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Validate inputs and bounds, show formula/source/version/units/limitations, store no PHI by default.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational seeds/player",
+      "baselineState": "partial",
+      "canonicalOwner": "Clinical + Path checkpoints",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.cases",
+      "label": "Cases",
+      "preservation": "Longitudinal patients, forks, confidence, decisions, evidence, debrief, delayed transfer.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 6,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Longitudinal patients, forks, confidence, decisions, evidence, debrief, delayed transfer.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "commitment/partial",
+      "baselineState": "commitment",
+      "canonicalOwner": "Rounds + role workspace",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.classes-org",
+      "label": "Classes/org",
+      "preservation": "Assignments, curriculum alignment, cohorts, faculty insight, institution isolation.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 23,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Assignments, curriculum alignment, cohorts, faculty insight, institution isolation.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "profile/headline game only",
+      "baselineState": "partial",
+      "canonicalOwner": "Unified sync boundary",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.cloud-sync",
+      "label": "Cloud sync",
+      "preservation": "Scoped repositories, conflict policy, dirty/outbox state, user-visible status, reconciliation.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 30,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Scoped repositories, conflict policy, dirty/outbox state, user-visible status, reconciliation.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Global Command",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.command-palette",
+      "label": "Command Palette",
+      "preservation": "Rare tools/actions/admin routes; keyboard and touch; role- and context-aware.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 4,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Rare tools/actions/admin routes; keyboard and touch; role- and context-aware.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Rounds",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.community-rooms-events",
+      "label": "Community/rooms/events",
+      "preservation": "Structured forums, cohorts, events, moderation, tags, verified roles; not a generic feed.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 22,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Structured forums, cohorts, events, moderation, tags, verified roles; not a generic feed.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Mastery Thread",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.concept-hub",
+      "label": "Concept Hub",
+      "preservation": "One concept dossier: mastery dimensions, curriculum locations, errors, resources, evidence, notes, cases, discussions.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 5,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "One concept dossier: mastery dimensions, curriculum locations, errors, resources, evidence, notes, cases, discussions.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Clinical Evidence Shelf",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.diseases",
+      "label": "Diseases",
+      "preservation": "Structured reference with sources, dates, uncertainty, compare, and learning links.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 19,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Structured reference with sources, dates, uncertainty, compare, and learning links.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Clinical Evidence Shelf",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.drugs-classes-interactions",
+      "label": "Drugs/classes/interactions",
+      "preservation": "Drug identity, class, interactions, provenance, safety warnings; separate educational examples from clinical advice.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 20,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Drug identity, class, interactions, provenance, safety warnings; separate educational examples from clinical advice.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "local-only",
+      "baselineState": "partial",
+      "canonicalOwner": "You + server authority",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.entitlement-pro",
+      "label": "Entitlement/Pro",
+      "preservation": "Signed/server entitlement, offline grace, restore purchase, transparent feature matrix.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 27,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Signed/server entitlement, offline grace, restore purchase, transparent feature matrix.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "in-memory/no subscribers",
+      "baselineState": "partial",
+      "canonicalOwner": "Domain event layer",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.eventbus",
+      "label": "EventBus",
+      "preservation": "Durable outbox/inbox, idempotent consumers, legacy projection, observability, replay/conflict tests.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 29,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Durable outbox/inbox, idempotent consumers, legacy projection, observability, replay/conflict tests.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational but generic",
+      "baselineState": "operational",
+      "canonicalOwner": "Today",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.home-module-grid",
+      "label": "Home module grid",
+      "preservation": "Replace first viewport with one prescription, small workload/continuity context, resume, and explicit Browse Path; module inventory remains accessible through Search/Explore.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 1,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Replace first viewport with one prescription, small workload/continuity context, resume, and explicit Browse Path; module inventory remains accessible through Search/Explore.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "toast/commitment",
+      "baselineState": "commitment",
+      "canonicalOwner": "Global command + Workspace",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.import-export-integrations",
+      "label": "Import/export/integrations",
+      "preservation": "Real background jobs, file validation, progress, errors, retry/resume, checksum, privacy, provenance.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 25,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Real background jobs, file validation, progress, errors, retry/resume, checksum, privacy, provenance.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Global + Rounds",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.inbox-chat",
+      "label": "Inbox/chat",
+      "preservation": "Threaded, safe, reportable, retention-scoped; node/case context preserved.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 17,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Threaded, safe, reportable, retention-scoped; node/case context preserved.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "You + contextual snapshots",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.insights",
+      "label": "Insights",
+      "preservation": "Multidimensional mastery, calibration, workload, retention, transfer, gaps, and data confidence.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 9,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Multidimensional mastery, calibration, workload, retention, transfer, gaps, and data confidence.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Evidence Shelf + Clinical",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.library",
+      "label": "Library",
+      "preservation": "Contextual peek for in-flow use; full library route remains for deliberate browse/search.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 18,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Contextual peek for in-flow use; full library route remains for deliberate browse/search.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "fixed/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Shell state system",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.network-banner",
+      "label": "Network banner",
+      "preservation": "Real connectivity/degraded/stale state with offline-capable actions and queued effects.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 28,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Real connectivity/degraded/stale state with offline-capable actions and queued effects.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Global/Today",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.notifications",
+      "label": "Notifications",
+      "preservation": "Explainable, bundled, quiet-hours/on-call aware, localized, deep-linked, user-controlled.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 16,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Explainable, bundled, quiet-hours/on-call aware, localized, deep-linked, user-controlled.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial keyword scoring",
+      "baselineState": "partial",
+      "canonicalOwner": "Clinical + Path checkpoint",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.osce",
+      "label": "OSCE",
+      "preservation": "Rubric-governed station plans, roles, recording/consent, self/peer/AI feedback boundaries.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 7,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Rubric-governed station plans, roles, recording/consent, self/peer/AI feedback boundaries.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial/local",
+      "baselineState": "partial",
+      "canonicalOwner": "Today",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.plan",
+      "label": "Plan",
+      "preservation": "Workload-aware prescription, rotations/on-call/easy days, review debt caps, explainable scheduling.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 8,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Workload-aware prescription, rotations/on-call/easy days, review debt caps, explainable scheduling.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "local switches/commitment",
+      "baselineState": "commitment",
+      "canonicalOwner": "You",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.privacy-data",
+      "label": "Privacy/data",
+      "preservation": "Real consent, export, delete, retention, AI/social/analytics controls, audit and confirmation.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 26,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Real consent, export, delete, retention, AI/social/analytics controls, audit and confirmation.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial",
+      "baselineState": "partial",
+      "canonicalOwner": "You",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.profile-customization",
+      "label": "Profile customization",
+      "preservation": "Role, stage, goals, density, game visibility, companion setting, professional identity; display name separate from title.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 15,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Role, stage, goals, density, game visibility, companion setting, professional identity; display name separate from title.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "limited/local",
+      "baselineState": "partial",
+      "canonicalOwner": "Today + Rounds",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.quests",
+      "label": "Quests",
+      "preservation": "Bounded personal/co-op learning missions with caps and alternative paths.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 12,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Bounded personal/co-op learning missions with caps and alternative paths.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Today + Recall Clinic",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.review",
+      "label": "Review",
+      "preservation": "Unified review queue explains source, due reason, expected effort, and deferral consequence.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 2,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Unified review queue explains source, due reason, expected effort, and deferral consequence.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "client-authoritative risk",
+      "baselineState": "at-risk",
+      "canonicalOwner": "You + summary moments",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.rewards",
+      "label": "Rewards",
+      "preservation": "Server-ledger projection; learning-first; no reward clutter in Clinical.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 10,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Server-ledger projection; learning-first; no reward clutter in Clinical.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial",
+      "baselineState": "partial",
+      "canonicalOwner": "Global Search",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/search"
+      ],
+      "id": "synapse.global.search",
+      "label": "Search",
+      "preservation": "Index curriculum, concepts, dual-language terminology, evidence, user artifacts, people, routes, and commands; preserve `/search`.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 3,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Index curriculum, concepts, dual-language terminology, evidence, user artifacts, people, routes, and commands; preserve `/search`.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial/local",
+      "baselineState": "partial",
+      "canonicalOwner": "You",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.shop-pro",
+      "label": "Shop/Pro",
+      "preservation": "Cosmetics/subscription transparency; no pay-to-learn critical content, loot boxes, or manipulative scarcity.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 14,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Cosmetics/subscription transparency; no pay-to-learn critical content, loot boxes, or manipulative scarcity.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "fragile/local",
+      "baselineState": "partial",
+      "canonicalOwner": "Today + You",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.global.streak",
+      "label": "Streak",
+      "preservation": "Compassionate continuity seam with on-call grace, recovery, and no shame.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 13,
+      "sourceSection": "Existing Synapse Global Capability Absorption",
+      "targetContext": "Compassionate continuity seam with on-call grace, recovery, and no shame.",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial branching player",
+      "baselineState": "partial",
+      "canonicalOwner": "Decision practice, “why next,” variation branches, learning-vs-CDS boundary",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.algorithms",
+      "label": "Algorithms",
+      "preservation": "Play/edit/session/bookmark intents remain; authoring is governed.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 8,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Clinical + chapter checkpoints",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial battle seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Optional pharmacology/microbiology challenge mode with mastery-weighted, nonessential rewards",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.arena",
+      "label": "Arena",
+      "preservation": "Battle/deck/collection/capsules/shop/clan/league/season/replay routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 12,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Rounds events + Path optional encounter",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial local match/chat",
+      "baselineState": "partial",
+      "canonicalOwner": "Study partner matching, small wards, peer teaching, accountability, safe group lifecycle",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.buddies",
+      "label": "Buddies",
+      "preservation": "Discover/requests/matches/groups/profile routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 11,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Rounds",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial SRS and decks",
+      "baselineState": "partial",
+      "canonicalOwner": "Concept-linked retrieval queue, learner cards, source-derived cards, misconception cards",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/learn/cards"
+      ],
+      "id": "synapse.module.cards",
+      "label": "Cards",
+      "preservation": "Deck/card IDs and routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 3,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Today reviews + Path Margin Workspace + Recall Clinic",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial local keyword helper",
+      "baselineState": "partial",
+      "canonicalOwner": "Mode-aware tutor/assistant: explain, quiz, repair, evidence navigation, workflow commands; explicit Education/Reference/Clinical boundaries",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/copilot"
+      ],
+      "id": "synapse.module.copilot",
+      "label": "Copilot",
+      "preservation": "Route opens full thread history; old links preserved.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 1,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Global dock + node/document threads",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational generator/drills/cases",
+      "baselineState": "operational",
+      "canonicalOwner": "Deliberate signal interpretation with progressive scaffolding and case transfer",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/clinical/ecg"
+      ],
+      "id": "synapse.module.ecg",
+      "label": "ECG",
+      "preservation": "All drill/case/review/generative/stats routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 5,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Clinical skill lab + curriculum checkpoints",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial rules/reference",
+      "baselineState": "partial",
+      "canonicalOwner": "Panel interpretation, longitudinal trend reasoning, range/provenance-aware practice",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.labs",
+      "label": "Labs",
+      "preservation": "Panel/history/result/ruleset/learn routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 7,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Clinical skill lab + cases + Evidence Shelf",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial local/community seeds",
+      "baselineState": "partial",
+      "canonicalOwner": "Optional memory hook, user artifact, lesson power-up, reviewed community contribution",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.mnemonics",
+      "label": "Mnemonics",
+      "preservation": "Collections, mine, tags, search, and detail routes preserved.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 4,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Lesson inspector + personal workspace + Rounds",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial narrative drama",
+      "baselineState": "partial",
+      "canonicalOwner": "Episodic surgical learning, pre-case rehearsal, branching narrative, transcript",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.orLab",
+      "label": "OR Lab",
+      "preservation": "Home/detail/play/sim/transcript routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 9,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Clinical + Path boss/checkpoint",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "partial seed feed",
+      "baselineState": "partial",
+      "canonicalOwner": "Citation-aware audio/case/teach-back feed with transcripts, tags, de-identification, moderation",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.rounds",
+      "label": "Rounds",
+      "preservation": "Feed/detail/discover/record/comments/remix routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 10,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Rounds",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational/partial quiz and timer/audio",
+      "baselineState": "partial",
+      "canonicalOwner": "Auscultation library, discrimination practice, audio rounds, transcript/accessibility",
+      "currentOwner": "Synapse",
+      "currentRoutes": [],
+      "id": "synapse.module.sounds",
+      "label": "Sounds",
+      "preservation": "Library, detail, quiz, simulator, stats routes remain.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 6,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Clinical skill lab + lesson encounter + Rounds",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "operational Course→Unit→Lesson→Exercise loop, 8 exercise types",
+      "baselineState": "operational",
+      "canonicalOwner": "Terminology, morphology, abbreviations, pronunciation, and translation lens attached to curriculum nodes",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/learn/terms"
+      ],
+      "id": "synapse.module.terms",
+      "label": "Terms",
+      "preservation": "Legacy home becomes filtered all-terms explorer.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sourceRow": 2,
+      "sourceSection": "Existing Synapse Module Absorption",
+      "targetContext": "Path lesson method + Recall Clinic",
+      "verificationOwner": "contracts/preservation/route-registry.v1.json"
+    },
+    {
+      "baselineDetail": "reachable splash and onboarding routes",
+      "baselineState": "operational",
+      "canonicalOwner": "Unified onboarding",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/splash",
+        "/onboarding"
+      ],
+      "id": "synapse.system.onboarding",
+      "label": "Splash and onboarding",
+      "preservation": "cold/warm launch and onboarded persistence remain compatible",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceRow": 1,
+      "sourceSection": "route-only system capability",
+      "targetContext": "launch",
+      "verificationOwner": "contracts/preservation/deep-link-fixtures.v1.json"
+    },
+    {
+      "baselineDetail": "local profile plus public/profile edit routes",
+      "baselineState": "partial",
+      "canonicalOwner": "You",
+      "currentOwner": "Synapse",
+      "currentRoutes": [
+        "/profile",
+        "/profile/edit",
+        "/u/:handle"
+      ],
+      "id": "synapse.system.profile",
+      "label": "Profile identity",
+      "preservation": "preserve profile ID, handle, role, prefs, and legacy entry points",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceRow": 2,
+      "sourceSection": "route-only system capability",
+      "targetContext": "identity and professional preferences",
+      "verificationOwner": "contracts/preservation/archived-domain-fixtures.v1.json"
+    }
+  ],
+  "invariants": [
+    "no current Synapse capability disappears because it no longer owns a standalone page",
+    "new routes may be owned by a registered additive capability without rewriting the preserved 76-entry baseline",
+    "StudyHUB capabilities are absorbed into contextual owners and never become a sixth top-level authority",
+    "partial, commitment, prototype, dormant, and at-risk states remain labeled honestly until proven"
+  ],
+  "registeredAdditiveCapabilityIds": [
+    "synapse.academy.curriculum-packages",
+    "synapse.academy.curriculum-path",
+    "synapse.academy.learning-session"
+  ],
+  "registeredAdditiveCapabilitySource": "contracts/product/new-capability-registry.v1.json",
+  "routeCoverage": [
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "path": "/academy",
+      "routeId": "route:/academy"
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "path": "/academy/course",
+      "routeId": "route:/academy/course"
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "path": "/academy/document",
+      "routeId": "route:/academy/document"
+    },
+    {
+      "capabilityId": "synapse.academy.learning-session",
+      "path": "/academy/session",
+      "routeId": "route:/academy/session"
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "path": "/academy/workspace",
+      "routeId": "route:/academy/workspace"
+    },
+    {
+      "capabilityId": "synapse.global.achievements",
+      "path": "/achievements",
+      "routeId": "route:/achievements"
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "path": "/admin",
+      "routeId": "route:/admin"
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "path": "/admin/:section",
+      "routeId": "route:/admin/:section"
+    },
+    {
+      "capabilityId": "synapse.global.cases",
+      "path": "/cases",
+      "routeId": "route:/cases"
+    },
+    {
+      "capabilityId": "synapse.global.cases",
+      "path": "/cases/:caseId",
+      "routeId": "route:/cases/:caseId"
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "path": "/chat",
+      "routeId": "route:/chat"
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "path": "/chat/:threadId",
+      "routeId": "route:/chat/:threadId"
+    },
+    {
+      "capabilityId": "synapse.global.classes-org",
+      "path": "/classes",
+      "routeId": "route:/classes"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/clinical",
+      "routeId": "route:/clinical"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms",
+      "routeId": "route:/clinical/algorithms"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/:algorithmId",
+      "routeId": "route:/clinical/algorithms/:algorithmId"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/:algorithmId/edit",
+      "routeId": "route:/clinical/algorithms/:algorithmId/edit"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/:algorithmId/play",
+      "routeId": "route:/clinical/algorithms/:algorithmId/play"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/bookmarks",
+      "routeId": "route:/clinical/algorithms/bookmarks"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/new",
+      "routeId": "route:/clinical/algorithms/new"
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "path": "/clinical/algorithms/sessions",
+      "routeId": "route:/clinical/algorithms/sessions"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg",
+      "routeId": "route:/clinical/ecg"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg/case/:caseId",
+      "routeId": "route:/clinical/ecg/case/:caseId"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg/drill",
+      "routeId": "route:/clinical/ecg/drill"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg/generative",
+      "routeId": "route:/clinical/ecg/generative"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg/review",
+      "routeId": "route:/clinical/ecg/review"
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "path": "/clinical/ecg/stats",
+      "routeId": "route:/clinical/ecg/stats"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs",
+      "routeId": "route:/clinical/labs"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs/history",
+      "routeId": "route:/clinical/labs/history"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs/learn",
+      "routeId": "route:/clinical/labs/learn"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs/panel/:panel",
+      "routeId": "route:/clinical/labs/panel/:panel"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs/result/:evaluationId",
+      "routeId": "route:/clinical/labs/result/:evaluationId"
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "path": "/clinical/labs/ruleset",
+      "routeId": "route:/clinical/labs/ruleset"
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "path": "/clinical/or-lab",
+      "routeId": "route:/clinical/or-lab"
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "path": "/clinical/or-lab/:dramaId",
+      "routeId": "route:/clinical/or-lab/:dramaId"
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "path": "/clinical/or-lab/:dramaId/play",
+      "routeId": "route:/clinical/or-lab/:dramaId/play"
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "path": "/clinical/or-lab/:dramaId/sim",
+      "routeId": "route:/clinical/or-lab/:dramaId/sim"
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "path": "/clinical/or-lab/:dramaId/transcript",
+      "routeId": "route:/clinical/or-lab/:dramaId/transcript"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/clinical/osce",
+      "routeId": "route:/clinical/osce"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/clinical/osce/:id",
+      "routeId": "route:/clinical/osce/:id"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/clinical/osce/:id/play",
+      "routeId": "route:/clinical/osce/:id/play"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds",
+      "routeId": "route:/clinical/sounds"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds/:soundId",
+      "routeId": "route:/clinical/sounds/:soundId"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds/library",
+      "routeId": "route:/clinical/sounds/library"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds/quiz",
+      "routeId": "route:/clinical/sounds/quiz"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds/simulator",
+      "routeId": "route:/clinical/sounds/simulator"
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "path": "/clinical/sounds/stats",
+      "routeId": "route:/clinical/sounds/stats"
+    },
+    {
+      "capabilityId": "synapse.global.concept-hub",
+      "path": "/concept/:conceptId",
+      "routeId": "route:/concept/:conceptId"
+    },
+    {
+      "capabilityId": "synapse.module.copilot",
+      "path": "/copilot",
+      "routeId": "route:/copilot"
+    },
+    {
+      "capabilityId": "synapse.module.copilot",
+      "path": "/copilot/:threadId",
+      "routeId": "route:/copilot/:threadId"
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "path": "/create",
+      "routeId": "route:/create"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/home",
+      "routeId": "route:/home"
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "path": "/inbox",
+      "routeId": "route:/inbox"
+    },
+    {
+      "capabilityId": "synapse.global.insights",
+      "path": "/insights",
+      "routeId": "route:/insights"
+    },
+    {
+      "capabilityId": "synapse.global.import-export-integrations",
+      "path": "/integrations",
+      "routeId": "route:/integrations"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/learn",
+      "routeId": "route:/learn"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards",
+      "routeId": "route:/learn/cards"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/card/:cardId/edit",
+      "routeId": "route:/learn/cards/card/:cardId/edit"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/deck/:deckId",
+      "routeId": "route:/learn/cards/deck/:deckId"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/deck/:deckId/edit",
+      "routeId": "route:/learn/cards/deck/:deckId/edit"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/graph",
+      "routeId": "route:/learn/cards/graph"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/import",
+      "routeId": "route:/learn/cards/import"
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "path": "/learn/cards/study",
+      "routeId": "route:/learn/cards/study"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics",
+      "routeId": "route:/learn/mnemonics"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/:mnemonicId",
+      "routeId": "route:/learn/mnemonics/:mnemonicId"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/collections",
+      "routeId": "route:/learn/mnemonics/collections"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/collections/:collectionId",
+      "routeId": "route:/learn/mnemonics/collections/:collectionId"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/mine",
+      "routeId": "route:/learn/mnemonics/mine"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/new",
+      "routeId": "route:/learn/mnemonics/new"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/search",
+      "routeId": "route:/learn/mnemonics/search"
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "path": "/learn/mnemonics/tag/:tagId",
+      "routeId": "route:/learn/mnemonics/tag/:tagId"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms",
+      "routeId": "route:/learn/terms"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms/leaderboard",
+      "routeId": "route:/learn/terms/leaderboard"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms/lesson/:lessonId",
+      "routeId": "route:/learn/terms/lesson/:lessonId"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms/practice",
+      "routeId": "route:/learn/terms/practice"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms/stories",
+      "routeId": "route:/learn/terms/stories"
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "path": "/learn/terms/unit/:unitId",
+      "routeId": "route:/learn/terms/unit/:unitId"
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "path": "/legal/:doc",
+      "routeId": "route:/legal/:doc"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library",
+      "routeId": "route:/library"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/atlas",
+      "routeId": "route:/library/atlas#atlas"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/atlas/:id",
+      "routeId": "route:/library/atlas/:id#atlas"
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "path": "/library/diseases",
+      "routeId": "route:/library/diseases"
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "path": "/library/diseases/:id",
+      "routeId": "route:/library/diseases/:id"
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "path": "/library/diseases/compare",
+      "routeId": "route:/library/diseases/compare"
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "path": "/library/drugs",
+      "routeId": "route:/library/drugs"
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "path": "/library/drugs/:id",
+      "routeId": "route:/library/drugs/:id"
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "path": "/library/drugs/class/:id",
+      "routeId": "route:/library/drugs/class/:id"
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "path": "/library/drugs/interactions",
+      "routeId": "route:/library/drugs/interactions"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/guidelines",
+      "routeId": "route:/library/guidelines#guideline"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/guidelines/:id",
+      "routeId": "route:/library/guidelines/:id#guideline"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/imaging",
+      "routeId": "route:/library/imaging#imaging"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/imaging/:id",
+      "routeId": "route:/library/imaging/:id#imaging"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/journal",
+      "routeId": "route:/library/journal#journal"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/journal/:id",
+      "routeId": "route:/library/journal/:id#journal"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/procedures",
+      "routeId": "route:/library/procedures#procedure"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "path": "/library/procedures/:id",
+      "routeId": "route:/library/procedures/:id#procedure"
+    },
+    {
+      "capabilityId": "synapse.global.calculators-tools",
+      "path": "/library/tools",
+      "routeId": "route:/library/tools"
+    },
+    {
+      "capabilityId": "synapse.global.calculators-tools",
+      "path": "/library/tools/:id",
+      "routeId": "route:/library/tools/:id"
+    },
+    {
+      "capabilityId": "synapse.global.notifications",
+      "path": "/notifications",
+      "routeId": "route:/notifications"
+    },
+    {
+      "capabilityId": "synapse.system.onboarding",
+      "path": "/onboarding",
+      "routeId": "route:/onboarding"
+    },
+    {
+      "capabilityId": "synapse.global.classes-org",
+      "path": "/org",
+      "routeId": "route:/org"
+    },
+    {
+      "capabilityId": "synapse.global.plan",
+      "path": "/plan",
+      "routeId": "route:/plan"
+    },
+    {
+      "capabilityId": "synapse.global.plan",
+      "path": "/plan/track/:id",
+      "routeId": "route:/plan/track/:id"
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "path": "/pro",
+      "routeId": "route:/pro"
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "path": "/profile",
+      "routeId": "route:/profile"
+    },
+    {
+      "capabilityId": "synapse.global.profile-customization",
+      "path": "/profile/customize",
+      "routeId": "route:/profile/customize"
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "path": "/profile/edit",
+      "routeId": "route:/profile/edit"
+    },
+    {
+      "capabilityId": "synapse.global.insights",
+      "path": "/profile/stats",
+      "routeId": "route:/profile/stats"
+    },
+    {
+      "capabilityId": "synapse.global.quests",
+      "path": "/quests",
+      "routeId": "route:/quests"
+    },
+    {
+      "capabilityId": "synapse.global.review",
+      "path": "/review",
+      "routeId": "route:/review"
+    },
+    {
+      "capabilityId": "synapse.global.rewards",
+      "path": "/rewards",
+      "routeId": "route:/rewards"
+    },
+    {
+      "capabilityId": "synapse.global.search",
+      "path": "/search",
+      "routeId": "route:/search"
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "path": "/settings",
+      "routeId": "route:/settings"
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "path": "/settings/data",
+      "routeId": "route:/settings/data"
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "path": "/settings/privacy",
+      "routeId": "route:/settings/privacy"
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "path": "/settings/redeem",
+      "routeId": "route:/settings/redeem"
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "path": "/settings/subscription",
+      "routeId": "route:/settings/subscription"
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "path": "/shop",
+      "routeId": "route:/shop"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social",
+      "routeId": "route:/social"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena",
+      "routeId": "route:/social/arena"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/battle",
+      "routeId": "route:/social/arena/battle"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/capsules",
+      "routeId": "route:/social/arena/capsules"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/clan",
+      "routeId": "route:/social/arena/clan"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/clan/:clanId",
+      "routeId": "route:/social/arena/clan/:clanId"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/collection",
+      "routeId": "route:/social/arena/collection"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/deck",
+      "routeId": "route:/social/arena/deck"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/leaderboard",
+      "routeId": "route:/social/arena/leaderboard"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/replay/:replayId",
+      "routeId": "route:/social/arena/replay/:replayId"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/season",
+      "routeId": "route:/social/arena/season"
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "path": "/social/arena/shop",
+      "routeId": "route:/social/arena/shop"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies",
+      "routeId": "route:/social/buddies"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/:userId",
+      "routeId": "route:/social/buddies/:userId"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/discover",
+      "routeId": "route:/social/buddies/discover"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/groups",
+      "routeId": "route:/social/buddies/groups"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/groups/:groupId",
+      "routeId": "route:/social/buddies/groups/:groupId"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/matches",
+      "routeId": "route:/social/buddies/matches"
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "path": "/social/buddies/requests",
+      "routeId": "route:/social/buddies/requests"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social/community",
+      "routeId": "route:/social/community"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social/events",
+      "routeId": "route:/social/events"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social/leaderboard",
+      "routeId": "route:/social/leaderboard"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social/rooms",
+      "routeId": "route:/social/rooms"
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "path": "/social/rooms/:id",
+      "routeId": "route:/social/rooms/:id"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds",
+      "routeId": "route:/social/rounds"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds/:roundId",
+      "routeId": "route:/social/rounds/:roundId"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds/:roundId/comments",
+      "routeId": "route:/social/rounds/:roundId/comments"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds/:roundId/remix",
+      "routeId": "route:/social/rounds/:roundId/remix"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds/discover",
+      "routeId": "route:/social/rounds/discover"
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "path": "/social/rounds/record",
+      "routeId": "route:/social/rounds/record"
+    },
+    {
+      "capabilityId": "synapse.system.onboarding",
+      "path": "/splash",
+      "routeId": "route:/splash"
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "path": "/u/:handle",
+      "routeId": "route:/u/:handle"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-21"
+}

@@ -43,18 +43,29 @@ class EmptyState extends StatelessWidget {
               child: Icon(icon, size: 44, color: a),
             ),
             const SizedBox(height: 20),
-            Text(title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleLarge),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             if (message != null) ...[
               const SizedBox(height: 8),
-              Text(message!,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: t.textMuted)),
+              Text(
+                message!,
+                textAlign: TextAlign.center,
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(color: t.textMuted),
+              ),
             ],
             if (actionLabel != null && onAction != null) ...[
               const SizedBox(height: 24),
-              AppButton(label: actionLabel!, onPressed: onAction, accent: a, size: AppButtonSize.medium),
+              AppButton(
+                label: actionLabel!,
+                onPressed: onAction,
+                accent: a,
+                size: AppButtonSize.medium,
+              ),
             ],
           ],
         ),
@@ -84,11 +95,16 @@ class ErrorBanner extends StatelessWidget {
         children: [
           Icon(Icons.error_outline_rounded, color: t.danger),
           const SizedBox(width: 12),
-          Expanded(child: Text(message, style: TextStyle(color: t.text))),
+          Expanded(
+            child: Text(message, style: TextStyle(color: t.text)),
+          ),
           if (onRetry != null)
             TextButton(
               onPressed: onRetry,
-              child: Text('Retry', style: TextStyle(color: t.danger, fontWeight: FontWeight.w700)),
+              child: Text(
+                'Retry',
+                style: TextStyle(color: t.danger, fontWeight: FontWeight.w700),
+              ),
             ),
         ],
       ),
@@ -112,8 +128,14 @@ class OfflineBanner extends StatelessWidget {
         children: [
           Icon(Icons.cloud_off_rounded, size: 15, color: t.warning),
           const SizedBox(width: 8),
-          Text('Offline — your progress will sync later',
-              style: TextStyle(color: t.warning, fontSize: 12.5, fontWeight: FontWeight.w600)),
+          Text(
+            'Offline — your progress will sync later',
+            style: TextStyle(
+              color: t.warning,
+              fontSize: 12.5,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );
@@ -130,8 +152,8 @@ class LoadingList extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.all(16),
       itemCount: count,
-      separatorBuilder: (_, __) => const SizedBox(height: 12),
-      itemBuilder: (_, __) => const Row(
+      separatorBuilder: (_, _) => const SizedBox(height: 12),
+      itemBuilder: (_, _) => const Row(
         children: [
           Shimmer(width: 42, height: 42, radius: 12),
           SizedBox(width: 12),

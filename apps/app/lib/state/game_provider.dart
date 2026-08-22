@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:synapse_core/synapse_core.dart';
 import 'package:synapse_engines/synapse_engines.dart';
+import 'package:synapse_motion/synapse_motion.dart';
 import 'package:synapse_services/synapse_services.dart';
 import 'package:synapse_ui/synapse_ui.dart';
 
 import 'app_providers.dart';
-import 'toast_provider.dart';
+import 'presentation_provider.dart';
 
-/// The unified gameplay state — the integration hub. One place updates XP,
+/// The unified gameplay state. One place updates XP,
 /// gems, hearts, streak, league, concept mastery, quests and achievements, and
 /// publishes the matching [SynapseEvent]s so reactors elsewhere can respond
 /// (prompt 09 / 32 / 33).
@@ -65,14 +65,17 @@ class GameNotifier extends Notifier<GameState> {
     final store = ref.watch(sharedPreferencesProvider);
 
     final gameJson = store.readJson(_gameKey);
-    final game = gameJson != null ? GamificationState.fromJson(gameJson) : const GamificationState();
+    final game = gameJson != null
+        ? GamificationState.fromJson(gameJson)
+        : const GamificationState();
 
     final masteryJson = store.readJson(_masteryKey);
     final mastery = <ConceptId, ConceptMastery>{};
     if (masteryJson != null) {
       for (final entry in masteryJson.entries) {
-        mastery[entry.key] =
-            ConceptMastery.fromJson(Map<String, dynamic>.from(entry.value as Map));
+        mastery[entry.key] = ConceptMastery.fromJson(
+          Map<String, dynamic>.from(entry.value as Map),
+        );
       }
     }
 
@@ -97,7 +100,7 @@ class GameNotifier extends Notifier<GameState> {
         ? _decodeQuests(questsRaw['list'] as List)
         : DemoSeed.quests();
 
-    final achievements = _syncAchievements(counters, game);
+    final achievements = _syncAchievements(counters).achievements;
 
     return GameState(
       game: game,
@@ -110,9 +113,9 @@ class GameNotifier extends Notifier<GameState> {
 
   // ---- Public API: the single entry point modules call ----
 
-  /// Report the outcome of an activity. Returns nothing; side-effects (toasts)
-  /// are pushed to [toastProvider]. This is what makes one action ripple across
-  /// the app (reward + mastery + quests + achievements + events).
+  /// Report one activity outcome. Domain state changes first; one immutable
+  /// presentation receipt then summarizes reward, quest, and achievement
+  /// outcomes without granting any of them from the animation layer.
   void report({
     required ModuleKey source,
     required RewardKind kind,
@@ -131,9 +134,11 @@ class GameNotifier extends Notifier<GameState> {
     // 1) Publish concept events + update mastery (prompt 32/33).
     final mastery = Map<ConceptId, ConceptMastery>.from(next.mastery);
     for (final cid in concepts) {
-      bus.publish(correct
-          ? ConceptStudied(conceptId: cid, source: source, correct: true)
-          : ConceptStruggled(conceptId: cid, source: source));
+      bus.publish(
+        correct
+            ? ConceptStudied(conceptId: cid, source: source, correct: true)
+            : ConceptStruggled(conceptId: cid, source: source),
+      );
       final current = mastery[cid] ?? ConceptMastery(conceptId: cid);
       final updated = current.applyOutcome(wasCorrect: correct, source: source);
       mastery[cid] = updated;
@@ -147,12 +152,17 @@ class GameNotifier extends Notifier<GameState> {
     void bump(String k, [int by = 1]) => counters[k] = (counters[k] ?? 0) + by;
     if (correct) bump('total.correct');
     if (achievementMetric.isNotEmpty) bump(achievementMetric, metricBy);
-    counters['concepts.mastered'] = mastery.values.where((m) => m.isMastered).length;
+    counters['concepts.mastered'] = mastery.values
+        .where((m) => m.isMastered)
+        .length;
 
     // 3) Reward economy (only meaningful gains on success / contributions).
     var game = next.game;
     final intents = <RewardIntent>[];
-    if (correct || kind == RewardKind.contribution || kind == RewardKind.review) {
+    final completedQuestIds = <String>[];
+    if (correct ||
+        kind == RewardKind.contribution ||
+        kind == RewardKind.review) {
       final event = RewardEvent(
         source: source,
         kind: kind,
@@ -170,14 +180,9 @@ class GameNotifier extends Notifier<GameState> {
       // 4) Advance quests on the same event.
       final qUpdate = QuestEngine.apply(next.quests, event);
       next = next.copyWith(quests: qUpdate.quests);
+      completedQuestIds.addAll(qUpdate.newlyComplete);
       for (final qid in qUpdate.newlyComplete) {
         bus.publish(QuestProgressed(questId: qid));
-        ref.read(toastProvider.notifier).push(ToastMessage(
-              title: 'Quest complete!',
-              subtitle: 'Claim your reward',
-              icon: Icons.task_alt_rounded,
-              color: const Color(0xFF7BE0A3),
-            ));
       }
     } else if (hearted) {
       // 3b) Wrong answer in a hearted drill loses a life.
@@ -189,14 +194,25 @@ class GameNotifier extends Notifier<GameState> {
     counters['level'] = game.xp.level;
 
     // 5) Recompute achievements.
-    final achievements = _syncAchievements(counters, game, intents: intents);
+    final achievementSync = _syncAchievements(counters);
+    final achievements = achievementSync.achievements;
 
-    next = next.copyWith(game: game, mastery: mastery, counters: counters, achievements: achievements);
+    next = next.copyWith(
+      game: game,
+      mastery: mastery,
+      counters: counters,
+      achievements: achievements,
+    );
     state = next;
     _persist();
 
-    // 6) Toasts for the gameplay intents.
-    _emitIntents(intents);
+    // 6) One presentation receipt for this authoritative local transaction.
+    _emitTransactionPresentation(
+      intents,
+      kind: kind,
+      completedQuestIds: completedQuestIds,
+      unlockedAchievements: achievementSync.newlyUnlocked,
+    );
   }
 
   /// Mark a finished lesson/case (publishes the higher-level event too).
@@ -207,20 +223,39 @@ class GameNotifier extends Notifier<GameState> {
     List<ConceptId> concepts = const [],
     int xp = 15,
   }) {
-    ref.read(eventBusProvider).publish(
-          LessonCompleted(source: source, correct: correct, total: total, conceptIds: concepts),
+    ref
+        .read(eventBusProvider)
+        .publish(
+          LessonCompleted(
+            source: source,
+            correct: correct,
+            total: total,
+            conceptIds: concepts,
+          ),
         );
-    report(source: source, kind: RewardKind.lesson, correct: true, concepts: concepts, xp: xp, firstTry: correct == total);
+    report(
+      source: source,
+      kind: RewardKind.lesson,
+      correct: true,
+      concepts: concepts,
+      xp: xp,
+      firstTry: correct == total,
+    );
   }
 
   void claimQuest(String id) {
     final quests = state.quests.map((q) {
       if (q.id == id && q.isComplete && !q.isClaimed) {
         // Pay out.
-        final event = RewardEvent(source: ModuleKey.copilot, kind: RewardKind.lesson, xp: q.rewardXp, gems: q.rewardGems);
+        final event = RewardEvent(
+          source: ModuleKey.copilot,
+          kind: RewardKind.lesson,
+          xp: q.rewardXp,
+          gems: q.rewardGems,
+        );
         final result = _engine.award(state.game, event);
         state = state.copyWith(game: result.state);
-        _emitIntents(result.intents);
+        _emitTransactionPresentation(result.intents, kind: RewardKind.lesson);
         return q.copyWith(claimedAt: DateTime.now());
       }
       return q;
@@ -241,7 +276,11 @@ class GameNotifier extends Notifier<GameState> {
     if (amount <= 0) return true;
     final wallet = state.game.wallet;
     if (wallet.gems < amount) return false;
-    state = state.copyWith(game: state.game.copyWith(wallet: wallet.copyWith(gems: wallet.gems - amount)));
+    state = state.copyWith(
+      game: state.game.copyWith(
+        wallet: wallet.copyWith(gems: wallet.gems - amount),
+      ),
+    );
     _persist();
     return true;
   }
@@ -249,7 +288,11 @@ class GameNotifier extends Notifier<GameState> {
   /// Grant gems (e.g. a promo / redeem code).
   void grantGems(int amount) {
     final wallet = state.game.wallet;
-    state = state.copyWith(game: state.game.copyWith(wallet: wallet.copyWith(gems: wallet.gems + amount)));
+    state = state.copyWith(
+      game: state.game.copyWith(
+        wallet: wallet.copyWith(gems: wallet.gems + amount),
+      ),
+    );
     _persist();
   }
 
@@ -263,7 +306,9 @@ class GameNotifier extends Notifier<GameState> {
     // Practice mode: top up one heart for free when empty (no-hearts mode).
     final h = state.game.hearts;
     if (h.current < h.max) {
-      state = state.copyWith(game: state.game.copyWith(hearts: h.copyWith(current: h.current + 1)));
+      state = state.copyWith(
+        game: state.game.copyWith(hearts: h.copyWith(current: h.current + 1)),
+      );
       _persist();
     }
   }
@@ -273,52 +318,109 @@ class GameNotifier extends Notifier<GameState> {
 
   // ---- internals ----
 
-  List<Achievement> _syncAchievements(
-    Map<String, int> counters,
-    GamificationState game, {
-    List<RewardIntent>? intents,
-  }) {
-    final sync = AchievementEngine.sync(AchievementCatalog.all(), counters, _unlocked);
+  AchievementSync _syncAchievements(Map<String, int> counters) {
+    final sync = AchievementEngine.sync(
+      AchievementCatalog.all(),
+      counters,
+      _unlocked,
+    );
     for (final a in sync.newlyUnlocked) {
       _unlocked[a.id] = a.unlockedAt ?? DateTime.now();
-      ref.read(toastProvider.notifier).push(ToastMessage(
-            title: 'Achievement: ${a.title}',
-            subtitle: a.desc,
-            icon: Icons.emoji_events_rounded,
-            color: const Color(0xFFFFC773),
-          ));
     }
-    return sync.achievements;
+    return sync;
   }
 
-  void _emitIntents(List<RewardIntent> intents) {
-    final toasts = ref.read(toastProvider.notifier);
+  void _emitTransactionPresentation(
+    List<RewardIntent> intents, {
+    required RewardKind kind,
+    List<String> completedQuestIds = const [],
+    List<Achievement> unlockedAchievements = const [],
+  }) {
+    if (intents.isEmpty &&
+        completedQuestIds.isEmpty &&
+        unlockedAchievements.isEmpty) {
+      return;
+    }
+    var xpDelta = 0;
+    var gemsDelta = 0;
+    int? reachedLevel;
+    int? streakDays;
     for (final i in intents) {
       switch (i) {
-        case LevelUpIntent(:final newLevel):
+        case LevelUpIntent(newLevel: final value):
           emitFeedback(Sensation.levelUp);
-          toasts.push(ToastMessage(
-              title: 'Level $newLevel!',
-              subtitle: 'You levelled up',
-              icon: Icons.trending_up_rounded,
-              color: const Color(0xFF8E9BFF)));
+          reachedLevel = value;
         case StreakUpIntent(:final days):
           emitFeedback(Sensation.success);
-          toasts.push(ToastMessage(
-              title: '$days-day streak!',
-              subtitle: 'Keep it going',
-              icon: Icons.local_fire_department_rounded,
-              color: const Color(0xFFFF8A3D)));
+          streakDays = days;
         case XpGainedIntent(:final xp, :final gems):
-          if (xp > 0) {
-            toasts.push(ToastMessage(
-                title: '+$xp XP${gems > 0 ? '  ·  +$gems 💎' : ''}',
-                icon: Icons.bolt_rounded,
-                color: const Color(0xFF8E9BFF)));
-          }
+          xpDelta += xp;
+          gemsDelta += gems;
       }
     }
+    final ids = ref.read(operationalIdSourceProvider);
+    final now = ref.read(clockProvider).nowUtc();
+    final sourceEventId = ids.nextId();
+    final hasMilestone =
+        reachedLevel != null || unlockedAchievements.isNotEmpty;
+    final sequenceKey = unlockedAchievements.isNotEmpty
+        ? 'reward.achievement'
+        : reachedLevel != null
+        ? 'reward.level-up'
+        : completedQuestIds.isNotEmpty
+        ? 'reward.quest-complete'
+        : 'reward.standard';
+    ref
+        .read(presentationQueueProvider.notifier)
+        .enqueue(
+          PresentationReceipt(
+            receiptId: ids.nextId(),
+            sourceEventId: sourceEventId,
+            sequenceKey: sequenceKey,
+            tier: hasMilestone ? MotionTier.milestone : MotionTier.standard,
+            priority: hasMilestone
+                ? PresentationPriority.high
+                : PresentationPriority.normal,
+            coalescingKey: hasMilestone ? null : 'reward.standard',
+            occurredAtUtc: now,
+            expiresAtUtc: now.add(const Duration(days: 7)),
+            payload: {
+              'reasonKey': unlockedAchievements.isNotEmpty
+                  ? 'reward.achievement'
+                  : completedQuestIds.isNotEmpty
+                  ? 'reward.quest-complete'
+                  : _rewardReasonKey(kind),
+              // Until the server ledger phase lands, this truthfully marks
+              // the source as a durable local transaction, not a remote grant.
+              'authority': 'local-provisional',
+              'xpDelta': xpDelta,
+              'gemsDelta': gemsDelta,
+              'totalXp': state.game.xp.total,
+              'newLevel': ?reachedLevel,
+              'streakDays': ?streakDays,
+              'completedQuestIds': completedQuestIds,
+              'achievements': unlockedAchievements
+                  .map(
+                    (achievement) => {
+                      'id': achievement.id,
+                      'title': achievement.title,
+                      'description': achievement.desc,
+                    },
+                  )
+                  .toList(growable: false),
+            },
+          ),
+        );
   }
+
+  String _rewardReasonKey(RewardKind kind) => switch (kind) {
+    RewardKind.correct => 'reward.correct',
+    RewardKind.lesson => 'reward.lesson',
+    RewardKind.win => 'reward.win',
+    RewardKind.review => 'reward.review',
+    RewardKind.streak => 'reward.streak',
+    RewardKind.contribution => 'reward.contribution',
+  };
 
   List<Quest> _decodeQuests(List raw) {
     // Quests are re-seeded structurally; we only restore progress + claimed.
@@ -330,10 +432,14 @@ class GameNotifier extends Notifier<GameState> {
       final goalsRaw = (saved['goals'] as List?) ?? const [];
       final goals = <QuestGoal>[];
       for (var i = 0; i < q.goals.length; i++) {
-        final p = i < goalsRaw.length ? ((goalsRaw[i] as Map)['progress'] as num?)?.toInt() ?? 0 : 0;
+        final p = i < goalsRaw.length
+            ? ((goalsRaw[i] as Map)['progress'] as num?)?.toInt() ?? 0
+            : 0;
         goals.add(q.goals[i].copyWith(progress: p));
       }
-      final claimed = saved['claimedAt'] != null ? DateTime.tryParse(saved['claimedAt'].toString()) : null;
+      final claimed = saved['claimedAt'] != null
+          ? DateTime.tryParse(saved['claimedAt'].toString())
+          : null;
       return q.copyWith(goals: goals, claimedAt: claimed);
     }).toList();
   }
@@ -341,31 +447,57 @@ class GameNotifier extends Notifier<GameState> {
   void _persist() {
     final store = ref.read(sharedPreferencesProvider);
     store.writeJson(_gameKey, state.game.toJson());
-    store.writeJson(_masteryKey, {for (final e in state.mastery.entries) e.key: e.value.toJson()});
+    store.writeJson(_masteryKey, {
+      for (final e in state.mastery.entries) e.key: e.value.toJson(),
+    });
     store.writeJson(_countersKey, state.counters);
-    store.writeJson(_unlockedKey, {for (final e in _unlocked.entries) e.key: e.value.toIso8601String()});
+    store.writeJson(_unlockedKey, {
+      for (final e in _unlocked.entries) e.key: e.value.toIso8601String(),
+    });
     store.writeJson(_questsKey, {
       'list': state.quests
-          .map((q) => {
-                'id': q.id,
-                'goals': q.goals.map((g) => {'progress': g.progress}).toList(),
-                'claimedAt': q.claimedAt?.toIso8601String(),
-              })
+          .map(
+            (q) => {
+              'id': q.id,
+              'goals': q.goals.map((g) => {'progress': g.progress}).toList(),
+              'claimedAt': q.claimedAt?.toIso8601String(),
+            },
+          )
           .toList(),
     });
   }
 }
 
-final gameProvider = NotifierProvider<GameNotifier, GameState>(GameNotifier.new);
+final gameProvider = NotifierProvider<GameNotifier, GameState>(
+  GameNotifier.new,
+);
 
 // ---- Fine-grained selectors (prompt 08 §2) ----
 final xpProvider = Provider<XPState>((ref) => ref.watch(gameProvider).game.xp);
-final heartsProvider = Provider<Hearts>((ref) => ref.watch(gameProvider).game.hearts);
-final streakProvider = Provider<Streak>((ref) => ref.watch(gameProvider).game.streak);
-final walletProvider = Provider<Wallet>((ref) => ref.watch(gameProvider).game.wallet);
-final leagueProvider = Provider<League>((ref) => ref.watch(gameProvider).game.league);
-final weekXpProvider = Provider<int>((ref) => ref.watch(gameProvider).game.weekXp);
-final questsListProvider = Provider<List<Quest>>((ref) => ref.watch(gameProvider).quests);
-final achievementsProvider = Provider<List<Achievement>>((ref) => ref.watch(gameProvider).achievements);
-final weakConceptsProvider = Provider<List<ConceptMastery>>((ref) => ref.watch(gameProvider).weakConcepts);
-final masteryMapProvider = Provider<Map<ConceptId, ConceptMastery>>((ref) => ref.watch(gameProvider).mastery);
+final heartsProvider = Provider<Hearts>(
+  (ref) => ref.watch(gameProvider).game.hearts,
+);
+final streakProvider = Provider<Streak>(
+  (ref) => ref.watch(gameProvider).game.streak,
+);
+final walletProvider = Provider<Wallet>(
+  (ref) => ref.watch(gameProvider).game.wallet,
+);
+final leagueProvider = Provider<League>(
+  (ref) => ref.watch(gameProvider).game.league,
+);
+final weekXpProvider = Provider<int>(
+  (ref) => ref.watch(gameProvider).game.weekXp,
+);
+final questsListProvider = Provider<List<Quest>>(
+  (ref) => ref.watch(gameProvider).quests,
+);
+final achievementsProvider = Provider<List<Achievement>>(
+  (ref) => ref.watch(gameProvider).achievements,
+);
+final weakConceptsProvider = Provider<List<ConceptMastery>>(
+  (ref) => ref.watch(gameProvider).weakConcepts,
+);
+final masteryMapProvider = Provider<Map<ConceptId, ConceptMastery>>(
+  (ref) => ref.watch(gameProvider).mastery,
+);

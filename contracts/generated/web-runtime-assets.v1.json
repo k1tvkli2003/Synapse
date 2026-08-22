@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "drift": "2.34.2",
+    "sqlite3": "3.5.0"
+  },
+  "assets": [
+    {
+      "path": "apps/app/web/sqlite3.wasm",
+      "bytes": 748424,
+      "sha256": "41CF968998241465D8B1DFFFB1EB60DD10C35DE5022A3647E14174EA3AF84143",
+      "sourcePackage": "sqlite3"
+    },
+    {
+      "path": "apps/app/web/drift_worker.js",
+      "bytes": 354754,
+      "sha256": "167E8B95FDFA54041CC2D061BEA283677B7F66D5669493BC9AF4C9EA33440E5D",
+      "sourcePackage": "drift"
+    }
+  ],
+  "policy": {
+    "upgrade": "Regenerate both assets from the newly locked package versions, then review and update this contract in the same change.",
+    "scope": "Public application runtime only; no learner records or corpus content are included."
+  }
+}

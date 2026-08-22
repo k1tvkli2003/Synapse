@@ -5,13 +5,13 @@ import 'package:synapse_config/synapse_config.dart';
 /// running fully offline (prompt 23) — the app must boot even if this fails,
 /// so callers should not let a thrown error here block `runApp`.
 Future<void> bootstrapSupabase(AppConfig config) async {
-  if (!config.hasBackend) return;
+  if (!config.hasLegacySupabaseBackend) return;
   await Supabase.initialize(
     url: config.supabaseUrl,
-    publishableKey: config.supabaseAnonKey,
+    publishableKey: config.supabasePublishableKey,
   );
 }
 
-/// The live client. Only touch this when [AppConfig.hasBackend] is true (i.e.
+/// The live client. Only touch this when [AppConfig.hasLegacySupabaseBackend] is true (i.e.
 /// after a successful [bootstrapSupabase]) — otherwise Supabase throws.
 SupabaseClient get cloud => Supabase.instance.client;

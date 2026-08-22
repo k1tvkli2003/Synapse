@@ -1,0 +1,157 @@
+{
+  "status": "pass",
+  "requireInstall": true,
+  "selectedIdentity": {
+    "mascot": "MCR4-01 Sidecrest Companion",
+    "appIcon": "ICR4-04 Evidence Guide"
+  },
+  "manifestOutputs": 188,
+  "safeZone": {
+    "canvas": 1024,
+    "radius": 304,
+    "ratio": 0.296875,
+    "foreground": {
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": [
+        285,
+        269,
+        737,
+        746
+      ],
+      "alphaPixels": 173458,
+      "maxRadius": 301.597
+    },
+    "monochrome": {
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": [
+        285,
+        269,
+        737,
+        746
+      ],
+      "alphaPixels": 173458,
+      "maxRadius": 301.597
+    }
+  },
+  "checks": {
+    "appleDefault": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        0,
+        0,
+        1023,
+        1023
+      ],
+      "maxRadius": 723.37,
+      "borderPixels": 4096,
+      "opaque": true
+    },
+    "androidAdaptiveForeground": {
+      "width": 432,
+      "height": 432,
+      "bounds": [
+        120,
+        113,
+        310,
+        314
+      ],
+      "maxRadius": 127.077,
+      "borderPixels": 0,
+      "opaque": false
+    },
+    "webMaskable": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 361.332,
+      "borderPixels": 2048,
+      "opaque": true
+    },
+    "webProof.circle": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 256.278,
+      "borderPixels": 160,
+      "opaque": false
+    },
+    "webProof.squircle": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 313.277,
+      "borderPixels": 1208,
+      "opaque": false
+    },
+    "webProof.rounded": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 328.135,
+      "borderPixels": 1480,
+      "opaque": false
+    },
+    "windowsIco": {
+      "entries": 7,
+      "sizes": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ]
+    },
+    "linux512": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 361.332,
+      "borderPixels": 2048,
+      "opaque": true
+    },
+    "flutterIcon": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        0,
+        0,
+        1023,
+        1023
+      ],
+      "maxRadius": 723.37,
+      "borderPixels": 4096,
+      "opaque": true
+    }
+  },
+  "failures": []
+}

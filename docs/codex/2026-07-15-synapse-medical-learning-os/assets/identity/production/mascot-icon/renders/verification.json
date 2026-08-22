@@ -1,0 +1,186 @@
+{
+  "status": "pass",
+  "failures": [],
+  "results": [
+    {
+      "file": "luma-foldkin-mark-monochrome-16.png",
+      "size": 16,
+      "bounds": [
+        2,
+        2,
+        13,
+        13
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 3,
+      "darkDetailPixels": 95,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-mark-monochrome-24.png",
+      "size": 24,
+      "bounds": [
+        3,
+        3,
+        20,
+        20
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 6,
+      "darkDetailPixels": 215,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-mark-monochrome-48.png",
+      "size": 48,
+      "bounds": [
+        5,
+        7,
+        42,
+        40
+      ],
+      "ratio": 1.1176,
+      "alphaComponents": 1,
+      "splitRows": 13,
+      "darkDetailPixels": 868,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-optical-24-24.png",
+      "size": 24,
+      "bounds": [
+        3,
+        3,
+        20,
+        20
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 6,
+      "darkDetailPixels": 4,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-optical-16-16.png",
+      "size": 16,
+      "bounds": [
+        2,
+        2,
+        13,
+        13
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 2,
+      "darkDetailPixels": 3,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-flat-48.png",
+      "size": 48,
+      "bounds": [
+        5,
+        7,
+        42,
+        40
+      ],
+      "ratio": 1.1176,
+      "alphaComponents": 1,
+      "splitRows": 13,
+      "darkDetailPixels": 7,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-master-1024.png",
+      "size": 1024,
+      "bounds": [
+        118,
+        155,
+        905,
+        867
+      ],
+      "ratio": 1.1052,
+      "alphaComponents": 1,
+      "splitRows": 268,
+      "darkDetailPixels": 4391,
+      "borderPixels": 0
+    },
+    {
+      "file": "luma-foldkin-app-icon-16.png",
+      "size": 16,
+      "bounds": [
+        0,
+        0,
+        15,
+        15
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 0,
+      "darkDetailPixels": 185,
+      "borderPixels": 64
+    },
+    {
+      "file": "luma-foldkin-app-icon-optical-16-16.png",
+      "size": 16,
+      "bounds": [
+        0,
+        0,
+        15,
+        15
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 0,
+      "darkDetailPixels": 187,
+      "borderPixels": 64
+    },
+    {
+      "file": "luma-foldkin-app-icon-optical-24-24.png",
+      "size": 24,
+      "bounds": [
+        0,
+        0,
+        23,
+        23
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 0,
+      "darkDetailPixels": 420,
+      "borderPixels": 96
+    },
+    {
+      "file": "luma-foldkin-app-icon-48.png",
+      "size": 48,
+      "bounds": [
+        0,
+        0,
+        47,
+        47
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 0,
+      "darkDetailPixels": 1677,
+      "borderPixels": 192
+    },
+    {
+      "file": "luma-foldkin-app-icon-1024.png",
+      "size": 1024,
+      "bounds": [
+        0,
+        0,
+        1023,
+        1023
+      ],
+      "ratio": 1.0,
+      "alphaComponents": 1,
+      "splitRows": 0,
+      "darkDetailPixels": 768519,
+      "borderPixels": 4096
+    }
+  ]
+}

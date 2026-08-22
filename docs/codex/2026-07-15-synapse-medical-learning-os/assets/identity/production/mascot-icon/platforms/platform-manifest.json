@@ -1,0 +1,1286 @@
+{
+  "sourceDate": "2026-07-17",
+  "installedIntoFlutterProject": true,
+  "renderer": "sharp 0.34.5; librsvg bundled",
+  "inputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-app-icon.svg",
+      "sha256": "B4A9D29A1FE8F2D82B65F0D99DC99F07B4828E0E85F7E710D0C86DD717BBB3D6"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-master.svg",
+      "sha256": "51C1BF0316FEA090A72ADD3ED14AE89D5D7136E7489FAFC0B835A87873280668"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-flat.svg",
+      "sha256": "F29DC6DA919A22A11B19005DF1DFA9F4EFAB02B5AC9B7E34DE75789570D687B9"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-mark-monochrome.svg",
+      "sha256": "2DBD7C4FCD96C3693D8ADEBCC2A6759D6FEF7B92B16D9E51D5535EBBC0A0401D"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-optical-24.svg",
+      "sha256": "28F58841125B9853DF0E3CE443780E6C79FC4965E6BE22EDDDAD66070792BAA7"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source/luma-foldkin-optical-16.svg",
+      "sha256": "C2A26FE0B0D949755436B5B03502FD04F6B6A6F9828DDE4FC8BB641B5082A6BF"
+    }
+  ],
+  "safeZone": {
+    "canvas": 1024,
+    "radius": 304,
+    "ratio": 0.296875,
+    "foreground": {
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": [
+        250,
+        266,
+        774,
+        741
+      ],
+      "alphaPixels": 178921,
+      "maxRadius": 298.33
+    },
+    "monochrome": {
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": [
+        250,
+        266,
+        774,
+        741
+      ],
+      "alphaPixels": 177090,
+      "maxRadius": 298.33
+    }
+  },
+  "outputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/sources/synapse-default-1024.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "platform": "apple",
+      "role": "default-source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/sources/synapse-dark-1024.png",
+      "bytes": 85822,
+      "sha256": "D3FDE9E14EE100EC5DDEE38FB8BFC82418D860896E18B1B341D2303CEFAB70AF",
+      "platform": "apple",
+      "role": "dark-source-unwired"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/sources/synapse-tinted-1024.png",
+      "bytes": 77303,
+      "sha256": "21A220B48BA110619408ECEEAA7F5891E68BE2E3FD4214611ACDCCE3F20B8876",
+      "platform": "apple",
+      "role": "tinted-source-unwired"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Contents.json",
+      "bytes": 2439,
+      "sha256": "CD841CAE92E48A8D48C79A6B634E7FB1F88FB97C924E24736B3BC3824EDE3975",
+      "platform": "ios",
+      "role": "catalog"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-20x20@2x.png",
+      "bytes": 2546,
+      "sha256": "3F7446228598CC04A1723D97E9496C6D67398817C8CEE2256ABF2E1F49CFB5DC",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 40
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png",
+      "bytes": 2546,
+      "sha256": "3F7446228598CC04A1723D97E9496C6D67398817C8CEE2256ABF2E1F49CFB5DC",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 40
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-20x20@3x.png",
+      "bytes": 4266,
+      "sha256": "243388BE9951469B44E5C552D933EF39263B03E789B71CB44E08E016403FEE7A",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 60
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png",
+      "bytes": 4266,
+      "sha256": "243388BE9951469B44E5C552D933EF39263B03E789B71CB44E08E016403FEE7A",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 60
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-29x29@1x.png",
+      "bytes": 1719,
+      "sha256": "FAE65E6E806A9576AECC6E52281EA8B7C69FBA8DCA6E481091092E924942640B",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 29
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png",
+      "bytes": 1719,
+      "sha256": "FAE65E6E806A9576AECC6E52281EA8B7C69FBA8DCA6E481091092E924942640B",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 29
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-29x29@2x.png",
+      "bytes": 4091,
+      "sha256": "E9EB043C484604554BE4789E9CF0F0E75BB20DD699A7555485D600166366DA04",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 58
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png",
+      "bytes": 4091,
+      "sha256": "E9EB043C484604554BE4789E9CF0F0E75BB20DD699A7555485D600166366DA04",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 58
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-29x29@3x.png",
+      "bytes": 6819,
+      "sha256": "DE058682A02964802C2294F240FB81087B8ADD33501A4EA8B86637E8F58177A9",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 87
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png",
+      "bytes": 6819,
+      "sha256": "DE058682A02964802C2294F240FB81087B8ADD33501A4EA8B86637E8F58177A9",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 87
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-40x40@2x.png",
+      "bytes": 6052,
+      "sha256": "734D399A7218ABFC9D5E29450B75CE903302A35E9351AF43B7FDFC728B5E202D",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 80
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png",
+      "bytes": 6052,
+      "sha256": "734D399A7218ABFC9D5E29450B75CE903302A35E9351AF43B7FDFC728B5E202D",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 80
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-40x40@3x.png",
+      "bytes": 10177,
+      "sha256": "136657A50992BF3ABD6B028A30CE04DD978E55EB377E8715C721B5BD53B9D15B",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 120
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png",
+      "bytes": 10177,
+      "sha256": "136657A50992BF3ABD6B028A30CE04DD978E55EB377E8715C721B5BD53B9D15B",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 120
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-60x60@2x.png",
+      "bytes": 10177,
+      "sha256": "136657A50992BF3ABD6B028A30CE04DD978E55EB377E8715C721B5BD53B9D15B",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 120
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png",
+      "bytes": 10177,
+      "sha256": "136657A50992BF3ABD6B028A30CE04DD978E55EB377E8715C721B5BD53B9D15B",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 120
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-60x60@3x.png",
+      "bytes": 16148,
+      "sha256": "441352C005F6DEA084E4591D5890B9761F9DAC6BB2C91637A1E7028068B90ED1",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 180
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png",
+      "bytes": 16148,
+      "sha256": "441352C005F6DEA084E4591D5890B9761F9DAC6BB2C91637A1E7028068B90ED1",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 180
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-20x20@1x.png",
+      "bytes": 1019,
+      "sha256": "3A9023FAF11A80B47064113404CFEBBDA4561295AD9A9FAE21454D07B9B6340F",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 20
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png",
+      "bytes": 1019,
+      "sha256": "3A9023FAF11A80B47064113404CFEBBDA4561295AD9A9FAE21454D07B9B6340F",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 20
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-40x40@1x.png",
+      "bytes": 2546,
+      "sha256": "3F7446228598CC04A1723D97E9496C6D67398817C8CEE2256ABF2E1F49CFB5DC",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 40
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png",
+      "bytes": 2546,
+      "sha256": "3F7446228598CC04A1723D97E9496C6D67398817C8CEE2256ABF2E1F49CFB5DC",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 40
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-76x76@1x.png",
+      "bytes": 5836,
+      "sha256": "B9300867AB6A66ACAC3DE7139BAAD8872D1F66BC8AB6DE2E60E8996E69AC23C1",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 76
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png",
+      "bytes": 5836,
+      "sha256": "B9300867AB6A66ACAC3DE7139BAAD8872D1F66BC8AB6DE2E60E8996E69AC23C1",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 76
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-76x76@2x.png",
+      "bytes": 13480,
+      "sha256": "BB3EE5051FE9AED2F2AFF70FA1433AF0C18FC5FD8FD005F7798B085E1567FBD2",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 152
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png",
+      "bytes": 13480,
+      "sha256": "BB3EE5051FE9AED2F2AFF70FA1433AF0C18FC5FD8FD005F7798B085E1567FBD2",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 152
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+      "bytes": 14876,
+      "sha256": "F77B2ECCE30716A0193D0C6D68909560D12F38272AAD4B7723921034B6E16035",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 167
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+      "bytes": 14876,
+      "sha256": "F77B2ECCE30716A0193D0C6D68909560D12F38272AAD4B7723921034B6E16035",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 167
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/ios/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "platform": "ios",
+      "role": "app-icon",
+      "pixels": 1024
+    },
+    {
+      "file": "apps/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "platform": "ios-install",
+      "role": "app-icon",
+      "pixels": 1024
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/Contents.json",
+      "bytes": 1247,
+      "sha256": "FF7292D35CEC3B50E3CF894363167BB5213AE23F81425D8FD0894AB2921E619A",
+      "platform": "macos",
+      "role": "catalog"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_16.png",
+      "bytes": 783,
+      "sha256": "462EEAA09D405E7AD80440EC9059C94A0A74712F65910389E68516743A070EEC",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 16
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png",
+      "bytes": 783,
+      "sha256": "462EEAA09D405E7AD80440EC9059C94A0A74712F65910389E68516743A070EEC",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 16
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_32.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 32
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 32
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_64.png",
+      "bytes": 4785,
+      "sha256": "33BAF8A293D23C08D522F2752937EC10C3CF85905B911EC798198BDF193F60C2",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 64
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png",
+      "bytes": 4785,
+      "sha256": "33BAF8A293D23C08D522F2752937EC10C3CF85905B911EC798198BDF193F60C2",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 64
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_128.png",
+      "bytes": 11004,
+      "sha256": "968E2E1AF743B6EF3200A4D5BADCFD9EFFFB41B1F11477B6C1EEA44E02245B00",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 128
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png",
+      "bytes": 11004,
+      "sha256": "968E2E1AF743B6EF3200A4D5BADCFD9EFFFB41B1F11477B6C1EEA44E02245B00",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 128
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_256.png",
+      "bytes": 23437,
+      "sha256": "F4BC5238D3B09E0950B445F82276B34D47BE9AC5B3C1DD52E91514664A8EB8E0",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 256
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png",
+      "bytes": 23437,
+      "sha256": "F4BC5238D3B09E0950B445F82276B34D47BE9AC5B3C1DD52E91514664A8EB8E0",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_512.png",
+      "bytes": 53404,
+      "sha256": "C5CA16616837325550B87FA6833E3BB5C48126178779A16A67739008A36C974E",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 512
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png",
+      "bytes": 53404,
+      "sha256": "C5CA16616837325550B87FA6833E3BB5C48126178779A16A67739008A36C974E",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/apple/macos/AppIcon.appiconset/app_icon_1024.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "platform": "macos",
+      "role": "app-icon",
+      "pixels": 1024
+    },
+    {
+      "file": "apps/app/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "platform": "macos-install",
+      "role": "app-icon",
+      "pixels": 1024
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-mdpi/ic_launcher.png",
+      "bytes": 3257,
+      "sha256": "9B5DA2889D1E9A735DF7F03A416C5F22194BC600E170CF82C1E62B07697D2FB7",
+      "platform": "android",
+      "role": "legacy",
+      "density": "mdpi",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-mdpi/ic_launcher_round.png",
+      "bytes": 3744,
+      "sha256": "4600DEEFBBFF03CEB1E854173691B6FE9C5A4ED864E72C4CAD2E9F95F50AB2A2",
+      "platform": "android",
+      "role": "legacy-round",
+      "density": "mdpi",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "bytes": 3639,
+      "sha256": "C1C3B31BF6D6592639EE14E92B50546656408565CF50C0F9D530BCA9EB490ED8",
+      "platform": "android",
+      "role": "adaptive-foreground",
+      "density": "mdpi",
+      "pixels": 108
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-mdpi/ic_launcher_monochrome.png",
+      "bytes": 1620,
+      "sha256": "26323AB90F8CBD44364329EA8A20FC52131E55C733CEB17876F8776F12C0E0EF",
+      "platform": "android",
+      "role": "themed-monochrome",
+      "density": "mdpi",
+      "pixels": 108
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "bytes": 3257,
+      "sha256": "9B5DA2889D1E9A735DF7F03A416C5F22194BC600E170CF82C1E62B07697D2FB7",
+      "platform": "android-install",
+      "role": "legacy",
+      "density": "mdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+      "bytes": 3744,
+      "sha256": "4600DEEFBBFF03CEB1E854173691B6FE9C5A4ED864E72C4CAD2E9F95F50AB2A2",
+      "platform": "android-install",
+      "role": "legacy-round",
+      "density": "mdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png",
+      "bytes": 3639,
+      "sha256": "C1C3B31BF6D6592639EE14E92B50546656408565CF50C0F9D530BCA9EB490ED8",
+      "platform": "android-install",
+      "role": "adaptive-foreground",
+      "density": "mdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.png",
+      "bytes": 1620,
+      "sha256": "26323AB90F8CBD44364329EA8A20FC52131E55C733CEB17876F8776F12C0E0EF",
+      "platform": "android-install",
+      "role": "themed-monochrome",
+      "density": "mdpi"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-hdpi/ic_launcher.png",
+      "bytes": 5377,
+      "sha256": "4FFA26D5FAD12EAA71CF174AEC83506BACB26BC4C1A20ED03BB4E6299C7EFD04",
+      "platform": "android",
+      "role": "legacy",
+      "density": "hdpi",
+      "pixels": 72
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-hdpi/ic_launcher_round.png",
+      "bytes": 6026,
+      "sha256": "E1BBC8C43B8E8AE463F40C6FA2C590A5D8851ECB560B4C29F904C89C121839FE",
+      "platform": "android",
+      "role": "legacy-round",
+      "density": "hdpi",
+      "pixels": 72
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "bytes": 5545,
+      "sha256": "4D15CD0D146BA8C3091926AEEDBF6B4F2DF4A3BB55B5B9FDED345400A34EF558",
+      "platform": "android",
+      "role": "adaptive-foreground",
+      "density": "hdpi",
+      "pixels": 162
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-hdpi/ic_launcher_monochrome.png",
+      "bytes": 2452,
+      "sha256": "27D9B8F07AFECFEA20A12F6066891B5286B09F81BC6A6DC55164539D97A78BD3",
+      "platform": "android",
+      "role": "themed-monochrome",
+      "density": "hdpi",
+      "pixels": 162
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "bytes": 5377,
+      "sha256": "4FFA26D5FAD12EAA71CF174AEC83506BACB26BC4C1A20ED03BB4E6299C7EFD04",
+      "platform": "android-install",
+      "role": "legacy",
+      "density": "hdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+      "bytes": 6026,
+      "sha256": "E1BBC8C43B8E8AE463F40C6FA2C590A5D8851ECB560B4C29F904C89C121839FE",
+      "platform": "android-install",
+      "role": "legacy-round",
+      "density": "hdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png",
+      "bytes": 5545,
+      "sha256": "4D15CD0D146BA8C3091926AEEDBF6B4F2DF4A3BB55B5B9FDED345400A34EF558",
+      "platform": "android-install",
+      "role": "adaptive-foreground",
+      "density": "hdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.png",
+      "bytes": 2452,
+      "sha256": "27D9B8F07AFECFEA20A12F6066891B5286B09F81BC6A6DC55164539D97A78BD3",
+      "platform": "android-install",
+      "role": "themed-monochrome",
+      "density": "hdpi"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xhdpi/ic_launcher.png",
+      "bytes": 7825,
+      "sha256": "309EF10340F61E3CEB0C80392B495DE432482E45F1528BEFD344BDA24D3D5749",
+      "platform": "android",
+      "role": "legacy",
+      "density": "xhdpi",
+      "pixels": 96
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xhdpi/ic_launcher_round.png",
+      "bytes": 8565,
+      "sha256": "1DF727A4F2D7AEEE59F9749425C2923F5CA822ECF8661D5E139DE5FB54DA9D06",
+      "platform": "android",
+      "role": "legacy-round",
+      "density": "xhdpi",
+      "pixels": 96
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "bytes": 7524,
+      "sha256": "9B5F330FA0F83C3B309B9E379B611DBA63A267ED5D3224657BB3956E8CE8131E",
+      "platform": "android",
+      "role": "adaptive-foreground",
+      "density": "xhdpi",
+      "pixels": 216
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xhdpi/ic_launcher_monochrome.png",
+      "bytes": 3243,
+      "sha256": "55CD06614B7AAB96C7623119F2D7168EDA2426082AC5AC8230F61347B9808394",
+      "platform": "android",
+      "role": "themed-monochrome",
+      "density": "xhdpi",
+      "pixels": 216
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "bytes": 7825,
+      "sha256": "309EF10340F61E3CEB0C80392B495DE432482E45F1528BEFD344BDA24D3D5749",
+      "platform": "android-install",
+      "role": "legacy",
+      "density": "xhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+      "bytes": 8565,
+      "sha256": "1DF727A4F2D7AEEE59F9749425C2923F5CA822ECF8661D5E139DE5FB54DA9D06",
+      "platform": "android-install",
+      "role": "legacy-round",
+      "density": "xhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png",
+      "bytes": 7524,
+      "sha256": "9B5F330FA0F83C3B309B9E379B611DBA63A267ED5D3224657BB3956E8CE8131E",
+      "platform": "android-install",
+      "role": "adaptive-foreground",
+      "density": "xhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png",
+      "bytes": 3243,
+      "sha256": "55CD06614B7AAB96C7623119F2D7168EDA2426082AC5AC8230F61347B9808394",
+      "platform": "android-install",
+      "role": "themed-monochrome",
+      "density": "xhdpi"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxhdpi/ic_launcher.png",
+      "bytes": 12647,
+      "sha256": "1C6C38CBFCCF0A01F23D7EDD438ABA306468DAB77248E29D8CE4F31E181AADC5",
+      "platform": "android",
+      "role": "legacy",
+      "density": "xxhdpi",
+      "pixels": 144
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxhdpi/ic_launcher_round.png",
+      "bytes": 13372,
+      "sha256": "E2E1FEC73E200194F5BC76C3A7B7264B5F7FE3E889D476631B4A8EC6CF0A586B",
+      "platform": "android",
+      "role": "legacy-round",
+      "density": "xxhdpi",
+      "pixels": 144
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "bytes": 11921,
+      "sha256": "67B0B0BD47519F0857E87966C95F68774A79A8EC6530FA493353F6581633FA3D",
+      "platform": "android",
+      "role": "adaptive-foreground",
+      "density": "xxhdpi",
+      "pixels": 324
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxhdpi/ic_launcher_monochrome.png",
+      "bytes": 5113,
+      "sha256": "978E820E77A0D9AAE66E1A09BF497ED0CDC24E5A78575312A5178A7716A8779E",
+      "platform": "android",
+      "role": "themed-monochrome",
+      "density": "xxhdpi",
+      "pixels": 324
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "bytes": 12647,
+      "sha256": "1C6C38CBFCCF0A01F23D7EDD438ABA306468DAB77248E29D8CE4F31E181AADC5",
+      "platform": "android-install",
+      "role": "legacy",
+      "density": "xxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+      "bytes": 13372,
+      "sha256": "E2E1FEC73E200194F5BC76C3A7B7264B5F7FE3E889D476631B4A8EC6CF0A586B",
+      "platform": "android-install",
+      "role": "legacy-round",
+      "density": "xxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png",
+      "bytes": 11921,
+      "sha256": "67B0B0BD47519F0857E87966C95F68774A79A8EC6530FA493353F6581633FA3D",
+      "platform": "android-install",
+      "role": "adaptive-foreground",
+      "density": "xxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png",
+      "bytes": 5113,
+      "sha256": "978E820E77A0D9AAE66E1A09BF497ED0CDC24E5A78575312A5178A7716A8779E",
+      "platform": "android-install",
+      "role": "themed-monochrome",
+      "density": "xxhdpi"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxxhdpi/ic_launcher.png",
+      "bytes": 17716,
+      "sha256": "AAD208B993FC111262FFB6A635E2A4CF36EF64ADCD2630FBCD7987F6AAD15239",
+      "platform": "android",
+      "role": "legacy",
+      "density": "xxxhdpi",
+      "pixels": 192
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxxhdpi/ic_launcher_round.png",
+      "bytes": 18220,
+      "sha256": "B35B36BD022C24DBA2EDA3CA182F0A1BAB38863F067CD7F8198A14C01D675EFC",
+      "platform": "android",
+      "role": "legacy-round",
+      "density": "xxxhdpi",
+      "pixels": 192
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "bytes": 16368,
+      "sha256": "28AF511AFFFD04CD0390E97A578AD9C705A8B2579E6225E3113F368B80329401",
+      "platform": "android",
+      "role": "adaptive-foreground",
+      "density": "xxxhdpi",
+      "pixels": 432
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-xxxhdpi/ic_launcher_monochrome.png",
+      "bytes": 7055,
+      "sha256": "881EA24C84278443DBF08047A8A77F8C276FF5A858A88191D2A8B911A8C72C7C",
+      "platform": "android",
+      "role": "themed-monochrome",
+      "density": "xxxhdpi",
+      "pixels": 432
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "bytes": 17716,
+      "sha256": "AAD208B993FC111262FFB6A635E2A4CF36EF64ADCD2630FBCD7987F6AAD15239",
+      "platform": "android-install",
+      "role": "legacy",
+      "density": "xxxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+      "bytes": 18220,
+      "sha256": "B35B36BD022C24DBA2EDA3CA182F0A1BAB38863F067CD7F8198A14C01D675EFC",
+      "platform": "android-install",
+      "role": "legacy-round",
+      "density": "xxxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png",
+      "bytes": 16368,
+      "sha256": "28AF511AFFFD04CD0390E97A578AD9C705A8B2579E6225E3113F368B80329401",
+      "platform": "android-install",
+      "role": "adaptive-foreground",
+      "density": "xxxhdpi"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png",
+      "bytes": 7055,
+      "sha256": "881EA24C84278443DBF08047A8A77F8C276FF5A858A88191D2A8B911A8C72C7C",
+      "platform": "android-install",
+      "role": "themed-monochrome",
+      "density": "xxxhdpi"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "bytes": 273,
+      "sha256": "99955451582A09A692DDFC6EBCF2D3C3D1851516F06A97492146C57ACC4D7936",
+      "platform": "android",
+      "role": "mipmap-anydpi-v26"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "bytes": 273,
+      "sha256": "99955451582A09A692DDFC6EBCF2D3C3D1851516F06A97492146C57ACC4D7936",
+      "platform": "android-install",
+      "role": "mipmap-anydpi-v26"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "bytes": 273,
+      "sha256": "99955451582A09A692DDFC6EBCF2D3C3D1851516F06A97492146C57ACC4D7936",
+      "platform": "android",
+      "role": "mipmap-anydpi-v26"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "bytes": 273,
+      "sha256": "99955451582A09A692DDFC6EBCF2D3C3D1851516F06A97492146C57ACC4D7936",
+      "platform": "android-install",
+      "role": "mipmap-anydpi-v26"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-anydpi-v33/ic_launcher.xml",
+      "bytes": 342,
+      "sha256": "A4CAEB2A95D84E9B8EA60B9FE1F60C0C9A01982E2F9B3D3D5CBC5EAF51B02327",
+      "platform": "android",
+      "role": "mipmap-anydpi-v33"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml",
+      "bytes": 342,
+      "sha256": "A4CAEB2A95D84E9B8EA60B9FE1F60C0C9A01982E2F9B3D3D5CBC5EAF51B02327",
+      "platform": "android-install",
+      "role": "mipmap-anydpi-v33"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/mipmap-anydpi-v33/ic_launcher_round.xml",
+      "bytes": 342,
+      "sha256": "A4CAEB2A95D84E9B8EA60B9FE1F60C0C9A01982E2F9B3D3D5CBC5EAF51B02327",
+      "platform": "android",
+      "role": "mipmap-anydpi-v33"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml",
+      "bytes": 342,
+      "sha256": "A4CAEB2A95D84E9B8EA60B9FE1F60C0C9A01982E2F9B3D3D5CBC5EAF51B02327",
+      "platform": "android-install",
+      "role": "mipmap-anydpi-v33"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/android/res/values/synapse_launcher_colors.xml",
+      "bytes": 126,
+      "sha256": "8721136089DCEBC75272DD41FB03E77815411318C7E750480AD2183E9DC974EF",
+      "platform": "android",
+      "role": "launcher-color"
+    },
+    {
+      "file": "apps/app/android/app/src/main/res/values/synapse_launcher_colors.xml",
+      "bytes": 126,
+      "sha256": "8721136089DCEBC75272DD41FB03E77815411318C7E750480AD2183E9DC974EF",
+      "platform": "android-install",
+      "role": "launcher-color"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/icons/Icon-192.png",
+      "bytes": 17716,
+      "sha256": "AAD208B993FC111262FFB6A635E2A4CF36EF64ADCD2630FBCD7987F6AAD15239",
+      "platform": "web",
+      "role": "regular"
+    },
+    {
+      "file": "apps/app/web/icons/Icon-192.png",
+      "bytes": 17716,
+      "sha256": "AAD208B993FC111262FFB6A635E2A4CF36EF64ADCD2630FBCD7987F6AAD15239",
+      "platform": "web-install",
+      "role": "regular"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/icons/Icon-512.png",
+      "bytes": 53404,
+      "sha256": "C5CA16616837325550B87FA6833E3BB5C48126178779A16A67739008A36C974E",
+      "platform": "web",
+      "role": "regular"
+    },
+    {
+      "file": "apps/app/web/icons/Icon-512.png",
+      "bytes": 53404,
+      "sha256": "C5CA16616837325550B87FA6833E3BB5C48126178779A16A67739008A36C974E",
+      "platform": "web-install",
+      "role": "regular"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/icons/Icon-maskable-192.png",
+      "bytes": 14481,
+      "sha256": "3CDEFB4C41E445D329B39D27157741C0A98FF39CCEBF460358CE349CB274C0B3",
+      "platform": "web",
+      "role": "maskable"
+    },
+    {
+      "file": "apps/app/web/icons/Icon-maskable-192.png",
+      "bytes": 14481,
+      "sha256": "3CDEFB4C41E445D329B39D27157741C0A98FF39CCEBF460358CE349CB274C0B3",
+      "platform": "web-install",
+      "role": "maskable"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/icons/Icon-maskable-512.png",
+      "bytes": 41638,
+      "sha256": "DD8CE421ECA03284204805E0447FCB170EFEDDB7620CCEBFE3F24D9A60595289",
+      "platform": "web",
+      "role": "maskable"
+    },
+    {
+      "file": "apps/app/web/icons/Icon-maskable-512.png",
+      "bytes": 41638,
+      "sha256": "DD8CE421ECA03284204805E0447FCB170EFEDDB7620CCEBFE3F24D9A60595289",
+      "platform": "web-install",
+      "role": "maskable"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/favicon-16.png",
+      "bytes": 783,
+      "sha256": "462EEAA09D405E7AD80440EC9059C94A0A74712F65910389E68516743A070EEC",
+      "platform": "web",
+      "role": "favicon"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/favicon-32.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "web",
+      "role": "favicon"
+    },
+    {
+      "file": "apps/app/web/favicon.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "web-install",
+      "role": "favicon"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/favicon-48.png",
+      "bytes": 3257,
+      "sha256": "9B5DA2889D1E9A735DF7F03A416C5F22194BC600E170CF82C1E62B07697D2FB7",
+      "platform": "web",
+      "role": "favicon"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/proofs/circle-mask.png",
+      "bytes": 43996,
+      "sha256": "DF12469C7451A43D027DB138C5C0A211C88983995D385EA10BB6D9B4EBD7CBA1",
+      "platform": "web",
+      "role": "mask-proof",
+      "mask": "circle"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/proofs/squircle-mask.png",
+      "bytes": 43987,
+      "sha256": "9D59BEFA2CA11A31A5680D52F987BCA5737650D1E76FD724E71C01EA8B66D469",
+      "platform": "web",
+      "role": "mask-proof",
+      "mask": "squircle"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/web/proofs/rounded-mask.png",
+      "bytes": 43595,
+      "sha256": "98479DFEFE6C45208179F137E03170B47A1563E5A0F897C416FD6AB92B8D3353",
+      "platform": "web",
+      "role": "mask-proof",
+      "mask": "rounded"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-16.png",
+      "bytes": 783,
+      "sha256": "462EEAA09D405E7AD80440EC9059C94A0A74712F65910389E68516743A070EEC",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 16
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-24.png",
+      "bytes": 1321,
+      "sha256": "38F8483FCEAB6909396E3AA54DD315C124D2963049DCD8B7A45836622ACC4ACA",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 24
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-32.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 32
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-48.png",
+      "bytes": 3257,
+      "sha256": "9B5DA2889D1E9A735DF7F03A416C5F22194BC600E170CF82C1E62B07697D2FB7",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-64.png",
+      "bytes": 4785,
+      "sha256": "33BAF8A293D23C08D522F2752937EC10C3CF85905B911EC798198BDF193F60C2",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 64
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-128.png",
+      "bytes": 11004,
+      "sha256": "968E2E1AF743B6EF3200A4D5BADCFD9EFFFB41B1F11477B6C1EEA44E02245B00",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 128
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/synapse-256.png",
+      "bytes": 23437,
+      "sha256": "F4BC5238D3B09E0950B445F82276B34D47BE9AC5B3C1DD52E91514664A8EB8E0",
+      "platform": "windows",
+      "role": "ico-source",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/windows/app_icon.ico",
+      "bytes": 46658,
+      "sha256": "38CECBA2B183413C174821DD3DF8D14B68F4B1229839A3C3339C867C8C6AB1CD",
+      "platform": "windows",
+      "role": "multi-size-ico",
+      "sizes": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ]
+    },
+    {
+      "file": "apps/app/windows/runner/resources/app_icon.ico",
+      "bytes": 46658,
+      "sha256": "38CECBA2B183413C174821DD3DF8D14B68F4B1229839A3C3339C867C8C6AB1CD",
+      "platform": "windows-install",
+      "role": "multi-size-ico",
+      "sizes": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ]
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/16x16/apps/synapse.png",
+      "bytes": 783,
+      "sha256": "462EEAA09D405E7AD80440EC9059C94A0A74712F65910389E68516743A070EEC",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 16
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/24x24/apps/synapse.png",
+      "bytes": 1321,
+      "sha256": "38F8483FCEAB6909396E3AA54DD315C124D2963049DCD8B7A45836622ACC4ACA",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 24
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/32x32/apps/synapse.png",
+      "bytes": 1953,
+      "sha256": "10B9A8357C7BB5154D64647AB2BA7674CAC802ABAD857526B676D40804B9BC1C",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 32
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/48x48/apps/synapse.png",
+      "bytes": 3257,
+      "sha256": "9B5DA2889D1E9A735DF7F03A416C5F22194BC600E170CF82C1E62B07697D2FB7",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/64x64/apps/synapse.png",
+      "bytes": 4785,
+      "sha256": "33BAF8A293D23C08D522F2752937EC10C3CF85905B911EC798198BDF193F60C2",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 64
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/128x128/apps/synapse.png",
+      "bytes": 11004,
+      "sha256": "968E2E1AF743B6EF3200A4D5BADCFD9EFFFB41B1F11477B6C1EEA44E02245B00",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 128
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/256x256/apps/synapse.png",
+      "bytes": 23437,
+      "sha256": "F4BC5238D3B09E0950B445F82276B34D47BE9AC5B3C1DD52E91514664A8EB8E0",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/hicolor/512x512/apps/synapse.png",
+      "bytes": 53404,
+      "sha256": "C5CA16616837325550B87FA6833E3BB5C48126178779A16A67739008A36C974E",
+      "platform": "linux",
+      "role": "hicolor",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/linux/scalable/apps/synapse.svg",
+      "bytes": 4038,
+      "sha256": "B4A9D29A1FE8F2D82B65F0D99DC99F07B4828E0E85F7E710D0C86DD717BBB3D6",
+      "platform": "linux",
+      "role": "scalable-source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_master_1024.png",
+      "bytes": 108328,
+      "sha256": "250A315E435D1B9135D9B5B123C68DF30AA08BB3CBB7616247E11615B1257306",
+      "platform": "flutter",
+      "role": "character",
+      "pixels": 1024
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_master_1024.png",
+      "bytes": 108328,
+      "sha256": "250A315E435D1B9135D9B5B123C68DF30AA08BB3CBB7616247E11615B1257306",
+      "platform": "flutter-install",
+      "role": "character",
+      "pixels": 1024
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_master_256.png",
+      "bytes": 18005,
+      "sha256": "6851011729077C98000364683AB1B67C57AC45F7AB7B2FF8CCDA713D5AF1C69A",
+      "platform": "flutter",
+      "role": "character",
+      "pixels": 256
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_master_256.png",
+      "bytes": 18005,
+      "sha256": "6851011729077C98000364683AB1B67C57AC45F7AB7B2FF8CCDA713D5AF1C69A",
+      "platform": "flutter-install",
+      "role": "character",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_flat_256.png",
+      "bytes": 6683,
+      "sha256": "9F8F7EF89214EE454448B64894B151F19F8F4CB607C722E9B27B0BA342A60186",
+      "platform": "flutter",
+      "role": "flat-character",
+      "pixels": 256
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_flat_256.png",
+      "bytes": 6683,
+      "sha256": "9F8F7EF89214EE454448B64894B151F19F8F4CB607C722E9B27B0BA342A60186",
+      "platform": "flutter-install",
+      "role": "flat-character",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_flat_96.png",
+      "bytes": 2364,
+      "sha256": "C5E03F9159D7ABB5D3238FD4C9F8FD0602FB641B0776B92A67715EFF9FD21761",
+      "platform": "flutter",
+      "role": "flat-character",
+      "pixels": 96
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_flat_96.png",
+      "bytes": 2364,
+      "sha256": "C5E03F9159D7ABB5D3238FD4C9F8FD0602FB641B0776B92A67715EFF9FD21761",
+      "platform": "flutter-install",
+      "role": "flat-character",
+      "pixels": 96
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_flat_48.png",
+      "bytes": 1190,
+      "sha256": "919AB2FFB6E8E1AAA93E365919FB8D2215DCD8AB39836D4C02E28D5CA5EDF174",
+      "platform": "flutter",
+      "role": "flat-character",
+      "pixels": 48
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_flat_48.png",
+      "bytes": 1190,
+      "sha256": "919AB2FFB6E8E1AAA93E365919FB8D2215DCD8AB39836D4C02E28D5CA5EDF174",
+      "platform": "flutter-install",
+      "role": "flat-character",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_optical_24.png",
+      "bytes": 686,
+      "sha256": "009EB7F49DE0D8610C27E80F3E0B5A787C20FA31B3D382A28F61B8A494CE7F0E",
+      "platform": "flutter",
+      "role": "optical-character",
+      "pixels": 24
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_optical_24.png",
+      "bytes": 686,
+      "sha256": "009EB7F49DE0D8610C27E80F3E0B5A787C20FA31B3D382A28F61B8A494CE7F0E",
+      "platform": "flutter-install",
+      "role": "optical-character",
+      "pixels": 24
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mascot_optical_16.png",
+      "bytes": 484,
+      "sha256": "261B915B5A4515EA4EA427D29C67E19EDD3B81F9991B9994D3AEF681892E83DD",
+      "platform": "flutter",
+      "role": "optical-character",
+      "pixels": 16
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mascot_optical_16.png",
+      "bytes": 484,
+      "sha256": "261B915B5A4515EA4EA427D29C67E19EDD3B81F9991B9994D3AEF681892E83DD",
+      "platform": "flutter-install",
+      "role": "optical-character",
+      "pixels": 16
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mark_monochrome_256.png",
+      "bytes": 3468,
+      "sha256": "4043ECF1E9A3D168B743D0A00CAE73135DCD720D5509602970240A50C4E0646D",
+      "platform": "flutter",
+      "role": "mark",
+      "pixels": 256
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mark_monochrome_256.png",
+      "bytes": 3468,
+      "sha256": "4043ECF1E9A3D168B743D0A00CAE73135DCD720D5509602970240A50C4E0646D",
+      "platform": "flutter-install",
+      "role": "mark",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mark_monochrome_48.png",
+      "bytes": 655,
+      "sha256": "D414309F8FF62A1A819878277F2728F11EB77BFD74550406584573972D30E755",
+      "platform": "flutter",
+      "role": "mark",
+      "pixels": 48
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mark_monochrome_48.png",
+      "bytes": 655,
+      "sha256": "D414309F8FF62A1A819878277F2728F11EB77BFD74550406584573972D30E755",
+      "platform": "flutter-install",
+      "role": "mark",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/platforms/flutter/assets/identity/luma_foldkin/mark_monochrome_24.png",
+      "bytes": 383,
+      "sha256": "0EA660FB2E27C42745FB4323361F9E5A0C6B2402284DBB0998F5476BE10F1238",
+      "platform": "flutter",
+      "role": "mark",
+      "pixels": 24
+    },
+    {
+      "file": "apps/app/assets/identity/luma_foldkin/mark_monochrome_24.png",
+      "bytes": 383,
+      "sha256": "0EA660FB2E27C42745FB4323361F9E5A0C6B2402284DBB0998F5476BE10F1238",
+      "platform": "flutter-install",
+      "role": "mark",
+      "pixels": 24
+    }
+  ]
+}

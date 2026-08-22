@@ -90,30 +90,49 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget _buildStep(SynapseTokens t) {
     switch (_step) {
       case 0:
-        return Column(
+        return SingleChildScrollView(
           key: const ValueKey(0),
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Who are you?', style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: 6),
-            Text('We tailor your Hub to your stage.', style: TextStyle(color: t.textMuted)),
-            const SizedBox(height: 20),
-            ...UserRole.values.map((r) => Padding(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Who are you?',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'We tailor your learning plan to your stage.',
+                style: TextStyle(color: t.textMuted),
+              ),
+              const SizedBox(height: 20),
+              ...UserRole.values.map(
+                (r) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: AppCard(
                     onTap: () => setState(() => _role = r),
                     accent: _role == r ? t.primary : null,
                     child: Row(
                       children: [
-                        Icon(_role == r ? Icons.radio_button_checked_rounded : Icons.radio_button_off_rounded,
-                            color: _role == r ? t.primary : t.textFaint),
+                        Icon(
+                          _role == r
+                              ? Icons.radio_button_checked_rounded
+                              : Icons.radio_button_off_rounded,
+                          color: _role == r ? t.primary : t.textFaint,
+                        ),
                         const SizedBox(width: 12),
-                        Text(_roleLabel(r), style: Theme.of(context).textTheme.titleMedium),
+                        Expanded(
+                          child: Text(
+                            _roleLabel(r),
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                )),
-          ],
+                ),
+              ),
+            ],
+          ),
         );
       case 1:
         return SingleChildScrollView(
@@ -121,42 +140,56 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('What do you want to focus on?',
-                  style: Theme.of(context).textTheme.headlineMedium),
+              Text(
+                'What do you want to focus on?',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
               const SizedBox(height: 6),
-              Text('Pick a few — all modules stay available.',
-                  style: TextStyle(color: t.textMuted)),
+              Text(
+                'Pick a few — all modules stay available.',
+                style: TextStyle(color: t.textMuted),
+              ),
               const SizedBox(height: 20),
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
                 children: ModuleKey.values
-                    .map((m) => AppChip(
-                          label: m.title,
-                          icon: ModuleVisuals.icon(m),
-                          accent: Color(m.accentHex),
-                          selected: _interests.contains(m.id),
-                          onTap: () => setState(() {
-                            _interests.contains(m.id)
-                                ? _interests.remove(m.id)
-                                : _interests.add(m.id);
-                          }),
-                        ))
+                    .map(
+                      (m) => AppChip(
+                        label: m.title,
+                        icon: ModuleVisuals.icon(m),
+                        accent: Color(m.accentHex),
+                        selected: _interests.contains(m.id),
+                        onTap: () => setState(() {
+                          _interests.contains(m.id)
+                              ? _interests.remove(m.id)
+                              : _interests.add(m.id);
+                        }),
+                      ),
+                    )
                     .toList(),
               ),
             ],
           ),
         );
       default:
-        return Column(
+        return SingleChildScrollView(
           key: const ValueKey(2),
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Set your daily goal', style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: 6),
-            Text('Consistency beats intensity.', style: TextStyle(color: t.textMuted)),
-            const SizedBox(height: 20),
-            ..._goals.map((g) => Padding(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Set your daily goal',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'Consistency beats intensity.',
+                style: TextStyle(color: t.textMuted),
+              ),
+              const SizedBox(height: 20),
+              ..._goals.map(
+                (g) => Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: AppCard(
                     onTap: () => setState(() => _dailyGoal = g.$2),
@@ -165,23 +198,31 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       children: [
                         Icon(Icons.bolt_rounded, color: t.primary),
                         const SizedBox(width: 12),
-                        Text(g.$1, style: Theme.of(context).textTheme.titleMedium),
+                        Text(
+                          g.$1,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
                         const Spacer(),
-                        Text('${g.$2} XP / day', style: TextStyle(color: t.textMuted)),
+                        Text(
+                          '${g.$2} XP / day',
+                          style: TextStyle(color: t.textMuted),
+                        ),
                       ],
                     ),
                   ),
-                )),
-          ],
+                ),
+              ),
+            ],
+          ),
         );
     }
   }
 
   String _roleLabel(UserRole r) => switch (r) {
-        UserRole.student => 'Medical student',
-        UserRole.resident => 'Resident',
-        UserRole.nurse => 'Nurse',
-        UserRole.clinician => 'Clinician',
-        UserRole.other => 'Other / curious',
-      };
+    UserRole.student => 'Medical student',
+    UserRole.resident => 'Resident',
+    UserRole.nurse => 'Nurse',
+    UserRole.clinician => 'Clinician',
+    UserRole.other => 'Other / curious',
+  };
 }

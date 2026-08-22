@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-17",
+  "identity": {
+    "mascot": "MCR4-01 Sidecrest Companion",
+    "appIcon": "ICR4-04 Evidence Guide",
+    "publicCharacterName": null
+  },
+  "inputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/mascot-icon-round-4/2026-07-17_mcr4-01_user-approved.png",
+      "sha256": "4370396EE1193B8CE04788AF7B25809360F0C8D924EBFD6302C604F4BB748F75",
+      "size": [
+        1568,
+        1003
+      ]
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/app-icon-round-1/2026-07-17_icr4-04_evidence-guide_user-approved.png",
+      "sha256": "3B032C99C13E21435B7CACA293D12887629992C4AD7201158E17C98FBB6FC4D5",
+      "size": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "lockedCrops": {
+    "icon": [
+      220,
+      75,
+      1034,
+      889
+    ],
+    "mascot": {
+      "hero_pointing": [
+        25,
+        115,
+        485,
+        640
+      ],
+      "encouraging": [
+        492,
+        420,
+        694,
+        660
+      ],
+      "thinking": [
+        702,
+        420,
+        895,
+        660
+      ],
+      "evidence_guide": [
+        890,
+        420,
+        1105,
+        660
+      ],
+      "quest_host": [
+        1110,
+        410,
+        1330,
+        660
+      ],
+      "recovery": [
+        1325,
+        420,
+        1565,
+        660
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-approved-preview-crop-1024.png",
+      "bytes": 1314493,
+      "sha256": "4FAE10AABD2CB2CA257D1A92CB5DBCD2D299AE8964990C7DD6379EE3EAFF1978",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-foreground-1024.png",
+      "bytes": 1480939,
+      "sha256": "C0305F0B92F8816725ED8CD404DE4BD97A3F26153A8E9358B0FFEA8E9FC6E70C",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-app-icon-master-1024.png",
+      "bytes": 1012471,
+      "sha256": "1E64306287558345921D77F56F93447BE30583C7DE184B18DA487B476F51898F",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-adaptive-foreground-1024.png",
+      "bytes": 351567,
+      "sha256": "84A28E843EBDA39698BE7841CE70D926C086143147ADCBD8C3CB75E37F08BFBF",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-monochrome-foreground-1024.png",
+      "bytes": 18429,
+      "sha256": "6F66D5577246C30F6EA25783CBC6AD5814647FD217ED0E51AEF583D76EC534C8",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-tinted-master-1024.png",
+      "bytes": 71678,
+      "sha256": "C0BF46BDE74C64F9CA5674DB0E84A68AB563D110E83938354B95D2BE6526B961",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-hero-pointing-1024.png",
+      "bytes": 666687,
+      "sha256": "92B4C178F14817FB11A8C6578CFE2CB78B2339C8B82F4B383CE898C1C70C2D29",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-encouraging-1024.png",
+      "bytes": 428680,
+      "sha256": "19EA0CF8DE444F5D02AECF58EF29A7924A1E0C0DFE00D511F35335994EF65F8E",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-thinking-1024.png",
+      "bytes": 383203,
+      "sha256": "9A3CB07474E6B482A769910BDC9392B71CE639A5CF3FBACE1A5398069D97819F",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-evidence-guide-1024.png",
+      "bytes": 468504,
+      "sha256": "4B65DFFA0EC1F645E0B354362631217D5800A30B9C18023E2A92319E75E716D0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-quest-host-1024.png",
+      "bytes": 449441,
+      "sha256": "326235DE6012996BEC0EA499D226D8B1DCAA9661641ED5CFD76E9B304D5C2491",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/mcr4-01-recovery-1024.png",
+      "bytes": 506262,
+      "sha256": "97577F1A9BEA8850A13C740F30289705C71F4DA0F4BF1DE37C285B0FA1DE7697",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-512.png",
+      "bytes": 295832,
+      "sha256": "1EB34E65E6606E159C752E7C00789AB08CDBC55A324A989BED63DD4AAC542368",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-256.png",
+      "bytes": 77991,
+      "sha256": "C08E30AF7DCC3C3FE0C6A351A59D7595BD84587CE8880E16CBA4B7610C6EC893",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-128.png",
+      "bytes": 23659,
+      "sha256": "15BBB8E9FF3A84F37AA0B39C4D1DADD829AF79C649F288D887605A0821342873",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-96.png",
+      "bytes": 14709,
+      "sha256": "92C893489FC8A7F24C5A6DE3C28D1B17816F05B41B67DFA6E8D6FA10F6E44C57",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-64.png",
+      "bytes": 7645,
+      "sha256": "8813D2CC5F1EE62614DC7E2503FB6DD930B9671D1EECC92BBB3253558A22DE95",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-48.png",
+      "bytes": 5065,
+      "sha256": "2C66D8BDF1BE830B8AEBB90C21E3D27A3E53A44F1CE82B91D9253B5BA4C9DFCB",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-32.png",
+      "bytes": 2634,
+      "sha256": "A6CE72EC061557A53359444B356FE0CE32E9D57CEABF1C31160EEF576D34D775",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-24.png",
+      "bytes": 1646,
+      "sha256": "50D286DDB90BEBBCCFFC239D76B45FD5091E7A8AE89715DAC2D276FA048B33E2",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-app-icon-16.png",
+      "bytes": 832,
+      "sha256": "371C03D10DF9B8F21B7C09DFACDBF9D0D4BA1DB3BC203DC25722ED3181C9918A",
+      "size": [
+        16,
+        16
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-circle-proof-512.png",
+      "bytes": 331438,
+      "sha256": "1357B9F0EB79A27F3E5BC8ACEB29911421FD945E7E21DE44B3F129B10E858295",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-squircle-proof-512.png",
+      "bytes": 329994,
+      "sha256": "6A1C92F0573173D288D344937DBDFFD502905E56334263A64C1FF42647FDAD87",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/icr4-04-rounded-proof-512.png",
+      "bytes": 329596,
+      "sha256": "045B2235B8258D0265A5F98E12ECCAA6F834F6C1E5E2FC5A6532B062E92AF365",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-hero-pointing-512.png",
+      "bytes": 214220,
+      "sha256": "C84DB1EBB842600C947086C43EF78F7C4DF12552FDC861F4E524E05146A6283D",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-hero-pointing-256.png",
+      "bytes": 57977,
+      "sha256": "3F83D4DC2AE794DA2F6D980E7FA3F04147D639D072FA903EC83DE2244F54451B",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-encouraging-512.png",
+      "bytes": 157403,
+      "sha256": "1E13A57C11F9669E6611E054A44D0822ACB7E40F245CF0031EADC711CAF904C4",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-encouraging-256.png",
+      "bytes": 49553,
+      "sha256": "EAC8FF830614D4DBB30A9EF48C1927BA76EEFD81BCB1B96920A982CA79B59F04",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-thinking-512.png",
+      "bytes": 139174,
+      "sha256": "F610931B1307333992793484038503D92969913C15DCE34CAE9769833B6E6464",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-thinking-256.png",
+      "bytes": 43781,
+      "sha256": "2FF744F66FE46E6801C67B4C56B04A81C00DB62066597273D7F16B9F0ACA190C",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-evidence-guide-512.png",
+      "bytes": 170767,
+      "sha256": "EDDF83DAF1F01671EC86BA6B040528A882394629FFE5CC0AF7904DF2110BB2FB",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-evidence-guide-256.png",
+      "bytes": 53751,
+      "sha256": "10C0DFF3BE9D85143162C0AF37FCCB7AB31B8469887E64A59E660BF3EBD65615",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-quest-host-512.png",
+      "bytes": 164915,
+      "sha256": "C911F79B3EBCA736BD2A99C2CF825CC5CF2A745C15BCAFDE7FB4DC03C9FE54AB",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-quest-host-256.png",
+      "bytes": 52087,
+      "sha256": "24550C3BDE9AF61E4FBB6C908C51329BBDDF98F944A6A7245F7C18B329394541",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-recovery-512.png",
+      "bytes": 188754,
+      "sha256": "B3BE940007FBE66DF70FB05BF5183A6F35C0E9A0DE1EF83F7422D6EA1FEEA220",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-recovery-256.png",
+      "bytes": 59825,
+      "sha256": "7772DA1B91375CD31A95907831C6764F92F11C2421FB8D48272CA82C6D5CC958",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/renders/mcr4-01-icr4-04-production-proof-board.png",
+      "bytes": 689322,
+      "sha256": "DC7066BB8B5F48EFF33E37689CABA257EAFE484DC5008E3A0B4370E2CC778C67",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB"
+    }
+  ]
+}

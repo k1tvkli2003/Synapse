@@ -1,0 +1,545 @@
+{
+  "functions": [
+    {
+      "arguments": "",
+      "definitionSha256": "E09008EB6B65F9F1A601FBD7A25E939BFE466138D21BC4EE6AF3F18F55BD79E4",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_handle_new_user",
+      "securityDefiner": true
+    }
+  ],
+  "migrations": [
+    {
+      "bytes": 10310,
+      "path": "supabase/migrations/0001_init.sql",
+      "sha256": "107D6761209C213D7E1D765A3E4E05A76CEF46A69C128893AD5140817B65FB59"
+    },
+    {
+      "bytes": 484,
+      "path": "supabase/migrations/0002_game_state_fidelity.sql",
+      "sha256": "1680452EECD10286F94C6A6EB4C08D1936ADEA2FF4286FB947B648CD89D0EF7A"
+    },
+    {
+      "bytes": 231,
+      "path": "supabase/migrations/0003_lockdown_trigger_rpc.sql",
+      "sha256": "F0957F3A1191F89EFF2EF23D270965099D6658D6DDB03AC2871AC87694037FCE"
+    }
+  ],
+  "policies": [
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_ach_owner",
+      "table": "synapse_user_achievements",
+      "using": "auth.uid() = user_id",
+      "withCheck": "auth.uid() = user_id"
+    },
+    {
+      "command": "select",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_content_read",
+      "table": "synapse_content_items",
+      "using": "review_state = 'approved' or auth.uid() = author_id",
+      "withCheck": null
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_content_write",
+      "table": "synapse_content_items",
+      "using": "auth.uid() = author_id",
+      "withCheck": "auth.uid() = author_id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_game_state_owner",
+      "table": "synapse_game_state",
+      "using": "auth.uid() = user_id",
+      "withCheck": "auth.uid() = user_id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_mastery_owner",
+      "table": "synapse_concept_mastery",
+      "using": "auth.uid() = user_id",
+      "withCheck": "auth.uid() = user_id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_notif_owner",
+      "table": "synapse_notifications",
+      "using": "auth.uid() = user_id",
+      "withCheck": "auth.uid() = user_id"
+    },
+    {
+      "command": "select",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_profiles_read",
+      "table": "synapse_profiles",
+      "using": "is_public or auth.uid() = id",
+      "withCheck": null
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_profiles_write",
+      "table": "synapse_profiles",
+      "using": "auth.uid() = id",
+      "withCheck": "auth.uid() = id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_quests_owner",
+      "table": "synapse_user_quests",
+      "using": "auth.uid() = user_id",
+      "withCheck": "auth.uid() = user_id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_reports_owner",
+      "table": "synapse_content_reports",
+      "using": "auth.uid() = reporter_id",
+      "withCheck": "auth.uid() = reporter_id"
+    },
+    {
+      "command": "all",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_srs_owner",
+      "table": "synapse_srs_cards",
+      "using": "auth.uid() = owner_id",
+      "withCheck": "auth.uid() = owner_id"
+    }
+  ],
+  "restorePolicy": "apply the immutable 0001..0003 chain to a disposable project; never edit applied migration history or run production rollback from this fixture",
+  "revocations": [
+    "revoke execute on function public.synapse_handle_new_user() from anon, authenticated, public;"
+  ],
+  "rlsEnabledTables": [
+    "synapse_concept_mastery",
+    "synapse_content_items",
+    "synapse_content_reports",
+    "synapse_game_state",
+    "synapse_notifications",
+    "synapse_profiles",
+    "synapse_srs_cards",
+    "synapse_user_achievements",
+    "synapse_user_quests"
+  ],
+  "sanitized": true,
+  "schemaVersion": 1,
+  "secretFindings": [],
+  "sourceDate": "2026-07-21",
+  "tables": [
+    {
+      "columns": [
+        {
+          "definition": "int not null default 0",
+          "name": "attempts"
+        },
+        {
+          "definition": "text not null",
+          "name": "concept_id"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "correct"
+        },
+        {
+          "definition": "timestamptz",
+          "name": "last_studied"
+        },
+        {
+          "definition": "double precision not null default 0",
+          "name": "mastery"
+        },
+        {
+          "definition": "jsonb not null default '{}'::jsonb",
+          "name": "per_module"
+        },
+        {
+          "definition": "uuid not null references public.synapse_profiles(id) on delete cascade",
+          "name": "user_id"
+        }
+      ],
+      "constraints": [
+        "primary key (user_id, concept_id)"
+      ],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_concept_mastery"
+    },
+    {
+      "columns": [
+        {
+          "definition": "uuid references public.synapse_profiles(id) on delete set null",
+          "name": "author_id"
+        },
+        {
+          "definition": "text",
+          "name": "body"
+        },
+        {
+          "definition": "text[] not null default '{}'",
+          "name": "concept_ids"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "created_at"
+        },
+        {
+          "definition": "uuid primary key default gen_random_uuid()",
+          "name": "id"
+        },
+        {
+          "definition": "jsonb not null default '[]'::jsonb",
+          "name": "references"
+        },
+        {
+          "definition": "text not null default 'draft'",
+          "name": "review_state"
+        },
+        {
+          "definition": "text[] not null default '{}'",
+          "name": "tags"
+        },
+        {
+          "definition": "text not null",
+          "name": "type"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "updated_at"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "votes"
+        }
+      ],
+      "constraints": [],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_content_items"
+    },
+    {
+      "columns": [
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "created_at"
+        },
+        {
+          "definition": "text",
+          "name": "detail"
+        },
+        {
+          "definition": "uuid primary key default gen_random_uuid()",
+          "name": "id"
+        },
+        {
+          "definition": "uuid references public.synapse_profiles(id) on delete set null",
+          "name": "reporter_id"
+        },
+        {
+          "definition": "boolean not null default false",
+          "name": "resolved"
+        },
+        {
+          "definition": "text not null",
+          "name": "subject"
+        }
+      ],
+      "constraints": [],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_content_reports"
+    },
+    {
+      "columns": [
+        {
+          "addedIn": "supabase/migrations/0002_game_state_fidelity.sql",
+          "definition": "int not null default 0",
+          "name": "freezes"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "gems"
+        },
+        {
+          "definition": "int not null default 5",
+          "name": "hearts"
+        },
+        {
+          "addedIn": "supabase/migrations/0002_game_state_fidelity.sql",
+          "definition": "int not null default 5",
+          "name": "hearts_max"
+        },
+        {
+          "addedIn": "supabase/migrations/0002_game_state_fidelity.sql",
+          "definition": "text",
+          "name": "last_active_day"
+        },
+        {
+          "definition": "text not null default 'bronze'",
+          "name": "league"
+        },
+        {
+          "definition": "int not null default 1",
+          "name": "level"
+        },
+        {
+          "addedIn": "supabase/migrations/0002_game_state_fidelity.sql",
+          "definition": "timestamptz",
+          "name": "next_refill_at"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "streak_best"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "streak_current"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "updated_at"
+        },
+        {
+          "definition": "uuid primary key references public.synapse_profiles(id) on delete cascade",
+          "name": "user_id"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "week_xp"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "xp_total"
+        }
+      ],
+      "constraints": [],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_game_state"
+    },
+    {
+      "columns": [
+        {
+          "definition": "text not null",
+          "name": "body"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "created_at"
+        },
+        {
+          "definition": "text",
+          "name": "icon_key"
+        },
+        {
+          "definition": "uuid primary key default gen_random_uuid()",
+          "name": "id"
+        },
+        {
+          "definition": "timestamptz",
+          "name": "read_at"
+        },
+        {
+          "definition": "text",
+          "name": "route"
+        },
+        {
+          "definition": "text not null",
+          "name": "title"
+        },
+        {
+          "definition": "uuid not null references public.synapse_profiles(id) on delete cascade",
+          "name": "user_id"
+        }
+      ],
+      "constraints": [],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_notifications"
+    },
+    {
+      "columns": [
+        {
+          "definition": "text",
+          "name": "avatar_url"
+        },
+        {
+          "definition": "text",
+          "name": "bio"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "created_at"
+        },
+        {
+          "definition": "text not null",
+          "name": "display_name"
+        },
+        {
+          "definition": "text unique not null",
+          "name": "handle"
+        },
+        {
+          "definition": "uuid primary key references auth.users(id) on delete cascade",
+          "name": "id"
+        },
+        {
+          "definition": "boolean not null default true",
+          "name": "is_public"
+        },
+        {
+          "definition": "jsonb not null default '{}'::jsonb",
+          "name": "prefs"
+        },
+        {
+          "definition": "text not null default 'student'",
+          "name": "role"
+        },
+        {
+          "definition": "text",
+          "name": "specialty"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "updated_at"
+        },
+        {
+          "definition": "int",
+          "name": "year"
+        }
+      ],
+      "constraints": [],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_profiles"
+    },
+    {
+      "columns": [
+        {
+          "definition": "text not null",
+          "name": "back"
+        },
+        {
+          "definition": "text",
+          "name": "concept_id"
+        },
+        {
+          "definition": "timestamptz",
+          "name": "due_at"
+        },
+        {
+          "definition": "double precision not null default 2.5",
+          "name": "ease"
+        },
+        {
+          "definition": "text not null",
+          "name": "front"
+        },
+        {
+          "definition": "text not null",
+          "name": "id"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "interval_days"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "lapses"
+        },
+        {
+          "definition": "text not null",
+          "name": "origin"
+        },
+        {
+          "definition": "uuid not null references public.synapse_profiles(id) on delete cascade",
+          "name": "owner_id"
+        },
+        {
+          "definition": "int not null default 0",
+          "name": "reps"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "updated_at"
+        }
+      ],
+      "constraints": [
+        "primary key (owner_id, id)"
+      ],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_srs_cards"
+    },
+    {
+      "columns": [
+        {
+          "definition": "text not null",
+          "name": "achievement_id"
+        },
+        {
+          "definition": "timestamptz not null default now()",
+          "name": "unlocked_at"
+        },
+        {
+          "definition": "uuid not null references public.synapse_profiles(id) on delete cascade",
+          "name": "user_id"
+        }
+      ],
+      "constraints": [
+        "primary key (user_id, achievement_id)"
+      ],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_user_achievements"
+    },
+    {
+      "columns": [
+        {
+          "definition": "timestamptz",
+          "name": "claimed_at"
+        },
+        {
+          "definition": "jsonb not null default '{}'::jsonb",
+          "name": "progress"
+        },
+        {
+          "definition": "text not null",
+          "name": "quest_id"
+        },
+        {
+          "definition": "uuid not null references public.synapse_profiles(id) on delete cascade",
+          "name": "user_id"
+        }
+      ],
+      "constraints": [
+        "primary key (user_id, quest_id)"
+      ],
+      "createdIn": "supabase/migrations/0001_init.sql",
+      "name": "synapse_user_quests"
+    }
+  ],
+  "triggers": [
+    {
+      "definition": "for each row execute function public.synapse_handle_new_user()",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "on_auth_user_created_synapse",
+      "table": "auth.users",
+      "timingAndEvent": "after insert"
+    },
+    {
+      "definition": "for each row execute function public.touch_updated_at()",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "trg_synapse_profiles_touch",
+      "table": "public.synapse_profiles",
+      "timingAndEvent": "before update"
+    }
+  ],
+  "views": [
+    {
+      "definition": "select p.id, p.handle, p.display_name, g.week_xp, g.league, g.level from public.synapse_profiles p join public.synapse_game_state g on g.user_id = p.id where p.is_public",
+      "migration": "supabase/migrations/0001_init.sql",
+      "name": "synapse_leaderboard"
+    }
+  ]
+}

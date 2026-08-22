@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-17",
+  "identity": {
+    "mascot": "LUMA Character System",
+    "appIcon": "ICR2-01 LUMA Facefront",
+    "conceptId": "ICR2-01",
+    "status": "restored-by-latest-direct-user-decision"
+  },
+  "inputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/icons-round-2/2026-07-16_icr2-01_luma-facefront_concept.png",
+      "sha256": "352FC04100F77A4203115BAE9DD090D8D0116AEDC541466DFB3656D33727FD19",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/previews/2026-07-15_refine-01_luma-character-system.png",
+      "sha256": "939F98A302D269A03CBFC08995D7A62A5E4939896FDE212D8D56AA63CA99CD94",
+      "size": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "lockedCrops": {
+    "icon": [
+      52,
+      48,
+      480,
+      456
+    ],
+    "mascot": {
+      "hero_pointing": [
+        18,
+        210,
+        330,
+        458
+      ],
+      "encouraging": [
+        143,
+        570,
+        247,
+        685
+      ],
+      "thinking": [
+        262,
+        570,
+        370,
+        685
+      ],
+      "evidence_guide": [
+        1128,
+        255,
+        1252,
+        420
+      ],
+      "quest_host": [
+        1252,
+        255,
+        1378,
+        423
+      ],
+      "recovery": [
+        1380,
+        282,
+        1535,
+        423
+      ]
+    }
+  },
+  "safeZone": {
+    "canvas": 1024,
+    "radius": 304.0,
+    "foreground": {
+      "bounds": [
+        299,
+        269,
+        723,
+        747
+      ],
+      "pixels": 165482,
+      "maxRadius": 278.051,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "monochrome": {
+      "bounds": [
+        299,
+        269,
+        723,
+        747
+      ],
+      "pixels": 165482,
+      "maxRadius": 278.051,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/icr2-01-approved-preview-crop-1024.png",
+      "bytes": 547569,
+      "sha256": "5EDA482D4A15B70DB863CB755AD8A32A6F2118AAB9FC7AA53BEBA7117F329AF9",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-facefront-foreground-1024.png",
+      "bytes": 478108,
+      "sha256": "5E9BA0160D1B4C3F756A6CA6E2DD285CD885F420A2C215904C9423BECE27D760",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-facefront-app-icon-master-1024.png",
+      "bytes": 453429,
+      "sha256": "0FF39B1E160F93982E3591A954C245E61974ABD8E3B73BAA286D54B6A14EF99B",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-facefront-adaptive-foreground-1024.png",
+      "bytes": 230330,
+      "sha256": "DE0FCA1409EE9C57977773310A2EFAFE281C52785976F2261E7199B09AC66089",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-facefront-monochrome-foreground-1024.png",
+      "bytes": 16271,
+      "sha256": "DBBC2032CEC5909A2B78D6C7C2116B9E50CF2EE012175BFAA6162E0F6D18B9FB",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-facefront-tinted-master-1024.png",
+      "bytes": 79765,
+      "sha256": "1FA446B756B69462ECB849C2003E8A81F21E34AF8BC7D4F7EEAABF46DC8AE1F5",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "surface": "source"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-hero-pointing-1024.png",
+      "bytes": 334280,
+      "sha256": "E8E7192765D1FFE42135CEC93C135B6ED15D799AF8089A300FECF40B0BBEAAF4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "hero_pointing"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-encouraging-1024.png",
+      "bytes": 315913,
+      "sha256": "DE14D49044CE68DF1D506456FC13C9344973B90196675974D3DF56270543292F",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "encouraging"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-thinking-1024.png",
+      "bytes": 295157,
+      "sha256": "D55D811D1A4D4F1BCA1922F2EA560BA98F0F3FF1E45C7B51D415A5997C19DB9F",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "thinking"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-evidence-guide-1024.png",
+      "bytes": 321742,
+      "sha256": "E2A851268DEC4CF24D9C22E2414288D0470FEE80015E9A233B983086A308E775",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "evidence_guide"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-quest-host-1024.png",
+      "bytes": 340529,
+      "sha256": "6C1B823159B1EFDA344702EA8F19CFD38A1CF784ECDD185F0B26852DEBB0DDC7",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "quest_host"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/source/luma-recovery-1024.png",
+      "bytes": 327099,
+      "sha256": "99E90B1A596E340634E57E1AADE9DDE6D426A89E4BC9FFA03D681B1141D91249",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "surface": "source",
+      "pose": "recovery"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-512.png",
+      "bytes": 171002,
+      "sha256": "7FC070C1649A8EC6F87B080B45C2D1BDE534AB3D2066DD1076C12AAD39DD0261",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-256.png",
+      "bytes": 52369,
+      "sha256": "4EF0C2E966B0725B3972F57ED251DD0CA1543C46D5EBC3272EE001D7D145776F",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-128.png",
+      "bytes": 16979,
+      "sha256": "E83D514581E603F224FEAD083CB2275464CA8A2E1A47EF62B5EEB34B3AD3C6B9",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 128
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-96.png",
+      "bytes": 10788,
+      "sha256": "C83A670A457E69C48C00A8BC38236EE76EB29FDFBBC44541857ABEDD9A37CC01",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 96
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-64.png",
+      "bytes": 5822,
+      "sha256": "C6473AFED4D3E6A3BC29A7FF423EA67AE00065199C12022DB7D9630A38BE4DA3",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 64
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-48.png",
+      "bytes": 3911,
+      "sha256": "9BCC5793444F0F8C9AC44F15709B938C28B0C2359F39CCD1395A6D69C8DC8E38",
+      "size": [
+        48,
+        48
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 48
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-32.png",
+      "bytes": 2106,
+      "sha256": "D350BD78CD47C8069F6F7912CB2100286C03F2A15DD8D831FBA83CF130E15A68",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 32
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-24.png",
+      "bytes": 1400,
+      "sha256": "A71A92BA1AFFD3BA7FD3617522C3476ADA4DB9B22E9665933668562B1B32B985",
+      "size": [
+        24,
+        24
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 24
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-app-icon-16.png",
+      "bytes": 762,
+      "sha256": "1CD193C2D4ADD124FA373FB481DE85D7AD38295DA94F7E30D76C8EAD628E3E94",
+      "size": [
+        16,
+        16
+      ],
+      "mode": "RGB",
+      "surface": "render",
+      "pixels": 16
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-circle-proof-512.png",
+      "bytes": 193079,
+      "sha256": "CF4584A9DFFF474CDC250EB07E4FC8B639592EF6F7B4FE9ABB04D9E600A22EC6",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "proof",
+      "mask": "circle"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-squircle-proof-512.png",
+      "bytes": 192621,
+      "sha256": "07ADB62944FA42A3DF1A281A75BD6D7E2A8FB92A9E9261D1D2648FD63C275F6A",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "proof",
+      "mask": "squircle"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-rounded-proof-512.png",
+      "bytes": 192404,
+      "sha256": "B1847417538AA9AAF283B81CDE482BFE0A8B1B687B14D051CA03AA0DF8F84B75",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "proof",
+      "mask": "rounded"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-hero-pointing-512.png",
+      "bytes": 135870,
+      "sha256": "3A998B868719844CBC56CFCDD41DCF36005A3D8DA7B110566ADDFF9A2C38A8A4",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "hero_pointing",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-hero-pointing-256.png",
+      "bytes": 44759,
+      "sha256": "902115EAEEB63F454C2F872215BD4B7D3E7475A28919B6557B800C9B4D2C6620",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "hero_pointing",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-encouraging-512.png",
+      "bytes": 121685,
+      "sha256": "79C93A8367FA40EE4C9F22ED020614B7ACE7A07222B645107D944B8757A8DED8",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "encouraging",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-encouraging-256.png",
+      "bytes": 42560,
+      "sha256": "B9FC87C869E6FB544A9C3C238E30B9F70E0AB175F615179DB2139B9A475687BD",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "encouraging",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-thinking-512.png",
+      "bytes": 110825,
+      "sha256": "D758455F03071B5EC877472F5CCBE4BA33E0895FEFC5535546B0EFEFE38BDB0A",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "thinking",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-thinking-256.png",
+      "bytes": 38955,
+      "sha256": "5DFA890E5C32743D11FC0D011777790100218F6799ED2B7BE2DBAFCA29B1C1D9",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "thinking",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-evidence-guide-512.png",
+      "bytes": 122114,
+      "sha256": "857327A3CCBFA419EA30F651DA2881D8E6702DB2F07139FDB5D3D867DE3F11E8",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "evidence_guide",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-evidence-guide-256.png",
+      "bytes": 42953,
+      "sha256": "770FE02E915BF8806AD9B571479C1EC9A3EBED3805CD51CA86BA433DC84C4E9F",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "evidence_guide",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-quest-host-512.png",
+      "bytes": 129365,
+      "sha256": "6787A6F73C062E29086C2D3E00E67A1C0CC25C60ACBF7D375F1E97930E94D7DF",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "quest_host",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-quest-host-256.png",
+      "bytes": 46096,
+      "sha256": "7CC3344071E7D38E49B480B82845AA26E0AA860965D2A7928BB84B3B47EF5767",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "quest_host",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-recovery-512.png",
+      "bytes": 126518,
+      "sha256": "D0021CCE114A7FF01413DAB5FA9284AD8EE485D47FD219BDB449C6A708BD7BDB",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "recovery",
+      "pixels": 512
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-recovery-256.png",
+      "bytes": 43286,
+      "sha256": "CF4D52BC91B1D32CC8005F769F3481BCE66A303BBD96BF2D819A468D44A2F596",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "surface": "render",
+      "pose": "recovery",
+      "pixels": 256
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/renders/luma-facefront-production-proof-board.png",
+      "bytes": 459866,
+      "sha256": "431A2F359240007220EF07BF123A04528EB5758F718449A75CD48F1A498987DC",
+      "size": [
+        1600,
+        1000
+      ],
+      "mode": "RGB",
+      "surface": "proof"
+    }
+  ]
+}

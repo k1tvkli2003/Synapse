@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "runner": "ubuntu-24.04",
+  "flutter": {
+    "version": "3.44.0",
+    "channel": "stable"
+  },
+  "permissions": {
+    "contents": "read"
+  },
+  "actions": {
+    "actions/checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+    "actions/upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+    "subosito/flutter-action": "1a449444c387b1966244ae4d4f8c696479add0b2"
+  },
+  "files": [
+    {
+      "path": ".github/workflows/quality.yml",
+      "bytes": 2523,
+      "sha256": "0F8DC99852A54FFEC5BE7F99165D8B349A5FA48AA6D7B2858F2BC37C4B23BA06"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "bytes": 351,
+      "sha256": "7FF5CDEE5B117E14FD214EDB646B4F4EBD20B42F4E40FCC71219710B049386F5"
+    }
+  ],
+  "issues": [],
+  "policy": {
+    "purpose": "quality and public build evidence only",
+    "release": "not configured",
+    "deployment": "not configured",
+    "signing": "not configured",
+    "privateDataArtifacts": "forbidden"
+  }
+}

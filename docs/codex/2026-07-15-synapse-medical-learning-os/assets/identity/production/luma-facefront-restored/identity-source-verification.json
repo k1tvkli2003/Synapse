@@ -1,0 +1,252 @@
+{
+  "status": "pass",
+  "selectedIdentity": {
+    "mascot": "LUMA Character System",
+    "appIcon": "ICR2-01 LUMA Facefront",
+    "conceptId": "ICR2-01",
+    "status": "restored-by-latest-direct-user-decision"
+  },
+  "appMaster": {
+    "width": 1024,
+    "height": 1024,
+    "bounds": [
+      0,
+      0,
+      1023,
+      1023
+    ],
+    "maxRadius": 723.37,
+    "borderPixels": 4096,
+    "opaque": true,
+    "cornerAlpha": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "adaptive": {
+    "width": 1024,
+    "height": 1024,
+    "bounds": [
+      299,
+      269,
+      723,
+      747
+    ],
+    "maxRadius": 278.051,
+    "borderPixels": 0,
+    "opaque": false,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "monochrome": {
+    "width": 1024,
+    "height": 1024,
+    "bounds": [
+      299,
+      269,
+      723,
+      747
+    ],
+    "maxRadius": 278.051,
+    "borderPixels": 0,
+    "opaque": false,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "components": 1
+  },
+  "optical": {
+    "48": {
+      "width": 48,
+      "height": 48,
+      "bounds": [
+        0,
+        0,
+        47,
+        47
+      ],
+      "maxRadius": 33.234,
+      "borderPixels": 192,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "meanLuminance": 103.273,
+      "cyanPixels": 825,
+      "darkPixels": 1216
+    },
+    "24": {
+      "width": 24,
+      "height": 24,
+      "bounds": [
+        0,
+        0,
+        23,
+        23
+      ],
+      "maxRadius": 16.263,
+      "borderPixels": 96,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "meanLuminance": 103.364,
+      "cyanPixels": 210,
+      "darkPixels": 291
+    },
+    "16": {
+      "width": 16,
+      "height": 16,
+      "bounds": [
+        0,
+        0,
+        15,
+        15
+      ],
+      "maxRadius": 10.607,
+      "borderPixels": 64,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "meanLuminance": 103.36,
+      "cyanPixels": 100,
+      "darkPixels": 126
+    }
+  },
+  "poses": {
+    "luma-hero-pointing-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        67,
+        184,
+        961,
+        868
+      ],
+      "maxRadius": 516.055,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "luma-encouraging-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        177,
+        126,
+        858,
+        921
+      ],
+      "maxRadius": 477.475,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "luma-thinking-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        233,
+        114,
+        790,
+        921
+      ],
+      "maxRadius": 460.502,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "luma-evidence-guide-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        198,
+        123,
+        826,
+        925
+      ],
+      "maxRadius": 484.139,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "luma-quest-host-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        162,
+        124,
+        862,
+        925
+      ],
+      "maxRadius": 514.434,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "luma-recovery-1024.png": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        102,
+        207,
+        912,
+        841
+      ],
+      "maxRadius": 510.304,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "failures": []
+}

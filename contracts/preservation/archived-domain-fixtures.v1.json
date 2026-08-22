@@ -1,0 +1,159 @@
+{
+  "events": [
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "conceptId": "concept.fixture",
+      "correct": true,
+      "source": "terms",
+      "type": "ConceptStudied"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "conceptId": "concept.fixture",
+      "source": "cards",
+      "type": "ConceptStruggled"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "conceptId": "concept.fixture",
+      "type": "ItemMastered"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "conceptIds": [
+        "concept.fixture"
+      ],
+      "correct": 4,
+      "source": "terms",
+      "total": 5,
+      "type": "LessonCompleted"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "caseId": "case.fixture",
+      "conceptIds": [
+        "concept.fixture"
+      ],
+      "type": "CaseCompleted"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "event": {
+        "at": "2026-07-17T00:00:00.000Z",
+        "conceptIds": [
+          "concept.fixture"
+        ],
+        "firstTry": true,
+        "gems": 0,
+        "kind": "review",
+        "source": "cards",
+        "xp": 5
+      },
+      "type": "RewardGranted"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "current": 7,
+      "type": "StreakChanged"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "itemId": "mnemonic.fixture",
+      "source": "mnemonics",
+      "type": "ContentCreated"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "kind": "comment",
+      "source": "rounds",
+      "type": "SocialInteraction"
+    },
+    {
+      "at": "2026-07-17T00:00:00.000Z",
+      "questId": "quest.fixture",
+      "type": "QuestProgressed"
+    }
+  ],
+  "models": {
+    "Concept": {
+      "aliases": [
+        "low sodium"
+      ],
+      "domain": "lab",
+      "id": "concept.hyponatremia",
+      "links": [
+        {
+          "relation": "related",
+          "to": "concept.sodium"
+        }
+      ],
+      "name": "Hyponatremia",
+      "summary": "fixture-only compatibility text",
+      "tags": [
+        "electrolytes"
+      ]
+    },
+    "ConceptMastery": {
+      "attempts": 8,
+      "conceptId": "concept.hyponatremia",
+      "correct": 5,
+      "lastStudied": "2026-07-17T00:00:00.000Z",
+      "mastery": 0.625,
+      "perModule": {
+        "cards": 3,
+        "labs": 5
+      }
+    },
+    "SrsCard": {
+      "back": "Compatibility fixture answer",
+      "box": 2,
+      "conceptId": "concept.hyponatremia",
+      "dueAt": "2026-07-17T00:00:00.000Z",
+      "ease": 2.35,
+      "front": "Compatibility fixture question",
+      "id": "card.fixture.001",
+      "intervalDays": 6,
+      "lapses": 1,
+      "origin": "cards",
+      "ownerId": "user.fixture.001",
+      "reps": 4
+    },
+    "UserProfile": {
+      "avatarUrl": null,
+      "bio": "Synthetic preservation fixture",
+      "createdAt": "2026-07-17T00:00:00.000Z",
+      "displayName": "Fixture Learner",
+      "handle": "fixture_user",
+      "id": "user.fixture.001",
+      "prefs": {
+        "analyticsOptIn": false,
+        "dailyGoalXp": 60,
+        "interests": [
+          "terms",
+          "labs"
+        ],
+        "locale": "fa",
+        "notifications": {
+          "dailyReminder": true,
+          "leagues": false,
+          "reminderHour": 19,
+          "social": true,
+          "streakAlerts": false
+        },
+        "reduceMotion": true,
+        "theme": "dark"
+      },
+      "role": "resident",
+      "specialty": "Internal Medicine",
+      "updatedAt": "2026-07-17T00:00:00.000Z",
+      "year": 2
+    }
+  },
+  "rules": [
+    "fixtures are synthetic and contain no lesson bodies, PHI, secrets, or production identifiers",
+    "unknown enum values require explicit compatibility behavior rather than silent identity remapping",
+    "event type names and field semantics are immutable facts for legacy adapters"
+  ],
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-21"
+}

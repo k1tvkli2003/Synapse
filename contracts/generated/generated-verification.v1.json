@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "checks": [
+    {
+      "name": "web-drift-runtime-assets",
+      "status": "pass"
+    },
+    {
+      "name": "preservation-regeneration",
+      "status": "pass"
+    },
+    {
+      "name": "selected-luma-identity-source-platform-install",
+      "status": "pass"
+    },
+    {
+      "name": "selected-wordmark",
+      "status": "pass"
+    }
+  ],
+  "inventory": [
+    {
+      "path": "tool/generated/verify_generated.py",
+      "bytes": 10015,
+      "sha256": "C92C4CE674746D143B169FCC3780530AEEAE619B617E839FA1B891BCA390D8B6"
+    },
+    {
+      "path": "tool/preservation/generate_preservation_contracts.py",
+      "bytes": 67121,
+      "sha256": "118C25ACC9D52353CD2C3659B21902FBE656D9C18BCDFB3E07CDDA0C98F22C49"
+    },
+    {
+      "path": "tool/preservation/verify_preservation_contracts.py",
+      "bytes": 13520,
+      "sha256": "9352F20B93878881D4F1B74C840BC2F2FA4E0FA32A45B7875823E998D353B24E"
+    },
+    {
+      "path": "tool/identity/build_luma_facefront.py",
+      "bytes": 30536,
+      "sha256": "1F26052C5CE0CD35686A2C1A34601CF6CDEC239CD897CD2197B0215D1CC439A1"
+    },
+    {
+      "path": "tool/identity/test_luma_facefront.py",
+      "bytes": 14342,
+      "sha256": "FE2D8F4917619AD89F54050C240B1B2FB2B108FD9CCE940B16ED7D550EFB80DA"
+    },
+    {
+      "path": "tool/identity/render_wordmark_assets.cjs",
+      "bytes": 6580,
+      "sha256": "B6B957DA7A8A25280813DA7E28B150971E16DC762F2A006DBF330CFAA9E8BAB7"
+    },
+    {
+      "path": "contracts/preservation/preservation-manifest.v1.json",
+      "bytes": 13143,
+      "sha256": "085C229B2664D60B0A16BC2FF9D0A36959380A08F62C52E8D0F0A2CE6F760987"
+    },
+    {
+      "path": "contracts/architecture/architecture-verification.v1.json",
+      "bytes": 386,
+      "sha256": "AD5D4C48B1FE2EBF57BDAD631457C2176FC4157E20835B486A5DBA2C5E703ECB"
+    },
+    {
+      "path": "contracts/generated/web-runtime-assets.v1.json",
+      "bytes": 759,
+      "sha256": "743961F79062FB139C2DEC2281D04A0CEE7438E4CD53AA8657342466E5559A9C"
+    },
+    {
+      "path": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/identity-source-manifest.json",
+      "bytes": 17382,
+      "sha256": "91A6D89A5B7348DD13A90900F58D15EFF83244B9BD7010B108D22A649A48EF5D"
+    },
+    {
+      "path": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/luma-facefront-restored/platforms/platform-manifest.json",
+      "bytes": 87192,
+      "sha256": "C9702E874C290AA3A395D89DAD666D4A3575A44AE2D75ACD3DF3F8A439B1A661"
+    },
+    {
+      "path": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/render-manifest.json",
+      "bytes": 9560,
+      "sha256": "BEBC571AB433A28F9334432C38C5B3A11B760D19D3DED9F0AD4E9556D7F2BD19"
+    }
+  ],
+  "missing": [],
+  "policy": {
+    "contracts": "clean regeneration byte comparison",
+    "identity": "source geometry, optical metrics, manifest hashes, and installed-byte parity",
+    "webRuntime": "locked package versions and byte-exact Drift worker/WASM assets",
+    "generatedDart": "none currently declared"
+  }
+}

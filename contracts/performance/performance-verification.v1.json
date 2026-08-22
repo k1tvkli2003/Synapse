@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "budgetPath": "contracts/performance/performance-budgets.v1.json",
+  "budgetSha256": "3970BE892EF77F8C71F48694A1243C9D927FCF007A0F9F486421D1B2893179FC",
+  "staticMeasurements": [
+    {
+      "id": "web.release-output-total",
+      "valueBytes": 48540155,
+      "present": true,
+      "filesMeasured": 75,
+      "largestPath": "apps/app/build/web/canvaskit/canvaskit.wasm",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 58720256,
+        "warningMax": 67108864,
+        "blockingMax": 83886080
+      }
+    },
+    {
+      "id": "web.main-dart-js-raw",
+      "valueBytes": 4144998,
+      "present": true,
+      "filesMeasured": 1,
+      "largestPath": "apps/app/build/web/main.dart.js",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 4194304,
+        "warningMax": 4980736,
+        "blockingMax": 6291456
+      }
+    },
+    {
+      "id": "web.main-dart-js-gzip",
+      "valueBytes": 1212384,
+      "present": true,
+      "filesMeasured": 1,
+      "largestPath": "apps/app/build/web/main.dart.js",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 1572864,
+        "warningMax": 2097152,
+        "blockingMax": 2621440
+      }
+    },
+    {
+      "id": "web.renderer-largest-wasm",
+      "valueBytes": 7229467,
+      "present": true,
+      "filesMeasured": 6,
+      "largestPath": "apps/app/build/web/canvaskit/canvaskit.wasm",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 8388608,
+        "warningMax": 10485760,
+        "blockingMax": 12582912
+      }
+    },
+    {
+      "id": "web.flutter-assets-total",
+      "valueBytes": 5467781,
+      "present": true,
+      "filesMeasured": 43,
+      "largestPath": "apps/app/build/web/assets/NOTICES",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 10485760,
+        "warningMax": 14680064,
+        "blockingMax": 20971520
+      }
+    },
+    {
+      "id": "app.declared-flutter-assets-total",
+      "valueBytes": 3970013,
+      "present": true,
+      "filesMeasured": 35,
+      "declaredAssetPaths": [
+        "assets/identity/luma_facefront/",
+        "assets/identity/wordmark/"
+      ],
+      "missingDeclaredAssetPaths": [],
+      "largestPath": "apps/app/assets/identity/luma_facefront/app_icon_1024.png",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 7340032,
+        "warningMax": 10485760,
+        "blockingMax": 14680064
+      }
+    },
+    {
+      "id": "identity.selected-companion-assets-total",
+      "valueBytes": 3879968,
+      "present": true,
+      "filesMeasured": 27,
+      "largestPath": "apps/app/assets/identity/luma_facefront/app_icon_1024.png",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 7340032,
+        "warningMax": 10485760,
+        "blockingMax": 14680064
+      }
+    },
+    {
+      "id": "identity.selected-wordmark-assets-total",
+      "valueBytes": 90045,
+      "present": true,
+      "filesMeasured": 8,
+      "largestPath": "apps/app/assets/identity/wordmark/wordmark_frost_240.png",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 262144,
+        "warningMax": 524288,
+        "blockingMax": 1048576
+      }
+    },
+    {
+      "id": "identity.largest-raster-encoded",
+      "valueBytes": 453429,
+      "present": true,
+      "filesMeasured": 27,
+      "largestPath": "apps/app/assets/identity/luma_facefront/app_icon_1024.png",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 1048576,
+        "warningMax": 1572864,
+        "blockingMax": 2097152
+      }
+    },
+    {
+      "id": "identity.largest-raster-decoded-rgba",
+      "valueBytes": 4194304,
+      "present": true,
+      "filesMeasured": 27,
+      "largestPath": "apps/app/assets/identity/luma_facefront/app_icon_1024.png",
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 4194304,
+        "warningMax": 8388608,
+        "blockingMax": 16777216
+      }
+    },
+    {
+      "id": "motion.rive-total",
+      "valueBytes": 0,
+      "present": true,
+      "filesMeasured": 0,
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 3145728,
+        "warningMax": 6291456,
+        "blockingMax": 10485760
+      }
+    },
+    {
+      "id": "motion.rive-largest",
+      "valueBytes": 0,
+      "present": true,
+      "filesMeasured": 0,
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 1048576,
+        "warningMax": 2097152,
+        "blockingMax": 4194304
+      }
+    },
+    {
+      "id": "motion.fragment-shaders-total",
+      "valueBytes": 0,
+      "present": false,
+      "filesMeasured": 0,
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 524288,
+        "warningMax": 1048576,
+        "blockingMax": 2097152
+      }
+    },
+    {
+      "id": "content.initial-bundled-pack-total",
+      "valueBytes": 0,
+      "present": false,
+      "filesMeasured": 0,
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 2097152,
+        "warningMax": 5242880,
+        "blockingMax": 10485760
+      }
+    },
+    {
+      "id": "content.largest-download-pack",
+      "valueBytes": 0,
+      "present": false,
+      "filesMeasured": 0,
+      "tier": "target",
+      "thresholdsBytes": {
+        "targetMax": 26214400,
+        "warningMax": 52428800,
+        "blockingMax": 104857600
+      }
+    }
+  ],
+  "warningCount": 0,
+  "failures": [],
+  "runtimeGate": "informational-until-calibrated",
+  "namedJourneyCount": 8,
+  "motionModes": [
+    "full",
+    "reduced",
+    "off"
+  ],
+  "requiredMotionScenarios": [
+    "first-run",
+    "warm-run",
+    "repeat",
+    "interruption",
+    "background-resume",
+    "reduced-motion",
+    "motion-off",
+    "renderer-fallback"
+  ]
+}

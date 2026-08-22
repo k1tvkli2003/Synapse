@@ -1,21 +1,40 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:synapse_config/synapse_config.dart';
 import 'package:synapse_core/synapse_core.dart';
+import 'package:synapse_foundation/synapse_foundation.dart';
 import 'package:synapse_services/synapse_services.dart';
 
 import 'persistence.dart';
 
 /// Overridden in `main()` with the resolved instance.
 final sharedPreferencesProvider = Provider<PersistedStore>(
-  (ref) => throw UnimplementedError('PersistedStore must be provided in main()'),
+  (ref) =>
+      throw UnimplementedError('PersistedStore must be provided in main()'),
 );
 
-final appConfigProvider = Provider<AppConfig>((ref) => AppConfig.fromEnvironment());
+final appConfigProvider = Provider<AppConfig>(
+  (ref) => AppConfig.fromEnvironment(),
+);
 
-final featureFlagsProvider = Provider<FeatureFlags>((ref) => FeatureFlags.defaults);
+final featureFlagsProvider = Provider<FeatureFlags>((ref) {
+  final config = ref.watch(appConfigProvider);
+  return FeatureFlags.fromEnvironment(config.environment);
+});
+
+final clockProvider = Provider<Clock>((ref) => const SystemClock());
+
+final operationalIdSourceProvider = Provider<IdSource>(
+  (ref) => TimeOrderedIdSource(
+    clock: ref.watch(clockProvider),
+    random: SecureRandomSource(),
+    prefix: 'prs',
+  ),
+);
 
 /// The offline-first content repository + seed data (prompt 05/23).
-final repositoryProvider = Provider<ContentRepository>((ref) => ContentRepository());
+final repositoryProvider = Provider<ContentRepository>(
+  (ref) => ContentRepository(),
+);
 
 /// The typed in-app event bus — the integration backbone (prompt 32).
 final eventBusProvider = Provider<EventBus>((ref) {

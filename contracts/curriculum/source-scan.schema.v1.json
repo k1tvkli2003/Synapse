@@ -1,0 +1,462 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://synapse.local/contracts/curriculum/source-scan.schema.v1.json",
+  "title": "Synapse deterministic curriculum source scan",
+  "description": "A source-root-free deterministic inventory with Markdown atomization and strict non-executing TypeScript sidecar literal/structure atomization. Source documents and atoms reuse the production content-contract definitions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "contractId",
+    "manifestId",
+    "scope",
+    "parser",
+    "sourceTreeSha256",
+    "hierarchyNodes",
+    "documentOrder",
+    "sourceDocuments",
+    "sourceAtoms",
+    "documentCoverage",
+    "coverageBootstrap",
+    "mediaRecords",
+    "summary"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://synapse.local/contracts/curriculum/source-scan.schema.v1.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "contractId": {
+      "const": "synapse.curriculum.source-scan.v1"
+    },
+    "manifestId": {
+      "$ref": "content-contract.v1.json#/$defs/stableId"
+    },
+    "scope": {
+      "$ref": "#/$defs/scope"
+    },
+    "parser": {
+      "$ref": "#/$defs/parser"
+    },
+    "sourceTreeSha256": {
+      "$ref": "content-contract.v1.json#/$defs/sha256"
+    },
+    "hierarchyNodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/hierarchyNode"
+      }
+    },
+    "documentOrder": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/documentOrder"
+      }
+    },
+    "sourceDocuments": {
+      "type": "array",
+      "items": {
+        "$ref": "content-contract.v1.json#/$defs/sourceDocument"
+      }
+    },
+    "sourceAtoms": {
+      "type": "array",
+      "items": {
+        "$ref": "content-contract.v1.json#/$defs/sourceAtom"
+      }
+    },
+    "documentCoverage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/documentCoverage"
+      }
+    },
+    "coverageBootstrap": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/coverageBootstrap"
+      }
+    },
+    "mediaRecords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mediaRecord"
+      }
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![A-Za-z]:|/|\\\\).+"
+    },
+    "nullablePositiveInteger": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "countMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKey",
+        "classification",
+        "courseFilters",
+        "localRootDistributable"
+      ],
+      "properties": {
+        "sourceKey": {
+          "const": "harrison-sim"
+        },
+        "classification": {
+          "const": "user-provided-simulated-medical-reference"
+        },
+        "courseFilters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{2,3}$"
+          }
+        },
+        "localRootDistributable": {
+          "const": false
+        }
+      }
+    },
+    "parser": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "typescriptPolicy",
+        "locatorCharacterSemantics",
+        "locatorLineSemantics"
+      ],
+      "properties": {
+        "name": {
+          "const": "synapse-static-source-atomizer"
+        },
+        "version": {
+          "const": "1.1.1"
+        },
+        "typescriptPolicy": {
+          "const": "strict-static-literal-and-structure-atomization; inert-untrusted-bytes-never-executed"
+        },
+        "locatorCharacterSemantics": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locatorLineSemantics": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "hierarchyNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKey",
+        "parentSourceKey",
+        "kind",
+        "ordinal",
+        "relativePath",
+        "directoryName"
+      ],
+      "properties": {
+        "sourceKey": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "parentSourceKey": {
+          "anyOf": [
+            {
+              "$ref": "content-contract.v1.json#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "course",
+            "chapter",
+            "source_lesson"
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "relativePath": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "directoryName": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "documentOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceDocumentId",
+        "scopeOrdinal",
+        "courseOrdinal",
+        "chapterOrdinal",
+        "sourceLessonOrdinal",
+        "courseFileOrdinal",
+        "chapterFileOrdinal",
+        "sourceLessonFileOrdinal"
+      ],
+      "properties": {
+        "sourceDocumentId": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "scopeOrdinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "courseOrdinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "chapterOrdinal": {
+          "$ref": "#/$defs/nullablePositiveInteger"
+        },
+        "sourceLessonOrdinal": {
+          "$ref": "#/$defs/nullablePositiveInteger"
+        },
+        "courseFileOrdinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "chapterFileOrdinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sourceLessonFileOrdinal": {
+          "$ref": "#/$defs/nullablePositiveInteger"
+        }
+      }
+    },
+    "documentCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceDocumentId",
+        "canonicalCharacterCount",
+        "canonicalLineCount",
+        "atomCount",
+        "atomCountsByType",
+        "atomCountsByDisposition",
+        "allNonWhitespaceSourceRepresentedByDocumentAtoms"
+      ],
+      "properties": {
+        "sourceDocumentId": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "canonicalCharacterCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "canonicalLineCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "atomCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "atomCountsByType": {
+          "$ref": "#/$defs/countMap"
+        },
+        "atomCountsByDisposition": {
+          "$ref": "#/$defs/countMap"
+        },
+        "allNonWhitespaceSourceRepresentedByDocumentAtoms": {
+          "const": true
+        }
+      }
+    },
+    "coverageBootstrap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceAtomId",
+        "state",
+        "suggestedCoverageRole",
+        "requiresBilingualAuthoring",
+        "claimVerificationRequired"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "sourceAtomId": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "state": {
+          "enum": [
+            "planned",
+            "duplicate_pending_reconciliation",
+            "non_instructional_accounted"
+          ]
+        },
+        "suggestedCoverageRole": {
+          "enum": [
+            "primary_instruction",
+            "mechanism_explanation",
+            "worked_example",
+            "reinforcement",
+            "assessment",
+            "media_interpretation",
+            "duplicate_reconciliation",
+            "non_instructional_accounting"
+          ]
+        },
+        "requiresBilingualAuthoring": {
+          "type": "boolean"
+        },
+        "claimVerificationRequired": {
+          "type": "boolean"
+        }
+      }
+    },
+    "mediaRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceDocumentId",
+        "declaredExtension",
+        "detectedFormat",
+        "magicMatchesExtension"
+      ],
+      "properties": {
+        "sourceDocumentId": {
+          "$ref": "content-contract.v1.json#/$defs/stableId"
+        },
+        "declaredExtension": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detectedFormat": {
+          "type": "string",
+          "minLength": 1
+        },
+        "magicMatchesExtension": {
+          "type": "boolean"
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "courseCount",
+        "chapterCount",
+        "explicitSourceLessonCount",
+        "fileCount",
+        "totalBytes",
+        "documentCountsByRole",
+        "documentCountsByMime",
+        "documentCountsByLocale",
+        "atomCount",
+        "atomCountsByType",
+        "atomCountsByDisposition",
+        "duplicateDocumentCount",
+        "duplicateAtomCount",
+        "untrustedTypescriptDocumentCount",
+        "mimeMismatchCount",
+        "quarantinedDocumentCount"
+      ],
+      "properties": {
+        "courseCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "chapterCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "explicitSourceLessonCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fileCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "totalBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "documentCountsByRole": {
+          "$ref": "#/$defs/countMap"
+        },
+        "documentCountsByMime": {
+          "$ref": "#/$defs/countMap"
+        },
+        "documentCountsByLocale": {
+          "$ref": "#/$defs/countMap"
+        },
+        "atomCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "atomCountsByType": {
+          "$ref": "#/$defs/countMap"
+        },
+        "atomCountsByDisposition": {
+          "$ref": "#/$defs/countMap"
+        },
+        "duplicateDocumentCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicateAtomCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "untrustedTypescriptDocumentCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mimeMismatchCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quarantinedDocumentCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

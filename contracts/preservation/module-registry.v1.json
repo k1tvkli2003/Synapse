@@ -1,0 +1,670 @@
+{
+  "canonicalOwner": "packages/core/lib/src/models/module_key.dart",
+  "modules": [
+    {
+      "accentArgb": "0XFFB794F6",
+      "id": "copilot",
+      "ordinal": 0,
+      "shellBranch": "home",
+      "sourceIdea": "Cortex",
+      "tagline": "Your AI medical tutor",
+      "title": "Copilot"
+    },
+    {
+      "accentArgb": "0XFF7BE0A3",
+      "id": "terms",
+      "ordinal": 1,
+      "shellBranch": "learn",
+      "sourceIdea": "Lexis",
+      "tagline": "Learn the language of medicine",
+      "title": "Terms"
+    },
+    {
+      "accentArgb": "0XFF6FD3E8",
+      "id": "cards",
+      "ordinal": 2,
+      "shellBranch": "learn",
+      "sourceIdea": "Rhizome",
+      "tagline": "Flashcards on a knowledge graph",
+      "title": "Cards"
+    },
+    {
+      "accentArgb": "0XFFFFC773",
+      "id": "mnemonics",
+      "ordinal": 3,
+      "shellBranch": "learn",
+      "sourceIdea": "Rememb",
+      "tagline": "Memory hooks, by the community",
+      "title": "Mnemonics"
+    },
+    {
+      "accentArgb": "0XFFFF8A8A",
+      "id": "ecg",
+      "ordinal": 4,
+      "shellBranch": "clinical",
+      "sourceIdea": "Paze",
+      "tagline": "Read tracings with confidence",
+      "title": "ECG"
+    },
+    {
+      "accentArgb": "0XFF5FD9C4",
+      "id": "sounds",
+      "ordinal": 5,
+      "shellBranch": "clinical",
+      "sourceIdea": "Sonus",
+      "tagline": "Train your ear: heart & lung",
+      "title": "Sounds"
+    },
+    {
+      "accentArgb": "0XFFC3E88D",
+      "id": "labs",
+      "ordinal": 6,
+      "shellBranch": "clinical",
+      "sourceIdea": "Smear",
+      "tagline": "Interpret panels, pattern by pattern",
+      "title": "Labs"
+    },
+    {
+      "accentArgb": "0XFF8C9EFF",
+      "id": "algorithms",
+      "ordinal": 7,
+      "shellBranch": "clinical",
+      "sourceIdea": "Omen",
+      "tagline": "Decide step by step",
+      "title": "Algorithms"
+    },
+    {
+      "accentArgb": "0XFFA6B6CC",
+      "id": "orLab",
+      "ordinal": 8,
+      "shellBranch": "clinical",
+      "sourceIdea": "Scrubbed",
+      "tagline": "Cinematic surgical dramas",
+      "title": "OR Lab"
+    },
+    {
+      "accentArgb": "0XFFF7A8C4",
+      "id": "rounds",
+      "ordinal": 9,
+      "shellBranch": "social",
+      "sourceIdea": "Wave",
+      "tagline": "Audio-first clinical feed",
+      "title": "Rounds"
+    },
+    {
+      "accentArgb": "0XFF7FB5FF",
+      "id": "buddies",
+      "ordinal": 10,
+      "shellBranch": "social",
+      "sourceIdea": "Synapse",
+      "tagline": "Find your study partners",
+      "title": "Study Buddies"
+    },
+    {
+      "accentArgb": "0XFFFFB07A",
+      "id": "arena",
+      "ordinal": 11,
+      "shellBranch": "social",
+      "sourceIdea": "Cillin",
+      "tagline": "Antibiotics vs. bacteria, live",
+      "title": "Arena"
+    }
+  ],
+  "schemaVersion": 1,
+  "serializedEnums": [
+    {
+      "name": "AlgoNodeKind",
+      "source": "packages/core/lib/src/models/algorithms.dart",
+      "sourceLine": 5,
+      "values": [
+        "decision",
+        "outcome"
+      ]
+    },
+    {
+      "name": "BodySystem",
+      "source": "packages/core/lib/src/models/diseases.dart",
+      "sourceLine": 7,
+      "values": [
+        "cardiovascular",
+        "respiratory",
+        "renal",
+        "gastrointestinal",
+        "endocrine",
+        "neurology",
+        "hematology",
+        "infectious",
+        "musculoskeletal",
+        "psychiatry",
+        "dermatology",
+        "reproductive",
+        "general"
+      ]
+    },
+    {
+      "name": "BuddyStatus",
+      "source": "packages/core/lib/src/models/buddies.dart",
+      "sourceLine": 53,
+      "values": [
+        "suggested",
+        "requested",
+        "incoming",
+        "matched",
+        "passed"
+      ]
+    },
+    {
+      "name": "CardRarity",
+      "source": "packages/core/lib/src/models/arena.dart",
+      "sourceLine": 9,
+      "values": [
+        "common",
+        "rare",
+        "epic",
+        "legendary"
+      ]
+    },
+    {
+      "name": "ChatKind",
+      "source": "packages/core/lib/src/models/social.dart",
+      "sourceLine": 58,
+      "values": [
+        "dm",
+        "group",
+        "clan"
+      ]
+    },
+    {
+      "name": "CitationType",
+      "source": "packages/core/lib/src/models/evidence.dart",
+      "sourceLine": 4,
+      "values": [
+        "guideline",
+        "rct",
+        "review",
+        "textbook",
+        "cohort",
+        "other"
+      ]
+    },
+    {
+      "name": "CloudSyncPhase",
+      "source": "apps/app/lib/state/cloud_sync_provider.dart",
+      "sourceLine": 14,
+      "values": [
+        "offline",
+        "signedOut",
+        "codeSent",
+        "syncing",
+        "signedIn",
+        "error"
+      ]
+    },
+    {
+      "name": "ConceptDomain",
+      "source": "packages/core/lib/src/models/concept.dart",
+      "sourceLine": 6,
+      "values": [
+        "anatomy",
+        "pharmacology",
+        "clinical",
+        "roots",
+        "communication",
+        "cardiology",
+        "lab",
+        "sound",
+        "microbiology",
+        "endocrine",
+        "neurology",
+        "other"
+      ]
+    },
+    {
+      "name": "ConceptRelation",
+      "source": "packages/core/lib/src/models/concept.dart",
+      "sourceLine": 37,
+      "values": [
+        "isA",
+        "partOf",
+        "treats",
+        "causes",
+        "related"
+      ]
+    },
+    {
+      "name": "CueKind",
+      "source": "packages/core/lib/src/models/orlab.dart",
+      "sourceLine": 5,
+      "values": [
+        "keyTerm",
+        "instrument",
+        "step"
+      ]
+    },
+    {
+      "name": "EcgRhythm",
+      "source": "packages/core/lib/src/models/ecg.dart",
+      "sourceLine": 48,
+      "values": [
+        "sinus",
+        "tachycardia",
+        "bradycardia",
+        "afib",
+        "flutter",
+        "vtach",
+        "vfib",
+        "stemi",
+        "hyperkalemia",
+        "heartBlock",
+        "asystole"
+      ]
+    },
+    {
+      "name": "ExerciseKind",
+      "source": "packages/core/lib/src/models/terms.dart",
+      "sourceLine": 7,
+      "values": [
+        "multipleChoice"
+      ]
+    },
+    {
+      "name": "InteractionSeverity",
+      "source": "packages/core/lib/src/models/drugs.dart",
+      "sourceLine": 8,
+      "values": [
+        "minor",
+        "moderate",
+        "major",
+        "contraindicated"
+      ]
+    },
+    {
+      "name": "InterpretationSeverity",
+      "source": "packages/core/lib/src/models/labs.dart",
+      "sourceLine": 79,
+      "values": [
+        "info",
+        "watch",
+        "concern",
+        "critical"
+      ]
+    },
+    {
+      "name": "LabFlag",
+      "source": "packages/core/lib/src/models/labs.dart",
+      "sourceLine": 30,
+      "values": [
+        "low",
+        "normal",
+        "high",
+        "criticalLow",
+        "criticalHigh"
+      ]
+    },
+    {
+      "name": "LabPanelType",
+      "source": "packages/core/lib/src/models/labs.dart",
+      "sourceLine": 5,
+      "values": [
+        "cbc",
+        "bmp",
+        "lft"
+      ]
+    },
+    {
+      "name": "League",
+      "source": "packages/core/lib/src/models/reward.dart",
+      "sourceLine": 10,
+      "values": [
+        "bronze",
+        "silver",
+        "gold",
+        "sapphire",
+        "ruby",
+        "emerald",
+        "diamond"
+      ]
+    },
+    {
+      "name": "LevelOfEvidence",
+      "source": "packages/core/lib/src/models/evidence.dart",
+      "sourceLine": 23,
+      "values": [
+        "a",
+        "b",
+        "c",
+        "expert"
+      ]
+    },
+    {
+      "name": "LibraryKind",
+      "source": "packages/core/lib/src/models/library.dart",
+      "sourceLine": 8,
+      "values": [
+        "atlas",
+        "imaging",
+        "procedure",
+        "guideline",
+        "journal"
+      ]
+    },
+    {
+      "name": "ModuleKey",
+      "source": "packages/core/lib/src/models/module_key.dart",
+      "sourceLine": 9,
+      "values": [
+        "copilot",
+        "terms",
+        "cards",
+        "mnemonics",
+        "ecg",
+        "sounds",
+        "labs",
+        "algorithms",
+        "orLab",
+        "rounds",
+        "buddies",
+        "arena"
+      ]
+    },
+    {
+      "name": "MotionModePref",
+      "source": "packages/core/lib/src/models/user_profile.dart",
+      "sourceLine": 11,
+      "values": [
+        "full",
+        "reduced",
+        "off"
+      ]
+    },
+    {
+      "name": "NotificationKind",
+      "source": "packages/core/lib/src/models/social.dart",
+      "sourceLine": 13,
+      "values": [
+        "reward",
+        "social",
+        "review",
+        "league",
+        "system",
+        "quest"
+      ]
+    },
+    {
+      "name": "OsceDomain",
+      "source": "packages/core/lib/src/models/osce.dart",
+      "sourceLine": 25,
+      "values": [
+        "dataGathering",
+        "communication",
+        "empathy",
+        "diagnosis",
+        "safety"
+      ]
+    },
+    {
+      "name": "OsceType",
+      "source": "packages/core/lib/src/models/osce.dart",
+      "sourceLine": 6,
+      "values": [
+        "history",
+        "counseling",
+        "sbar",
+        "consent",
+        "ethics",
+        "triage"
+      ]
+    },
+    {
+      "name": "QuestPeriod",
+      "source": "packages/core/lib/src/models/quest.dart",
+      "sourceLine": 6,
+      "values": [
+        "daily",
+        "weekly"
+      ]
+    },
+    {
+      "name": "ResourceAnchorKind",
+      "source": "packages/core/lib/src/models/resource_reference_models.dart",
+      "sourceLine": 28,
+      "values": [
+        "wholeResource",
+        "curriculumBlock",
+        "documentPageRange",
+        "documentTextRange",
+        "documentRegion"
+      ]
+    },
+    {
+      "name": "ResourceAnnotationKind",
+      "source": "packages/core/lib/src/models/resource_artifact_models.dart",
+      "sourceLine": 10,
+      "values": [
+        "highlight",
+        "comment",
+        "ink"
+      ]
+    },
+    {
+      "name": "ResourceAnnotationState",
+      "source": "packages/core/lib/src/models/resource_artifact_models.dart",
+      "sourceLine": 13,
+      "values": [
+        "active",
+        "resolved",
+        "deleted"
+      ]
+    },
+    {
+      "name": "ResourceArtifactColor",
+      "source": "packages/core/lib/src/models/resource_artifact_models.dart",
+      "sourceLine": 16,
+      "values": [
+        "cyan",
+        "gold",
+        "coral",
+        "violet",
+        "green"
+      ]
+    },
+    {
+      "name": "ResourceCrossReferenceKind",
+      "source": "packages/core/lib/src/models/resource_artifact_models.dart",
+      "sourceLine": 19,
+      "values": [
+        "supportingDocument",
+        "evidenceSupport",
+        "relatedContext"
+      ]
+    },
+    {
+      "name": "ResourceDocumentOrigin",
+      "source": "packages/core/lib/src/models/resource_reference_models.dart",
+      "sourceLine": 20,
+      "values": [
+        "userImport",
+        "curriculumAttachment",
+        "evidenceAttachment",
+        "migratedImport"
+      ]
+    },
+    {
+      "name": "ResourceReferenceKind",
+      "source": "packages/core/lib/src/models/resource_reference_models.dart",
+      "sourceLine": 11,
+      "values": [
+        "curriculumNode",
+        "curriculumStudyDocument",
+        "document",
+        "clinicalCase",
+        "evidenceRecord"
+      ]
+    },
+    {
+      "name": "ReviewGrade",
+      "source": "packages/core/lib/src/models/srs.dart",
+      "sourceLine": 6,
+      "values": [
+        "again",
+        "hard",
+        "good",
+        "easy"
+      ]
+    },
+    {
+      "name": "ReviewStatus",
+      "source": "packages/core/lib/src/models/evidence.dart",
+      "sourceLine": 106,
+      "values": [
+        "draft",
+        "inReview",
+        "approved",
+        "needsUpdate",
+        "deprecated"
+      ]
+    },
+    {
+      "name": "RewardKind",
+      "source": "packages/core/lib/src/models/reward.dart",
+      "sourceLine": 7,
+      "values": [
+        "correct",
+        "lesson",
+        "win",
+        "review",
+        "streak",
+        "contribution"
+      ]
+    },
+    {
+      "name": "ShellBranch",
+      "source": "packages/core/lib/src/models/module_key.dart",
+      "sourceLine": 2,
+      "values": [
+        "home",
+        "learn",
+        "clinical",
+        "social",
+        "profile"
+      ]
+    },
+    {
+      "name": "SoundKind",
+      "source": "packages/core/lib/src/models/sounds.dart",
+      "sourceLine": 5,
+      "values": [
+        "heart",
+        "lung"
+      ]
+    },
+    {
+      "name": "Spectrum",
+      "source": "packages/core/lib/src/models/arena.dart",
+      "sourceLine": 7,
+      "values": [
+        "gramPositive",
+        "gramNegative",
+        "broad"
+      ]
+    },
+    {
+      "name": "SrsOrigin",
+      "source": "packages/core/lib/src/models/srs.dart",
+      "sourceLine": 17,
+      "values": [
+        "terms",
+        "cards",
+        "mnemonics"
+      ]
+    },
+    {
+      "name": "StudyTaskKind",
+      "source": "apps/app/lib/state/study_plan_provider.dart",
+      "sourceLine": 13,
+      "values": [
+        "review",
+        "remediate",
+        "learn",
+        "caseSim",
+        "motivation",
+        "reference"
+      ]
+    },
+    {
+      "name": "ThemeModePref",
+      "source": "packages/core/lib/src/models/user_profile.dart",
+      "sourceLine": 7,
+      "values": [
+        "dark",
+        "light",
+        "system"
+      ]
+    },
+    {
+      "name": "Tier",
+      "source": "apps/app/lib/state/entitlement_provider.dart",
+      "sourceLine": 8,
+      "values": [
+        "free",
+        "pro"
+      ]
+    },
+    {
+      "name": "ToolCategory",
+      "source": "packages/core/lib/src/models/tools.dart",
+      "sourceLine": 7,
+      "values": [
+        "score",
+        "formula",
+        "converter",
+        "decision"
+      ]
+    },
+    {
+      "name": "ToolInputType",
+      "source": "packages/core/lib/src/models/tools.dart",
+      "sourceLine": 22,
+      "values": [
+        "number",
+        "select",
+        "boolean"
+      ]
+    },
+    {
+      "name": "UserRole",
+      "source": "packages/core/lib/src/models/user_profile.dart",
+      "sourceLine": 5,
+      "values": [
+        "student",
+        "resident",
+        "nurse",
+        "clinician",
+        "other"
+      ]
+    }
+  ],
+  "shellBranches": [
+    {
+      "id": "home",
+      "ordinal": 0
+    },
+    {
+      "id": "learn",
+      "ordinal": 1
+    },
+    {
+      "id": "clinical",
+      "ordinal": 2
+    },
+    {
+      "id": "social",
+      "ordinal": 3
+    },
+    {
+      "id": "profile",
+      "ordinal": 4
+    }
+  ],
+  "sourceDate": "2026-07-21"
+}

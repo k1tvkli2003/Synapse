@@ -1,0 +1,1 @@
+"""Synapse repository security gates."""

@@ -9,7 +9,20 @@ library;
 // Identity & primitives
 export 'src/models/ids.dart';
 export 'src/models/module_key.dart';
+export 'src/models/resource_artifact_models.dart';
+export 'src/models/resource_document_reading_models.dart';
+export 'src/models/resource_reference_models.dart';
 export 'src/models/user_profile.dart';
+
+// Curriculum spine
+export 'src/curriculum/curriculum_identity.dart';
+export 'src/curriculum/curriculum_learning_models.dart';
+export 'src/curriculum/curriculum_manifest.dart';
+export 'src/curriculum/curriculum_models.dart';
+export 'src/curriculum/curriculum_progress_models.dart';
+export 'src/curriculum/curriculum_reading_state_models.dart';
+export 'src/curriculum/curriculum_study_workspace_models.dart';
+export 'src/curriculum/curriculum_study_models.dart';
 
 // Knowledge spine
 export 'src/models/concept.dart';
@@ -49,6 +62,15 @@ export 'src/models/social.dart';
 // Event bus
 export 'src/events/synapse_event.dart';
 export 'src/events/event_bus.dart';
+
+// Stable persistence and wire contracts
+export 'src/serialization/stable_enum_codec.dart';
+export 'src/serialization/canonical_json.dart';
+export 'src/serialization/synapse_event_codec.dart';
+export 'src/serialization/versioned_envelope.dart';
+
+// Personal multi-device sync and private content delivery
+export 'src/sync/personal_sync_models.dart';
 
 // Utilities
 export 'src/util/result.dart';

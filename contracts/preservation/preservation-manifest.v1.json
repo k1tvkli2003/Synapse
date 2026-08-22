@@ -1,0 +1,374 @@
+{
+  "counts": {
+    "capabilities": 76,
+    "deepLinkFixtures": 450,
+    "domainModels": 4,
+    "legacyEvents": 10,
+    "modules": 12,
+    "persistenceKeys": 18,
+    "resolvedRoutes": 150,
+    "routeDeclarations": 142,
+    "routeHelpers": 91,
+    "serializedEnums": 45,
+    "shellBranches": 5,
+    "supabasePolicies": 11,
+    "supabaseTables": 9
+  },
+  "outputs": [
+    {
+      "bytes": 3874,
+      "path": "contracts/preservation/archived-domain-fixtures.v1.json",
+      "sha256": "62FFD4B7829E6968307709313AFD082ED8F5F72C14A024074C6778A662060940"
+    },
+    {
+      "bytes": 79266,
+      "path": "contracts/preservation/capability-ledger.v1.json",
+      "sha256": "4EBC8F78A6A8828E142848B564E169B0E608E1E31819E5A801BB8C7EAF4B719B"
+    },
+    {
+      "bytes": 217926,
+      "path": "contracts/preservation/deep-link-fixtures.v1.json",
+      "sha256": "BBAC321F55F42A8EA379F1E03DB114B1A8984AB12C87EAFED976A3A0E843813E"
+    },
+    {
+      "bytes": 14362,
+      "path": "contracts/preservation/module-registry.v1.json",
+      "sha256": "178AECF5071512F2E34D0F9856F07D6E5100E63BA4A477794147C61DA7EE59AF"
+    },
+    {
+      "bytes": 14554,
+      "path": "contracts/preservation/persistence-keys.v1.json",
+      "sha256": "FC3CC22411E51B47B29E259D5E04287962AF93CCFF17E858D76390D4F01D3739"
+    },
+    {
+      "bytes": 2199,
+      "path": "contracts/preservation/rollback-bundle.v1.json",
+      "sha256": "B7A6DBC651567F1357943A8717619ED47F565D2BE71CA3FF61824E42FC1A3497"
+    },
+    {
+      "bytes": 93144,
+      "path": "contracts/preservation/route-registry.v1.json",
+      "sha256": "C44D66FFDB2D1A0C48479E2341A31B9487E6AE380D18F9432258EDF8A76A942C"
+    },
+    {
+      "bytes": 15143,
+      "path": "contracts/preservation/supabase-schema.v1.json",
+      "sha256": "E946FB4B1C83EADF8CD9770F388F7659B8972DA25DDBEA463D55A22DD496A8F9"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceCommit": "9067be0834ae80495e1112728ef0c82ae36100cc",
+  "sourceDate": "2026-07-21",
+  "sources": [
+    {
+      "bytes": 25688,
+      "path": "apps/app/lib/router/router.dart",
+      "sha256": "846C32CB390CE4FCBA0B6DFD2EB2188E118400B07D0E951BCD025A937C7E36AD"
+    },
+    {
+      "bytes": 5918,
+      "path": "apps/app/lib/router/routes.dart",
+      "sha256": "6340D59FD227C07B06BF31502CA30BFFC9DFBB854F05C216D9AE32722F2DDF73"
+    },
+    {
+      "bytes": 1770,
+      "path": "apps/app/lib/state/app_providers.dart",
+      "sha256": "C30FFDACBBEEE54CFBF3986D5B8348F340CEE68C022BFFB8E02CA71D12F36077"
+    },
+    {
+      "bytes": 2942,
+      "path": "apps/app/lib/state/audio_provider.dart",
+      "sha256": "2F54981CE0BA7A178D00419A00F156C1E9386AAD7A40319345C6965F93DC7874"
+    },
+    {
+      "bytes": 6268,
+      "path": "apps/app/lib/state/cloud_sync_provider.dart",
+      "sha256": "80E94EC23306EDFE983349CEC3C4ACD5AB5AF61900AE06BDF819FC0C44BB93DA"
+    },
+    {
+      "bytes": 4543,
+      "path": "apps/app/lib/state/copilot_provider.dart",
+      "sha256": "F8275816FE12D854E0CB86AB0452636174B659D159B6C80C1AB11EC8033F832F"
+    },
+    {
+      "bytes": 18091,
+      "path": "apps/app/lib/state/curriculum_provider.dart",
+      "sha256": "BD31124AA9978D88AC87198BC7FE0C8EB652BE456B73681C2D03E24238BF867D"
+    },
+    {
+      "bytes": 4998,
+      "path": "apps/app/lib/state/entitlement_provider.dart",
+      "sha256": "506342653B852D035430E19E043BC8454E4BED6B6383648E89ECFB898B2DAC90"
+    },
+    {
+      "bytes": 16265,
+      "path": "apps/app/lib/state/game_provider.dart",
+      "sha256": "800E60EC991C00B0A7C7704E6B72F43D6C6A3EBFFDB2CA98C047D6613962A038"
+    },
+    {
+      "bytes": 1949,
+      "path": "apps/app/lib/state/mnemonics_provider.dart",
+      "sha256": "C4E2297CD1415BFB07DF961C18DAA01991E014E98E1ED647E2FD123367EFAA62"
+    },
+    {
+      "bytes": 558,
+      "path": "apps/app/lib/state/network_banner.dart",
+      "sha256": "48605AB746CBF7B10730C25325137E6C6F8E4F7228D95C0A5151EA1270E2C605"
+    },
+    {
+      "bytes": 1073,
+      "path": "apps/app/lib/state/notifications_provider.dart",
+      "sha256": "8AF74F5408F00A212F6221578FD9FA5E758D48F4AD4C88A68700805A8F2E6BE5"
+    },
+    {
+      "bytes": 1076,
+      "path": "apps/app/lib/state/observability_providers.dart",
+      "sha256": "EF298037CE293E432D9933D55629EB6C4B12B4B1E04EFB4A9130F76EB221CAFE"
+    },
+    {
+      "bytes": 1730,
+      "path": "apps/app/lib/state/persistence.dart",
+      "sha256": "97C669DDA2BD7DC06DB5386247BEEF751C81B36BAD0DC71B6B1F010E3A0E8F9C"
+    },
+    {
+      "bytes": 3340,
+      "path": "apps/app/lib/state/presentation_provider.dart",
+      "sha256": "7E9DABCE7D7D11E039D2D394AAE01D5BA7B3517332323195519316C1E5ED0207"
+    },
+    {
+      "bytes": 2360,
+      "path": "apps/app/lib/state/settings_provider.dart",
+      "sha256": "B5F9B01330C9F3705965357FB8C8440E796E3739083728F723EF0148EA2C03BE"
+    },
+    {
+      "bytes": 2829,
+      "path": "apps/app/lib/state/srs_provider.dart",
+      "sha256": "679D22CB4F2C58CD2345105D8F544BADCFED90745300160CF855B8D35067B31C"
+    },
+    {
+      "bytes": 9230,
+      "path": "apps/app/lib/state/study_plan_provider.dart",
+      "sha256": "5871931C80D45F4FEFCD36CB6BDC82CBC84186A3DA81370D57BA2BE65AE42C41"
+    },
+    {
+      "bytes": 1034,
+      "path": "apps/app/lib/state/toast_provider.dart",
+      "sha256": "7A45B99150340C46D1E4E9B2A5D96F362CAE44731C3EF4DD0DC3E362F87B9F8E"
+    },
+    {
+      "bytes": 1144,
+      "path": "apps/app/lib/state/user_provider.dart",
+      "sha256": "2C0B2FE743045146F1471EBA931B644ACD57B16DB8A398912FE9D5332DC626F2"
+    },
+    {
+      "bytes": 2764,
+      "path": "contracts/product/new-capability-registry.v1.json",
+      "sha256": "196C5ABD98F81E217ADB883EBC2076B5E661FAD802FDC469754B9C6240D7C0B8"
+    },
+    {
+      "bytes": 19909,
+      "path": "docs/codex/2026-07-15-synapse-medical-learning-os/10-capability-absorption.md",
+      "sha256": "F090F1C06683B2888E322C815335544CB28BF4A17B5B58626FE178F8A6030650"
+    },
+    {
+      "bytes": 509,
+      "path": "packages/config/lib/src/version.dart",
+      "sha256": "55B5C3B2F34129082E4A145624D9CE042149A40B375FAC350EC8C8AFF79F95A7"
+    },
+    {
+      "bytes": 2382,
+      "path": "packages/core/lib/src/models/algorithms.dart",
+      "sha256": "ADD42D48280175283DB4D1C296F1E398944F6F86E41C7AE258B7C9CBE4EA1FB0"
+    },
+    {
+      "bytes": 3468,
+      "path": "packages/core/lib/src/models/arena.dart",
+      "sha256": "2A9D16C9439EC56A8745F028B83E4C1CF4EE88CD52CA35CB4B6A32BB5CDDA04F"
+    },
+    {
+      "bytes": 1771,
+      "path": "packages/core/lib/src/models/buddies.dart",
+      "sha256": "E386CDC5193FD54B6167D4D973016C34946E6DD4111BC3B3BBD9FE0BDD755B04"
+    },
+    {
+      "bytes": 1806,
+      "path": "packages/core/lib/src/models/cards.dart",
+      "sha256": "B4F7973FE8219D93C3B59AFA941C74431AA53B3B1EEF63307085386EF2FE4128"
+    },
+    {
+      "bytes": 1891,
+      "path": "packages/core/lib/src/models/cases.dart",
+      "sha256": "F0BC8251FD6D8FB180090038B8CD3F80E6D3882EADD42AF7DBF1F33B3875083A"
+    },
+    {
+      "bytes": 4360,
+      "path": "packages/core/lib/src/models/concept.dart",
+      "sha256": "67013B7A8153F58FD3E39AC94B7352321779B6A38F331BBDE7A8D39548AEDBBE"
+    },
+    {
+      "bytes": 2916,
+      "path": "packages/core/lib/src/models/concept_mastery.dart",
+      "sha256": "AB5B2B7BCC136C4D1134A4AE2DA7431A8772D31B0CA848EE2863BBE72E4DFD6A"
+    },
+    {
+      "bytes": 4965,
+      "path": "packages/core/lib/src/models/diseases.dart",
+      "sha256": "02D9247B4B5E9153955DE7997CE714287426999AEDF2994CDFBC57131E97EE15"
+    },
+    {
+      "bytes": 5465,
+      "path": "packages/core/lib/src/models/drugs.dart",
+      "sha256": "D9B7A58CE9BEF7DC03E5EC55AA42D127EE4B0EDA4A20256BC42EB5D9374552D8"
+    },
+    {
+      "bytes": 2768,
+      "path": "packages/core/lib/src/models/ecg.dart",
+      "sha256": "F06043408FC0F0DFAA531C03E9629345EB12DE4F9CA2AAC530722B475FE789FA"
+    },
+    {
+      "bytes": 5115,
+      "path": "packages/core/lib/src/models/evidence.dart",
+      "sha256": "BDB0A0A95175722EF4F63577C2B1F97BD86C8B3B2803E4AF6EF4354E263D6D2B"
+    },
+    {
+      "bytes": 1466,
+      "path": "packages/core/lib/src/models/ids.dart",
+      "sha256": "9227FCCEF48B4E4CDA5E2074821D8CCEC38FAFB1EBAA653C87BADEF585C8F2F8"
+    },
+    {
+      "bytes": 3739,
+      "path": "packages/core/lib/src/models/labs.dart",
+      "sha256": "62CD72EC6A86D377B683AD97CB40B670BBC72648C60480B25F29DD3F96C4A50A"
+    },
+    {
+      "bytes": 1663,
+      "path": "packages/core/lib/src/models/learn_item.dart",
+      "sha256": "247B3800AD592DC80722A98C040666A9643BBDD34ABF0CC8207B17472B2F07B9"
+    },
+    {
+      "bytes": 3846,
+      "path": "packages/core/lib/src/models/library.dart",
+      "sha256": "C70984C4CABA8D40F7693C4003000E0C4B35DF84A7A28AC5979DDA4C09281DEC"
+    },
+    {
+      "bytes": 1957,
+      "path": "packages/core/lib/src/models/mnemonics.dart",
+      "sha256": "7981FF7B246FF44AA7DCD920C3C15C7C43375475A5B7526F48DEB0340AFA7E7D"
+    },
+    {
+      "bytes": 3585,
+      "path": "packages/core/lib/src/models/module_key.dart",
+      "sha256": "56B38203276AE0AD0D67AEBB8586A37888D331CCC3737236D935AF6CC0CFB0A4"
+    },
+    {
+      "bytes": 1711,
+      "path": "packages/core/lib/src/models/orlab.dart",
+      "sha256": "486336DF858E3E51D055CC85AE4938D7AFBEF762CCBA4FAD41BFD0FEBA3E2FB8"
+    },
+    {
+      "bytes": 3326,
+      "path": "packages/core/lib/src/models/osce.dart",
+      "sha256": "79135C9D4B43CBD5F163C6967C5B03E6FB0662FE4762F03A9617C7CB20EB235D"
+    },
+    {
+      "bytes": 2230,
+      "path": "packages/core/lib/src/models/quest.dart",
+      "sha256": "25568CE6563021DAFE4524B45ED4673C091B5FCDEC33D073080BAFE6043FF960"
+    },
+    {
+      "bytes": 16408,
+      "path": "packages/core/lib/src/models/resource_artifact_models.dart",
+      "sha256": "FF1573A133EEFF57D234C962B55A3E5837AFFEB5ACDABE3D7F2C29B880B4D58A"
+    },
+    {
+      "bytes": 4536,
+      "path": "packages/core/lib/src/models/resource_document_reading_models.dart",
+      "sha256": "E9B92F4691D3E488804B5438172A22A3A76DACDEA67BB8ECE56E70745336B06B"
+    },
+    {
+      "bytes": 20223,
+      "path": "packages/core/lib/src/models/resource_reference_models.dart",
+      "sha256": "CEF5295A56A84C4BAEA7A0B66841C0AEF41E69A6CD593A1FF9025C49B546CA62"
+    },
+    {
+      "bytes": 6066,
+      "path": "packages/core/lib/src/models/reward.dart",
+      "sha256": "AA37EA4F0BD8CC4A2D7143F6DC28A7B52092744D327C5504F4F87D75790D3736"
+    },
+    {
+      "bytes": 1953,
+      "path": "packages/core/lib/src/models/rounds.dart",
+      "sha256": "C554EEAB5A92EAF85F60DA82C5858A91BD547C320B31C468C718449C38E43B2C"
+    },
+    {
+      "bytes": 2558,
+      "path": "packages/core/lib/src/models/social.dart",
+      "sha256": "08CE7B46CE91FC133B65A9A1E215AB98911C167CCA1ABFAD48CCEC0C607B55F0"
+    },
+    {
+      "bytes": 1736,
+      "path": "packages/core/lib/src/models/sounds.dart",
+      "sha256": "646EE7095C3653EF8369D82F34F9D1AC297D9C1FFA63E58C6D489A9271AF82E2"
+    },
+    {
+      "bytes": 3180,
+      "path": "packages/core/lib/src/models/srs.dart",
+      "sha256": "08808ECF67920E60902F697E7212FEB84FC923808AEC6FAC5BD6231F5BEF813C"
+    },
+    {
+      "bytes": 4926,
+      "path": "packages/core/lib/src/models/terms.dart",
+      "sha256": "EFFD621271186B333919142B872C26B679B823674A63CA0A8983E946142B8CE1"
+    },
+    {
+      "bytes": 4205,
+      "path": "packages/core/lib/src/models/tools.dart",
+      "sha256": "92B7F4617590B9299610D7F99CD82E44F30EBD17D997BAFE9F57D10CFB294EE1"
+    },
+    {
+      "bytes": 7929,
+      "path": "packages/core/lib/src/models/user_profile.dart",
+      "sha256": "D0E8D6D01109C1C58373E0AC45E40A0111369037CCB43ABFFF71ACADE8A872A2"
+    },
+    {
+      "bytes": 10764,
+      "path": "packages/services/lib/src/curriculum/curriculum_reading_state_repository.dart",
+      "sha256": "F1890EF276F763CED743AA134235111E03B7122EE6E1C5A3132E98B5661EDA2E"
+    },
+    {
+      "bytes": 24444,
+      "path": "packages/services/lib/src/curriculum/curriculum_session_progress_repository.dart",
+      "sha256": "936AAFAE046583B71B1283AD4CB4CEBEE3DA5114970949FFC2277E234B4061A4"
+    },
+    {
+      "bytes": 19177,
+      "path": "packages/services/lib/src/curriculum/curriculum_study_workspace_repository.dart",
+      "sha256": "71E32EB15FA645A54BFA2BB52218ED636C5653EFD0ECCD7B8315EEE3F91683FC"
+    },
+    {
+      "bytes": 11920,
+      "path": "packages/services/lib/src/workspace/resource_document_reading_state_repository.dart",
+      "sha256": "0CB4B720149816192D3026F60EB46EED7F1095F9441C173466400F86F6854E52"
+    },
+    {
+      "bytes": 34068,
+      "path": "packages/services/lib/src/workspace/resource_workspace_repository.dart",
+      "sha256": "EE770A68202D706189CF2E05C371D4A5331ED9EE226F175F85B99B2C8207143C"
+    },
+    {
+      "bytes": 10310,
+      "path": "supabase/migrations/0001_init.sql",
+      "sha256": "107D6761209C213D7E1D765A3E4E05A76CEF46A69C128893AD5140817B65FB59"
+    },
+    {
+      "bytes": 484,
+      "path": "supabase/migrations/0002_game_state_fidelity.sql",
+      "sha256": "1680452EECD10286F94C6A6EB4C08D1936ADEA2FF4286FB947B648CD89D0EF7A"
+    },
+    {
+      "bytes": 231,
+      "path": "supabase/migrations/0003_lockdown_trigger_rpc.sql",
+      "sha256": "F0957F3A1191F89EFF2EF23D270965099D6658D6DDB03AC2871AC87694037FCE"
+    }
+  ]
+}

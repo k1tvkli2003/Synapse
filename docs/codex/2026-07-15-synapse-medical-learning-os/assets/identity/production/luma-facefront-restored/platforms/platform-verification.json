@@ -1,0 +1,158 @@
+{
+  "status": "pass",
+  "requireInstall": true,
+  "selectedIdentity": {
+    "mascot": "LUMA Character System",
+    "appIcon": "ICR2-01 LUMA Facefront",
+    "conceptId": "ICR2-01",
+    "status": "restored-by-latest-direct-user-decision"
+  },
+  "manifestOutputs": 188,
+  "safeZone": {
+    "canvas": 1024,
+    "radius": 304.0,
+    "ratio": 0.296875,
+    "foreground": {
+      "bounds": [
+        299,
+        269,
+        723,
+        747
+      ],
+      "pixels": 165482,
+      "maxRadius": 278.051,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "monochrome": {
+      "bounds": [
+        299,
+        269,
+        723,
+        747
+      ],
+      "pixels": 165482,
+      "maxRadius": 278.051,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "checks": {
+    "appleDefault": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        0,
+        0,
+        1023,
+        1023
+      ],
+      "maxRadius": 723.37,
+      "borderPixels": 4096,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "androidAdaptive": {
+      "width": 432,
+      "height": 432,
+      "bounds": [
+        126,
+        113,
+        305,
+        314
+      ],
+      "maxRadius": 117.22,
+      "borderPixels": 0,
+      "opaque": false,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "webMaskable": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 361.332,
+      "borderPixels": 2048,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "windowsIco": {
+      "entries": 7,
+      "sizes": [
+        16,
+        24,
+        32,
+        48,
+        64,
+        128,
+        256
+      ]
+    },
+    "linux512": {
+      "width": 512,
+      "height": 512,
+      "bounds": [
+        0,
+        0,
+        511,
+        511
+      ],
+      "maxRadius": 361.332,
+      "borderPixels": 2048,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    "flutterIcon": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        0,
+        0,
+        1023,
+        1023
+      ],
+      "maxRadius": 723.37,
+      "borderPixels": 4096,
+      "opaque": true,
+      "cornerAlpha": [
+        255,
+        255,
+        255,
+        255
+      ]
+    }
+  },
+  "failures": []
+}

@@ -27,5 +27,10 @@ export 'src/widgets/feedback.dart';
 export 'src/widgets/audio_player_bar.dart';
 export 'src/widgets/reference.dart';
 
+// Motion
+export 'src/motion/motion_reveal.dart';
+export 'src/motion/motion_scope.dart';
+export 'src/motion/signal_burst.dart';
+
 // Sensory design language (motion lives in tokens; sound + haptics here)
 export 'src/feedback/sensory.dart';

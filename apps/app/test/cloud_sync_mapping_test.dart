@@ -45,7 +45,12 @@ void main() {
         xp: XPState(total: 540, level: 3, intoLevel: 230, toNext: 310),
         wallet: Wallet(gems: 75),
         hearts: Hearts(current: 3, max: 5),
-        streak: Streak(current: 6, longest: 12, lastActiveDay: '2026-07-03', freezes: 1),
+        streak: Streak(
+          current: 6,
+          longest: 12,
+          lastActiveDay: '2026-07-03',
+          freezes: 1,
+        ),
         league: League.gold,
         weekXp: 210,
       );
@@ -88,14 +93,24 @@ void main() {
 
     test('true for a fresh trigger-created row', () {
       expect(
-        remoteGameStateIsUntouched({'xp_total': 0, 'level': 1, 'gems': 0, 'streak_current': 0}),
+        remoteGameStateIsUntouched({
+          'xp_total': 0,
+          'level': 1,
+          'gems': 0,
+          'streak_current': 0,
+        }),
         isTrue,
       );
     });
 
     test('false once any progress exists', () {
       expect(
-        remoteGameStateIsUntouched({'xp_total': 40, 'level': 1, 'gems': 0, 'streak_current': 0}),
+        remoteGameStateIsUntouched({
+          'xp_total': 40,
+          'level': 1,
+          'gems': 0,
+          'streak_current': 0,
+        }),
         isFalse,
       );
     });

@@ -1,7 +1,32 @@
 /// Offline-first repositories + seed data for Synapse (prompt 05 / 23).
 library;
 
+export 'src/curriculum/curriculum_package_models.dart';
+export 'src/curriculum/curriculum_package_repository.dart';
+export 'src/curriculum/curriculum_release_trust.dart';
+export 'src/curriculum/curriculum_catalog_models.dart';
+export 'src/curriculum/curriculum_catalog_repository.dart';
+export 'src/curriculum/curriculum_runtime_bootstrap.dart';
+export 'src/curriculum/curriculum_reading_state_repository.dart';
+export 'src/curriculum/curriculum_session_progress_repository.dart';
+export 'src/curriculum/curriculum_study_workspace_repository.dart';
+export 'src/data_plane/encrypted_indexed_learner_record_store.dart';
+export 'src/data_plane/indexed_resource_document_reading_state_repository.dart';
+export 'src/data_plane/indexed_resource_workspace_repository.dart';
+export 'src/data_plane/learner_data_migration_journal.dart';
+export 'src/data_plane/learner_data_plane_database.dart';
+export 'src/data_plane/legacy_learner_data_migration_coordinator.dart';
+export 'src/data_plane/migration_aware_resource_repositories.dart';
 export 'src/repositories/content_repository.dart';
+export 'src/sync/personal_sync_api.dart';
+export 'src/sync/personal_content_delivery.dart';
+export 'src/sync/personal_sync_crypto.dart';
+export 'src/sync/personal_sync_curriculum_journal.dart';
+export 'src/sync/personal_sync_curriculum_reconciler.dart';
+export 'src/sync/personal_sync_outbox.dart';
+export 'src/sync/personal_sync_projection_store.dart';
+export 'src/workspace/resource_workspace_repository.dart';
+export 'src/workspace/resource_document_reading_state_repository.dart';
 
 export 'src/seed/concepts_seed.dart';
 export 'src/seed/terms_seed.dart';

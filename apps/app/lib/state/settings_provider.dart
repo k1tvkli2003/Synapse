@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:synapse_core/synapse_core.dart';
 
 import 'app_providers.dart';
+import 'observability_providers.dart';
 
 /// Persisted user preferences (theme, locale, motion, daily goal, onboarding).
 class SettingsNotifier extends Notifier<UserPrefs> {
@@ -21,18 +24,37 @@ class SettingsNotifier extends Notifier<UserPrefs> {
   }
 
   void setTheme(ThemeModePref theme) => _persist(state.copyWith(theme: theme));
+  void setLocale(String locale) => _persist(
+    state.copyWith(locale: locale.toLowerCase().startsWith('fa') ? 'fa' : 'en'),
+  );
+  void setMotionMode(MotionModePref mode) =>
+      _persist(state.copyWith(motionMode: mode));
+
+  /// Compatibility entry point for older controls and imported preferences.
   void setReduceMotion(bool v) => _persist(state.copyWith(reduceMotion: v));
   void setDailyGoal(int xp) => _persist(state.copyWith(dailyGoalXp: xp));
-  void setAnalyticsOptIn(bool v) => _persist(state.copyWith(analyticsOptIn: v));
-  void setInterests(List<String> interests) => _persist(state.copyWith(interests: interests));
-  void setNotifications(NotificationPrefs n) => _persist(state.copyWith(notifications: n));
+  void setAnalyticsOptIn(bool v) {
+    _persist(state.copyWith(analyticsOptIn: v));
+    final analytics = ref.read(analyticsProvider);
+    unawaited(
+      v ? analytics.grantConsent() : analytics.revokeConsentAndDelete(),
+    );
+  }
 
-  bool get onboarded => ref.read(sharedPreferencesProvider).readBool('onboarded') ?? false;
-  void completeOnboarding() => ref.read(sharedPreferencesProvider).writeBool('onboarded', true);
+  void setInterests(List<String> interests) =>
+      _persist(state.copyWith(interests: interests));
+  void setNotifications(NotificationPrefs n) =>
+      _persist(state.copyWith(notifications: n));
+
+  bool get onboarded =>
+      ref.read(sharedPreferencesProvider).readBool('onboarded') ?? false;
+  void completeOnboarding() =>
+      ref.read(sharedPreferencesProvider).writeBool('onboarded', true);
 }
 
-final settingsProvider =
-    NotifierProvider<SettingsNotifier, UserPrefs>(SettingsNotifier.new);
+final settingsProvider = NotifierProvider<SettingsNotifier, UserPrefs>(
+  SettingsNotifier.new,
+);
 
 /// Resolved [ThemeMode] from the persisted preference (prompt 08 §2).
 final themeModeProvider = Provider<ThemeMode>((ref) {

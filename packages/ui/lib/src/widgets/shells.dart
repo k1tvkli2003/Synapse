@@ -28,8 +28,14 @@ class DisclaimerBanner extends StatelessWidget {
           Icon(Icons.info_outline_rounded, size: 15, color: t.warning),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(text,
-                style: TextStyle(color: t.warning, fontSize: 11.5, fontWeight: FontWeight.w500)),
+            child: Text(
+              text,
+              style: TextStyle(
+                color: t.warning,
+                fontSize: 11.5,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
         ],
       ),
@@ -77,7 +83,9 @@ class ModuleScaffold extends StatelessWidget {
     Widget content = body;
     if (padded) {
       content = Padding(
-        padding: EdgeInsets.symmetric(horizontal: context.isCompactPad ? 16 : 24),
+        padding: EdgeInsets.symmetric(
+          horizontal: context.isCompactPad ? 16 : 24,
+        ),
         child: content,
       );
     }
@@ -112,19 +120,23 @@ class ModuleScaffold extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(title,
-                            style: Theme.of(context).textTheme.titleLarge,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis),
+                        Text(
+                          title,
+                          style: Theme.of(context).textTheme.titleLarge,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         if (subtitle != null)
-                          Text(subtitle!,
-                              style: Theme.of(context).textTheme.bodySmall,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis),
+                          Text(
+                            subtitle!,
+                            style: Theme.of(context).textTheme.bodySmall,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                       ],
                     ),
                   ),
-                  if (actions != null) ...actions!,
+                  ...?actions,
                 ],
               ),
             ),
@@ -139,10 +151,11 @@ class ModuleScaffold extends StatelessWidget {
               child: DisclaimerBanner(compact: true),
             ),
           Expanded(child: ContentBounds(child: content)),
-          if (bottom != null) bottom!,
+          ?bottom,
         ],
       ),
-      floatingActionButton: floatingActionButton ??
+      floatingActionButton:
+          floatingActionButton ??
           (onCopilot != null
               ? FloatingCopilotButton(onPressed: onCopilot!)
               : null),
@@ -231,7 +244,8 @@ class DrillShell extends StatelessWidget {
                     AppIconButton(
                       icon: Icons.close_rounded,
                       tooltip: 'Close',
-                      onPressed: onClose ?? () => Navigator.of(context).maybePop(),
+                      onPressed:
+                          onClose ?? () => Navigator.of(context).maybePop(),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
@@ -245,7 +259,10 @@ class DrillShell extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (headerTrailing != null) ...[const SizedBox(width: 12), headerTrailing!],
+                    if (headerTrailing != null) ...[
+                      const SizedBox(width: 12),
+                      headerTrailing!,
+                    ],
                   ],
                 ),
               ),
@@ -255,7 +272,7 @@ class DrillShell extends StatelessWidget {
                   child: child,
                 ),
               ),
-              if (feedback != null) feedback!,
+              ?feedback,
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
                 child: AppButton(
@@ -304,17 +321,27 @@ class QuizFeedbackBanner extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(correct ? Icons.check_circle_rounded : Icons.cancel_rounded, color: c),
+              Icon(
+                correct ? Icons.check_circle_rounded : Icons.cancel_rounded,
+                color: c,
+              ),
               const SizedBox(width: 8),
               Text(
                 title ?? (correct ? 'Correct!' : 'Not quite'),
-                style: TextStyle(color: c, fontWeight: FontWeight.w800, fontSize: 16),
+                style: TextStyle(
+                  color: c,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 16,
+                ),
               ),
               const Spacer(),
               if (onSeeConcept != null)
                 TextButton(
                   onPressed: onSeeConcept,
-                  child: Text('See concept', style: TextStyle(color: c, fontWeight: FontWeight.w700)),
+                  child: Text(
+                    'See concept',
+                    style: TextStyle(color: c, fontWeight: FontWeight.w700),
+                  ),
                 ),
             ],
           ),

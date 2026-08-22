@@ -1,0 +1,17 @@
+{
+  "capabilityCount": 79,
+  "contractId": "synapse.capability-completion-verification.v1",
+  "inputs": {
+    "contracts/integrity/product-language-policy.v1.json": "0a3a988c45401fce0db7cf99c57130df3330178b6f4b3f204718a7bbbce307f1",
+    "contracts/preservation/capability-ledger.v1.json": "4ebc8f78a6a8828e142848b564e169b0e608e1e31819e5a801bb8c7eaf4b719b",
+    "contracts/product/capability-completion.v1.json": "380c32076b9581c0517a94ce1dc0cf8c73824fa54b08a0c078e9f4fbaa145749",
+    "contracts/product/capability-evidence.v1.json": "fdf7c4c4cd27346934737d48cf29ee30ac24f34af9eb12bf9999d2ede6a6e9fa",
+    "contracts/product/data-plane.v1.json": "a52f5e275df5247c607f85e7241f4928296db9ff237742f8667176c2b4013829",
+    "contracts/product/new-capability-registry.v1.json": "196c5abd98f81e217adb883ebc2076b5e661fad802fdc469754b9c6240d7c0b8"
+  },
+  "issueCount": 0,
+  "issues": [],
+  "schemaVersion": 1,
+  "status": "pass",
+  "verifiedCount": 0
+}

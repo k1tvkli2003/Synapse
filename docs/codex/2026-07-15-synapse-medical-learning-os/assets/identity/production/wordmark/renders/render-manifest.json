@@ -1,0 +1,333 @@
+{
+  "sourceDate": "2026-07-17",
+  "installedIntoFlutterProject": true,
+  "renderer": "sharp 0.34.5; librsvg bundled",
+  "sources": [
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/source/synapse-wordmark-frost.svg",
+      "sha256": "2FB7D68E4C46739582D05EA74FE26F2584615DC79815BD2A72EE8EEAB7771AA9"
+    },
+    {
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/source/synapse-wordmark-one-color.svg",
+      "sha256": "C26FCA84E412206B90443E0E2CC447E585501A5B1EEDF427C782A32944D52F2E"
+    }
+  ],
+  "outputs": [
+    {
+      "variant": "frost",
+      "height": 240,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-frost-240h.png",
+      "bytes": 39459,
+      "sha256": "1C0FFD5356750DD28D4F9D38076691C0F6D7A2C7EB143E4E9CE00F4795608264",
+      "width": 1340,
+      "alphaBounds": [
+        48,
+        27,
+        1291,
+        204
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "frost",
+      "height": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-frost-96h.png",
+      "bytes": 14545,
+      "sha256": "35E57271B029C4E39AEAB7AC281DA3623DEA6960BF70B992EE2EB5DA913DF030",
+      "width": 536,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "frost",
+      "height": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-frost-48h.png",
+      "bytes": 6793,
+      "sha256": "999DEDBC4F19EDD29DD9CC5CD1E841931272FE9AB03F643C117348FE36372147",
+      "width": 268,
+      "alphaBounds": [
+        9,
+        5,
+        258,
+        40
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "frost",
+      "height": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-frost-24h.png",
+      "bytes": 3360,
+      "sha256": "89D3010952EEDC65523C69B4A24864DBC518D921326E362EDD8C284DE1526B0B",
+      "width": 134,
+      "alphaBounds": [
+        4,
+        2,
+        129,
+        20
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-frost",
+      "height": 240,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-frost-240h.png",
+      "bytes": 26685,
+      "sha256": "C417B603D8262364EFF1EEC86E05A424C905FF98653C52678DE2E3E3DA4B53DC",
+      "width": 1340,
+      "alphaBounds": [
+        48,
+        27,
+        1291,
+        204
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-frost",
+      "height": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-frost-96h.png",
+      "bytes": 9872,
+      "sha256": "A9020490F501DA1C5BC9113B89C5B14208A29B3E11BCE020E322DF18443D7B4E",
+      "width": 536,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-frost",
+      "height": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-frost-48h.png",
+      "bytes": 4722,
+      "sha256": "60FFABA403AA49EB0D4CEF69B4D82C74C701AA98D8F6AEDFE7B4DC0F35438EDE",
+      "width": 268,
+      "alphaBounds": [
+        9,
+        5,
+        258,
+        40
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-frost",
+      "height": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-frost-24h.png",
+      "bytes": 2449,
+      "sha256": "210BE627CD78EB6C8057CAA66687F022AA2435A1BC57D7AD410DC2F47C59A2EC",
+      "width": 134,
+      "alphaBounds": [
+        4,
+        2,
+        129,
+        20
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-ink",
+      "height": 240,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-ink-240h.png",
+      "bytes": 29756,
+      "sha256": "506B47CA32AFE698B0686CE78CFDF9CDFBB0BA55EE01AE1F823E503B5CBB659C",
+      "width": 1340,
+      "alphaBounds": [
+        48,
+        27,
+        1291,
+        204
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-ink",
+      "height": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-ink-96h.png",
+      "bytes": 11022,
+      "sha256": "2016C5893AD9AF9C4DFDF908DF82A6F0168BD353E916B49F7E090F93542C4E06",
+      "width": 536,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-ink",
+      "height": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-ink-48h.png",
+      "bytes": 5224,
+      "sha256": "88AD73A569161DED39452C0CD4340D2AD8A7A37D30DCC0B1F86EBA8548C2BD3D",
+      "width": 268,
+      "alphaBounds": [
+        9,
+        5,
+        258,
+        40
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "one-color-ink",
+      "height": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-one-color-ink-24h.png",
+      "bytes": 2752,
+      "sha256": "95A31DE11C0106A01564CA2BF9D05F4E93E2CDA00395076DD83EAD6063880AEB",
+      "width": 134,
+      "alphaBounds": [
+        4,
+        2,
+        129,
+        20
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "proof-board",
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/wordmark/renders/synapse-wordmark-proof-board.png",
+      "bytes": 71605,
+      "sha256": "DB599C38815EAF269C7347CCBB83C060A9EBCC7A6B9A9CE775C7A19DFEC407D7",
+      "width": 1500,
+      "height": 620
+    },
+    {
+      "variant": "flutter-install",
+      "role": "frost-240",
+      "file": "apps/app/assets/identity/wordmark/wordmark_frost_240.png",
+      "bytes": 39459,
+      "sha256": "1C0FFD5356750DD28D4F9D38076691C0F6D7A2C7EB143E4E9CE00F4795608264",
+      "width": 1340,
+      "height": 240,
+      "alphaBounds": [
+        48,
+        27,
+        1291,
+        204
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "frost-96",
+      "file": "apps/app/assets/identity/wordmark/wordmark_frost_96.png",
+      "bytes": 14545,
+      "sha256": "35E57271B029C4E39AEAB7AC281DA3623DEA6960BF70B992EE2EB5DA913DF030",
+      "width": 536,
+      "height": 96,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-frost-96",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_frost_96.png",
+      "bytes": 9872,
+      "sha256": "A9020490F501DA1C5BC9113B89C5B14208A29B3E11BCE020E322DF18443D7B4E",
+      "width": 536,
+      "height": 96,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-frost-48",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_frost_48.png",
+      "bytes": 4722,
+      "sha256": "60FFABA403AA49EB0D4CEF69B4D82C74C701AA98D8F6AEDFE7B4DC0F35438EDE",
+      "width": 268,
+      "height": 48,
+      "alphaBounds": [
+        9,
+        5,
+        258,
+        40
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-frost-24",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_frost_24.png",
+      "bytes": 2449,
+      "sha256": "210BE627CD78EB6C8057CAA66687F022AA2435A1BC57D7AD410DC2F47C59A2EC",
+      "width": 134,
+      "height": 24,
+      "alphaBounds": [
+        4,
+        2,
+        129,
+        20
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-ink-96",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_ink_96.png",
+      "bytes": 11022,
+      "sha256": "2016C5893AD9AF9C4DFDF908DF82A6F0168BD353E916B49F7E090F93542C4E06",
+      "width": 536,
+      "height": 96,
+      "alphaBounds": [
+        19,
+        11,
+        516,
+        81
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-ink-48",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_ink_48.png",
+      "bytes": 5224,
+      "sha256": "88AD73A569161DED39452C0CD4340D2AD8A7A37D30DCC0B1F86EBA8548C2BD3D",
+      "width": 268,
+      "height": 48,
+      "alphaBounds": [
+        9,
+        5,
+        258,
+        40
+      ],
+      "borderPixels": 0
+    },
+    {
+      "variant": "flutter-install",
+      "role": "one-color-ink-24",
+      "file": "apps/app/assets/identity/wordmark/wordmark_one_color_ink_24.png",
+      "bytes": 2752,
+      "sha256": "95A31DE11C0106A01564CA2BF9D05F4E93E2CDA00395076DD83EAD6063880AEB",
+      "width": 134,
+      "height": 24,
+      "alphaBounds": [
+        4,
+        2,
+        129,
+        20
+      ],
+      "borderPixels": 0
+    }
+  ]
+}

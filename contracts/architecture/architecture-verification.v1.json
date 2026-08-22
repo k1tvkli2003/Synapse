@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "packagesChecked": 9,
+  "dartFilesChecked": 157,
+  "inventorySha256": "0D480CEB393D97F95C1B7665F086E1CFDC09E3C607C9238F75D9F38BF719DF28",
+  "violations": [],
+  "rules": [
+    "dependency-direction",
+    "pure-dart-boundary",
+    "unsafe-enum-index-encode",
+    "unsafe-enum-index-decode",
+    "versioned-domain-events"
+  ]
+}

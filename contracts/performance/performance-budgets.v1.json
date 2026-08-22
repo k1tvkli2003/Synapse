@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 1,
+  "baseline": "luma-restoration-2026-07-17",
+  "policy": {
+    "staticEnforcement": "Deterministic artifact and asset measurements fail when a required probe is missing or empty, and fail size enforcement above blockingMaxBytes.",
+    "runtimeEnforcement": "Device startup, frame, memory, power, and interaction budgets are informational until calibrated on representative physical hardware.",
+    "calibration": {
+      "minimumRepresentativeRuns": 10,
+      "profileOrReleaseOnly": true,
+      "physicalDeviceRequired": true,
+      "promoteToBlockingWhen": "A named device profile has a reproducible baseline, controlled conditions, and at least ten representative runs."
+    },
+    "motionModes": [
+      "full",
+      "reduced",
+      "off"
+    ],
+    "requiredMotionScenarios": [
+      "first-run",
+      "warm-run",
+      "repeat",
+      "interruption",
+      "background-resume",
+      "reduced-motion",
+      "motion-off",
+      "renderer-fallback"
+    ]
+  },
+  "staticBudgets": [
+    {
+      "id": "web.release-output-total",
+      "description": "Complete deployable Flutter Web release, including renderer alternatives and symbols.",
+      "probe": {
+        "type": "tree_bytes",
+        "path": "apps/app/build/web"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 58720256,
+        "warningMax": 67108864,
+        "blockingMax": 83886080
+      }
+    },
+    {
+      "id": "web.main-dart-js-raw",
+      "description": "Uncompressed compiled application JavaScript.",
+      "probe": {
+        "type": "file_bytes",
+        "path": "apps/app/build/web/main.dart.js"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 4194304,
+        "warningMax": 4980736,
+        "blockingMax": 6291456
+      }
+    },
+    {
+      "id": "web.main-dart-js-gzip",
+      "description": "Deterministic gzip-9 estimate for compiled application JavaScript; CDN Brotli is measured separately at release time.",
+      "probe": {
+        "type": "gzip_file_bytes",
+        "path": "apps/app/build/web/main.dart.js"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 1572864,
+        "warningMax": 2097152,
+        "blockingMax": 2621440
+      }
+    },
+    {
+      "id": "web.renderer-largest-wasm",
+      "description": "Largest renderer WASM variant shipped in the web output.",
+      "probe": {
+        "type": "largest_file_bytes",
+        "path": "apps/app/build/web/canvaskit",
+        "extensions": [
+          ".wasm"
+        ]
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 8388608,
+        "warningMax": 10485760,
+        "blockingMax": 12582912
+      }
+    },
+    {
+      "id": "web.flutter-assets-total",
+      "description": "All Flutter asset-bundle files emitted for web, including notices and fonts.",
+      "probe": {
+        "type": "tree_bytes",
+        "path": "apps/app/build/web/assets"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 10485760,
+        "warningMax": 14680064,
+        "blockingMax": 20971520
+      }
+    },
+    {
+      "id": "app.declared-flutter-assets-total",
+      "description": "All app-owned source assets declared by the Flutter package and therefore eligible for bundling; historical undeclared evidence remains outside the shipping budget.",
+      "probe": {
+        "type": "flutter_declared_assets_bytes",
+        "path": "apps/app/pubspec.yaml"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 7340032,
+        "warningMax": 10485760,
+        "blockingMax": 14680064
+      }
+    },
+    {
+      "id": "identity.selected-companion-assets-total",
+      "description": "Restored LUMA Character System and ICR2-01 LUMA Facefront assets available at runtime.",
+      "probe": {
+        "type": "tree_bytes",
+        "path": "apps/app/assets/identity/luma_facefront"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 7340032,
+        "warningMax": 10485760,
+        "blockingMax": 14680064
+      }
+    },
+    {
+      "id": "identity.selected-wordmark-assets-total",
+      "description": "Selected WMR2-01 wordmark assets available at runtime.",
+      "probe": {
+        "type": "tree_bytes",
+        "path": "apps/app/assets/identity/wordmark"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 262144,
+        "warningMax": 524288,
+        "blockingMax": 1048576
+      }
+    },
+    {
+      "id": "identity.largest-raster-encoded",
+      "description": "Largest individually bundled identity raster in encoded form.",
+      "probe": {
+        "type": "largest_file_bytes",
+        "path": "apps/app/assets/identity/luma_facefront",
+        "extensions": [
+          ".png",
+          ".jpg",
+          ".jpeg",
+          ".webp"
+        ]
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 1048576,
+        "warningMax": 1572864,
+        "blockingMax": 2097152
+      }
+    },
+    {
+      "id": "identity.largest-raster-decoded-rgba",
+      "description": "Worst-case RGBA decode allocation for the largest PNG dimensions.",
+      "probe": {
+        "type": "largest_png_decoded_rgba_bytes",
+        "path": "apps/app/assets/identity/luma_facefront"
+      },
+      "required": true,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 4194304,
+        "warningMax": 8388608,
+        "blockingMax": 16777216
+      }
+    },
+    {
+      "id": "motion.rive-total",
+      "description": "Total compiled Rive rigs and state-machine assets after MVS-MOTION-01.",
+      "probe": {
+        "type": "tree_extension_bytes",
+        "path": "apps/app/assets",
+        "extensions": [
+          ".riv"
+        ]
+      },
+      "required": false,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 3145728,
+        "warningMax": 6291456,
+        "blockingMax": 10485760
+      }
+    },
+    {
+      "id": "motion.rive-largest",
+      "description": "Largest individual Rive file; complex rigs must be split or optimized before this ceiling.",
+      "probe": {
+        "type": "largest_file_bytes",
+        "path": "apps/app/assets",
+        "extensions": [
+          ".riv"
+        ]
+      },
+      "required": false,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 1048576,
+        "warningMax": 2097152,
+        "blockingMax": 4194304
+      }
+    },
+    {
+      "id": "motion.fragment-shaders-total",
+      "description": "Total authored Flutter fragment-shader source before toolchain compilation.",
+      "probe": {
+        "type": "tree_extension_bytes",
+        "path": "apps/app/shaders",
+        "extensions": [
+          ".frag"
+        ]
+      },
+      "required": false,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 524288,
+        "warningMax": 1048576,
+        "blockingMax": 2097152
+      }
+    },
+    {
+      "id": "content.initial-bundled-pack-total",
+      "description": "Curriculum scaffold bundled into the binary; lesson bodies remain forbidden in the current phase.",
+      "probe": {
+        "type": "tree_bytes",
+        "path": "apps/app/assets/content_packs/initial"
+      },
+      "required": false,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 2097152,
+        "warningMax": 5242880,
+        "blockingMax": 10485760
+      }
+    },
+    {
+      "id": "content.largest-download-pack",
+      "description": "Largest independently downloadable course or media pack.",
+      "probe": {
+        "type": "largest_file_bytes",
+        "path": "apps/app/assets/content_packs/downloadable",
+        "extensions": [
+          ".pack",
+          ".zip",
+          ".tar",
+          ".zst"
+        ]
+      },
+      "required": false,
+      "enforcement": "blocking",
+      "thresholdsBytes": {
+        "targetMax": 26214400,
+        "warningMax": 52428800,
+        "blockingMax": 104857600
+      }
+    }
+  ],
+  "runtimeBudgets": {
+    "enforcement": "informational-until-calibrated",
+    "startupMilliseconds": [
+      {
+        "profile": "android-mid-60hz",
+        "journey": "cold-launch-to-academy-usable",
+        "targetMax": 1500,
+        "warningMax": 2500,
+        "blockingMax": 4000
+      },
+      {
+        "profile": "ios-mid-60hz",
+        "journey": "cold-launch-to-academy-usable",
+        "targetMax": 1400,
+        "warningMax": 2300,
+        "blockingMax": 3500
+      },
+      {
+        "profile": "desktop-reference",
+        "journey": "cold-launch-to-academy-usable",
+        "targetMax": 1800,
+        "warningMax": 3000,
+        "blockingMax": 5000
+      },
+      {
+        "profile": "web-reference-broadband",
+        "journey": "cold-launch-to-academy-usable",
+        "targetMax": 2500,
+        "warningMax": 4000,
+        "blockingMax": 6500
+      }
+    ],
+    "frameMilliseconds": [
+      {
+        "profile": "60hz",
+        "metric": "p95-build-or-raster",
+        "targetMax": 16.67,
+        "warningMax": 20.0,
+        "blockingMax": 33.34
+      },
+      {
+        "profile": "120hz",
+        "metric": "p95-build-or-raster",
+        "targetMax": 8.33,
+        "warningMax": 12.5,
+        "blockingMax": 16.67
+      },
+      {
+        "profile": "all",
+        "metric": "input-to-visible-feedback-p95",
+        "targetMax": 100.0,
+        "warningMax": 150.0,
+        "blockingMax": 250.0
+      }
+    ],
+    "memoryBytes": [
+      {
+        "profile": "mobile-mid",
+        "journey": "academy-idle-steady-state",
+        "targetMax": 230686720,
+        "warningMax": 314572800,
+        "blockingMax": 440401920
+      },
+      {
+        "profile": "mobile-mid",
+        "journey": "thirty-minute-lesson-with-celebrations",
+        "targetMax": 335544320,
+        "warningMax": 471859200,
+        "blockingMax": 629145600
+      },
+      {
+        "profile": "web-reference",
+        "journey": "thirty-minute-lesson-with-celebrations-js-heap",
+        "targetMax": 188743680,
+        "warningMax": 272629760,
+        "blockingMax": 402653184
+      },
+      {
+        "profile": "desktop-reference",
+        "journey": "thirty-minute-lesson-with-celebrations-working-set",
+        "targetMax": 314572800,
+        "warningMax": 471859200,
+        "blockingMax": 681574400
+      }
+    ]
+  },
+  "motionExperienceBudgets": {
+    "standard": {
+      "purpose": "Answer feedback, path progress, navigation continuity, and micro-rewards.",
+      "durationMilliseconds": {
+        "targetMax": 450,
+        "warningMax": 650,
+        "blockingMax": 900
+      },
+      "particles": {
+        "targetMax": 80,
+        "warningMax": 140,
+        "blockingMax": 220
+      },
+      "inputBlockingAllowed": false
+    },
+    "milestone": {
+      "purpose": "Lesson completion, streak repair, level-up, and meaningful mastery moments.",
+      "durationMilliseconds": {
+        "targetMax": 1400,
+        "warningMax": 2200,
+        "blockingMax": 3200
+      },
+      "particles": {
+        "targetMax": 180,
+        "warningMax": 300,
+        "blockingMax": 450
+      },
+      "skippableAfterMilliseconds": 700
+    },
+    "showpiece": {
+      "purpose": "Rare chapter, course, rank, or identity-defining celebrations in Study mode only.",
+      "durationMilliseconds": {
+        "targetMax": 3200,
+        "warningMax": 4500,
+        "blockingMax": 6000
+      },
+      "particles": {
+        "targetMax": 300,
+        "warningMax": 500,
+        "blockingMax": 800
+      },
+      "skippableAfterMilliseconds": 800,
+      "forbiddenInClinicalMode": true
+    },
+    "adaptation": {
+      "full": "Use authored choreography within tier budgets and never delay persistence or navigation.",
+      "reduced": "Replace camera travel, parallax, shake, large-scale zoom, and particle fields with short opacity/color/scale confirmation.",
+      "off": "Render the final semantic state immediately; retain accessible text, haptics only when enabled, and reward receipts.",
+      "lowTier": "Reduce particle count, blur, overdraw, shader passes, and Rive detail before reducing semantic feedback.",
+      "fallback": "Every Rive or shader scene owns a deterministic frozen-pose or raster/procedural equivalent, including Linux and web renderer fallback."
+    }
+  },
+  "namedJourneys": [
+    {
+      "id": "PERF-J01",
+      "name": "Cold launch to usable Medical Academy",
+      "states": [
+        "process-start",
+        "bootstrap",
+        "local-data-ready",
+        "academy-interactive"
+      ]
+    },
+    {
+      "id": "PERF-J02",
+      "name": "Tonight home to course path",
+      "states": [
+        "home-ready",
+        "course-selected",
+        "path-interactive"
+      ]
+    },
+    {
+      "id": "PERF-J03",
+      "name": "Course path to lesson question",
+      "states": [
+        "path-ready",
+        "lesson-selected",
+        "question-interactive"
+      ]
+    },
+    {
+      "id": "PERF-J04",
+      "name": "Answer submission to evidence feedback",
+      "states": [
+        "answer-tap",
+        "visible-feedback",
+        "reward-receipt-rendered"
+      ]
+    },
+    {
+      "id": "PERF-J05",
+      "name": "Standard reward motion stress",
+      "states": [
+        "trigger",
+        "peak-motion",
+        "settled"
+      ]
+    },
+    {
+      "id": "PERF-J06",
+      "name": "Milestone celebration stress",
+      "states": [
+        "trigger",
+        "mascot-state-change",
+        "particle-peak",
+        "interrupt-or-settle"
+      ]
+    },
+    {
+      "id": "PERF-J07",
+      "name": "Showpiece celebration interruption",
+      "states": [
+        "trigger",
+        "peak-motion",
+        "skip-or-background",
+        "authoritative-state-restored"
+      ]
+    },
+    {
+      "id": "PERF-J08",
+      "name": "Full reduced off and renderer fallback parity",
+      "states": [
+        "same-domain-receipt",
+        "mode-specific-presentation",
+        "same-final-semantic-state"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "policyId": "synapse.unified-functional-surface-naming.v1",
+  "productName": "Synapse",
+  "legacySource": "StudyHUB-Flutter",
+  "capabilityLedger": "contracts/preservation/capability-ledger.v1.json",
+  "legacyCapabilityIdPrefix": "studyhub.",
+  "principles": [
+    "Synapse is the only user-facing product and brand authority.",
+    "Absorbed capabilities are named for the task they help the user complete.",
+    "Legacy source names exist only in migration provenance, fixtures, adapters, and preservation contracts.",
+    "No source-branded tab, page, workspace, notification channel, widget, accessibility label, search category, or analytics namespace may be created.",
+    "Standalone Hub is not an accepted mapped surface name; use the actual domain or task."
+  ],
+  "scanGlobs": [
+    "apps/app/lib/**",
+    "apps/app/android/app/src/main/**",
+    "apps/app/ios/Runner/**",
+    "apps/app/macos/Runner/**",
+    "apps/app/linux/runner/**",
+    "apps/app/windows/runner/**",
+    "apps/app/web/**",
+    "packages/*/lib/**"
+  ],
+  "textSuffixes": [
+    ".arb",
+    ".c",
+    ".cc",
+    ".cmake",
+    ".cpp",
+    ".dart",
+    ".h",
+    ".hpp",
+    ".html",
+    ".java",
+    ".js",
+    ".json",
+    ".kt",
+    ".kts",
+    ".m",
+    ".mm",
+    ".plist",
+    ".properties",
+    ".rc",
+    ".strings",
+    ".swift",
+    ".ts",
+    ".tsx",
+    ".txt",
+    ".xml",
+    ".yaml",
+    ".yml"
+  ],
+  "forbiddenRules": [
+    {
+      "id": "legacy-studyhub-brand",
+      "pattern": "(?i)\\bstudy[ \\t_.-]*hub\\b",
+      "message": "A legacy source brand escaped into a Synapse product surface."
+    }
+  ],
+  "allowlist": [],
+  "capabilityMap": [
+    {
+      "sourceId": "studyhub.8-achievements",
+      "canonicalDomain": "Progress & Rewards",
+      "surface": "Progress",
+      "userFacingLabel": "Achievements",
+      "entryContext": "You > Progress",
+      "analyticsNamespace": "synapse.progress.achievements",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.ai-jobs",
+      "canonicalDomain": "Copilot Platform",
+      "surface": "Copilot Jobs",
+      "userFacingLabel": "Background Tasks",
+      "entryContext": "Source Tools > Background Tasks",
+      "analyticsNamespace": "synapse.copilot.jobs",
+      "exposure": "background"
+    },
+    {
+      "sourceId": "studyhub.ai-service-contracts",
+      "canonicalDomain": "Copilot Platform",
+      "surface": "Contextual Copilot",
+      "userFacingLabel": "Copilot",
+      "entryContext": "Open beside a lesson, source, concept, or case",
+      "analyticsNamespace": "synapse.copilot.contextual",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.android-widget",
+      "canonicalDomain": "Today",
+      "surface": "Today Widget",
+      "userFacingLabel": "Synapse Today",
+      "entryContext": "System widget gallery and Today deep links",
+      "analyticsNamespace": "synapse.today.widget",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.annotations",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Margin Workspace",
+      "userFacingLabel": "Annotations",
+      "entryContext": "Reader or Lesson > Margin",
+      "analyticsNamespace": "synapse.workspace.annotations",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.bookmarks",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Margin Workspace",
+      "userFacingLabel": "Saved Places",
+      "entryContext": "Reader > Save and Search > Saved",
+      "analyticsNamespace": "synapse.workspace.saved_places",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.chat",
+      "canonicalDomain": "Copilot Platform",
+      "surface": "Contextual Copilot",
+      "userFacingLabel": "Copilot Thread",
+      "entryContext": "Lesson, source, concept, or case context",
+      "analyticsNamespace": "synapse.copilot.thread",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.dashboard",
+      "canonicalDomain": "Today",
+      "surface": "Today",
+      "userFacingLabel": "Today",
+      "entryContext": "Primary navigation > Today",
+      "analyticsNamespace": "synapse.today.overview",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.enrich-mode",
+      "canonicalDomain": "Evidence",
+      "surface": "Source Tools",
+      "userFacingLabel": "Expand",
+      "entryContext": "Reader selection > Source Tools > Expand",
+      "analyticsNamespace": "synapse.sources.expand",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.enrolled-courses",
+      "canonicalDomain": "Academy",
+      "surface": "Path",
+      "userFacingLabel": "My Courses",
+      "entryContext": "Path > Courses",
+      "analyticsNamespace": "synapse.academy.enrollment",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.find-mode",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Reader",
+      "userFacingLabel": "Find in Source",
+      "entryContext": "Reader > Find",
+      "analyticsNamespace": "synapse.reader.find",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.lesson-forks",
+      "canonicalDomain": "Academy",
+      "surface": "Lesson Workspace",
+      "userFacingLabel": "Lesson Versions",
+      "entryContext": "Lesson > More > Versions",
+      "analyticsNamespace": "synapse.academy.lesson_versions",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.markdown-latex-table-renderer",
+      "canonicalDomain": "Content Platform",
+      "surface": "Rich Content Renderer",
+      "userFacingLabel": "Rich Content",
+      "entryContext": "Rendered inline wherever structured medical content appears",
+      "analyticsNamespace": "synapse.content.renderer",
+      "exposure": "background"
+    },
+    {
+      "sourceId": "studyhub.mind-map",
+      "canonicalDomain": "Mastery",
+      "surface": "Concept Map",
+      "userFacingLabel": "Concept Map",
+      "entryContext": "Concept or Lesson > Map",
+      "analyticsNamespace": "synapse.mastery.concept_map",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.notifications",
+      "canonicalDomain": "Today",
+      "surface": "Notifications",
+      "userFacingLabel": "Notifications",
+      "entryContext": "Today and system notification settings",
+      "analyticsNamespace": "synapse.today.notifications",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.ocr-mobile",
+      "canonicalDomain": "Sources",
+      "surface": "Source Tools",
+      "userFacingLabel": "Scan Text",
+      "entryContext": "Add a Source > Camera or document",
+      "analyticsNamespace": "synapse.sources.scan_text",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.onboarding",
+      "canonicalDomain": "Welcome",
+      "surface": "Learning Setup",
+      "userFacingLabel": "Set Up Your Learning",
+      "entryContext": "First run and You > Learning Preferences",
+      "analyticsNamespace": "synapse.onboarding.learning_setup",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.pdf-import",
+      "canonicalDomain": "Library",
+      "surface": "Sources",
+      "userFacingLabel": "Add a Source",
+      "entryContext": "Library, Course, Chapter, Lesson, or command palette",
+      "analyticsNamespace": "synapse.library.source_import",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.pdf-reader",
+      "canonicalDomain": "Library",
+      "surface": "Reader",
+      "userFacingLabel": "Reader",
+      "entryContext": "Open a source from Library, Course, Chapter, or Lesson",
+      "analyticsNamespace": "synapse.library.reader",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.pdf-storage",
+      "canonicalDomain": "Library",
+      "surface": "Sources",
+      "userFacingLabel": "My Sources",
+      "entryContext": "Library > Sources and contextual source pickers",
+      "analyticsNamespace": "synapse.library.sources",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.planner",
+      "canonicalDomain": "Today",
+      "surface": "Plan",
+      "userFacingLabel": "Plan",
+      "entryContext": "Today > Adjust Plan",
+      "analyticsNamespace": "synapse.today.plan",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.pomodoro-focus",
+      "canonicalDomain": "Today",
+      "surface": "Focus Session",
+      "userFacingLabel": "Focus Session",
+      "entryContext": "Start from a Today prescription or Lesson",
+      "analyticsNamespace": "synapse.today.focus_session",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.quiz-card-outline-generation",
+      "canonicalDomain": "Creator Tools",
+      "surface": "Source Tools",
+      "userFacingLabel": "Create Practice",
+      "entryContext": "Source selection > Create Practice",
+      "analyticsNamespace": "synapse.creator.practice_draft",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.quiz-mode",
+      "canonicalDomain": "Review",
+      "surface": "Practice",
+      "userFacingLabel": "Practice",
+      "entryContext": "Lesson, Concept, or Review > Practice",
+      "analyticsNamespace": "synapse.review.practice",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.reading-progress",
+      "canonicalDomain": "Library",
+      "surface": "Reader",
+      "userFacingLabel": "Reading Progress",
+      "entryContext": "Today resume, source list, and Reader",
+      "analyticsNamespace": "synapse.library.reading_progress",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.settings-biometric",
+      "canonicalDomain": "You",
+      "surface": "Privacy & Security",
+      "userFacingLabel": "App Lock",
+      "entryContext": "You > Settings > Privacy & Security",
+      "analyticsNamespace": "synapse.settings.app_lock",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.smart-notes",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Margin Workspace",
+      "userFacingLabel": "Notes",
+      "entryContext": "Reader or Lesson > Margin > Notes",
+      "analyticsNamespace": "synapse.workspace.notes",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.srs",
+      "canonicalDomain": "Review",
+      "surface": "Review",
+      "userFacingLabel": "Review",
+      "entryContext": "Today due work and primary Review destination",
+      "analyticsNamespace": "synapse.review.scheduler",
+      "exposure": "visible"
+    },
+    {
+      "sourceId": "studyhub.summary-mode",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Reader",
+      "userFacingLabel": "Overview",
+      "entryContext": "Reader or Lesson > Overview",
+      "analyticsNamespace": "synapse.reader.overview",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.tags-and-xrefs",
+      "canonicalDomain": "Learning Workspace",
+      "surface": "Margin Workspace",
+      "userFacingLabel": "Links & Tags",
+      "entryContext": "Margin > Notes or personal search filters",
+      "analyticsNamespace": "synapse.workspace.links_tags",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.tts-and-cache",
+      "canonicalDomain": "Media & Accessibility",
+      "surface": "Reader",
+      "userFacingLabel": "Listen",
+      "entryContext": "Reader or Lesson media controls and Downloads",
+      "analyticsNamespace": "synapse.reader.listen",
+      "exposure": "contextual"
+    },
+    {
+      "sourceId": "studyhub.xp-constants",
+      "canonicalDomain": "Progress & Rewards",
+      "surface": "Reward Migration",
+      "userFacingLabel": "Imported Reward History",
+      "entryContext": "Migration receipt only; never a standalone destination",
+      "analyticsNamespace": "synapse.migration.reward_history",
+      "exposure": "migration-only"
+    }
+  ]
+}

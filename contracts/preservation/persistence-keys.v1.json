@@ -1,0 +1,417 @@
+{
+  "appSchemaVersion": 1,
+  "canonicalOwner": "apps/app/lib/state/persistence.dart",
+  "entries": [
+    {
+      "callSites": [
+        {
+          "operation": "read",
+          "source": "packages/services/lib/src/curriculum/curriculum_reading_state_repository.dart",
+          "sourceLine": 194
+        },
+        {
+          "operation": "write",
+          "source": "packages/services/lib/src/curriculum/curriculum_reading_state_repository.dart",
+          "sourceLine": 216
+        }
+      ],
+      "default": {
+        "integrity": {
+          "positionPermilleTotal": 0,
+          "recordCount": 0
+        },
+        "records": {},
+        "schemaVersion": 1
+      },
+      "key": "__synapse_curriculum_reading_state_v1",
+      "migration": "preserve stable source, Micro-lesson, document, Block and localization-unit IDs plus ordinal/permille, locale/release provenance, revisions and timestamps; never convert navigation position into completion, mastery or rewards",
+      "owner": "LocalCurriculumReadingStateRepository",
+      "risk": "semantic learner continuity must migrate separately from immutable package bodies and Session progress; unsupported/corrupt registries fail independently and remain stored for explicit recovery",
+      "type": "json:CurriculumReadingStateRegistry.v1",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "read",
+          "source": "packages/services/lib/src/curriculum/curriculum_session_progress_repository.dart",
+          "sourceLine": 489
+        },
+        {
+          "operation": "write",
+          "source": "packages/services/lib/src/curriculum/curriculum_session_progress_repository.dart",
+          "sourceLine": 517
+        }
+      ],
+      "default": {
+        "records": {},
+        "schemaVersion": 1
+      },
+      "key": "__synapse_curriculum_session_progress_v1",
+      "migration": "preserve release-bound checkpoint IDs and receipts; unsupported future schemas fail closed and remain stored until an explicit forward migration is verified",
+      "owner": "LocalCurriculumSessionProgressRepository",
+      "risk": "whole-registry writes are a bounded v1 adapter and must migrate to indexed/event storage before production-scale history",
+      "type": "json:CurriculumSessionProgressRegistry.v1",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "read",
+          "source": "packages/services/lib/src/curriculum/curriculum_study_workspace_repository.dart",
+          "sourceLine": 397
+        },
+        {
+          "operation": "write",
+          "source": "packages/services/lib/src/curriculum/curriculum_study_workspace_repository.dart",
+          "sourceLine": 419
+        }
+      ],
+      "default": {
+        "records": {},
+        "schemaVersion": 1
+      },
+      "key": "__synapse_curriculum_study_workspace_v1",
+      "migration": "preserve stable source-and-node workspace IDs, note IDs, author locales, bookmarks, focus totals, release provenance and revisions; unsupported future schemas fail closed and remain stored until an explicit forward migration is verified",
+      "owner": "LocalCurriculumStudyWorkspaceRepository",
+      "risk": "personal learner material is private and irreplaceable; the bounded whole-registry adapter must migrate by journaled copy-and-verify into indexed privacy-ready storage without orphaning notes across curriculum releases",
+      "type": "json:CurriculumStudyWorkspaceRegistry.v1",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "read",
+          "source": "packages/services/lib/src/workspace/resource_document_reading_state_repository.dart",
+          "sourceLine": 224
+        },
+        {
+          "operation": "write",
+          "source": "packages/services/lib/src/workspace/resource_document_reading_state_repository.dart",
+          "sourceLine": 246
+        }
+      ],
+      "default": {
+        "integrity": {
+          "pageNumberTotal": 0,
+          "recordCount": 0,
+          "revisionTotal": 0
+        },
+        "records": {},
+        "schemaVersion": 1
+      },
+      "key": "__synapse_resource_document_reading_state_v1",
+      "migration": "preserve document ID, immutable content digest, bounded page position, revisions and timestamps; never translate document navigation into lesson completion, mastery, XP or streak state",
+      "owner": "LocalResourceDocumentReadingStateRepository",
+      "risk": "private resume continuity is additive and reward-neutral; migrate independently from document blobs, universal annotations and curriculum checkpoints, with copy-and-verify before deleting the legacy key",
+      "type": "json:ResourceDocumentReadingStateRegistry.v1",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "read",
+          "source": "packages/services/lib/src/workspace/resource_workspace_repository.dart",
+          "sourceLine": 711
+        },
+        {
+          "operation": "write",
+          "source": "packages/services/lib/src/workspace/resource_workspace_repository.dart",
+          "sourceLine": 733
+        }
+      ],
+      "default": {
+        "anchors": {},
+        "annotations": {},
+        "bookmarks": {},
+        "crossReferences": {},
+        "documents": {},
+        "integrity": {
+          "anchorCount": 0,
+          "annotationCount": 0,
+          "bookmarkCount": 0,
+          "crossReferenceCount": 0,
+          "documentCount": 0,
+          "uniqueBlobBytes": 0,
+          "uniqueBlobCount": 0
+        },
+        "schemaVersion": 1
+      },
+      "key": "__synapse_resource_workspace_v1",
+      "migration": "preserve content-addressed document metadata, universal resource and anchor identities, private annotation revisions, bookmark tombstones and resource cross-reference tombstones; reconcile every relationship and digest before indexed-storage promotion",
+      "owner": "LocalResourceWorkspaceRepository",
+      "risk": "learner annotations and bookmarks are private and irreplaceable; the bounded bootstrap registry excludes binary bytes and must migrate by journaled copy-and-verify without reviving tombstones or reusing legacy PDF IDs as ownership",
+      "type": "json:ResourceWorkspaceRegistry.v1",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "schemaStamp",
+          "source": "apps/app/lib/state/persistence.dart",
+          "sourceLine": 11
+        }
+      ],
+      "default": "appSchemaVersion",
+      "key": "__synapse_schema",
+      "migration": "v1 initializes missing values; current legacy behavior restamps mismatches without shape migration",
+      "owner": "PersistedStore",
+      "risk": "restamp-only behavior must be replaced by explicit forward migrations before schema v2",
+      "type": "int",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 82
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 453
+        }
+      ],
+      "default": {},
+      "key": "counters",
+      "migration": "preserve metric keys and integer totals; map into canonical achievement counters without duplicate grants",
+      "owner": "GameNotifier",
+      "type": "json:Map<String,int>",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 67
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 449
+        }
+      ],
+      "default": "const GamificationState()",
+      "key": "game_state",
+      "migration": "decode with GamificationState.fromJson; future reward ledger imports this as a non-authoritative legacy projection",
+      "owner": "GameNotifier",
+      "type": "json:GamificationState",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 72
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 450
+        }
+      ],
+      "default": {},
+      "key": "mastery",
+      "migration": "decode each entry with ConceptMastery.fromJson; preserve concept IDs and per-module enum names",
+      "owner": "GameNotifier",
+      "type": "json:Map<ConceptId,ConceptMastery>",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/presentation_provider.dart",
+          "sourceLine": 26
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/presentation_provider.dart",
+          "sourceLine": 96
+        }
+      ],
+      "default": "empty authoritative presentation-receipt queue",
+      "key": "motion_presentation_queue_v1",
+      "migration": "optional UI presentation state; recover to an empty queue on malformed or future snapshots without changing rewards or learning progress",
+      "owner": "PresentationQueueController",
+      "type": "json:PresentationQueue",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readBool",
+          "source": "apps/app/lib/state/settings_provider.dart",
+          "sourceLine": 50
+        },
+        {
+          "operation": "writeBool",
+          "source": "apps/app/lib/state/settings_provider.dart",
+          "sourceLine": 52
+        }
+      ],
+      "default": false,
+      "key": "onboarded",
+      "migration": "missing remains false; never reset true during shell rebuild",
+      "owner": "SettingsNotifier",
+      "type": "bool",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/entitlement_provider.dart",
+          "sourceLine": 63
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/entitlement_provider.dart",
+          "sourceLine": 98
+        }
+      ],
+      "default": {
+        "owned": [],
+        "tier": "free"
+      },
+      "key": "personalization",
+      "migration": "preserve cosmetic IDs/equipment; local tier is not trusted as server entitlement",
+      "owner": "PersonalizationNotifier",
+      "type": "json:Personalization",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/user_provider.dart",
+          "sourceLine": 15
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/user_provider.dart",
+          "sourceLine": 21
+        }
+      ],
+      "default": "DemoSeed.user",
+      "key": "profile",
+      "migration": "decode with UserProfile.fromJson; preserve unknown future keys through a versioned adapter before schema changes",
+      "owner": "UserNotifier",
+      "type": "json:UserProfile",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 98
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 457
+        }
+      ],
+      "default": "DemoSeed.quests()",
+      "key": "quests",
+      "migration": "preserve quest IDs/progress; legacy rewards are not re-granted during import",
+      "owner": "GameNotifier",
+      "type": "json:{list:List<Quest>}",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/settings_provider.dart",
+          "sourceLine": 17
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/settings_provider.dart",
+          "sourceLine": 23
+        }
+      ],
+      "default": "const UserPrefs()",
+      "key": "settings",
+      "migration": "decode with UserPrefs.fromJson defaults; locale/theme/motion keys remain backward compatible",
+      "owner": "SettingsNotifier",
+      "type": "json:UserPrefs",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/srs_provider.dart",
+          "sourceLine": 19
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/srs_provider.dart",
+          "sourceLine": 74
+        }
+      ],
+      "default": "ContentRepository.seedCards(userId)",
+      "key": "srs_cards",
+      "migration": "round-trip SrsCard IDs, origin, schedule, dueAt, lapses, and reps before scheduler replacement",
+      "owner": "SrsNotifier",
+      "type": "json:{list:List<SrsCard>}",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/study_plan_provider.dart",
+          "sourceLine": 74
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/study_plan_provider.dart",
+          "sourceLine": 238
+        }
+      ],
+      "default": {
+        "date": "current-local-day",
+        "ids": []
+      },
+      "key": "study_plan_done",
+      "migration": "preserve same-day task IDs as completion hints; never convert them directly into mastery evidence",
+      "owner": "StudyPlanNotifier",
+      "type": "json:{date:String,ids:List<String>}",
+      "version": 1
+    },
+    {
+      "callSites": [
+        {
+          "operation": "readJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 88
+        },
+        {
+          "operation": "writeJson",
+          "source": "apps/app/lib/state/game_provider.dart",
+          "sourceLine": 454
+        }
+      ],
+      "default": {},
+      "key": "unlocked_at",
+      "migration": "preserve achievement IDs and earliest valid unlock timestamps",
+      "owner": "GameNotifier",
+      "type": "json:Map<String,ISO-8601>",
+      "version": 1
+    }
+  ],
+  "invariants": [
+    "no key may be renamed or removed without a versioned migration and rollback fixture",
+    "missing or malformed data must not erase unrelated keys",
+    "reward and entitlement projections remain untrusted during server-authority migration"
+  ],
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-21"
+}

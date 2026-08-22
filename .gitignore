@@ -5,6 +5,7 @@ build/
 .flutter-plugins
 .flutter-plugins-dependencies
 **/pubspec.lock
+!/pubspec.lock
 .melos_tool/
 
 # IDE
@@ -21,5 +22,12 @@ Thumbs.db
 .env.*
 
 # Generated
+*.log
 coverage/
 *.g.dart.bak
+__pycache__/
+*.py[cod]
+
+# Local Jules runtime state and harvested remote artifacts. Project-owned
+# manifests/prompts live outside this directory and remain reviewable.
+.jules/

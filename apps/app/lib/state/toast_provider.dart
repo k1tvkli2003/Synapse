@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// A transient toast message rendered by the root ToastHost (prompt 07 §3).
+/// A transient operational notice rendered by the root ToastHost. Durable
+/// progress and reward outcomes are prohibited here and use receipts instead.
 class ToastMessage {
-  ToastMessage({required this.title, this.subtitle, this.icon = Icons.bolt_rounded, this.color})
-      : id = DateTime.now().microsecondsSinceEpoch;
+  ToastMessage({
+    required this.title,
+    this.subtitle,
+    this.icon = Icons.bolt_rounded,
+    this.color,
+  }) : id = DateTime.now().microsecondsSinceEpoch;
   final int id;
   final String title;
   final String? subtitle;
@@ -26,4 +31,6 @@ class ToastController extends Notifier<List<ToastMessage>> {
   }
 }
 
-final toastProvider = NotifierProvider<ToastController, List<ToastMessage>>(ToastController.new);
+final toastProvider = NotifierProvider<ToastController, List<ToastMessage>>(
+  ToastController.new,
+);

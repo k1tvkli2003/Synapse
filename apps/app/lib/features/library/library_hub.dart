@@ -31,18 +31,78 @@ class LibraryHubScreen extends ConsumerWidget {
     final repo = ref.watch(repositoryProvider);
 
     final banks = <_Bank>[
-      _Bank('Diseases', '${repo.diseases.length} conditions', Icons.coronavirus_rounded, Routes.diseases, const Color(0xFFFF8A8A)),
-      _Bank('Drugs', '${repo.drugs.length} medications', Icons.medication_rounded, Routes.drugs, const Color(0xFFC3E88D)),
-      _Bank('Calculators', '${repo.tools.length} scores & tools', Icons.calculate_rounded, Routes.tools, const Color(0xFF8C9EFF)),
-      _Bank('Interactions', 'Drug interaction checker', Icons.warning_amber_rounded, Routes.drugInteractions, const Color(0xFFFFB07A)),
-      _Bank('Anatomy Atlas', '${repo.libraryOfKind(LibraryKind.atlas).length} plates', Icons.accessibility_new_rounded, LibraryKind.atlas.route, const Color(0xFFF7A8C4)),
-      _Bank('Imaging', '${repo.libraryOfKind(LibraryKind.imaging).length} teaching cases', Icons.broken_image_rounded, LibraryKind.imaging.route, const Color(0xFF6FD3E8)),
-      _Bank('Procedures', '${repo.libraryOfKind(LibraryKind.procedure).length} skills', Icons.healing_rounded, LibraryKind.procedure.route, const Color(0xFFA6B6CC)),
-      _Bank('Guidelines', '${repo.libraryOfKind(LibraryKind.guideline).length} protocols', Icons.fact_check_rounded, LibraryKind.guideline.route, const Color(0xFF7BE0A3)),
-      _Bank('Journal Club', '${repo.libraryOfKind(LibraryKind.journal).length} landmark trials', Icons.article_rounded, LibraryKind.journal.route, const Color(0xFFFFC773)),
+      _Bank(
+        'Diseases',
+        '${repo.diseases.length} conditions',
+        Icons.coronavirus_rounded,
+        Routes.diseases,
+        const Color(0xFFFF8A8A),
+      ),
+      _Bank(
+        'Drugs',
+        '${repo.drugs.length} medications',
+        Icons.medication_rounded,
+        Routes.drugs,
+        const Color(0xFFC3E88D),
+      ),
+      _Bank(
+        'Calculators',
+        '${repo.tools.length} scores & tools',
+        Icons.calculate_rounded,
+        Routes.tools,
+        const Color(0xFF8C9EFF),
+      ),
+      _Bank(
+        'Interactions',
+        'Drug interaction checker',
+        Icons.warning_amber_rounded,
+        Routes.drugInteractions,
+        const Color(0xFFFFB07A),
+      ),
+      _Bank(
+        'Anatomy Atlas',
+        '${repo.libraryOfKind(LibraryKind.atlas).length} plates',
+        Icons.accessibility_new_rounded,
+        LibraryKind.atlas.route,
+        const Color(0xFFF7A8C4),
+      ),
+      _Bank(
+        'Imaging',
+        '${repo.libraryOfKind(LibraryKind.imaging).length} teaching cases',
+        Icons.broken_image_rounded,
+        LibraryKind.imaging.route,
+        const Color(0xFF6FD3E8),
+      ),
+      _Bank(
+        'Procedures',
+        '${repo.libraryOfKind(LibraryKind.procedure).length} skills',
+        Icons.healing_rounded,
+        LibraryKind.procedure.route,
+        const Color(0xFFA6B6CC),
+      ),
+      _Bank(
+        'Guidelines',
+        '${repo.libraryOfKind(LibraryKind.guideline).length} protocols',
+        Icons.fact_check_rounded,
+        LibraryKind.guideline.route,
+        const Color(0xFF7BE0A3),
+      ),
+      _Bank(
+        'Journal Club',
+        '${repo.libraryOfKind(LibraryKind.journal).length} landmark trials',
+        Icons.article_rounded,
+        LibraryKind.journal.route,
+        const Color(0xFFFFC773),
+      ),
     ];
 
-    final cross = const Responsive(compact: 2, medium: 3, expanded: 3, large: 4, xlarge: 4).resolve(context);
+    final cross = const Responsive(
+      compact: 2,
+      medium: 3,
+      expanded: 3,
+      large: 4,
+      xlarge: 4,
+    ).resolve(context);
 
     return ModuleScaffold(
       title: 'Library',
@@ -61,7 +121,10 @@ class LibraryHubScreen extends ConsumerWidget {
             onTap: () => context.push(Routes.search),
           ),
           const SizedBox(height: 20),
-          Text('Reference banks', style: Theme.of(context).textTheme.titleMedium),
+          Text(
+            'Reference banks',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
           const SizedBox(height: 12),
           GridView.builder(
             shrinkWrap: true,
@@ -86,15 +149,28 @@ class LibraryHubScreen extends ConsumerWidget {
                     Container(
                       width: 40,
                       height: 40,
-                      decoration: BoxDecoration(color: b.color.withValues(alpha: 0.16), borderRadius: BorderRadius.circular(12)),
+                      decoration: BoxDecoration(
+                        color: b.color.withValues(alpha: 0.16),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       child: Icon(b.icon, color: b.color, size: 21),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(b.title, style: Theme.of(context).textTheme.titleSmall, maxLines: 1, overflow: TextOverflow.ellipsis),
+                        Text(
+                          b.title,
+                          style: Theme.of(context).textTheme.titleSmall,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         const SizedBox(height: 2),
-                        Text(b.subtitle, style: TextStyle(color: t.textMuted, fontSize: 11.5), maxLines: 1, overflow: TextOverflow.ellipsis),
+                        Text(
+                          b.subtitle,
+                          style: TextStyle(color: t.textMuted, fontSize: 11.5),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ],
                     ),
                   ],
@@ -103,9 +179,11 @@ class LibraryHubScreen extends ConsumerWidget {
             },
           ),
           const SizedBox(height: 20),
-          Text('Everything in the Library is Concept-anchored — it appears on the '
-              'concept hub and feeds the same mastery as your practice.',
-              style: TextStyle(color: t.textFaint, fontSize: 12, height: 1.4)),
+          Text(
+            'Everything in the Library is Concept-anchored — it appears on the '
+            'Concept Map and feeds the same mastery as your practice.',
+            style: TextStyle(color: t.textFaint, fontSize: 12, height: 1.4),
+          ),
           const SizedBox(height: 16),
         ],
       ),

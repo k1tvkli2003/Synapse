@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "contractId": "synapse.capability-evidence.v1",
+  "instructions": "Add only reviewed status and evidence overrides. The generated completion ledger joins the 76-record preserved baseline with every registered new capability, and the verifier rejects missing coverage or false completion.",
+  "entries": [
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "completionStatus": "active",
+      "entitySchemaStatus": "active",
+      "concerns": {
+        "stable_identity": "active",
+        "provenance": "active",
+        "validation": "active",
+        "persistence": "active",
+        "indexing_search": "active",
+        "cache": "active",
+        "security_authority": "active"
+      },
+      "gates": {
+        "purpose": {
+          "status": "verified",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/15-architecture-decisions.md#adr-002--medical-education-is-the-spine"
+          ],
+          "rationale": "The user job and curriculum-spine outcome are frozen independently of implementation breadth."
+        },
+        "placement": {
+          "status": "verified",
+          "evidence": [
+            "decision:contracts/product/new-capability-registry.v1.json",
+            "runtime:apps/app/lib/features/academy/academy_screens.dart"
+          ],
+          "rationale": "Course hierarchy is one earned Academy Path workflow rather than a new module grid or imported sub-brand."
+        },
+        "workflow": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_screens_test.dart",
+            "runtime:docs/codex/2026-07-15-synapse-medical-learning-os/05-verification.md"
+          ],
+          "rationale": "Synthetic Home-to-Course-to-Session navigation and return plus deterministic scoped EN/FA catalog search are implemented; rights-cleared real-catalog scale, offline-pack states, and prescription breadth remain open."
+        },
+        "data_plane": {
+          "status": "active",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/39-academy-session-progress-data-plane.md",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/40-academy-catalog-index-cache.md",
+            "file:packages/core/lib/src/curriculum"
+          ],
+          "rationale": "Stable package hierarchy, exact declared playback ownership, release-bound learner state, checkpoint v1-to-v2 migration, precomputed scoped indexes, independent two-budget LRU, single-flight, per-release/global/active-lookup invalidation, activation recheck, and receipt-backed package recovery exist; signed release trust, on-disk/offline-pack indexes, sync, backup, and observability remain open."
+        },
+        "security_privacy": {
+          "status": "active",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/39-academy-session-progress-data-plane.md",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/40-academy-catalog-index-cache.md",
+            "test:packages/services/test/curriculum_package_repository_test.dart"
+          ],
+          "rationale": "Only validated package projections render; transport/canonical hashes, canonical stored bytes, record/receipt audit, explicit restore, and Preview/Learner fault isolation are enforced locally. The fixture is non-medical/dev-only; signed release-channel authentication, production storage, privacy lifecycle, and server proof remain open."
+        },
+        "localization_rtl": {
+          "status": "active",
+          "evidence": [
+            "test:Academy keeps Persian chrome, RTL direction, and package content together",
+            "runtime:Persian Web Academy flow 2026-07-18"
+          ],
+          "rationale": "Representative package hierarchy/chrome pass in English/Persian RTL and the catalog has deterministic Persian normalization plus cross-locale/scoped search; app-wide catalog, font, bidi, transliteration/aliases, and review gates remain open."
+        },
+        "accessibility": {
+          "status": "active",
+          "evidence": [
+            "test:Academy remains layout-safe with Persian at 200 percent text scale",
+            "file:apps/app/lib/features/academy/academy_screens.dart"
+          ],
+          "rationale": "Semantics, tooltip-preserving compact status, and 200 percent text are covered; keyboard and screen-reader task proof remain open."
+        },
+        "responsive_input": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_visual_test.dart",
+            "test:apps/app/test/academy_screens_test.dart"
+          ],
+          "rationale": "Compact, medium, and wide geometry plus pointer runtime are exercised; live compact capture and all input modes remain open."
+        },
+        "motion_feedback": {
+          "status": "active",
+          "evidence": [
+            "file:apps/app/test/academy_visual_test.dart"
+          ],
+          "rationale": "Reduced-animation/static mascot fallback is wired; full authored Path choreography and profiler evidence are not implemented."
+        },
+        "performance": {
+          "status": "active",
+          "evidence": [
+            "test:packages/services/test/curriculum_catalog_repository_test.dart",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/40-academy-catalog-index-cache.md"
+          ],
+          "rationale": "Precomputed normalization, independent release/node cache budgets, LRU eviction, oversized bypass, single-flight, active-lookup/per-release invalidation, and activation-race tests exist; full-catalog latency/heap and physical-device profiling remain open."
+        },
+        "state_completeness": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_screens_test.dart",
+            "test:packages/services/test/curriculum_catalog_repository_test.dart"
+          ],
+          "rationale": "No-package, populated, unavailable, failure/retry, success, offline-ready package, corrupt/drifted restore, receipt-chain failure, target-isolated damage, derived-cache eviction/rebuild, active-lookup invalidation, and activation-race states exist; stale sync, permission, conflict, and broad recovery states remain incomplete."
+        },
+        "visual_craft": {
+          "status": "active",
+          "evidence": [
+            "runtime:English and Persian Night Shift Web flows 2026-07-18",
+            "test:apps/app/test/academy_visual_test.dart"
+          ],
+          "rationale": "Real Web rendering matches the selected Night Shift/LUMA direction; typography, compact real-host, full state matrix, and platform critique remain open."
+        },
+        "adversarial_quality": {
+          "status": "active",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/04-progress.md"
+          ],
+          "rationale": "Perfect/Modernize review found and fixed compact overflow, unbounded rail height, duplicate completion semantics, mixed Persian fixture labels, undeclared playback injection, false idempotency, receipt/control-plane gaps, and clear/evict/activation cache races; a full Critics gate remains open."
+        },
+        "verification": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_screens_test.dart",
+            "test:apps/app/test/academy_visual_test.dart",
+            "test:packages/services/test/curriculum_catalog_repository_test.dart",
+            "runtime:docs/codex/2026-07-15-synapse-medical-learning-os/05-verification.md"
+          ],
+          "rationale": "Targeted analysis, catalog/progress repositories, widget/geometry, and EN/FA Web runtime evidence pass; real-scale profiling, native accessibility/platform, and production-content proof remain open."
+        }
+      }
+    },
+    {
+      "capabilityId": "synapse.academy.learning-session",
+      "completionStatus": "active",
+      "entitySchemaStatus": "active",
+      "concerns": {
+        "stable_identity": "active",
+        "schema_migration": "active",
+        "provenance": "active",
+        "validation": "active",
+        "persistence": "active",
+        "conflict_resolution": "active",
+        "audit_history": "active",
+        "security_authority": "active"
+      },
+      "gates": {
+        "purpose": {
+          "status": "verified",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/15-architecture-decisions.md#adr-022--release-bound-local-session-checkpoints-are-separate-from-content-and-rewards"
+          ],
+          "rationale": "The bounded resume/response job, authority split, failure risks, and rollback boundary are frozen."
+        },
+        "placement": {
+          "status": "verified",
+          "evidence": [
+            "decision:contracts/product/new-capability-registry.v1.json",
+            "runtime:apps/app/lib/features/academy/academy_screens.dart"
+          ],
+          "rationale": "A focused multi-step Session is entered from the Academy Path and returns to its real Course ancestor; it is not a separate product section."
+        },
+        "workflow": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_screens_test.dart",
+            "test:packages/services/test/curriculum_session_progress_repository_test.dart",
+            "runtime:docs/codex/2026-07-15-synapse-medical-learning-os/05-verification.md"
+          ],
+          "rationale": "Open/select/record/feedback/complete/restore are implemented for a package-bound single-choice session; varied activities, abandonment, sync, and production content remain open."
+        },
+        "data_plane": {
+          "status": "active",
+          "evidence": [
+            "file:packages/core/lib/src/curriculum/curriculum_progress_models.dart",
+            "file:packages/services/lib/src/curriculum/curriculum_session_progress_repository.dart",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/39-academy-session-progress-data-plane.md"
+          ],
+          "rationale": "The stable owned key now carries schema v2, losslessly migrates frozen v1 fixtures, exports a v1 rollback snapshot, validates derived receipt-count integrity, and preserves release identity/CAS/response receipts; outbox/sync/index/backup/privacy/observability remain open."
+        },
+        "security_privacy": {
+          "status": "active",
+          "evidence": [
+            "test:serializes advancing and completion without client-side rewards",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/39-academy-session-progress-data-plane.md"
+          ],
+          "rationale": "The projection excludes content bodies, free text, PHI, credentials, rewards, and competence claims; platform storage and authenticated server replay remain open."
+        },
+        "localization_rtl": {
+          "status": "active",
+          "evidence": [
+            "test:Academy keeps Persian chrome, RTL direction, and package content together",
+            "runtime:Persian Web Academy feedback and completion 2026-07-18"
+          ],
+          "rationale": "Package prompt/options/feedback and session chrome run together in Persian RTL; full terminology/font/bidi and editorial review remain open."
+        },
+        "accessibility": {
+          "status": "active",
+          "evidence": [
+            "test:Academy remains layout-safe with Persian at 200 percent text scale",
+            "test:Academy restores a completed signed-session checkpoint after a restart"
+          ],
+          "rationale": "Large text and one non-duplicated completion surface are covered; keyboard, screen reader, focus, contrast, and real assistive-technology proof remain open."
+        },
+        "responsive_input": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_visual_test.dart",
+            "runtime:pointer Web session flow 2026-07-18"
+          ],
+          "rationale": "Compact/medium/wide geometry and pointer flow are exercised; touch, keyboard, screen reader, and real compact-host proof remain open."
+        },
+        "motion_feedback": {
+          "status": "active",
+          "evidence": [
+            "runtime:answer selection, correct rationale, and static completion pose 2026-07-18",
+            "file:apps/app/test/academy_visual_test.dart"
+          ],
+          "rationale": "Truthful answer/feedback states and Reduced-mode static fallbacks exist; Full/Off choreography, interruption, audio/haptics, and profiler evidence remain open."
+        },
+        "state_completeness": {
+          "status": "active",
+          "evidence": [
+            "test:apps/app/test/academy_screens_test.dart",
+            "test:packages/services/test/curriculum_session_progress_repository_test.dart"
+          ],
+          "rationale": "Loading, missing route/content, selection, answered, failure/retry, completed, restored, stale, corrupt, forward-migration, failed-write rollback, and duplicate-receipt paths have code/test coverage; offline/sync/permission/conflict breadth remains open."
+        },
+        "visual_craft": {
+          "status": "active",
+          "evidence": [
+            "runtime:English and Persian Night Shift session flows 2026-07-18",
+            "test:apps/app/test/academy_visual_test.dart"
+          ],
+          "rationale": "The real Web session uses the selected Night Shift/LUMA world and focused single-task composition; font production, all states/viewports, and platform visual proof remain open."
+        },
+        "adversarial_quality": {
+          "status": "active",
+          "evidence": [
+            "test:duplicate completion surface regression",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/04-progress.md"
+          ],
+          "rationale": "Perfect review fixed duplicate completion semantics, stale route assumptions, layout failures, and mixed-language fixture data; full threat, accessibility, and Critics closure remain open."
+        },
+        "verification": {
+          "status": "active",
+          "evidence": [
+            "test:packages/services/test/curriculum_session_progress_repository_test.dart",
+            "test:apps/app/test/academy_screens_test.dart",
+            "runtime:docs/codex/2026-07-15-synapse-medical-learning-os/05-verification.md"
+          ],
+          "rationale": "Nine repository tests, six widget tests, three geometry specimens, clean analysis, and EN/FA Web runtime pass; no production-content or six-platform completion claim is made."
+        }
+      }
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-packages",
+      "completionStatus": "active",
+      "entitySchemaStatus": "active",
+      "concerns": {
+        "stable_identity": "active",
+        "schema_migration": "active",
+        "provenance": "active",
+        "validation": "active",
+        "persistence": "active",
+        "offline_queue": "active",
+        "audit_history": "active",
+        "backup_recovery": "active"
+      },
+      "gates": {
+        "purpose": {
+          "status": "verified",
+          "evidence": [
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/15-architecture-decisions.md#adr-020--immutable-local-curriculum-package-registry"
+          ],
+          "rationale": "ADR-020 freezes the user job, truth boundary, risks, alternatives, and rollback outcome."
+        },
+        "placement": {
+          "status": "verified",
+          "evidence": [
+            "decision:contracts/product/new-capability-registry.v1.json",
+            "decision:docs/codex/2026-07-15-synapse-medical-learning-os/38-capability-masterpiece-data-plane.md"
+          ],
+          "rationale": "Package management is a background service exposed only through contextual status and recovery surfaces, not a new top-level page."
+        },
+        "workflow": {
+          "status": "active",
+          "evidence": [
+            "test:flutter test packages/services/test/curriculum_package_repository_test.dart --no-pub"
+          ],
+          "rationale": "Install, quarantine, activation, restart, rollback, and corruption paths are implemented in the pure-Dart local repository; platform storage and UI remain open."
+        },
+        "data_plane": {
+          "status": "active",
+          "evidence": [
+            "file:packages/services/lib/src/curriculum/curriculum_package_repository.dart",
+            "test:flutter test packages/services/test/curriculum_package_repository_test.dart --no-pub"
+          ],
+          "rationale": "The v1 registry covers the initial immutable identity, validation, persistence, audit, offline, and recovery boundary; full platform adapters and observability remain open."
+        },
+        "security_privacy": {
+          "status": "active",
+          "evidence": [
+            "test:quarantines invalid and hash-mismatched candidates without raw body"
+          ],
+          "rationale": "Failed raw manifests are not persisted, while broader platform storage and threat evidence remain open."
+        },
+        "verification": {
+          "status": "active",
+          "evidence": [
+            "test:seven curriculum package repository tests",
+            "test:python -m unittest tool/architecture/test_validate_architecture.py"
+          ],
+          "rationale": "Pure-Dart contract evidence passes; packaged runtime, migration, UI, accessibility, and platform proof remain open."
+        }
+      }
+    }
+  ]
+}

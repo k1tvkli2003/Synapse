@@ -1,0 +1,172 @@
+{
+  "status": "pass",
+  "failures": [],
+  "appMaster": {
+    "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mcr4-01-evidence-guide/source/icr4-04-app-icon-master-1024.png",
+    "sha256": "1E64306287558345921D77F56F93447BE30583C7DE184B18DA487B476F51898F"
+  },
+  "foreground": {
+    "bounds": [
+      85,
+      77,
+      976,
+      1017
+    ],
+    "pixels": 672765,
+    "maxRadius": 622.592,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "adaptive": {
+    "bounds": [
+      285,
+      269,
+      737,
+      746
+    ],
+    "pixels": 173458,
+    "maxRadius": 301.597,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "monochrome": {
+    "bounds": [
+      285,
+      269,
+      737,
+      746
+    ],
+    "pixels": 173458,
+    "maxRadius": 301.597,
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "components": 1
+  },
+  "optical": {
+    "48": {
+      "meanLuminance": 115.738,
+      "cyanPixels": 709,
+      "darkDetailPixels": 911
+    },
+    "24": {
+      "meanLuminance": 116.512,
+      "cyanPixels": 182,
+      "darkDetailPixels": 216
+    },
+    "16": {
+      "meanLuminance": 116.704,
+      "cyanPixels": 80,
+      "darkDetailPixels": 90
+    }
+  },
+  "mascot": {
+    "mcr4-01-encouraging-1024.png": {
+      "bounds": [
+        224,
+        118,
+        799,
+        937
+      ],
+      "pixels": 319686,
+      "maxRadius": 473.838,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "mcr4-01-evidence-guide-1024.png": {
+      "bounds": [
+        183,
+        122,
+        841,
+        937
+      ],
+      "pixels": 339035,
+      "maxRadius": 490.247,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "mcr4-01-hero-pointing-1024.png": {
+      "bounds": [
+        138,
+        80,
+        886,
+        977
+      ],
+      "pixels": 408924,
+      "maxRadius": 505.653,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "mcr4-01-quest-host-1024.png": {
+      "bounds": [
+        212,
+        118,
+        810,
+        937
+      ],
+      "pixels": 319038,
+      "maxRadius": 488.521,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "mcr4-01-recovery-1024.png": {
+      "bounds": [
+        130,
+        123,
+        894,
+        932
+      ],
+      "pixels": 421362,
+      "maxRadius": 539.569,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "mcr4-01-thinking-1024.png": {
+      "bounds": [
+        274,
+        118,
+        750,
+        937
+      ],
+      "pixels": 273069,
+      "maxRadius": 441.16,
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

@@ -24,7 +24,11 @@ class CloudSyncState extends Equatable {
   final String? email;
   final String? message;
 
-  CloudSyncState copyWith({CloudSyncPhase? phase, String? email, String? message}) {
+  CloudSyncState copyWith({
+    CloudSyncPhase? phase,
+    String? email,
+    String? message,
+  }) {
     return CloudSyncState(
       phase: phase ?? this.phase,
       email: email ?? this.email,
@@ -36,8 +40,12 @@ class CloudSyncState extends Equatable {
   List<Object?> get props => [phase, email, message];
 }
 
-final cloudAuthServiceProvider = Provider<CloudAuthService>((ref) => const CloudAuthService());
-final cloudSyncServiceProvider = Provider<CloudSyncService>((ref) => const CloudSyncService());
+final cloudAuthServiceProvider = Provider<CloudAuthService>(
+  (ref) => const CloudAuthService(),
+);
+final cloudSyncServiceProvider = Provider<CloudSyncService>(
+  (ref) => const CloudSyncService(),
+);
 
 /// Optional cross-device account sync layered on top of the offline-first
 /// local store (prompt 05/23/42). A no-op whenever no backend is configured —
@@ -52,7 +60,7 @@ class CloudSyncController extends Notifier<CloudSyncState> {
   @override
   CloudSyncState build() {
     final config = ref.watch(appConfigProvider);
-    if (!config.hasBackend) return const CloudSyncState();
+    if (!config.hasLegacySupabaseBackend) return const CloudSyncState();
 
     ref.onDispose(() {
       _authSub?.cancel();
@@ -60,7 +68,9 @@ class CloudSyncController extends Notifier<CloudSyncState> {
       _gameDebounce?.cancel();
     });
 
-    _authSub = ref.read(cloudAuthServiceProvider).onAuthStateChange.listen((event) {
+    _authSub = ref.read(cloudAuthServiceProvider).onAuthStateChange.listen((
+      event,
+    ) {
       final user = event.session?.user;
       if (user != null) {
         unawaited(_hydrate(user));
@@ -75,7 +85,10 @@ class CloudSyncController extends Notifier<CloudSyncState> {
       _gameDebounce = Timer(const Duration(seconds: 2), () {
         final uid = ref.read(cloudAuthServiceProvider).currentUser?.id;
         if (uid == null) return;
-        ref.read(cloudSyncServiceProvider).pushGameState(next.game, uid).catchError((_) {});
+        ref
+            .read(cloudSyncServiceProvider)
+            .pushGameState(next.game, uid)
+            .catchError((_) {});
       });
     });
 
@@ -85,7 +98,10 @@ class CloudSyncController extends Notifier<CloudSyncState> {
       _profileDebounce = Timer(const Duration(seconds: 2), () {
         final uid = ref.read(cloudAuthServiceProvider).currentUser?.id;
         if (uid == null) return;
-        ref.read(cloudSyncServiceProvider).pushProfile(next, uid).catchError((_) {});
+        ref
+            .read(cloudSyncServiceProvider)
+            .pushProfile(next, uid)
+            .catchError((_) {});
       });
     });
 
@@ -102,7 +118,11 @@ class CloudSyncController extends Notifier<CloudSyncState> {
     try {
       await ref.read(cloudAuthServiceProvider).sendCode(email);
     } catch (e) {
-      state = CloudSyncState(phase: CloudSyncPhase.error, email: email, message: _readable(e));
+      state = CloudSyncState(
+        phase: CloudSyncPhase.error,
+        email: email,
+        message: _readable(e),
+      );
     }
   }
 
@@ -112,7 +132,11 @@ class CloudSyncController extends Notifier<CloudSyncState> {
       await ref.read(cloudAuthServiceProvider).verifyCode(email, code);
       // The auth-state listener picks up the new session and calls _hydrate.
     } catch (e) {
-      state = CloudSyncState(phase: CloudSyncPhase.error, email: email, message: _readable(e));
+      state = CloudSyncState(
+        phase: CloudSyncPhase.error,
+        email: email,
+        message: _readable(e),
+      );
     }
   }
 
@@ -134,7 +158,10 @@ class CloudSyncController extends Notifier<CloudSyncState> {
       final remoteProfile = await svc.fetchProfile(user.id);
 
       final localGame = ref.read(gameProvider).game;
-      final localHasProgress = localGame.xp.total > 0 || localGame.wallet.gems > 0 || localGame.streak.current > 0;
+      final localHasProgress =
+          localGame.xp.total > 0 ||
+          localGame.wallet.gems > 0 ||
+          localGame.streak.current > 0;
 
       if (remoteGameStateIsUntouched(remoteGame) && localHasProgress) {
         // First-ever sync for this account and this device already has real
@@ -147,12 +174,18 @@ class CloudSyncController extends Notifier<CloudSyncState> {
           ref.read(userProvider.notifier).update(profileFromRow(remoteProfile));
         }
         if (remoteGame != null) {
-          ref.read(gameProvider.notifier).hydrateFromCloud(gameStateFromRow(remoteGame));
+          ref
+              .read(gameProvider.notifier)
+              .hydrateFromCloud(gameStateFromRow(remoteGame));
         }
       }
       state = CloudSyncState(phase: CloudSyncPhase.signedIn, email: user.email);
     } catch (e) {
-      state = CloudSyncState(phase: CloudSyncPhase.error, email: user.email, message: _readable(e));
+      state = CloudSyncState(
+        phase: CloudSyncPhase.error,
+        email: user.email,
+        message: _readable(e),
+      );
     }
   }
 
@@ -162,6 +195,7 @@ class CloudSyncController extends Notifier<CloudSyncState> {
   }
 }
 
-final cloudSyncControllerProvider = NotifierProvider<CloudSyncController, CloudSyncState>(
-  CloudSyncController.new,
-);
+final cloudSyncControllerProvider =
+    NotifierProvider<CloudSyncController, CloudSyncState>(
+      CloudSyncController.new,
+    );

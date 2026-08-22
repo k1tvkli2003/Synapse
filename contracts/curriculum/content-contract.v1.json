@@ -1,0 +1,2936 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://synapse.local/contracts/curriculum/content-contract.v1.json",
+  "title": "Synapse bilingual medical microlearning content pack",
+  "description": "Validation schema and policy annotations for traceable English-Persian medical microlearning packs derived from the user-provided harrison-sim corpus.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "contractId",
+    "packId",
+    "sourceCorpus",
+    "release",
+    "registries",
+    "hierarchyNodes",
+    "sourceDocuments",
+    "sourceAtoms",
+    "claims",
+    "evidenceCitations",
+    "mediaAssets",
+    "localizationUnits",
+    "coverageEdges",
+    "microLessons",
+    "studyDocuments",
+    "studyBlocks",
+    "sessions",
+    "interactions",
+    "promotion",
+    "qa"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "contractId": {
+      "const": "synapse.curriculum.content-contract.v1"
+    },
+    "packId": {
+      "$ref": "#/$defs/stableId"
+    },
+    "sourceCorpus": {
+      "$ref": "#/$defs/sourceCorpus"
+    },
+    "release": {
+      "$ref": "#/$defs/release"
+    },
+    "registries": {
+      "$ref": "#/$defs/registries"
+    },
+    "hierarchyNodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/hierarchyNode"
+      }
+    },
+    "sourceDocuments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/sourceDocument"
+      }
+    },
+    "sourceAtoms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/sourceAtom"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "evidenceCitations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceCitation"
+      }
+    },
+    "mediaAssets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mediaAsset"
+      }
+    },
+    "localizationUnits": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/localizationUnit"
+      }
+    },
+    "coverageEdges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/coverageEdge"
+      }
+    },
+    "microLessons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/microLesson"
+      }
+    },
+    "studyDocuments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/studyDocument"
+      }
+    },
+    "studyBlocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/studyBlock"
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/session"
+      }
+    },
+    "interactions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/interaction"
+      }
+    },
+    "promotion": {
+      "$ref": "#/$defs/promotion"
+    },
+    "qa": {
+      "$ref": "#/$defs/qa"
+    }
+  },
+  "$defs": {
+    "stableId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 256,
+      "pattern": "^[a-z0-9][a-z0-9._:/-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "nonEmptyIdArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/stableId"
+      }
+    },
+    "idArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/stableId"
+      }
+    },
+    "sourceCorpus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKey",
+        "classification",
+        "sourceTreeSha256",
+        "scanManifestId",
+        "localRootDistributable",
+        "priorityCourseSourceKey"
+      ],
+      "properties": {
+        "sourceKey": {
+          "const": "harrison-sim"
+        },
+        "classification": {
+          "const": "user-provided-simulated-medical-reference"
+        },
+        "sourceTreeSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "scanManifestId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "localRootDistributable": {
+          "const": false
+        },
+        "priorityCourseSourceKey": {
+          "const": "harrison-sim/course/06"
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "releaseId",
+        "version",
+        "channel",
+        "contractVersion",
+        "authoringProtocolVersion",
+        "sourceTreeSha256",
+        "contentState",
+        "createdAt",
+        "generatorRuns"
+      ],
+      "properties": {
+        "releaseId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parentReleaseId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "channel": {
+          "enum": [
+            "internal",
+            "beta",
+            "stable"
+          ]
+        },
+        "contractVersion": {
+          "const": 1
+        },
+        "authoringProtocolVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceTreeSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "contentState": {
+          "enum": [
+            "raw",
+            "reviewed",
+            "validated",
+            "published",
+            "withdrawn",
+            "superseded",
+            "quarantined"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "generatorRuns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/generatorRun"
+          }
+        }
+      }
+    },
+    "generatorRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runId",
+        "provider",
+        "model",
+        "taskId",
+        "promptSha256",
+        "inputManifestSha256",
+        "outputSha256",
+        "producedAt"
+      ],
+      "properties": {
+        "runId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "taskId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "remoteSessionId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "promptSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "inputManifestSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "outputSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "producedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "registries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concepts",
+        "terminology",
+        "misconceptions",
+        "numericTokens",
+        "rubrics"
+      ],
+      "properties": {
+        "concepts": {
+          "$ref": "#/$defs/registryReference"
+        },
+        "terminology": {
+          "$ref": "#/$defs/registryReference"
+        },
+        "misconceptions": {
+          "$ref": "#/$defs/registryReference"
+        },
+        "numericTokens": {
+          "$ref": "#/$defs/registryReference"
+        },
+        "rubrics": {
+          "$ref": "#/$defs/registryReference"
+        }
+      }
+    },
+    "registryReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registryId",
+        "version",
+        "sha256"
+      ],
+      "properties": {
+        "registryId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "hierarchyNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceKey",
+        "kind",
+        "ordinal",
+        "identityState",
+        "titleUnitId",
+        "sourceContainerKeys",
+        "conceptIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceKey": {
+          "$ref": "#/$defs/stableId"
+        },
+        "parentId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "course",
+            "chapter",
+            "unit",
+            "concept_cluster",
+            "micro_lesson"
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "identityState": {
+          "enum": [
+            "candidate",
+            "approved",
+            "superseded"
+          ]
+        },
+        "titleUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceContainerKeys": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "prerequisiteNodeIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "supersedesNodeIds": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "sourceDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "courseSourceKey",
+        "chapterSourceKey",
+        "artifactRole",
+        "authorityTier",
+        "relativePath",
+        "byteLength",
+        "rawSha256",
+        "detectedMime",
+        "sourceLocale",
+        "parserVersion",
+        "rightsState",
+        "ingestState",
+        "findingCodes"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "courseSourceKey": {
+          "$ref": "#/$defs/stableId"
+        },
+        "chapterSourceKey": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceLessonKey": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artifactRole": {
+          "enum": [
+            "part_index",
+            "chapter_markdown",
+            "supplemental_markdown",
+            "lesson_markdown",
+            "derived_find_sidecar",
+            "derived_summary_sidecar",
+            "derived_quiz_sidecar",
+            "derived_enrich_sidecar",
+            "contributor_metadata_sidecar",
+            "media",
+            "other_reviewed_source"
+          ]
+        },
+        "authorityTier": {
+          "enum": [
+            "primary_user_corpus",
+            "derived_legacy_candidate",
+            "order_metadata_only",
+            "media_evidence",
+            "non_instructional"
+          ]
+        },
+        "relativePath": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?![A-Za-z]:|/|\\\\).+"
+        },
+        "byteLength": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rawSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonicalSha256": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claimedExtension": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detectedMime": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceLocale": {
+          "enum": [
+            "en",
+            "fa",
+            "mixed",
+            "und"
+          ]
+        },
+        "parserVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rightsState": {
+          "enum": [
+            "user_owned",
+            "licensed",
+            "public_domain",
+            "permission_required",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "ingestState": {
+          "enum": [
+            "discovered",
+            "parsed",
+            "atomized",
+            "quarantined",
+            "rejected"
+          ]
+        },
+        "findingCodes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sourceAtom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceDocumentId",
+        "ordinal",
+        "atomType",
+        "locator",
+        "sourceTextSha256",
+        "normalizedTextSha256",
+        "sourceLocale",
+        "instructionalDisposition",
+        "riskTier",
+        "claimCandidateIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceDocumentId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "atomType": {
+          "enum": [
+            "heading",
+            "claim",
+            "definition",
+            "mechanism_link",
+            "paragraph_context",
+            "list_item",
+            "table_header",
+            "table_cell",
+            "formula",
+            "numeric_threshold",
+            "clinical_pearl",
+            "warning",
+            "cross_reference",
+            "footnote",
+            "figure_reference",
+            "figure_caption",
+            "media_label",
+            "quiz_stem_candidate",
+            "quiz_option_candidate",
+            "quiz_explanation_candidate",
+            "contributor_metadata",
+            "decorative_or_navigation"
+          ]
+        },
+        "locator": {
+          "$ref": "#/$defs/sourceLocator"
+        },
+        "sourceTextSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "normalizedTextSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "sourceLocale": {
+          "enum": [
+            "en",
+            "fa",
+            "mixed",
+            "und"
+          ]
+        },
+        "instructionalDisposition": {
+          "enum": [
+            "required",
+            "duplicate_required",
+            "non_instructional"
+          ]
+        },
+        "nonInstructionalReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duplicateGroupId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "riskTier": {
+          "enum": [
+            "foundational",
+            "clinical_low",
+            "clinical_high",
+            "safety_critical"
+          ]
+        },
+        "claimCandidateIds": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "sourceLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startLine",
+        "endLine",
+        "startCharacter",
+        "endCharacter",
+        "headingPath"
+      ],
+      "properties": {
+        "startLine": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "endLine": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "startCharacter": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "endCharacter": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "headingPath": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tableRow": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "tableColumn": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "mediaReference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "canonicalMeaningEn",
+        "claimType",
+        "riskTier",
+        "temporality",
+        "jurisdiction",
+        "sourceAtomIds",
+        "evidenceCitationIds",
+        "evidenceRequirement",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "canonicalMeaningEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claimType": {
+          "enum": [
+            "definition",
+            "anatomy",
+            "physiology",
+            "mechanism",
+            "epidemiology",
+            "diagnostic_criterion",
+            "differential",
+            "management",
+            "drug",
+            "dose",
+            "contraindication",
+            "prognosis",
+            "procedure",
+            "safety_warning",
+            "historical_or_contextual"
+          ]
+        },
+        "riskTier": {
+          "enum": [
+            "foundational",
+            "clinical_low",
+            "clinical_high",
+            "safety_critical"
+          ]
+        },
+        "temporality": {
+          "enum": [
+            "stable",
+            "versioned",
+            "time_sensitive"
+          ]
+        },
+        "jurisdiction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "evidenceCitationIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "evidenceRequirement": {
+          "enum": [
+            "corpus_plus_medical_review",
+            "current_authoritative_source_required",
+            "multiple_authoritative_sources_required"
+          ]
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "supported",
+            "conflicted",
+            "outdated",
+            "withdrawn",
+            "quarantined"
+          ]
+        },
+        "asOfDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "nextReviewAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "supersedesClaimId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "evidenceCitation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceType",
+        "title",
+        "publisher",
+        "locator",
+        "publishedOrVersionDate",
+        "retrievedAt",
+        "claimIds",
+        "verificationState",
+        "contentSha256"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceType": {
+          "enum": [
+            "official_guideline",
+            "government_or_public_health",
+            "professional_society",
+            "peer_reviewed_primary_research",
+            "systematic_review",
+            "drug_label",
+            "reference_standard",
+            "user_corpus"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passageLocator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publishedOrVersionDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "jurisdiction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "licenseOrUseBasis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claimIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "verificationState": {
+          "enum": [
+            "unverified",
+            "locator_verified",
+            "claim_support_verified",
+            "rejected"
+          ]
+        },
+        "contentSha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "mediaAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "originType",
+        "sourceDocumentId",
+        "sourceAtomIds",
+        "rawSha256",
+        "canonicalSha256",
+        "detectedMime",
+        "storageKey",
+        "rightsState",
+        "educationalPurpose",
+        "captionUnitId",
+        "altTextUnitId",
+        "accessibleAlternativeUnitId",
+        "medicalReviewState",
+        "transformLog"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "originType": {
+          "enum": [
+            "source_corpus",
+            "licensed_external",
+            "generated_illustration",
+            "author_created"
+          ]
+        },
+        "sourceDocumentId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "rawSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "canonicalSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "detectedMime": {
+          "type": "string",
+          "minLength": 1
+        },
+        "storageKey": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?![A-Za-z]:|/|\\\\).+"
+        },
+        "rightsState": {
+          "enum": [
+            "user_owned",
+            "licensed",
+            "public_domain",
+            "permission_required",
+            "unknown"
+          ]
+        },
+        "educationalPurpose": {
+          "enum": [
+            "anatomy",
+            "mechanism",
+            "pattern_recognition",
+            "comparison",
+            "procedure",
+            "signal_interpretation",
+            "evidence_display"
+          ]
+        },
+        "captionUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "altTextUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "accessibleAlternativeUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "medicalReviewState": {
+          "enum": [
+            "unreviewed",
+            "accurate",
+            "needs_revision",
+            "rejected"
+          ]
+        },
+        "transformLog": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "operation",
+              "toolVersion",
+              "outputSha256"
+            ],
+            "properties": {
+              "operation": {
+                "type": "string"
+              },
+              "toolVersion": {
+                "type": "string"
+              },
+              "outputSha256": {
+                "$ref": "#/$defs/sha256"
+              }
+            }
+          }
+        }
+      }
+    },
+    "localizationUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "semanticRole",
+        "semanticSkeletonSha256",
+        "claimIds",
+        "sourceAtomIds",
+        "conceptIds",
+        "terminologyIds",
+        "numericTokenIds",
+        "en",
+        "fa",
+        "pairState"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "semanticRole": {
+          "enum": [
+            "title",
+            "objective",
+            "instruction",
+            "explanation",
+            "prompt",
+            "option",
+            "hint",
+            "feedback_flash",
+            "feedback_repair",
+            "feedback_deep",
+            "why_correct",
+            "why_wrong",
+            "caption",
+            "alt_text",
+            "accessible_alternative",
+            "recap",
+            "debrief",
+            "disclaimer"
+          ]
+        },
+        "semanticSkeletonSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "terminologyIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "numericTokenIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "en": {
+          "$ref": "#/$defs/localizedVariantEn"
+        },
+        "fa": {
+          "$ref": "#/$defs/localizedVariantFa"
+        },
+        "pairState": {
+          "enum": [
+            "draft",
+            "semantic_parity_reviewed",
+            "medical_parity_reviewed",
+            "native_language_reviewed",
+            "publishable"
+          ]
+        }
+      }
+    },
+    "localizedVariantEn": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/localizedVariant"
+        },
+        {
+          "properties": {
+            "locale": {
+              "const": "en"
+            },
+            "direction": {
+              "const": "ltr"
+            }
+          }
+        }
+      ]
+    },
+    "localizedVariantFa": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/localizedVariant"
+        },
+        {
+          "properties": {
+            "locale": {
+              "const": "fa"
+            },
+            "direction": {
+              "const": "rtl"
+            }
+          }
+        }
+      ]
+    },
+    "localizedVariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locale",
+        "direction",
+        "text",
+        "textSha256",
+        "status",
+        "authorId"
+      ],
+      "properties": {
+        "locale": {
+          "enum": [
+            "en",
+            "fa"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "ltr",
+            "rtl"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "textSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "authored",
+            "medical_reviewed",
+            "native_reviewed",
+            "approved"
+          ]
+        },
+        "authorId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "reviewerId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "coverageEdge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceAtomId",
+        "targetKind",
+        "targetId",
+        "coverageRole",
+        "coverageState",
+        "claimIds",
+        "localeParity",
+        "reviewerId"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sourceAtomId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "targetKind": {
+          "enum": [
+            "localization_unit",
+            "interaction",
+            "micro_lesson",
+            "media_asset"
+          ]
+        },
+        "targetId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "coverageRole": {
+          "enum": [
+            "primary_instruction",
+            "mechanism_explanation",
+            "worked_example",
+            "reinforcement",
+            "assessment",
+            "media_interpretation",
+            "duplicate_reconciliation",
+            "non_instructional_accounting"
+          ]
+        },
+        "coverageState": {
+          "enum": [
+            "planned",
+            "represented",
+            "duplicate_represented",
+            "non_instructional_excluded",
+            "needs_revision"
+          ]
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "localeParity": {
+          "enum": [
+            "both",
+            "en_missing",
+            "fa_missing",
+            "semantic_mismatch"
+          ]
+        },
+        "reviewerId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "microLesson": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "hierarchyNodeId",
+        "unitId",
+        "conceptClusterId",
+        "ordinal",
+        "titleUnitId",
+        "objectiveUnitIds",
+        "sourceAtomIds",
+        "claimIds",
+        "conceptIds",
+        "sessionIds",
+        "prerequisiteMicroLessonIds",
+        "estimatedSeconds",
+        "splitRationale"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "hierarchyNodeId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "unitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "conceptClusterId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "titleUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "objectiveUnitIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "sessionIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "prerequisiteMicroLessonIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "estimatedSeconds": {
+          "$ref": "#/$defs/localeDuration"
+        },
+        "splitRationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "studyDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "microLessonNodeId",
+        "ordinal",
+        "kind",
+        "titleUnitId",
+        "blockIds",
+        "sourceAtomIds",
+        "claimIds",
+        "conceptIds",
+        "estimatedSeconds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "microLessonNodeId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "enum": [
+            "primary_lesson",
+            "reference"
+          ]
+        },
+        "titleUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "blockIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "estimatedSeconds": {
+          "$ref": "#/$defs/studyDuration"
+        }
+      }
+    },
+    "studyBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "documentId",
+        "ordinal",
+        "kind",
+        "headingUnitId",
+        "contentUnitIds",
+        "tableRows",
+        "sourceAtomIds",
+        "claimIds",
+        "conceptIds",
+        "revealPolicy",
+        "revealedAfterSessionId"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "documentId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kind": {
+          "enum": [
+            "prose",
+            "key_idea",
+            "mechanism_chain",
+            "ordered_steps",
+            "bullet_list",
+            "comparison_table",
+            "clinical_pearl",
+            "safety_warning",
+            "worked_example",
+            "recap"
+          ]
+        },
+        "headingUnitId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contentUnitIds": {
+          "type": "array",
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/stableId"
+          }
+        },
+        "tableRows": {
+          "type": "array",
+          "maxItems": 7,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/stableId"
+            }
+          }
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "revealPolicy": {
+          "enum": [
+            "always",
+            "after_first_attempt",
+            "after_session_completion"
+          ]
+        },
+        "revealedAfterSessionId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "comparison_table"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "contentUnitIds": {
+                "maxItems": 0
+              },
+              "tableRows": {
+                "minItems": 2,
+                "items": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 4,
+                  "uniqueItems": true,
+                  "items": {
+                    "$ref": "#/$defs/stableId"
+                  }
+                }
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "contentUnitIds": {
+                "minItems": 1
+              },
+              "tableRows": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "mechanism_chain",
+                  "ordered_steps"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "contentUnitIds": {
+                "minItems": 2,
+                "maxItems": 7
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "bullet_list"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "contentUnitIds": {
+                "minItems": 2,
+                "maxItems": 5
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "key_idea",
+                  "clinical_pearl",
+                  "safety_warning"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "contentUnitIds": {
+                "maxItems": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "prose",
+                  "worked_example",
+                  "recap"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "contentUnitIds": {
+                "maxItems": 3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "revealPolicy": {
+                "const": "always"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "revealedAfterSessionId": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "revealedAfterSessionId": {
+                "$ref": "#/$defs/stableId"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "studyDuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en",
+        "fa"
+      ],
+      "properties": {
+        "en": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 720
+        },
+        "fa": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 720
+        }
+      }
+    },
+    "localeDuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "en",
+        "fa"
+      ],
+      "properties": {
+        "en": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fa": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "microLessonId",
+        "ordinal",
+        "sessionType",
+        "titleUnitId",
+        "objectiveUnitIds",
+        "cognitiveTargets",
+        "conceptIds",
+        "sourceAtomIds",
+        "claimIds",
+        "interactionIds",
+        "estimatedSeconds",
+        "arc",
+        "diversity",
+        "completionEvidence"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "microLessonId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sessionType": {
+          "enum": [
+            "learn",
+            "recall",
+            "repair",
+            "apply",
+            "challenge",
+            "checkpoint",
+            "teach",
+            "transfer"
+          ]
+        },
+        "titleUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "objectiveUnitIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "cognitiveTargets": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/cognitiveLevel"
+          }
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "interactionIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "estimatedSeconds": {
+          "$ref": "#/$defs/localeDuration"
+        },
+        "arc": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "enum": [
+              "orient",
+              "retrieve_or_predict",
+              "explain_or_model",
+              "guided_construction",
+              "discriminate",
+              "apply",
+              "calibrate",
+              "repair",
+              "recall_commit",
+              "debrief"
+            ]
+          }
+        },
+        "diversity": {
+          "$ref": "#/$defs/diversity"
+        },
+        "completionEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "response",
+              "explanation",
+              "discrimination",
+              "application",
+              "confidence_calibration",
+              "teach_back",
+              "transfer"
+            ]
+          }
+        }
+      }
+    },
+    "diversity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "interactionFamilyCount",
+        "activeStepRatio",
+        "maxConsecutivePassive",
+        "maxConsecutiveSameTemplate"
+      ],
+      "properties": {
+        "interactionFamilyCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "activeStepRatio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "maxConsecutivePassive": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxConsecutiveSameTemplate": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "cognitiveLevel": {
+      "enum": [
+        "recall",
+        "explain",
+        "connect",
+        "diagnose",
+        "decide",
+        "defend",
+        "teach",
+        "transfer"
+      ]
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sessionId",
+        "ordinal",
+        "stepRole",
+        "family",
+        "kind",
+        "cognitiveLevel",
+        "promptUnitId",
+        "instructionUnitId",
+        "stimulus",
+        "options",
+        "responseSpec",
+        "evaluationSpec",
+        "feedbackSpec",
+        "sourceAtomIds",
+        "claimIds",
+        "conceptIds",
+        "estimatedSeconds",
+        "accessibility"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "sessionId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "stepRole": {
+          "enum": [
+            "orientation",
+            "instruction",
+            "guided_practice",
+            "retrieval",
+            "assessment",
+            "repair",
+            "reflection",
+            "debrief"
+          ]
+        },
+        "family": {
+          "enum": [
+            "orientation",
+            "retrieval",
+            "explanation",
+            "construction",
+            "discrimination",
+            "application",
+            "confidence",
+            "reflection"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "orient_card",
+            "predict",
+            "single_best_answer",
+            "multi_select",
+            "cloze",
+            "short_answer",
+            "concept_match",
+            "sequence_order",
+            "causal_chain_build",
+            "compare_contrast",
+            "image_label",
+            "image_hotspot",
+            "ecg_trace_interpretation",
+            "lab_trend_interpretation",
+            "audio_discrimination",
+            "clinical_vignette",
+            "branching_decision",
+            "teach_back",
+            "confidence_rating",
+            "evidence_peek",
+            "recap_retrieval"
+          ]
+        },
+        "cognitiveLevel": {
+          "$ref": "#/$defs/cognitiveLevel"
+        },
+        "promptUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "instructionUnitId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stimulus": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "localizationUnitIds",
+            "mediaAssetIds"
+          ],
+          "properties": {
+            "localizationUnitIds": {
+              "$ref": "#/$defs/idArray"
+            },
+            "mediaAssetIds": {
+              "$ref": "#/$defs/idArray"
+            }
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interactionOption"
+          }
+        },
+        "responseSpec": {
+          "$ref": "#/$defs/responseSpec"
+        },
+        "evaluationSpec": {
+          "$ref": "#/$defs/evaluationSpec"
+        },
+        "feedbackSpec": {
+          "$ref": "#/$defs/feedbackSpec"
+        },
+        "sourceAtomIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "conceptIds": {
+          "$ref": "#/$defs/nonEmptyIdArray"
+        },
+        "estimatedSeconds": {
+          "$ref": "#/$defs/localeDuration"
+        },
+        "accessibility": {
+          "$ref": "#/$defs/accessibility"
+        }
+      }
+    },
+    "interactionOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "labelUnitId",
+        "isCorrect",
+        "claimIds",
+        "misconceptionId",
+        "whyWrongUnitId"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "labelUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "isCorrect": {
+          "type": "boolean"
+        },
+        "claimIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "misconceptionId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "whyWrongUnitId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "responseSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "optionIds",
+        "minimumSelections",
+        "maximumSelections",
+        "freeTextNormalization",
+        "unitTokenId",
+        "tolerance"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "none",
+            "single_choice",
+            "multiple_choice",
+            "ordered_ids",
+            "matched_ids",
+            "free_text",
+            "numeric",
+            "rubric"
+          ]
+        },
+        "optionIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "minimumSelections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "maximumSelections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "freeTextNormalization": {
+          "enum": [
+            "none",
+            "unicode_casefold",
+            "medical_term_aliases",
+            "reviewer_rubric"
+          ]
+        },
+        "unitTokenId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tolerance": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "evaluationSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "answerKey",
+        "rubricUnitIds",
+        "scoringVersion",
+        "masteryDimensions",
+        "diagnosticOnly",
+        "misconceptionMap"
+      ],
+      "properties": {
+        "answerKey": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "rubricUnitIds": {
+          "$ref": "#/$defs/idArray"
+        },
+        "scoringVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "masteryDimensions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "recall",
+              "discrimination",
+              "explain",
+              "connect",
+              "application",
+              "reasoning",
+              "procedure",
+              "confidence_calibration",
+              "recency_stability",
+              "transfer"
+            ]
+          }
+        },
+        "diagnosticOnly": {
+          "type": "boolean"
+        },
+        "misconceptionMap": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/stableId"
+          }
+        }
+      }
+    },
+    "feedbackSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "flashUnitId",
+        "repairUnitId",
+        "deepUnitId",
+        "whyCorrectUnitId",
+        "whyWrongByOptionId"
+      ],
+      "properties": {
+        "flashUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "repairUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "deepUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "whyCorrectUnitId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "whyWrongByOptionId": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/stableId"
+          }
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "keyboardOperable",
+        "screenReaderEquivalent",
+        "colorIndependent",
+        "timedResponseRequired",
+        "scientificMirroring",
+        "alternativeInteractionId"
+      ],
+      "properties": {
+        "keyboardOperable": {
+          "const": true
+        },
+        "screenReaderEquivalent": {
+          "const": true
+        },
+        "colorIndependent": {
+          "const": true
+        },
+        "timedResponseRequired": {
+          "const": false
+        },
+        "scientificMirroring": {
+          "enum": [
+            "not_directional",
+            "mirror_navigation_only",
+            "never_mirror_scientific_content"
+          ]
+        },
+        "alternativeInteractionId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currentState",
+        "stateHistory",
+        "approvals",
+        "authorId",
+        "publisherId"
+      ],
+      "properties": {
+        "currentState": {
+          "enum": [
+            "raw",
+            "reviewed",
+            "validated",
+            "published",
+            "withdrawn",
+            "superseded",
+            "quarantined"
+          ]
+        },
+        "stateHistory": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/stateTransition"
+          }
+        },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/approval"
+          }
+        },
+        "authorId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "publisherId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/stableId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "stateTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to",
+        "at",
+        "actorId",
+        "reason",
+        "artifactSha256"
+      ],
+      "properties": {
+        "from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "to": {
+          "enum": [
+            "raw",
+            "reviewed",
+            "validated",
+            "published",
+            "withdrawn",
+            "superseded",
+            "quarantined"
+          ]
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "actorId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifactSha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "reviewerId",
+        "decision",
+        "at",
+        "reviewedSha256",
+        "findingIds"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "source_coverage_reviewer",
+            "medical_reviewer",
+            "english_editor",
+            "persian_native_reviewer",
+            "accessibility_reviewer",
+            "publisher"
+          ]
+        },
+        "reviewerId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "decision": {
+          "enum": [
+            "approved",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reviewedSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "findingIds": {
+          "$ref": "#/$defs/idArray"
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validatorVersion",
+        "validatedAt",
+        "metrics",
+        "findings",
+        "blockingFindingCount",
+        "result"
+      ],
+      "properties": {
+        "validatorVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metrics": {
+          "$ref": "#/$defs/qaMetrics"
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/qaFinding"
+          }
+        },
+        "blockingFindingCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "result": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        }
+      }
+    },
+    "qaMetrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      },
+      "required": [
+        "source_document_inventory_percent",
+        "source_atom_classification_percent",
+        "required_atom_representation_percent",
+        "output_claim_provenance_percent",
+        "en_fa_entity_parity_percent",
+        "en_fa_semantic_skeleton_parity_percent",
+        "answer_key_parity_percent",
+        "citation_locator_valid_percent",
+        "media_reference_valid_percent",
+        "media_accessibility_percent",
+        "terminology_first_use_percent",
+        "interaction_accessibility_percent",
+        "review_separation_percent",
+        "orphan_required_source_atoms",
+        "summary_only_source_atoms",
+        "orphan_output_claims",
+        "unsupported_claims",
+        "fabricated_or_unverified_citations",
+        "en_fa_semantic_mismatches",
+        "answer_key_or_numeric_locale_mismatches",
+        "placeholder_or_todo_strings",
+        "session_budget_violations",
+        "monotony_budget_violations",
+        "open_safety_critical_findings"
+      ],
+      "properties": {
+        "source_document_inventory_percent": {
+          "const": 100
+        },
+        "source_atom_classification_percent": {
+          "const": 100
+        },
+        "required_atom_representation_percent": {
+          "const": 100
+        },
+        "output_claim_provenance_percent": {
+          "const": 100
+        },
+        "en_fa_entity_parity_percent": {
+          "const": 100
+        },
+        "en_fa_semantic_skeleton_parity_percent": {
+          "const": 100
+        },
+        "answer_key_parity_percent": {
+          "const": 100
+        },
+        "citation_locator_valid_percent": {
+          "const": 100
+        },
+        "media_reference_valid_percent": {
+          "const": 100
+        },
+        "media_accessibility_percent": {
+          "const": 100
+        },
+        "terminology_first_use_percent": {
+          "const": 100
+        },
+        "interaction_accessibility_percent": {
+          "const": 100
+        },
+        "review_separation_percent": {
+          "const": 100
+        },
+        "orphan_required_source_atoms": {
+          "const": 0
+        },
+        "summary_only_source_atoms": {
+          "const": 0
+        },
+        "orphan_output_claims": {
+          "const": 0
+        },
+        "unsupported_claims": {
+          "const": 0
+        },
+        "fabricated_or_unverified_citations": {
+          "const": 0
+        },
+        "en_fa_semantic_mismatches": {
+          "const": 0
+        },
+        "answer_key_or_numeric_locale_mismatches": {
+          "const": 0
+        },
+        "placeholder_or_todo_strings": {
+          "const": 0
+        },
+        "session_budget_violations": {
+          "const": 0
+        },
+        "monotony_budget_violations": {
+          "const": 0
+        },
+        "open_safety_critical_findings": {
+          "const": 0
+        }
+      }
+    },
+    "qaFinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "code",
+        "severity",
+        "entityType",
+        "entityId",
+        "message",
+        "state"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/stableId"
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "blocking",
+            "safety_critical"
+          ]
+        },
+        "entityType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entityId": {
+          "$ref": "#/$defs/stableId"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state": {
+          "enum": [
+            "open",
+            "resolved",
+            "accepted_nonblocking"
+          ]
+        }
+      }
+    }
+  },
+  "x-synapse": {
+    "contractStatus": "implementation-ready-design",
+    "sourceProfile": {
+      "corpusKey": "harrison-sim",
+      "classification": "user-provided simulated reference; never represented as the commercial textbook",
+      "snapshot": {
+        "courses": 20,
+        "chapters": 1138,
+        "explicitSourceLessonContainers": 186,
+        "explicitlySegmentedChapters": 73,
+        "unsegmentedChapters": 1065
+      },
+      "firstAuthoringWave": "harrison-sim/course/06",
+      "fileAccounting": "Every file under an in-scope Part or Chapter must appear in sourceDocuments, including indexes, chapter and lesson Markdown, supplemental Markdown, all structured sidecars, contributors metadata, and media.",
+      "sidecarBoundary": "Structured sidecars are parsed with a strict non-executing AST allowlist and treated as derived candidates. Their find, summary, quiz, or enrich filename never grants medical authority or creates a separate authoring phase.",
+      "scaffoldSupersession": "The historical hierarchy-only scaffold release stays immutable and body-free. Content packs created under this contract are later releases and cannot mutate that scaffold in place."
+    },
+    "hierarchy": {
+      "requiredOrder": [
+        "course",
+        "chapter",
+        "unit",
+        "concept_cluster",
+        "micro_lesson",
+        "session",
+        "interaction"
+      ],
+      "sourceMapping": {
+        "Part directory": "course, one-to-one",
+        "Chapter directory": "chapter, one-to-one",
+        "Lesson directory": "source container and segmentation evidence, one-to-many into units, clusters, micro-lessons, and sessions",
+        "Heading": "candidate boundary only",
+        "Source detail atom": "smallest coverage unit; never a learner-facing node by itself"
+      },
+      "rules": [
+        "Course and Chapter identities retain the ordinal UUIDv5 lineage already defined by the curriculum importer.",
+        "A source Lesson directory is never silently discarded, but it does not force a long user-facing lesson.",
+        "Units and Concept Clusters are editorially reviewable groupings; Micro-lessons, Sessions, and Interactions are the learner-facing progression.",
+        "A split or merge creates explicit supersession edges and migration; an approved ID is never silently reused.",
+        "Every spatial Path node has an ordered semantic equivalent."
+      ]
+    },
+    "identityVersioningAndHashes": {
+      "nodeIdentity": "project UUIDv5 namespace plus approved ordinal lineage; locale, title, path, hash, and release are excluded",
+      "sourceDocumentIdentity": "source corpus key plus ordinal lineage plus artifact role; bytes are versioned by rawSha256",
+      "sourceAtomIdentity": "sourceDocumentId plus parserVersion plus AST locator plus atom ordinal; edits create a new atom version and explicit reconciliation",
+      "semanticUnitIdentity": "locale-neutral editorial ID shared by English and Persian",
+      "interactionAnswerIdentity": "option IDs and semantic answer keys, never translated option positions",
+      "canonicalJson": "UTF-8 JSON canonicalized with RFC 8785 before SHA-256",
+      "textHash": "UTF-8 NFC text with LF line endings; do not strip medically meaningful punctuation, symbols, units, or whitespace inside formulas",
+      "sourceByteHash": "SHA-256 over original bytes before decoding or canonical media transforms",
+      "secrets": "Generator metadata may contain provider/model/task/session IDs and hashes, but never API keys, cookies, credentials, prompts containing secrets, or local absolute paths."
+    },
+    "fullCoverageLedger": {
+      "atomization": [
+        "Parse all files before authoring and classify every document by role and authority.",
+        "Split prose into claim-sized semantic atoms; preserve paragraph context as a separate atom when it changes interpretation.",
+        "Represent every heading, list item, table header and cell, formula, threshold, warning, footnote, cross-reference, caption, panel label, and meaningful media reference.",
+        "Keep exact locators and hashes so a reviewer can jump from an authored claim back to the source detail.",
+        "Group duplicates but account for every duplicate source atom individually."
+      ],
+      "publicationInvariants": {
+        "sourceDocumentInventoryPercent": 100,
+        "sourceAtomClassificationPercent": 100,
+        "requiredAtomRepresentationPercent": 100,
+        "outputClaimProvenancePercent": 100,
+        "primaryDeepStudyDocumentPercent": 100,
+        "summaryOnlyCoverageAllowed": false,
+        "unreviewedNonInstructionalExclusionAllowed": false,
+        "orphanSourceAtomsAllowed": false,
+        "orphanOutputClaimsAllowed": false,
+        "answerSurfaceReuseInStudyBlocksAllowed": false,
+        "gatedStudyContentPreviewAllowed": false
+      },
+      "nonInstructionalExclusion": "Only navigation noise, decorative artifacts, or verifiably non-instructional boilerplate may be excluded. The source atom, reason, and human coverage review remain mandatory; no medical fact may use this disposition.",
+      "conflictHandling": "When the corpus conflicts with current authoritative evidence, preserve coverage by teaching the discrepancy and current status; never erase the source atom or silently repeat the outdated claim."
+    },
+    "microlearningBudgets": {
+      "microLesson": {
+        "targetSessions": [
+          2,
+          5
+        ],
+        "hardMaximumSessions": 7,
+        "targetTotalMinutesByLocale": [
+          8,
+          20
+        ],
+        "hardMaximumTotalMinutesByLocale": 28,
+        "targetConcepts": [
+          2,
+          5
+        ],
+        "hardMaximumConcepts": 7
+      },
+      "deepStudyDocument": {
+        "exactlyOnePrimaryPerPublishedMicroLesson": true,
+        "hardMaximumMinutesByLocale": 12,
+        "hardMaximumBlocks": 24,
+        "supportedSemanticShapes": [
+          "prose",
+          "key_idea",
+          "mechanism_chain",
+          "ordered_steps",
+          "bullet_list",
+          "comparison_table",
+          "clinical_pearl",
+          "safety_warning",
+          "worked_example",
+          "recap"
+        ],
+        "maximumMechanismLinks": 7,
+        "maximumBulletItems": 5,
+        "maximumComparisonRowsIncludingHeader": 7,
+        "maximumComparisonColumns": 4,
+        "answerIsolation": "Study blocks cannot reuse option, rubric, why-correct, why-wrong, or feedback localization units.",
+        "provenanceScope": "Localization provenance must be a subset of its Block; Block provenance a subset of its Document; Document provenance a subset of its Micro-lesson.",
+        "revealSafety": "Attempt- or completion-gated blocks name one Session in the same Micro-lesson and expose no hidden heading or body before the gate is satisfied."
+      },
+      "session": {
+        "targetMinutesByLocale": [
+          3,
+          6
+        ],
+        "hardMaximumMinutesByLocale": 8,
+        "targetInteractions": [
+          5,
+          9
+        ],
+        "hardMaximumInteractions": 12,
+        "targetNewConcepts": [
+          1,
+          3
+        ],
+        "hardMaximumNewConcepts": 4,
+        "maximumIndependentClaimsIntroduced": 9,
+        "maximumConsecutivePassiveSteps": 2,
+        "maximumConsecutiveSameTemplate": 2,
+        "minimumInteractionFamilies": 3,
+        "minimumActiveStepRatio": 0.45,
+        "maximumSecondsWithoutLearnerAction": 90
+      },
+      "interaction": {
+        "targetSecondsByLocale": [
+          12,
+          45
+        ],
+        "hardMaximumSecondsByLocale": 75,
+        "maximumPassiveSentences": 3,
+        "feedbackFlashTargetSeconds": 8,
+        "deepFeedbackOptionalInFlowButRequiredInData": true
+      },
+      "budgetRule": "Both English and Persian estimates must pass. A locale cannot be shortened by deleting semantic units; split the session instead."
+    },
+    "splitRules": {
+      "splitWhenAny": [
+        "The topic changes enough to require a new learner objective.",
+        "A causal mechanism chain exceeds seven meaningful links.",
+        "A list contains more than five independent items that each need explanation or retrieval.",
+        "A table has more than six instructional rows or more than four comparison dimensions.",
+        "A media item has more than three instructional panels or independent pattern-recognition targets.",
+        "The session exceeds any locale duration, concept, claim, interaction, passive-step, or monotony budget.",
+        "A management, dosing, contraindication, or safety cluster requires a distinct evidence version, jurisdiction, or review boundary.",
+        "The learner must master a prerequisite before the next idea can be understood safely."
+      ],
+      "neverSplitBy": [
+        "Arbitrary word count alone",
+        "A heading level alone",
+        "Generator task boundaries",
+        "English sentence boundaries imposed on Persian",
+        "The legacy find, summary, quiz, or enrich filenames"
+      ],
+      "continuity": "Every split records prior/next concept links, prerequisite IDs, and source-atom ranges so the learner experiences a coherent path rather than disconnected fragments."
+    },
+    "activityAndAssessmentDesign": {
+      "cognitiveSequence": [
+        "recall",
+        "explain",
+        "connect",
+        "diagnose",
+        "decide",
+        "defend",
+        "teach",
+        "transfer"
+      ],
+      "sequenceRule": "A session targets the smallest justified span of the ladder; it does not pretend that one exposure proves higher-order mastery.",
+      "embeddedQuizPolicy": "Retrieval and quiz interactions are distributed inside learning, repair, application, and checkpoint sessions. There is no mandatory separate quiz-writing phase or fixed 15-to-30-question dump.",
+      "assessmentCoverage": "Every major concept and every clinical-high or safety-critical claim must be assessed at least once before chapter validation and scheduled for delayed retrieval; not every source atom needs its own question.",
+      "questionRules": [
+        "Questions assess taught claim IDs unless explicitly diagnosticOnly; diagnostic items cannot punish mastery or grant competence claims.",
+        "Use four or five choices only when the interaction benefits from choices; prefer constructed responses when cueing would trivialize retrieval.",
+        "Every correct answer has a mechanism or reasoning explanation.",
+        "Every distractor has a misconception ID or explicit plausible-error rationale and a complete why-wrong explanation.",
+        "No placeholder, trick wording, irrelevant trivia, answer-length cue, or invented fact is allowed.",
+        "Clinical vignettes are short, synthetic, de-identified, clinically purposeful, and use demographics only when relevant.",
+        "A second attempt changes representation or context instead of repeating the same item verbatim."
+      ],
+      "summaryBoundary": "Recaps and debriefs are retrieval-oriented reinforcement. They may not introduce unsupported claims, replace primary instruction, satisfy coverage alone, or become a separate content-enrichment pipeline.",
+      "varietyRule": "No interaction family should exceed half of a session unless accessibility adaptation requires it; the same template cannot appear more than twice consecutively."
+    },
+    "bilingualSemanticAlignment": {
+      "canonicalLocale": "en",
+      "requiredLocales": [
+        "en",
+        "fa"
+      ],
+      "publicationPairing": "atomic",
+      "fallbackForPublishedLessonBodies": "none; missing Persian or English blocks the pair",
+      "authoring": "English and Persian are authored in the same task from one locale-neutral semantic skeleton. Persian is a native pedagogical adaptation, not a word-for-word translation or a later bulk pass.",
+      "parityInvariants": [
+        "Same semantic unit ID, claim IDs, source atom IDs, concept IDs, numbers, units, evidence, interaction intent, option IDs, answer key, scoring, safety flags, and mastery target.",
+        "Different sentence count, information order, analogy, and idiom are allowed when meaning and cognitive demand remain equivalent.",
+        "A medical term is linked to one terminology ID; Persian first mention explains it naturally while preserving the standard English or Latin term when useful.",
+        "Semantic skeleton hashes are recomputed from locale-neutral fields and must match both variants.",
+        "Numeric values are stored structurally in canonical ASCII form and rendered by explicit policy; locale never changes the value, unit, comparator, decimal precision, or answer evaluation."
+      ],
+      "persianRules": [
+        "Use natural modern Persian, Persian ی and ک, correct half-spaces, and a warm but professionally credible register.",
+        "Do not copy English syntax, force slang, or hard-code a single form of address into every lesson.",
+        "Isolate Latin terms, formulas, IDs, URLs, drug names, ECG lead names, and units as LTR runs.",
+        "Persian UI and prose are RTL, but ECG traces, anatomy laterality, radiology orientation, formulas, plots, and fixed scientific directionality never mirror.",
+        "Native Persian and medical review are separate required approvals."
+      ],
+      "reviewGate": "A published pair requires English editorial review, Persian native-language review, medical parity review, placeholder parity, answer-key parity, and real RTL accessibility proof."
+    },
+    "provenanceAndMedia": {
+      "bidirectionalTraceability": "Every output claim links to source atoms and required evidence; every instructional source atom links to at least one primary or mechanism representation.",
+      "citationGate": "A citation is valid only when its locator resolves, date/version is recorded, the cited passage supports the linked claim, and the content hash was captured. Generated citation strings are never accepted as evidence.",
+      "mediaRules": [
+        "Magic bytes and successful bounded decode override file extension.",
+        "No absolute source path enters a distributed pack.",
+        "Every used asset has rights state, raw and canonical hashes, transform history, caption, bilingual alt text, accessible equivalent, educational purpose, and medical review.",
+        "Decorative medical stock imagery does not satisfy a learning need and is excluded from content packs.",
+        "Generated medical illustrations are labeled by origin and require accuracy review; a visually attractive but anatomically uncertain image is rejected.",
+        "Pattern-recognition media must include a nonvisual alternative without pretending text is equivalent to visual mastery."
+      ]
+    },
+    "clinicalSafetyAndEvidence": {
+      "productMode": "education; never patient-specific guidance",
+      "claimRequirements": {
+        "foundational": "corpus provenance plus medical review",
+        "clinical_low": "corpus provenance, claim-level review, and explicit scope",
+        "clinical_high": "current authoritative source, version/date/jurisdiction, medical review, and uncertainty/limitation",
+        "safety_critical": "multiple-source or designated-primary-source verification, independent medical approval, forced recency review, and withdrawal path"
+      },
+      "alwaysCurrentEvidenceTypes": [
+        "diagnostic criteria",
+        "management recommendations",
+        "drug choice or dose",
+        "contraindications",
+        "procedural safety steps",
+        "guideline staging",
+        "time-sensitive epidemiology"
+      ],
+      "hardStops": [
+        "Unsupported or fabricated claim",
+        "Fabricated, non-resolving, or non-supporting citation",
+        "Locale mismatch in dose, threshold, comparator, unit, answer, warning, or contraindication",
+        "Outdated time-sensitive claim presented without status",
+        "Self-approval by author or generator",
+        "Patient-specific recommendation or hidden clinical-decision-support behavior",
+        "Unreviewed generated medical image or media label",
+        "Open safety-critical finding"
+      ],
+      "recovery": "Quarantine the smallest safe release unit, preserve the finding and prior version, withdraw any activated channel pointer when necessary, repair, independently re-review, revalidate, and publish a new immutable version."
+    },
+    "promotionWorkflow": {
+      "states": [
+        "raw",
+        "reviewed",
+        "validated",
+        "published"
+      ],
+      "raw": "Complete source inventory, deterministic atoms, draft hierarchy, bilingual authored units, interactions, generator provenance, and no user availability.",
+      "reviewed": "Coverage reviewer, medical reviewer, English editor, Persian native reviewer, and accessibility reviewer have resolved all blocking findings on the exact artifact hash.",
+      "validated": "Schema, references, hashes, coverage, parity, evidence, micro-budgets, monotony, assessment, safety, accessibility, rights, and pack-consumer checks pass with zero blocking findings.",
+      "published": "A publisher distinct from the author activates an immutable validated release through a channel pointer. Publication never edits content in place.",
+      "sideStates": [
+        "quarantined",
+        "withdrawn",
+        "superseded"
+      ],
+      "separationOfDuties": "Generator, author, medical reviewer, native-language reviewer, and publisher identities are recorded; author and publisher must differ, and a generator cannot approve."
+    },
+    "qualityGates": {
+      "requiredMetrics": {
+        "source_document_inventory_percent": 100,
+        "source_atom_classification_percent": 100,
+        "required_atom_representation_percent": 100,
+        "output_claim_provenance_percent": 100,
+        "primary_deep_study_document_percent": 100,
+        "deep_study_block_provenance_percent": 100,
+        "deep_study_answer_isolation_percent": 100,
+        "en_fa_entity_parity_percent": 100,
+        "en_fa_semantic_skeleton_parity_percent": 100,
+        "answer_key_parity_percent": 100,
+        "citation_locator_valid_percent": 100,
+        "media_reference_valid_percent": 100,
+        "media_accessibility_percent": 100,
+        "terminology_first_use_percent": 100,
+        "interaction_accessibility_percent": 100,
+        "review_separation_percent": 100
+      },
+      "zeroToleranceMetrics": [
+        "unclassified_source_documents",
+        "unclassified_source_atoms",
+        "orphan_required_source_atoms",
+        "summary_only_source_atoms",
+        "orphan_output_claims",
+        "missing_or_multiple_primary_deep_study_documents",
+        "undeclared_or_reordered_deep_study_blocks",
+        "deep_study_answer_or_feedback_leakage",
+        "gated_deep_study_content_preview",
+        "unsupported_claims",
+        "fabricated_or_unverified_citations",
+        "en_fa_semantic_mismatches",
+        "answer_key_or_numeric_locale_mismatches",
+        "placeholder_or_todo_strings",
+        "broken_or_rights_unknown_published_media",
+        "session_budget_violations",
+        "monotony_budget_violations",
+        "open_blocking_findings",
+        "open_safety_critical_findings",
+        "author_publisher_identity_collisions"
+      ],
+      "chapterAcceptance": [
+        "Every in-scope source file and atom reconciles exactly.",
+        "Every approved Micro-lesson and Session passes both locale budgets.",
+        "Every published Micro-lesson has exactly one bounded primary Deep Study document whose ordered blocks load in the real Study Workspace.",
+        "Every major concept and high-risk claim appears in the assessment blueprint and delayed-retrieval plan.",
+        "No learner-facing content depends on a separate summary, quiz, or enrich mode to become complete.",
+        "The compiled pack loads in the real content consumer and preserves deterministic IDs, order, and hashes.",
+        "The raw-to-published reconciliation accounts for every record added, changed, quarantined, superseded, or excluded."
+      ]
+    },
+    "adaptationBoundary": {
+      "adoptedPrinciples": [
+        "Read every relevant source file before authoring.",
+        "Preserve full source coverage while teaching why and how.",
+        "Explain terminology at first meaningful use.",
+        "Use purposeful clinical vignettes and media explanations.",
+        "Give complete why-correct and why-wrong feedback.",
+        "Reject placeholders and validate content quality beyond syntax."
+      ],
+      "explicitlyExcluded": [
+        "Any legacy product name, narrator persona, folder naming, TypeScript output shape, or fixed voice formula",
+        "A separate specialist or enrich authoring workflow",
+        "A separate summary-generation phase that can replace source coverage",
+        "A separate bulk quiz file or fixed question-count mandate",
+        "Provider-specific research commands or platform operating instructions",
+        "Arbitrary patient-name rules, forced vignettes, forced images, or forced cross-links"
+      ],
+      "providerNeutrality": "This contract governs the artifact produced and validated. External task orchestration belongs to the platform skill and may not weaken any content gate."
+    }
+  }
+}

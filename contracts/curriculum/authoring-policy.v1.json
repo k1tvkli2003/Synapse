@@ -1,0 +1,299 @@
+{
+  "$schema": "./authoring-policy.schema.v1.json",
+  "schemaVersion": 1,
+  "policyId": "synapse.medical-authoring.v1",
+  "status": "implementation_ready",
+  "contentContractId": "synapse.medical-microlearning-content.v1",
+  "canonicalLocale": "en",
+  "requiredLocales": [
+    "en",
+    "fa"
+  ],
+  "capabilityBoundary": {
+    "allowedAuthoringCapabilities": [
+      "lesson_writing",
+      "embedded_quiz_writing",
+      "bounded_reinforcement_summary"
+    ],
+    "forbiddenProductionStages": [
+      "specialist_writing",
+      "enrich_writing",
+      "standalone_bulk_quiz_generation",
+      "standalone_summary_generation",
+      "source_expansion_for_its_own_sake"
+    ],
+    "singleAuthoringUnit": "A reviewed semantic skeleton is authored into one EN/FA session pair containing instruction, embedded retrieval/application, complete feedback, and an optional bounded recap. Quiz and recap are roles inside the session, not independent production pipelines.",
+    "legacySidecarPolicy": {
+      "derived_find_sidecar": "untrusted_candidate_input",
+      "derived_quiz_sidecar": "untrusted_candidate_input",
+      "derived_summary_sidecar": "untrusted_candidate_input",
+      "derived_enrich_sidecar": "untrusted_candidate_input_never_a_stage",
+      "contributor_metadata_sidecar": "provenance_candidate_not_medical_authority"
+    }
+  },
+  "sourceDiscipline": {
+    "readAllInScopeArtifacts": true,
+    "executeSourceTypescript": false,
+    "sourceAtomLedgerRequired": true,
+    "sourceDocumentInventoryPercent": 100,
+    "sourceAtomClassificationPercent": 100,
+    "requiredAtomRepresentationPercent": 100,
+    "summaryOnlyCoverageAllowed": false,
+    "silentDropAllowed": false,
+    "duplicatePolicy": "Account for every duplicate atom and link it to an explicit duplicate representation; never delete or merge by hash alone.",
+    "coveragePolicy": "Every instructional atom must be represented somewhere in the complete learning graph, but no individual session is required to repeat every atom. Split into more micro-lessons and sessions instead of bloating prose.",
+    "sourceAuthorityPolicy": "The user corpus is source and segmentation evidence, not automatic current clinical authority. Actionable or time-sensitive claims require current authoritative evidence and independent medical review."
+  },
+  "lessonWriting": {
+    "hierarchy": [
+      "course",
+      "chapter",
+      "unit",
+      "concept_cluster",
+      "micro_lesson",
+      "session",
+      "interaction"
+    ],
+    "learnerPromise": "Each micro-lesson has one coherent, testable learner promise.",
+    "sessionArcMinimum": [
+      "orient",
+      "retrieve_or_predict",
+      "explain_or_model",
+      "apply_or_discriminate",
+      "recall_commit_or_debrief"
+    ],
+    "reasoningPolicy": "Teach why and how at the smallest useful depth. Preserve causal chains and exceptions, but move additional mechanisms into the correct micro-lesson or optional deep feedback rather than an Enrich stage.",
+    "terminologyPolicy": "Explain each term at first meaningful use for the target learner; retain standard English or Latin terminology where useful and link both locales to one terminology ID.",
+    "vignettePolicy": "Use a short synthetic clinical vignette only when it materially improves mechanism, discrimination, diagnosis, or transfer. Do not force a patient story, name, age, sex, or demographic detail when it is not educationally relevant.",
+    "mediaPolicy": "Use media only for a defined learning purpose, with rights state, hashes, bilingual caption and alt text, a nonvisual equivalent, and medical review. Never infer accuracy from visual appeal or filename.",
+    "sessionBudget": {
+      "targetMinutesPerLocale": [
+        3,
+        6
+      ],
+      "hardMaximumMinutesPerLocale": 8,
+      "targetInteractions": [
+        5,
+        9
+      ],
+      "hardMaximumInteractions": 12,
+      "targetNewConcepts": [
+        1,
+        3
+      ],
+      "hardMaximumNewConcepts": 4,
+      "maximumIndependentClaimsIntroduced": 9,
+      "minimumInteractionFamilies": 3,
+      "minimumActiveStepRatio": 0.45,
+      "maximumConsecutivePassiveSteps": 2,
+      "maximumConsecutiveSameTemplate": 2,
+      "maximumSecondsWithoutLearnerAction": 90
+    },
+    "antiBloatRules": [
+      "Never expand a sentence to a fixed number of lines.",
+      "Never use arbitrary word-count multiplication as a quality target.",
+      "Never preserve coverage by copying the source into one long passive lesson.",
+      "Split when a new objective, prerequisite, safety boundary, evidence version, or budget violation appears.",
+      "No interaction family may exceed half of a session unless an accessibility adaptation requires it."
+    ]
+  },
+  "embeddedQuizWriting": {
+    "standaloneQuizFileRequired": false,
+    "fixedQuestionCountAllowed": false,
+    "assessmentPlacement": "Distribute retrieval, discrimination, application, repair, and checkpoint interactions through the learning sequence.",
+    "coverageTarget": "Assess every major concept and every clinical-high or safety-critical claim before chapter validation, then schedule delayed retrieval. A source atom does not automatically require its own question.",
+    "questionRules": [
+      "Assess only taught claim IDs unless the interaction is explicitly diagnosticOnly.",
+      "Use selected response only when choices add useful discrimination; otherwise prefer constructed response, sequencing, matching, causal construction, image or signal interpretation, teach-back, or branching decisions.",
+      "Selected-response questions use stable option IDs and an answer ID, never a translated option index.",
+      "Every correct answer includes mechanism or clinical reasoning.",
+      "Every distractor has a misconception ID or explicit plausible-error rationale and a complete why-wrong explanation.",
+      "No placeholder, trick wording, irrelevant trivia, answer-length cue, unsupported fact, or punitive diagnostic item is allowed.",
+      "A retry changes representation or context instead of repeating the same item verbatim."
+    ],
+    "selectedResponseOptionRange": [
+      4,
+      5
+    ],
+    "feedbackLayers": {
+      "flash": "A concise result and correction target suitable for the live interaction.",
+      "deep": "Complete why-correct, why-wrong, misconception, source-atom, claim, and evidence links stored in data even when collapsed in the live flow."
+    }
+  },
+  "boundedReinforcementSummary": {
+    "standaloneProductionPhase": false,
+    "coverageRole": "reinforcement_only",
+    "targetSecondsPerLocale": [
+      30,
+      60
+    ],
+    "hardMaximumSecondsPerLocale": 75,
+    "maximumTakeaways": 4,
+    "minimumRetrievalPrompts": 1,
+    "rules": [
+      "Reinforce only claims already taught in the linked session or micro-lesson.",
+      "Prefer retrieval, contrast, causal reconstruction, and next-review cues over passive restatement.",
+      "Do not introduce a new claim, citation, warning, dose, threshold, or management recommendation.",
+      "Do not satisfy primary source-atom coverage through a recap.",
+      "Do not duplicate a complete lesson or become a second content edition."
+    ]
+  },
+  "bilingualSemanticPair": {
+    "publicationPairing": "atomic",
+    "authoringMode": "simultaneous_from_locale_neutral_skeleton",
+    "fallbackForPublishedBodies": "none",
+    "sharedInvariants": [
+      "semantic unit IDs",
+      "claim IDs",
+      "source atom IDs",
+      "concept IDs",
+      "numbers and comparators",
+      "units and precision",
+      "evidence and safety flags",
+      "interaction intent",
+      "option IDs and answer IDs",
+      "scoring and mastery target"
+    ],
+    "allowedLocaleAdaptation": [
+      "sentence count",
+      "information order",
+      "analogy",
+      "idiom",
+      "rhythm",
+      "explicit terminology explanation"
+    ],
+    "english": {
+      "register": "clear international medical English",
+      "voice": "calm, warm, concise, evidence-seeking, professionally credible",
+      "avoid": [
+        "bureaucratic prose",
+        "marketing claims",
+        "childish gamification language",
+        "unmarked certainty",
+        "culture-bound idioms"
+      ]
+    },
+    "persian": {
+      "register": "natural modern Persian for medical learners; friendly but professionally credible",
+      "orthography": "Persian ی and ک, correct half-spaces, natural punctuation",
+      "medicalTerms": "Keep useful English or Latin terms at first mention and explain them naturally in Persian.",
+      "bidi": "Isolate Latin terms, formulas, IDs, drug names, ECG leads, numbers, and units as LTR runs.",
+      "avoid": [
+        "word-for-word translation",
+        "English syntax in Persian",
+        "mandatory دکتر جان or رفیق address",
+        "forced slang",
+        "overly formal می‌باشد prose",
+        "gratuitous emoji"
+      ]
+    }
+  },
+  "clinicalSafety": {
+    "productMode": "education_not_patient_specific_guidance",
+    "draftStatus": "All generated content remains raw and unavailable to learners until reviewed, validated, and published through separation of duties.",
+    "alwaysCurrentEvidenceTypes": [
+      "diagnostic criteria",
+      "management recommendations",
+      "drug choice or dose",
+      "contraindications",
+      "procedural safety steps",
+      "guideline staging",
+      "time-sensitive epidemiology"
+    ],
+    "hardStops": [
+      "unsupported or fabricated claim",
+      "fabricated, unresolved, or non-supporting citation",
+      "outdated time-sensitive claim presented as current",
+      "EN/FA mismatch in number, comparator, unit, dose, answer, warning, or contraindication",
+      "patient-specific recommendation",
+      "generator self-approval",
+      "unreviewed medical media",
+      "open safety-critical finding"
+    ]
+  },
+  "legacyStudyHubDistillation": {
+    "sourceSet": "StudyHub-Web/.github/agents and prompt_modules",
+    "adoptedPrinciples": [
+      "read every relevant source artifact before authoring",
+      "preserve complete source coverage through a ledger",
+      "teach why and how",
+      "explain terminology at first meaningful use",
+      "use purposeful clinical vignettes and media explanations",
+      "write complete why-correct and why-wrong feedback",
+      "ban placeholders and validate content beyond schema parsing",
+      "write Persian natively rather than translating word for word"
+    ],
+    "rejectedRules": [
+      {
+        "rule": "fixed 10-to-20-line expansion per source sentence",
+        "reason": "Creates bloat and conflicts with short micro-session budgets."
+      },
+      {
+        "rule": "fixed 15-to-30-question lesson quiz",
+        "reason": "Conflicts with embedded assessment and cognitive-load budgets."
+      },
+      {
+        "rule": "separate find, enrich, summary, and quiz output files",
+        "reason": "Conflicts with one integrated session graph and the explicit no-Enrich boundary."
+      },
+      {
+        "rule": "mandatory vignette, patient name, demographic distribution, or name exclusions",
+        "reason": "Demographics must serve the teaching point and should not encode arbitrary cultural rules."
+      },
+      {
+        "rule": "mandatory informal narrator phrases, emojis, or project persona",
+        "reason": "Conflicts with Synapse voice, professional credibility, and repetition control."
+      },
+      {
+        "rule": "legacy TypeScript schema, CSS markup, folder names, and product branding",
+        "reason": "Synapse uses its own provider-neutral content contract and product identity."
+      },
+      {
+        "rule": "source text is sufficient medical authority",
+        "reason": "Current clinical claims require authoritative evidence and independent review."
+      }
+    ]
+  },
+  "externalExecution": {
+    "julesRole": "execution_fabric_only",
+    "julesMayChangePolicy": false,
+    "automaticPullRequest": false,
+    "planApprovalRequired": true,
+    "remoteMutationAllowedNow": false,
+    "activationGates": [
+      "explicit_text_and_media_rights_clearance",
+      "exact_connected_source_resource",
+      "exact_starting_branch_and_commit",
+      "all_required_inputs_visible_at_that_commit",
+      "task_manifest_and_prompts_reviewed",
+      "non_overlapping_output_ownership",
+      "secret_and_phi_scan_passed",
+      "quota_and_concurrency_snapshot_passed"
+    ],
+    "completionRule": "Jules completion is never content acceptance. Harvest raw artifacts, validate locally, and keep them unpublished until all content-contract review and promotion gates pass."
+  },
+  "qualityGates": {
+    "requiredPercent": {
+      "source_document_inventory": 100,
+      "source_atom_classification": 100,
+      "required_atom_representation": 100,
+      "output_claim_provenance": 100,
+      "en_fa_semantic_skeleton_parity": 100,
+      "answer_id_and_numeric_parity": 100,
+      "terminology_first_use": 100
+    },
+    "zeroTolerance": [
+      "unclassified source documents or atoms",
+      "orphan required atoms",
+      "summary-only coverage",
+      "orphan output claims",
+      "unsupported claims",
+      "fabricated or unverified citations",
+      "EN/FA semantic or numeric mismatch",
+      "placeholder or TODO content",
+      "session or monotony budget violation",
+      "open blocking or safety-critical finding",
+      "author and publisher identity collision"
+    ]
+  }
+}

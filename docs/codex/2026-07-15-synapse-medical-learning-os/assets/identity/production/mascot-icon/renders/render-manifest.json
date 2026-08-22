@@ -1,0 +1,653 @@
+{
+  "generatedAt": "2026-07-16T22:32:11.639Z",
+  "renderer": "sharp 0.34.5; librsvg bundled",
+  "sourceDir": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/source",
+  "outputs": [
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 1024,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-1024.png",
+      "bytes": 108328,
+      "sha256": "250A315E435D1B9135D9B5B123C68DF30AA08BB3CBB7616247E11615B1257306",
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": {
+        "minX": 118,
+        "minY": 155,
+        "maxX": 905,
+        "maxY": 868,
+        "width": 788,
+        "height": 714
+      },
+      "alphaCoverage": 0.391357,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 256,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-256.png",
+      "bytes": 18005,
+      "sha256": "6851011729077C98000364683AB1B67C57AC45F7AB7B2FF8CCDA713D5AF1C69A",
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "minX": 29,
+        "minY": 38,
+        "maxX": 226,
+        "maxY": 216,
+        "width": 198,
+        "height": 179
+      },
+      "alphaCoverage": 0.395355,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-96.png",
+      "bytes": 4414,
+      "sha256": "3497D207A324E10D2169CDFCFCC6262C777C181A1A9B626C2E7D3277795FBB7D",
+      "width": 96,
+      "height": 96,
+      "alphaBounds": {
+        "minX": 11,
+        "minY": 14,
+        "maxX": 84,
+        "maxY": 81,
+        "width": 74,
+        "height": 68
+      },
+      "alphaCoverage": 0.401801,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-48.png",
+      "bytes": 1784,
+      "sha256": "810C509F597C4CA0537C6C7EE0836B05477D344A48C36043F50809B66FADCD6F",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": {
+        "minX": 5,
+        "minY": 7,
+        "maxX": 42,
+        "maxY": 40,
+        "width": 38,
+        "height": 34
+      },
+      "alphaCoverage": 0.416667,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 32,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-32.png",
+      "bytes": 1169,
+      "sha256": "41719935A5477D43F3B77D46C88A3854101E459B7023BB33BE1ECEBE28493BB5",
+      "width": 32,
+      "height": 32,
+      "alphaBounds": {
+        "minX": 3,
+        "minY": 4,
+        "maxX": 28,
+        "maxY": 27,
+        "width": 26,
+        "height": 24
+      },
+      "alphaCoverage": 0.435547,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-24.png",
+      "bytes": 835,
+      "sha256": "CD40834D9951BDE8E54FF7FF4F124200AC9F81F664067AE4FF24B5C646DF5DE8",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 21,
+        "maxY": 20,
+        "width": 20,
+        "height": 18
+      },
+      "alphaCoverage": 0.453125,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-master.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-master-16.png",
+      "bytes": 564,
+      "sha256": "E8053921345F9679D002458197E055E67F160B7CD356FB745446A94069256335",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 1,
+        "minY": 2,
+        "maxX": 14,
+        "maxY": 13,
+        "width": 14,
+        "height": 12
+      },
+      "alphaCoverage": 0.496094,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 1024,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-1024.png",
+      "bytes": 30830,
+      "sha256": "D6D8EAD807C49B147D69CE23CD62C76D21956DF1FF8BE0FC9EF306745156FF1C",
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": {
+        "minX": 118,
+        "minY": 155,
+        "maxX": 905,
+        "maxY": 868,
+        "width": 788,
+        "height": 714
+      },
+      "alphaCoverage": 0.384464,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 256,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-256.png",
+      "bytes": 6683,
+      "sha256": "9F8F7EF89214EE454448B64894B151F19F8F4CB607C722E9B27B0BA342A60186",
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "minX": 29,
+        "minY": 38,
+        "maxX": 226,
+        "maxY": 216,
+        "width": 198,
+        "height": 179
+      },
+      "alphaCoverage": 0.388977,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-96.png",
+      "bytes": 2364,
+      "sha256": "C5E03F9159D7ABB5D3238FD4C9F8FD0602FB641B0776B92A67715EFF9FD21761",
+      "width": 96,
+      "height": 96,
+      "alphaBounds": {
+        "minX": 11,
+        "minY": 14,
+        "maxX": 84,
+        "maxY": 81,
+        "width": 74,
+        "height": 68
+      },
+      "alphaCoverage": 0.398872,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-48.png",
+      "bytes": 1190,
+      "sha256": "919AB2FFB6E8E1AAA93E365919FB8D2215DCD8AB39836D4C02E28D5CA5EDF174",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": {
+        "minX": 5,
+        "minY": 7,
+        "maxX": 42,
+        "maxY": 40,
+        "width": 38,
+        "height": 34
+      },
+      "alphaCoverage": 0.415365,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 32,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-32.png",
+      "bytes": 838,
+      "sha256": "07F03E291B295BF517923044AFF27B74E8E2508365A29600528F209C2950E285",
+      "width": 32,
+      "height": 32,
+      "alphaBounds": {
+        "minX": 3,
+        "minY": 4,
+        "maxX": 28,
+        "maxY": 27,
+        "width": 26,
+        "height": 24
+      },
+      "alphaCoverage": 0.435547,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-24.png",
+      "bytes": 638,
+      "sha256": "58147B0A2FBAA1F3F493B4E60F969AB5192F38E6F032D74FD272139D4AFFADE1",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 21,
+        "maxY": 20,
+        "width": 20,
+        "height": 18
+      },
+      "alphaCoverage": 0.451389,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-flat.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-flat-16.png",
+      "bytes": 470,
+      "sha256": "6E5D216A8756E73F4F17A32361F59C337FEEC3320F071D250188E294997C3FDF",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 1,
+        "minY": 2,
+        "maxX": 14,
+        "maxY": 13,
+        "width": 14,
+        "height": 12
+      },
+      "alphaCoverage": 0.496094,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 1024,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-1024.png",
+      "bytes": 18117,
+      "sha256": "25128C7D082097B793CE37FF0A4E43ABD7D1697A4449BB5118AEAAC9991C4C27",
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": {
+        "minX": 118,
+        "minY": 155,
+        "maxX": 905,
+        "maxY": 868,
+        "width": 788,
+        "height": 714
+      },
+      "alphaCoverage": 0.380563,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 256,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-256.png",
+      "bytes": 3468,
+      "sha256": "4043ECF1E9A3D168B743D0A00CAE73135DCD720D5509602970240A50C4E0646D",
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "minX": 29,
+        "minY": 38,
+        "maxX": 226,
+        "maxY": 216,
+        "width": 198,
+        "height": 179
+      },
+      "alphaCoverage": 0.38504,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-96.png",
+      "bytes": 1198,
+      "sha256": "25FDEE2786F35CD3942F96033B6CF6B51320C25FE3B88FE3A8AB5628A04E854C",
+      "width": 96,
+      "height": 96,
+      "alphaBounds": {
+        "minX": 11,
+        "minY": 14,
+        "maxX": 84,
+        "maxY": 81,
+        "width": 74,
+        "height": 68
+      },
+      "alphaCoverage": 0.394857,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-48.png",
+      "bytes": 655,
+      "sha256": "D414309F8FF62A1A819878277F2728F11EB77BFD74550406584573972D30E755",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": {
+        "minX": 5,
+        "minY": 7,
+        "maxX": 42,
+        "maxY": 40,
+        "width": 38,
+        "height": 34
+      },
+      "alphaCoverage": 0.410156,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 32,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-32.png",
+      "bytes": 483,
+      "sha256": "7B8B8B4359233009E02E895FBB53AB8DDDD9D6F1541F56F4EC9941FD4CE99AE4",
+      "width": 32,
+      "height": 32,
+      "alphaBounds": {
+        "minX": 3,
+        "minY": 4,
+        "maxX": 28,
+        "maxY": 27,
+        "width": 26,
+        "height": 24
+      },
+      "alphaCoverage": 0.432617,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-24.png",
+      "bytes": 383,
+      "sha256": "0EA660FB2E27C42745FB4323361F9E5A0C6B2402284DBB0998F5476BE10F1238",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 21,
+        "maxY": 20,
+        "width": 20,
+        "height": 18
+      },
+      "alphaCoverage": 0.451389,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-mark-monochrome.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-mark-monochrome-16.png",
+      "bytes": 291,
+      "sha256": "D60C4E074FF3B10CB8AFD66A93CB5CCF84E04C7672EC883DDD853B6667EBAD4C",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 1,
+        "minY": 2,
+        "maxX": 14,
+        "maxY": 13,
+        "width": 14,
+        "height": 12
+      },
+      "alphaCoverage": 0.488281,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 1024,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-1024.png",
+      "bytes": 100915,
+      "sha256": "5650B79F8EADD3F57D9CB92F984FCE3F2F99009459000C99A2C5BF259A9985B8",
+      "width": 1024,
+      "height": 1024,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 1023,
+        "maxY": 1023,
+        "width": 1024,
+        "height": 1024
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 4092
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 512,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-512.png",
+      "bytes": 42690,
+      "sha256": "2623C1A6AA2BFB0C5FF1AFE0F814125F67708C9795B67F823D861DD5F9FBE63B",
+      "width": 512,
+      "height": 512,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 511,
+        "maxY": 511,
+        "width": 512,
+        "height": 512
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 2044
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 256,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-256.png",
+      "bytes": 18496,
+      "sha256": "6C604AFD074EAB5D979F42E7B9BC0C6093DB6AF85E92CB3107913269757D67D6",
+      "width": 256,
+      "height": 256,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 255,
+        "maxY": 255,
+        "width": 256,
+        "height": 256
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 1020
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 192,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-192.png",
+      "bytes": 13042,
+      "sha256": "686D167F59934E69BFA51CF4F889428574728CFBD913A46B6FFC6B1C3AD327B4",
+      "width": 192,
+      "height": 192,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 191,
+        "maxY": 191,
+        "width": 192,
+        "height": 192
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 764
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 96,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-96.png",
+      "bytes": 5789,
+      "sha256": "0CF2FF8487E154753BCD5D4C1DC7C20DB91ACB527235DE1C6D834B67DF655A00",
+      "width": 96,
+      "height": 96,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 95,
+        "maxY": 95,
+        "width": 96,
+        "height": 96
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 380
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 48,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-48.png",
+      "bytes": 2462,
+      "sha256": "5648F7E2B1CBA4C38DDD83B2C496442421DA24B32AFC7A5F565F5B799D381D31",
+      "width": 48,
+      "height": 48,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 47,
+        "maxY": 47,
+        "width": 48,
+        "height": 48
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 188
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 32,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-32.png",
+      "bytes": 1486,
+      "sha256": "8E9D02029EAA39D92F11474BF3344BA6AC0E892F9D448DBEB0160C27C8DB8B4D",
+      "width": 32,
+      "height": 32,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 31,
+        "maxY": 31,
+        "width": 32,
+        "height": 32
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 124
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-24.png",
+      "bytes": 1054,
+      "sha256": "B99BBC6E9E8890933D84860738BD199ED823277D9FF1465F007DA0040D62EF56",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 23,
+        "maxY": 23,
+        "width": 24,
+        "height": 24
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 92
+    },
+    {
+      "source": "luma-foldkin-app-icon.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-16.png",
+      "bytes": 657,
+      "sha256": "5BBD8BF137DE802BF299742A8D94E9219E226490C117D26A70143627A2B7CD75",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 15,
+        "maxY": 15,
+        "width": 16,
+        "height": 16
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 60
+    },
+    {
+      "source": "luma-foldkin-optical-24.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-optical-24-24.png",
+      "bytes": 686,
+      "sha256": "009EB7F49DE0D8610C27E80F3E0B5A787C20FA31B3D382A28F61B8A494CE7F0E",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 2,
+        "minY": 3,
+        "maxX": 21,
+        "maxY": 20,
+        "width": 20,
+        "height": 18
+      },
+      "alphaCoverage": 0.454861,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-optical-16.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-optical-16-16.png",
+      "bytes": 484,
+      "sha256": "261B915B5A4515EA4EA427D29C67E19EDD3B81F9991B9994D3AEF681892E83DD",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 1,
+        "minY": 2,
+        "maxX": 14,
+        "maxY": 13,
+        "width": 14,
+        "height": 12
+      },
+      "alphaCoverage": 0.503906,
+      "borderPixels": 0
+    },
+    {
+      "source": "luma-foldkin-app-icon-optical-24.svg",
+      "size": 24,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-optical-24-24.png",
+      "bytes": 607,
+      "sha256": "A4044D5BA68318783CE0AE6CA7ED5BB792AB4496418CEDA45366D0F4C668A578",
+      "width": 24,
+      "height": 24,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 23,
+        "maxY": 23,
+        "width": 24,
+        "height": 24
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 92
+    },
+    {
+      "source": "luma-foldkin-app-icon-optical-16.svg",
+      "size": 16,
+      "file": "docs/codex/2026-07-15-synapse-medical-learning-os/assets/identity/production/mascot-icon/renders/luma-foldkin-app-icon-optical-16-16.png",
+      "bytes": 454,
+      "sha256": "44C2B1AFE3F5ED35FD18134B1F1D7EEBF090CA82491E864F116626B426333E0D",
+      "width": 16,
+      "height": 16,
+      "alphaBounds": {
+        "minX": 0,
+        "minY": 0,
+        "maxX": 15,
+        "maxY": 15,
+        "width": 16,
+        "height": 16
+      },
+      "alphaCoverage": 1,
+      "borderPixels": 60
+    }
+  ]
+}

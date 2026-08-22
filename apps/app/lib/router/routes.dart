@@ -11,6 +11,38 @@ class Routes {
   static const splash = '/splash';
   static const onboarding = '/onboarding';
 
+  // Academy — the signed, package-driven medical learning path. Query
+  // parameters keep stable curriculum IDs safe even when future IDs contain
+  // URI-reserved characters.
+  static const academy = '/academy';
+  static const academyCourse = '/academy/course';
+  static const academySession = '/academy/session';
+  static const academyWorkspace = '/academy/workspace';
+  static const academyDocument = '/academy/document';
+  static String academyCourseFor(String courseId) => Uri(
+    path: academyCourse,
+    queryParameters: {'courseId': courseId},
+  ).toString();
+  static String academySessionFor(String microLessonNodeId, String sessionId) =>
+      Uri(
+        path: academySession,
+        queryParameters: {
+          'microLessonNodeId': microLessonNodeId,
+          'sessionId': sessionId,
+        },
+      ).toString();
+  static String academyWorkspaceFor(String nodeId) => Uri(
+    path: academyWorkspace,
+    queryParameters: {'nodeId': nodeId},
+  ).toString();
+  static String academyDocumentFor(
+    ResourceDocumentId documentId,
+    String nodeId,
+  ) => Uri(
+    path: academyDocument,
+    queryParameters: {'documentId': documentId, 'nodeId': nodeId},
+  ).toString();
+
   // Home branch
   static const home = '/home';
   static const review = '/review';
@@ -71,14 +103,16 @@ class Routes {
   static const library = '/library';
   static const diseases = '/library/diseases';
   static String disease(String id) => '/library/diseases/$id';
-  static String diseaseCompare(List<String> ids) => '/library/diseases/compare?ids=${ids.join(',')}';
+  static String diseaseCompare(List<String> ids) =>
+      '/library/diseases/compare?ids=${ids.join(',')}';
   static const drugs = '/library/drugs';
   static String drug(String id) => '/library/drugs/$id';
   static String drugClassRoute(String id) => '/library/drugs/class/$id';
   static const drugInteractions = '/library/drugs/interactions';
   static const tools = '/library/tools';
   static String tool(String id) => '/library/tools/$id';
-  static String libraryEntryById(LibraryKind kind, String id) => '${kind.route}/$id';
+  static String libraryEntryById(LibraryKind kind, String id) =>
+      '${kind.route}/$id';
 
   // OSCE (prompt 52)
   static const osce = '/clinical/osce';

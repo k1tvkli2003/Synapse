@@ -33,6 +33,16 @@ class PersistedStore {
   Future<void> writeJson(String key, Map<String, dynamic> value) =>
       _prefs.setString(key, jsonEncode(value));
 
+  /// Returns the raw decoded JSON value for infrastructure adapters that need
+  /// to distinguish a missing record from a corrupt one. Presentation stores
+  /// should keep using [readJson], which intentionally degrades invalid UI
+  /// preferences to their defaults.
+  Object? readJsonStrict(String key) {
+    final raw = _prefs.getString(key);
+    if (raw == null) return null;
+    return jsonDecode(raw);
+  }
+
   bool? readBool(String key) => _prefs.getBool(key);
   Future<void> writeBool(String key, bool v) => _prefs.setBool(key, v);
 

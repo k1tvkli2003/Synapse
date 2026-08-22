@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "contractId": "synapse.new-capability-registry.v1",
+  "authority": "docs/codex/2026-07-15-synapse-medical-learning-os/37-goal-charter-v2.md",
+  "entries": [
+    {
+      "id": "synapse.academy.curriculum-path",
+      "label": "Curriculum Path",
+      "baselineState": "new",
+      "baselineDetail": "Goal-v2 primary educational spine",
+      "canonicalOwner": "Academy curriculum navigation",
+      "targetContext": "Path exposes Course, Chapter, Unit, Concept Cluster, and Micro-lesson progression without module-grid fragmentation.",
+      "preservation": "Additive canonical capability; preserve shell/deep-link compatibility and stable ordinal curriculum identities.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/37-goal-charter-v2.md",
+      "sourceRow": 1,
+      "sourceSection": "Primary loop",
+      "currentOwner": "Synapse Goal v2",
+      "currentRoutes": [],
+      "verificationOwner": "WBS-196..225 Academy vertical-slice gates"
+    },
+    {
+      "id": "synapse.academy.learning-session",
+      "label": "Learning Session",
+      "baselineState": "new",
+      "baselineDetail": "Goal-v2 microlearning runtime",
+      "canonicalOwner": "Micro-lesson and interaction playback",
+      "targetContext": "A short active session inside Path with EN/FA parity, varied interactions, feedback, result, resume, and accessibility.",
+      "preservation": "Additive runtime; no source Lesson folder, raw body, or generated draft may bypass manifest and publication gates.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/37-goal-charter-v2.md",
+      "sourceRow": 2,
+      "sourceSection": "Primary loop",
+      "currentOwner": "Synapse Goal v2",
+      "currentRoutes": [],
+      "verificationOwner": "WBS-196..225 Academy vertical-slice gates"
+    },
+    {
+      "id": "synapse.academy.curriculum-packages",
+      "label": "Curriculum Packages",
+      "baselineState": "new",
+      "baselineDetail": "Goal-v2 immutable offline content delivery",
+      "canonicalOwner": "Curriculum package registry",
+      "targetContext": "Background install, validation, quarantine, preview/learner activation, integrity audit, offline availability, and rollback with contextual status/recovery UI.",
+      "preservation": "Additive registry; never overwrite immutable releases, expose quarantined bodies, or replace existing persistence keys without migration.",
+      "source": "docs/codex/2026-07-15-synapse-medical-learning-os/15-architecture-decisions.md",
+      "sourceRow": 20,
+      "sourceSection": "ADR-020",
+      "currentOwner": "Synapse curriculum runtime",
+      "currentRoutes": [],
+      "verificationOwner": "WBS-121..150 curriculum distribution and WBS-371..395 recovery gates"
+    }
+  ]
+}

@@ -1,0 +1,3115 @@
+{
+  "canonicalSources": [
+    "apps/app/lib/router/routes.dart",
+    "apps/app/lib/router/router.dart"
+  ],
+  "errorIntent": "ComingSoonScreen:not-found",
+  "helpers": [
+    {
+      "delegate": "Routes.concept",
+      "kind": "extension-delegate",
+      "matchedRouteId": "route:/concept/:conceptId",
+      "name": "BuildContext.goConcept",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/concept/fixture-id"
+    },
+    {
+      "kind": "generic-passthrough",
+      "matchedRouteId": "route:/home",
+      "name": "BuildContext.goRoute",
+      "parameters": [
+        "route"
+      ],
+      "policy": "caller must supply a location from the central registry or compatibility table",
+      "sampleOutput": "/home"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/academy",
+      "name": "academy",
+      "parameters": [],
+      "sampleOutput": "/academy"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/academy/course",
+      "name": "academyCourse",
+      "parameters": [],
+      "sampleOutput": "/academy/course"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/academy/course",
+      "name": "academyCourseFor",
+      "parameters": [
+        "courseId"
+      ],
+      "sampleOutput": "/academy/course?courseId=fixture-courseId",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/academy/document",
+      "name": "academyDocument",
+      "parameters": [],
+      "sampleOutput": "/academy/document"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/academy/document",
+      "name": "academyDocumentFor",
+      "parameters": [
+        "documentId",
+        "nodeId"
+      ],
+      "sampleOutput": "/academy/document?documentId=fixture-documentId&nodeId=fixture-nodeId",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/academy/session",
+      "name": "academySession",
+      "parameters": [],
+      "sampleOutput": "/academy/session"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/academy/session",
+      "name": "academySessionFor",
+      "parameters": [
+        "microLessonNodeId",
+        "sessionId"
+      ],
+      "sampleOutput": "/academy/session?microLessonNodeId=fixture-microLessonNodeId&sessionId=fixture-sessionId",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/academy/workspace",
+      "name": "academyWorkspace",
+      "parameters": [],
+      "sampleOutput": "/academy/workspace"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/academy/workspace",
+      "name": "academyWorkspaceFor",
+      "parameters": [
+        "nodeId"
+      ],
+      "sampleOutput": "/academy/workspace?nodeId=fixture-nodeId",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/achievements",
+      "name": "achievements",
+      "parameters": [],
+      "sampleOutput": "/achievements"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/admin",
+      "name": "admin",
+      "parameters": [],
+      "sampleOutput": "/admin"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/algorithms/:algorithmId",
+      "name": "algorithm",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/algorithms/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/algorithms/:algorithmId/play",
+      "name": "algorithmPlay",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/algorithms/fixture-id/play",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/algorithms",
+      "name": "algorithms",
+      "parameters": [],
+      "sampleOutput": "/clinical/algorithms"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/arena",
+      "name": "arena",
+      "parameters": [],
+      "sampleOutput": "/social/arena"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/arena/battle",
+      "name": "arenaBattle",
+      "parameters": [],
+      "sampleOutput": "/social/arena/battle"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/arena/deck",
+      "name": "arenaDeck",
+      "parameters": [],
+      "sampleOutput": "/social/arena/deck"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/buddies",
+      "name": "buddies",
+      "parameters": [],
+      "sampleOutput": "/social/buddies"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/cards",
+      "name": "cards",
+      "parameters": [],
+      "sampleOutput": "/learn/cards"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/cards/graph",
+      "name": "cardsGraph",
+      "parameters": [],
+      "sampleOutput": "/learn/cards/graph"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/cards/study",
+      "name": "cardsStudy",
+      "parameters": [],
+      "sampleOutput": "/learn/cards/study"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/cases/:caseId",
+      "name": "caseDetail",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/cases/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/cases",
+      "name": "cases",
+      "parameters": [],
+      "sampleOutput": "/cases"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/classes",
+      "name": "classes",
+      "parameters": [],
+      "sampleOutput": "/classes"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical",
+      "name": "clinical",
+      "parameters": [],
+      "sampleOutput": "/clinical"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/community",
+      "name": "community",
+      "parameters": [],
+      "sampleOutput": "/social/community"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/concept/:conceptId",
+      "name": "concept",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/concept/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/copilot",
+      "name": "copilot",
+      "parameters": [],
+      "sampleOutput": "/copilot"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/create",
+      "name": "create",
+      "parameters": [],
+      "sampleOutput": "/create"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/learn/cards/deck/:deckId",
+      "name": "deck",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/learn/cards/deck/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/diseases/:id",
+      "name": "disease",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/library/diseases/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/diseases/compare",
+      "name": "diseaseCompare",
+      "parameters": [
+        "ids"
+      ],
+      "sampleOutput": "/library/diseases/compare?ids=fixture-a,fixture-b",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/library/diseases",
+      "name": "diseases",
+      "parameters": [],
+      "sampleOutput": "/library/diseases"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/or-lab/:dramaId",
+      "name": "drama",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/or-lab/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/drugs/:id",
+      "name": "drug",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/library/drugs/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/drugs/class/:id",
+      "name": "drugClassRoute",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/library/drugs/class/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/library/drugs/interactions",
+      "name": "drugInteractions",
+      "parameters": [],
+      "sampleOutput": "/library/drugs/interactions"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/library/drugs",
+      "name": "drugs",
+      "parameters": [],
+      "sampleOutput": "/library/drugs"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/ecg",
+      "name": "ecg",
+      "parameters": [],
+      "sampleOutput": "/clinical/ecg"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/ecg/case/:caseId",
+      "name": "ecgCase",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/ecg/case/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/ecg/drill",
+      "name": "ecgDrill",
+      "parameters": [],
+      "sampleOutput": "/clinical/ecg/drill"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/events",
+      "name": "events",
+      "parameters": [],
+      "sampleOutput": "/social/events"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/home",
+      "name": "home",
+      "parameters": [],
+      "sampleOutput": "/home"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/inbox",
+      "name": "inbox",
+      "parameters": [],
+      "sampleOutput": "/inbox"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/insights",
+      "name": "insights",
+      "parameters": [],
+      "sampleOutput": "/insights"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/labs/panel/:panel",
+      "name": "labPanel",
+      "parameters": [
+        "panel"
+      ],
+      "sampleOutput": "/clinical/labs/panel/fixture-panel",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/labs",
+      "name": "labs",
+      "parameters": [],
+      "sampleOutput": "/clinical/labs"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/leaderboard",
+      "name": "leaderboard",
+      "parameters": [],
+      "sampleOutput": "/social/leaderboard"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn",
+      "name": "learn",
+      "parameters": [],
+      "sampleOutput": "/learn"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/library",
+      "name": "library",
+      "parameters": [],
+      "sampleOutput": "/library"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/atlas/:id#atlas",
+      "name": "libraryEntryById",
+      "parameters": [
+        "kind",
+        "id"
+      ],
+      "sampleOutput": "/library/atlas/fixture-id",
+      "variant": "atlas"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/guidelines/:id#guideline",
+      "name": "libraryEntryById",
+      "parameters": [
+        "kind",
+        "id"
+      ],
+      "sampleOutput": "/library/guidelines/fixture-id",
+      "variant": "guideline"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/imaging/:id#imaging",
+      "name": "libraryEntryById",
+      "parameters": [
+        "kind",
+        "id"
+      ],
+      "sampleOutput": "/library/imaging/fixture-id",
+      "variant": "imaging"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/journal/:id#journal",
+      "name": "libraryEntryById",
+      "parameters": [
+        "kind",
+        "id"
+      ],
+      "sampleOutput": "/library/journal/fixture-id",
+      "variant": "journal"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/procedures/:id#procedure",
+      "name": "libraryEntryById",
+      "parameters": [
+        "kind",
+        "id"
+      ],
+      "sampleOutput": "/library/procedures/fixture-id",
+      "variant": "procedure"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/learn/mnemonics/:mnemonicId",
+      "name": "mnemonic",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/learn/mnemonics/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/mnemonics/new",
+      "name": "mnemonicNew",
+      "parameters": [],
+      "sampleOutput": "/learn/mnemonics/new"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/mnemonics",
+      "name": "mnemonics",
+      "parameters": [],
+      "sampleOutput": "/learn/mnemonics"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/notifications",
+      "name": "notifications",
+      "parameters": [],
+      "sampleOutput": "/notifications"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/onboarding",
+      "name": "onboarding",
+      "parameters": [],
+      "sampleOutput": "/onboarding"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/or-lab",
+      "name": "orLab",
+      "parameters": [],
+      "sampleOutput": "/clinical/or-lab"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/org",
+      "name": "org",
+      "parameters": [],
+      "sampleOutput": "/org"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/osce",
+      "name": "osce",
+      "parameters": [],
+      "sampleOutput": "/clinical/osce"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/osce/:id/play",
+      "name": "oscePlay",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/osce/fixture-id/play",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/osce/:id",
+      "name": "osceStation",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/osce/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/plan",
+      "name": "plan",
+      "parameters": [],
+      "sampleOutput": "/plan"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/plan/track/:id",
+      "name": "planTrack",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/plan/track/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/pro",
+      "name": "pro",
+      "parameters": [],
+      "sampleOutput": "/pro"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/profile",
+      "name": "profile",
+      "parameters": [],
+      "sampleOutput": "/profile"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/profile/customize",
+      "name": "profileCustomize",
+      "parameters": [],
+      "sampleOutput": "/profile/customize"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/quests",
+      "name": "quests",
+      "parameters": [],
+      "sampleOutput": "/quests"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/review",
+      "name": "review",
+      "parameters": [],
+      "sampleOutput": "/review"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/rewards",
+      "name": "rewards",
+      "parameters": [],
+      "sampleOutput": "/rewards"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/social/rooms/:id",
+      "name": "room",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/social/rooms/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/rooms",
+      "name": "rooms",
+      "parameters": [],
+      "sampleOutput": "/social/rooms"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/social/rounds/:roundId",
+      "name": "round",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/social/rounds/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social/rounds",
+      "name": "rounds",
+      "parameters": [],
+      "sampleOutput": "/social/rounds"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/search",
+      "name": "search",
+      "parameters": [],
+      "sampleOutput": "/search"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/settings",
+      "name": "settings",
+      "parameters": [],
+      "sampleOutput": "/settings"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/shop",
+      "name": "shop",
+      "parameters": [],
+      "sampleOutput": "/shop"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/social",
+      "name": "social",
+      "parameters": [],
+      "sampleOutput": "/social"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/clinical/sounds/:soundId",
+      "name": "sound",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/clinical/sounds/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/sounds",
+      "name": "sounds",
+      "parameters": [],
+      "sampleOutput": "/clinical/sounds"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/clinical/sounds/quiz",
+      "name": "soundsQuiz",
+      "parameters": [],
+      "sampleOutput": "/clinical/sounds/quiz"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/splash",
+      "name": "splash",
+      "parameters": [],
+      "sampleOutput": "/splash"
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/learn/terms",
+      "name": "terms",
+      "parameters": [],
+      "sampleOutput": "/learn/terms"
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/learn/terms/lesson/:lessonId",
+      "name": "termsLesson",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/learn/terms/lesson/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "function",
+      "matchedRouteId": "route:/library/tools/:id",
+      "name": "tool",
+      "parameters": [
+        "id"
+      ],
+      "sampleOutput": "/library/tools/fixture-id",
+      "variant": null
+    },
+    {
+      "kind": "constant",
+      "matchedRouteId": "route:/library/tools",
+      "name": "tools",
+      "parameters": [],
+      "sampleOutput": "/library/tools"
+    }
+  ],
+  "initialLocation": "/splash",
+  "libraryKindRoutes": {
+    "atlas": "/library/atlas",
+    "guideline": "/library/guidelines",
+    "imaging": "/library/imaging",
+    "journal": "/library/journal",
+    "procedure": "/library/procedures"
+  },
+  "routes": [
+    {
+      "capabilityId": "synapse.system.onboarding",
+      "id": "route:/splash",
+      "intent": "SplashScreen",
+      "path": "/splash",
+      "pathExpression": "Routes.splash",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/splash",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 57,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.system.onboarding",
+      "id": "route:/onboarding",
+      "intent": "OnboardingScreen",
+      "path": "/onboarding",
+      "pathExpression": "Routes.onboarding",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/onboarding",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 58,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "id": "route:/academy",
+      "intent": "AcademyHomeScreen",
+      "path": "/academy",
+      "pathExpression": "Routes.academy",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/academy",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 65,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "id": "route:/academy/course",
+      "intent": "AcademyCourseScreen",
+      "path": "/academy/course",
+      "pathExpression": "Routes.academyCourse",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [
+        "courseId"
+      ],
+      "sampleLocation": "/academy/course?courseId=fixture-courseId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 69,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.academy.learning-session",
+      "id": "route:/academy/session",
+      "intent": "AcademySessionScreen",
+      "path": "/academy/session",
+      "pathExpression": "Routes.academySession",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [
+        "microLessonNodeId",
+        "sessionId"
+      ],
+      "sampleLocation": "/academy/session?microLessonNodeId=fixture-microLessonNodeId&sessionId=fixture-sessionId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 75,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "id": "route:/academy/workspace",
+      "intent": "AcademyStudyWorkspaceLoader",
+      "path": "/academy/workspace",
+      "pathExpression": "Routes.academyWorkspace",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [
+        "nodeId"
+      ],
+      "sampleLocation": "/academy/workspace?nodeId=fixture-nodeId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 83,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.academy.curriculum-path",
+      "id": "route:/academy/document",
+      "intent": "AcademyResourceDocumentScreen",
+      "path": "/academy/document",
+      "pathExpression": "Routes.academyDocument",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [
+        "documentId",
+        "nodeId"
+      ],
+      "sampleLocation": "/academy/document?documentId=fixture-documentId&nodeId=fixture-nodeId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 89,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.search",
+      "id": "route:/search",
+      "intent": "SearchScreen",
+      "path": "/search",
+      "pathExpression": "Routes.search",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/search",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 98,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.copilot",
+      "id": "route:/copilot",
+      "intent": "CopilotScreen",
+      "path": "/copilot",
+      "pathExpression": "Routes.copilot",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/copilot",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 99,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.review",
+      "id": "route:/review",
+      "intent": "ReviewScreen",
+      "path": "/review",
+      "pathExpression": "Routes.review",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/review",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 100,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.concept-hub",
+      "id": "route:/concept/:conceptId",
+      "intent": "ConceptHubScreen",
+      "path": "/concept/:conceptId",
+      "pathExpression": "'/concept/:conceptId'",
+      "pathParameters": [
+        "conceptId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/concept/fixture-conceptId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 101,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.cases",
+      "id": "route:/cases",
+      "intent": "CasesListScreen",
+      "path": "/cases",
+      "pathExpression": "Routes.cases",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/cases",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 106,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.cases",
+      "id": "route:/cases/:caseId",
+      "intent": "CasePlayerScreen",
+      "path": "/cases/:caseId",
+      "pathExpression": "'/cases/:caseId'",
+      "pathParameters": [
+        "caseId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/cases/fixture-caseId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 107,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms/lesson/:lessonId",
+      "intent": "LessonScreen",
+      "path": "/learn/terms/lesson/:lessonId",
+      "pathExpression": "'/learn/terms/lesson/:lessonId'",
+      "pathParameters": [
+        "lessonId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms/lesson/fixture-lessonId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 114,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/study",
+      "intent": "ReviewScreen",
+      "path": "/learn/cards/study",
+      "pathExpression": "Routes.cardsStudy",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/study",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 119,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg/drill",
+      "intent": "EcgDrillScreen",
+      "path": "/clinical/ecg/drill",
+      "pathExpression": "Routes.ecgDrill",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg/drill",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 120,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg/case/:caseId",
+      "intent": "EcgDrillScreen",
+      "path": "/clinical/ecg/case/:caseId",
+      "pathExpression": "'/clinical/ecg/case/:caseId'",
+      "pathParameters": [
+        "caseId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg/case/fixture-caseId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 121,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds/quiz",
+      "intent": "SoundsQuizScreen",
+      "path": "/clinical/sounds/quiz",
+      "pathExpression": "Routes.soundsQuiz",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds/quiz",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 126,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/:algorithmId/play",
+      "intent": "AlgorithmPlayerScreen",
+      "path": "/clinical/algorithms/:algorithmId/play",
+      "pathExpression": "'/clinical/algorithms/:algorithmId/play'",
+      "pathParameters": [
+        "algorithmId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/fixture-algorithmId/play",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 130,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/battle",
+      "intent": "ArenaBattleScreen",
+      "path": "/social/arena/battle",
+      "pathExpression": "Routes.arenaBattle",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/battle",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 136,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.plan",
+      "id": "route:/plan",
+      "intent": "PlanScreen",
+      "path": "/plan",
+      "pathExpression": "Routes.plan",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/plan",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 142,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.plan",
+      "id": "route:/plan/track/:id",
+      "intent": "TrackScreen",
+      "path": "/plan/track/:id",
+      "pathExpression": "'/plan/track/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/plan/track/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 143,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/clinical/osce",
+      "intent": "OsceListScreen",
+      "path": "/clinical/osce",
+      "pathExpression": "Routes.osce",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/osce",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 147,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/clinical/osce/:id",
+      "intent": "OsceStationScreen",
+      "path": "/clinical/osce/:id",
+      "pathExpression": "'/clinical/osce/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/osce/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 148,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/clinical/osce/:id/play",
+      "intent": "OscePlayScreen",
+      "path": "/clinical/osce/:id/play",
+      "pathExpression": "'/clinical/osce/:id/play'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/osce/fixture-id/play",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 152,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/home",
+      "intent": "HubScreen",
+      "path": "/home",
+      "pathExpression": "Routes.home",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/home",
+      "shellBranch": "home",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 163,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/learn",
+      "intent": "SubHubScreen",
+      "path": "/learn",
+      "pathExpression": "Routes.learn",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 168,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms",
+      "intent": "TermsHomeScreen",
+      "path": "/learn/terms",
+      "pathExpression": "'terms'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 175,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards",
+      "intent": "CardsHomeScreen",
+      "path": "/learn/cards",
+      "pathExpression": "'cards'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 179,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/deck/:deckId",
+      "intent": "DeckScreen",
+      "path": "/learn/cards/deck/:deckId",
+      "pathExpression": "'cards/deck/:deckId'",
+      "pathParameters": [
+        "deckId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/deck/fixture-deckId",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 183,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics",
+      "pathExpression": "'mnemonics'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 188,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/new",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics/new",
+      "pathExpression": "'mnemonics/new'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/new",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 192,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/:mnemonicId",
+      "intent": "MnemonicDetailScreen",
+      "path": "/learn/mnemonics/:mnemonicId",
+      "pathExpression": "'mnemonics/:mnemonicId'",
+      "pathParameters": [
+        "mnemonicId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/fixture-mnemonicId",
+      "shellBranch": "learn",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 196,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/clinical",
+      "intent": "SubHubScreen",
+      "path": "/clinical",
+      "pathExpression": "Routes.clinical",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 208,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg",
+      "intent": "EcgHomeScreen",
+      "path": "/clinical/ecg",
+      "pathExpression": "'ecg'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 215,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds",
+      "intent": "SoundsHomeScreen",
+      "path": "/clinical/sounds",
+      "pathExpression": "'sounds'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 219,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds/:soundId",
+      "intent": "SoundDetailScreen",
+      "path": "/clinical/sounds/:soundId",
+      "pathExpression": "'sounds/:soundId'",
+      "pathParameters": [
+        "soundId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds/fixture-soundId",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 223,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs",
+      "intent": "LabsHomeScreen",
+      "path": "/clinical/labs",
+      "pathExpression": "'labs'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 229,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs/panel/:panel",
+      "intent": "LabPanelScreen",
+      "path": "/clinical/labs/panel/:panel",
+      "pathExpression": "'labs/panel/:panel'",
+      "pathParameters": [
+        "panel"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs/panel/fixture-panel",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 233,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms",
+      "intent": "AlgorithmsHomeScreen",
+      "path": "/clinical/algorithms",
+      "pathExpression": "'algorithms'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 243,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/:algorithmId",
+      "intent": "AlgorithmPlayerScreen",
+      "path": "/clinical/algorithms/:algorithmId",
+      "pathExpression": "'algorithms/:algorithmId'",
+      "pathParameters": [
+        "algorithmId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/fixture-algorithmId",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 247,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "id": "route:/clinical/or-lab",
+      "intent": "OrLabHomeScreen",
+      "path": "/clinical/or-lab",
+      "pathExpression": "'or-lab'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/or-lab",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 253,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "id": "route:/clinical/or-lab/:dramaId",
+      "intent": "DramaPlayerScreen",
+      "path": "/clinical/or-lab/:dramaId",
+      "pathExpression": "'or-lab/:dramaId'",
+      "pathParameters": [
+        "dramaId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/or-lab/fixture-dramaId",
+      "shellBranch": "clinical",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 257,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social",
+      "intent": "SubHubScreen",
+      "path": "/social",
+      "pathExpression": "Routes.social",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 269,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds",
+      "intent": "RoundsFeedScreen",
+      "path": "/social/rounds",
+      "pathExpression": "'rounds'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 276,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds/:roundId",
+      "intent": "RoundDetailScreen",
+      "path": "/social/rounds/:roundId",
+      "pathExpression": "'rounds/:roundId'",
+      "pathParameters": [
+        "roundId"
+      ],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds/fixture-roundId",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 280,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies",
+      "intent": "BuddiesScreen",
+      "path": "/social/buddies",
+      "pathExpression": "'buddies'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 286,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena",
+      "intent": "ArenaHubScreen",
+      "path": "/social/arena",
+      "pathExpression": "'arena'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 290,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/deck",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/deck",
+      "pathExpression": "'arena/deck'",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/deck",
+      "shellBranch": "social",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 294,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "id": "route:/profile",
+      "intent": "ProfileScreen",
+      "path": "/profile",
+      "pathExpression": "Routes.profile",
+      "pathParameters": [],
+      "presentation": "shell",
+      "queryParameters": [],
+      "sampleLocation": "/profile",
+      "shellBranch": "profile",
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 307,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.rewards",
+      "id": "route:/rewards",
+      "intent": "RewardsScreen",
+      "path": "/rewards",
+      "pathExpression": "Routes.rewards",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/rewards",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 317,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.achievements",
+      "id": "route:/achievements",
+      "intent": "AchievementsScreen",
+      "path": "/achievements",
+      "pathExpression": "Routes.achievements",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/achievements",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 318,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.quests",
+      "id": "route:/quests",
+      "intent": "QuestsScreen",
+      "path": "/quests",
+      "pathExpression": "Routes.quests",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/quests",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 322,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "id": "route:/settings",
+      "intent": "SettingsScreen",
+      "path": "/settings",
+      "pathExpression": "Routes.settings",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/settings",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 323,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.notifications",
+      "id": "route:/notifications",
+      "intent": "NotificationsScreen",
+      "path": "/notifications",
+      "pathExpression": "Routes.notifications",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/notifications",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 324,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.insights",
+      "id": "route:/insights",
+      "intent": "InsightsScreen",
+      "path": "/insights",
+      "pathExpression": "Routes.insights",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/insights",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 328,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library",
+      "intent": "LibraryHubScreen",
+      "path": "/library",
+      "pathExpression": "Routes.library",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 331,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "id": "route:/library/diseases",
+      "intent": "DiseasesListScreen",
+      "path": "/library/diseases",
+      "pathExpression": "Routes.diseases",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/diseases",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 335,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "id": "route:/library/diseases/compare",
+      "intent": "DiseaseCompareScreen",
+      "path": "/library/diseases/compare",
+      "pathExpression": "'/library/diseases/compare'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [
+        "ids"
+      ],
+      "sampleLocation": "/library/diseases/compare?ids=fixture-a,fixture-b",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 339,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.diseases",
+      "id": "route:/library/diseases/:id",
+      "intent": "DiseaseDetailScreen",
+      "path": "/library/diseases/:id",
+      "pathExpression": "'/library/diseases/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/diseases/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 348,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "id": "route:/library/drugs/interactions",
+      "intent": "InteractionCheckerScreen",
+      "path": "/library/drugs/interactions",
+      "pathExpression": "Routes.drugInteractions",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/drugs/interactions",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 352,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "id": "route:/library/drugs",
+      "intent": "DrugsListScreen",
+      "path": "/library/drugs",
+      "pathExpression": "Routes.drugs",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/drugs",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 356,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "id": "route:/library/drugs/class/:id",
+      "intent": "DrugClassScreen",
+      "path": "/library/drugs/class/:id",
+      "pathExpression": "'/library/drugs/class/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/drugs/class/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 357,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.drugs-classes-interactions",
+      "id": "route:/library/drugs/:id",
+      "intent": "DrugDetailScreen",
+      "path": "/library/drugs/:id",
+      "pathExpression": "'/library/drugs/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/drugs/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 361,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.calculators-tools",
+      "id": "route:/library/tools",
+      "intent": "ToolsListScreen",
+      "path": "/library/tools",
+      "pathExpression": "Routes.tools",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/tools",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 365,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.calculators-tools",
+      "id": "route:/library/tools/:id",
+      "intent": "ToolDetailScreen",
+      "path": "/library/tools/:id",
+      "pathExpression": "'/library/tools/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/tools/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 366,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/atlas#atlas",
+      "intent": "LibraryBankScreen",
+      "path": "/library/atlas",
+      "pathExpression": "kind.route",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/atlas",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 371,
+      "variant": "atlas"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/guidelines#guideline",
+      "intent": "LibraryBankScreen",
+      "path": "/library/guidelines",
+      "pathExpression": "kind.route",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/guidelines",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 371,
+      "variant": "guideline"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/imaging#imaging",
+      "intent": "LibraryBankScreen",
+      "path": "/library/imaging",
+      "pathExpression": "kind.route",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/imaging",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 371,
+      "variant": "imaging"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/journal#journal",
+      "intent": "LibraryBankScreen",
+      "path": "/library/journal",
+      "pathExpression": "kind.route",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/journal",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 371,
+      "variant": "journal"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/procedures#procedure",
+      "intent": "LibraryBankScreen",
+      "path": "/library/procedures",
+      "pathExpression": "kind.route",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/procedures",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 371,
+      "variant": "procedure"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/atlas/:id#atlas",
+      "intent": "LibraryEntryScreen",
+      "path": "/library/atlas/:id",
+      "pathExpression": "'${kind.route}/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/atlas/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 375,
+      "variant": "atlas"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/guidelines/:id#guideline",
+      "intent": "LibraryEntryScreen",
+      "path": "/library/guidelines/:id",
+      "pathExpression": "'${kind.route}/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/guidelines/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 375,
+      "variant": "guideline"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/imaging/:id#imaging",
+      "intent": "LibraryEntryScreen",
+      "path": "/library/imaging/:id",
+      "pathExpression": "'${kind.route}/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/imaging/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 375,
+      "variant": "imaging"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/journal/:id#journal",
+      "intent": "LibraryEntryScreen",
+      "path": "/library/journal/:id",
+      "pathExpression": "'${kind.route}/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/journal/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 375,
+      "variant": "journal"
+    },
+    {
+      "capabilityId": "synapse.global.library",
+      "id": "route:/library/procedures/:id#procedure",
+      "intent": "LibraryEntryScreen",
+      "path": "/library/procedures/:id",
+      "pathExpression": "'${kind.route}/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/library/procedures/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 375,
+      "variant": "procedure"
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "id": "route:/shop",
+      "intent": "ShopScreen",
+      "path": "/shop",
+      "pathExpression": "Routes.shop",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/shop",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 383,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "id": "route:/pro",
+      "intent": "ProScreen",
+      "path": "/pro",
+      "pathExpression": "Routes.pro",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/pro",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 384,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.profile-customization",
+      "id": "route:/profile/customize",
+      "intent": "CustomizeScreen",
+      "path": "/profile/customize",
+      "pathExpression": "Routes.profileCustomize",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/profile/customize",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 385,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "id": "route:/settings/data",
+      "intent": "PrivacyDataScreen",
+      "path": "/settings/data",
+      "pathExpression": "'/settings/data'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/settings/data",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 391,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "id": "route:/settings/privacy",
+      "intent": "PrivacyDataScreen",
+      "path": "/settings/privacy",
+      "pathExpression": "'/settings/privacy'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/settings/privacy",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 395,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "id": "route:/settings/redeem",
+      "intent": "RedeemScreen",
+      "path": "/settings/redeem",
+      "pathExpression": "'/settings/redeem'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/settings/redeem",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 399,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.shop-pro",
+      "id": "route:/settings/subscription",
+      "intent": "ProScreen",
+      "path": "/settings/subscription",
+      "pathExpression": "'/settings/subscription'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/settings/subscription",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 403,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.privacy-data",
+      "id": "route:/legal/:doc",
+      "intent": "LegalScreen",
+      "path": "/legal/:doc",
+      "pathExpression": "'/legal/:doc'",
+      "pathParameters": [
+        "doc"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/legal/fixture-doc",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 407,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social/rooms",
+      "intent": "RoomsScreen",
+      "path": "/social/rooms",
+      "pathExpression": "Routes.rooms",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rooms",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 413,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social/rooms/:id",
+      "intent": "RoomScreen",
+      "path": "/social/rooms/:id",
+      "pathExpression": "'/social/rooms/:id'",
+      "pathParameters": [
+        "id"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rooms/fixture-id",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 414,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social/community",
+      "intent": "CommunityScreen",
+      "path": "/social/community",
+      "pathExpression": "Routes.community",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/community",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 418,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social/events",
+      "intent": "EventsScreen",
+      "path": "/social/events",
+      "pathExpression": "Routes.events",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/events",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 422,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.home-module-grid",
+      "id": "route:/social/leaderboard",
+      "intent": "LeaderboardScreen",
+      "path": "/social/leaderboard",
+      "pathExpression": "Routes.leaderboard",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/leaderboard",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 423,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "id": "route:/admin",
+      "intent": "AdminScreen",
+      "path": "/admin",
+      "pathExpression": "Routes.admin",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/admin",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 429,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "id": "route:/admin/:section",
+      "intent": "AdminListScreen",
+      "path": "/admin/:section",
+      "pathExpression": "'/admin/:section'",
+      "pathParameters": [
+        "section"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/admin/fixture-section",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 430,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.admin-create",
+      "id": "route:/create",
+      "intent": "CreateScreen",
+      "path": "/create",
+      "pathExpression": "Routes.create",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/create",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 435,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.classes-org",
+      "id": "route:/classes",
+      "intent": "ClassesScreen",
+      "path": "/classes",
+      "pathExpression": "Routes.classes",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/classes",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 438,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.classes-org",
+      "id": "route:/org",
+      "intent": "OrgScreen",
+      "path": "/org",
+      "pathExpression": "Routes.org",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/org",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 439,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "id": "route:/profile/edit",
+      "intent": "ProfileEditScreen",
+      "path": "/profile/edit",
+      "pathExpression": "'/profile/edit'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/profile/edit",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 442,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.insights",
+      "id": "route:/profile/stats",
+      "intent": "InsightsScreen",
+      "path": "/profile/stats",
+      "pathExpression": "'/profile/stats'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/profile/stats",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 446,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.system.profile",
+      "id": "route:/u/:handle",
+      "intent": "ProfileScreen",
+      "path": "/u/:handle",
+      "pathExpression": "'/u/:handle'",
+      "pathParameters": [
+        "handle"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/u/fixture-handle",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 450,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "id": "route:/inbox",
+      "intent": "InboxScreen",
+      "path": "/inbox",
+      "pathExpression": "Routes.inbox",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/inbox",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 451,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "id": "route:/chat",
+      "intent": "InboxScreen",
+      "path": "/chat",
+      "pathExpression": "'/chat'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/chat",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 452,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.inbox-chat",
+      "id": "route:/chat/:threadId",
+      "intent": "ChatScreen",
+      "path": "/chat/:threadId",
+      "pathExpression": "'/chat/:threadId'",
+      "pathParameters": [
+        "threadId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/chat/fixture-threadId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 453,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/import",
+      "intent": "ImportExportScreen",
+      "path": "/learn/cards/import",
+      "pathExpression": "'/learn/cards/import'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/import",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 459,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.global.import-export-integrations",
+      "id": "route:/integrations",
+      "intent": "ImportExportScreen",
+      "path": "/integrations",
+      "pathExpression": "'/integrations'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/integrations",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 463,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.copilot",
+      "id": "route:/copilot/:threadId",
+      "intent": "CopilotScreen",
+      "path": "/copilot/:threadId",
+      "pathExpression": "'/copilot/:threadId'",
+      "pathParameters": [
+        "threadId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/copilot/fixture-threadId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 470,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms/unit/:unitId",
+      "intent": "TermsHomeScreen",
+      "path": "/learn/terms/unit/:unitId",
+      "pathExpression": "'/learn/terms/unit/:unitId'",
+      "pathParameters": [
+        "unitId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms/unit/fixture-unitId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 476,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms/practice",
+      "intent": "TermsHomeScreen",
+      "path": "/learn/terms/practice",
+      "pathExpression": "'/learn/terms/practice'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms/practice",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 480,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms/stories",
+      "intent": "ComingSoonScreen",
+      "path": "/learn/terms/stories",
+      "pathExpression": "'/learn/terms/stories'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms/stories",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 484,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.terms",
+      "id": "route:/learn/terms/leaderboard",
+      "intent": "LeaderboardScreen",
+      "path": "/learn/terms/leaderboard",
+      "pathExpression": "'/learn/terms/leaderboard'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/terms/leaderboard",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 491,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/graph",
+      "intent": "KnowledgeGraphScreen",
+      "path": "/learn/cards/graph",
+      "pathExpression": "'/learn/cards/graph'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/graph",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 497,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/deck/:deckId/edit",
+      "intent": "ComingSoonScreen",
+      "path": "/learn/cards/deck/:deckId/edit",
+      "pathExpression": "'/learn/cards/deck/:deckId/edit'",
+      "pathParameters": [
+        "deckId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/deck/fixture-deckId/edit",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 501,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.cards",
+      "id": "route:/learn/cards/card/:cardId/edit",
+      "intent": "ComingSoonScreen",
+      "path": "/learn/cards/card/:cardId/edit",
+      "pathExpression": "'/learn/cards/card/:cardId/edit'",
+      "pathParameters": [
+        "cardId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/cards/card/fixture-cardId/edit",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 508,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/collections",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics/collections",
+      "pathExpression": "'/learn/mnemonics/collections'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/collections",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 517,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/collections/:collectionId",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics/collections/:collectionId",
+      "pathExpression": "'/learn/mnemonics/collections/:collectionId'",
+      "pathParameters": [
+        "collectionId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/collections/fixture-collectionId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 521,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/mine",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics/mine",
+      "pathExpression": "'/learn/mnemonics/mine'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/mine",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 525,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/tag/:tagId",
+      "intent": "MnemonicsListScreen",
+      "path": "/learn/mnemonics/tag/:tagId",
+      "pathExpression": "'/learn/mnemonics/tag/:tagId'",
+      "pathParameters": [
+        "tagId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/tag/fixture-tagId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 529,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.mnemonics",
+      "id": "route:/learn/mnemonics/search",
+      "intent": "SearchScreen",
+      "path": "/learn/mnemonics/search",
+      "pathExpression": "'/learn/mnemonics/search'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/learn/mnemonics/search",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 533,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg/review",
+      "intent": "EcgDrillScreen",
+      "path": "/clinical/ecg/review",
+      "pathExpression": "'/clinical/ecg/review'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg/review",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 539,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg/generative",
+      "intent": "GenerativeEcgScreen",
+      "path": "/clinical/ecg/generative",
+      "pathExpression": "'/clinical/ecg/generative'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg/generative",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 543,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.ecg",
+      "id": "route:/clinical/ecg/stats",
+      "intent": "InsightsScreen",
+      "path": "/clinical/ecg/stats",
+      "pathExpression": "'/clinical/ecg/stats'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/ecg/stats",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 547,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds/library",
+      "intent": "SoundsHomeScreen",
+      "path": "/clinical/sounds/library",
+      "pathExpression": "'/clinical/sounds/library'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds/library",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 553,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds/simulator",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/sounds/simulator",
+      "pathExpression": "'/clinical/sounds/simulator'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds/simulator",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 557,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.sounds",
+      "id": "route:/clinical/sounds/stats",
+      "intent": "InsightsScreen",
+      "path": "/clinical/sounds/stats",
+      "pathExpression": "'/clinical/sounds/stats'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/sounds/stats",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 564,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs/history",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/labs/history",
+      "pathExpression": "'/clinical/labs/history'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs/history",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 570,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs/result/:evaluationId",
+      "intent": "LabsHomeScreen",
+      "path": "/clinical/labs/result/:evaluationId",
+      "pathExpression": "'/clinical/labs/result/:evaluationId'",
+      "pathParameters": [
+        "evaluationId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs/result/fixture-evaluationId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 577,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs/ruleset",
+      "intent": "LabRulesetScreen",
+      "path": "/clinical/labs/ruleset",
+      "pathExpression": "'/clinical/labs/ruleset'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs/ruleset",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 581,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.labs",
+      "id": "route:/clinical/labs/learn",
+      "intent": "LabsHomeScreen",
+      "path": "/clinical/labs/learn",
+      "pathExpression": "'/clinical/labs/learn'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/labs/learn",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 585,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/new",
+      "intent": "CreateScreen",
+      "path": "/clinical/algorithms/new",
+      "pathExpression": "'/clinical/algorithms/new'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/new",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 591,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/:algorithmId/edit",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/algorithms/:algorithmId/edit",
+      "pathExpression": "'/clinical/algorithms/:algorithmId/edit'",
+      "pathParameters": [
+        "algorithmId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/fixture-algorithmId/edit",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 595,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/sessions",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/algorithms/sessions",
+      "pathExpression": "'/clinical/algorithms/sessions'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/sessions",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 602,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.algorithms",
+      "id": "route:/clinical/algorithms/bookmarks",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/algorithms/bookmarks",
+      "pathExpression": "'/clinical/algorithms/bookmarks'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/algorithms/bookmarks",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 609,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "id": "route:/clinical/or-lab/:dramaId/play",
+      "intent": "DramaPlayerScreen",
+      "path": "/clinical/or-lab/:dramaId/play",
+      "pathExpression": "'/clinical/or-lab/:dramaId/play'",
+      "pathParameters": [
+        "dramaId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/or-lab/fixture-dramaId/play",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 618,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "id": "route:/clinical/or-lab/:dramaId/sim",
+      "intent": "ComingSoonScreen",
+      "path": "/clinical/or-lab/:dramaId/sim",
+      "pathExpression": "'/clinical/or-lab/:dramaId/sim'",
+      "pathParameters": [
+        "dramaId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/or-lab/fixture-dramaId/sim",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 623,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.orLab",
+      "id": "route:/clinical/or-lab/:dramaId/transcript",
+      "intent": "DramaPlayerScreen",
+      "path": "/clinical/or-lab/:dramaId/transcript",
+      "pathExpression": "'/clinical/or-lab/:dramaId/transcript'",
+      "pathParameters": [
+        "dramaId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/clinical/or-lab/fixture-dramaId/transcript",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 630,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds/discover",
+      "intent": "RoundsFeedScreen",
+      "path": "/social/rounds/discover",
+      "pathExpression": "'/social/rounds/discover'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds/discover",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 637,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds/record",
+      "intent": "ComingSoonScreen",
+      "path": "/social/rounds/record",
+      "pathExpression": "'/social/rounds/record'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds/record",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 641,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds/:roundId/comments",
+      "intent": "RoundDetailScreen",
+      "path": "/social/rounds/:roundId/comments",
+      "pathExpression": "'/social/rounds/:roundId/comments'",
+      "pathParameters": [
+        "roundId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds/fixture-roundId/comments",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 648,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.rounds",
+      "id": "route:/social/rounds/:roundId/remix",
+      "intent": "ComingSoonScreen",
+      "path": "/social/rounds/:roundId/remix",
+      "pathExpression": "'/social/rounds/:roundId/remix'",
+      "pathParameters": [
+        "roundId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/rounds/fixture-roundId/remix",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 653,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/discover",
+      "intent": "BuddiesScreen",
+      "path": "/social/buddies/discover",
+      "pathExpression": "'/social/buddies/discover'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/discover",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 662,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/requests",
+      "intent": "BuddiesScreen",
+      "path": "/social/buddies/requests",
+      "pathExpression": "'/social/buddies/requests'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/requests",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 666,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/matches",
+      "intent": "InboxScreen",
+      "path": "/social/buddies/matches",
+      "pathExpression": "'/social/buddies/matches'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/matches",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 670,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/groups",
+      "intent": "ComingSoonScreen",
+      "path": "/social/buddies/groups",
+      "pathExpression": "'/social/buddies/groups'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/groups",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 674,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/groups/:groupId",
+      "intent": "ComingSoonScreen",
+      "path": "/social/buddies/groups/:groupId",
+      "pathExpression": "'/social/buddies/groups/:groupId'",
+      "pathParameters": [
+        "groupId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/groups/fixture-groupId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 681,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.buddies",
+      "id": "route:/social/buddies/:userId",
+      "intent": "ChatScreen",
+      "path": "/social/buddies/:userId",
+      "pathExpression": "'/social/buddies/:userId'",
+      "pathParameters": [
+        "userId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/buddies/fixture-userId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 688,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/collection",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/collection",
+      "pathExpression": "'/social/arena/collection'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/collection",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 694,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/capsules",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/capsules",
+      "pathExpression": "'/social/arena/capsules'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/capsules",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 701,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/shop",
+      "intent": "ShopScreen",
+      "path": "/social/arena/shop",
+      "pathExpression": "'/social/arena/shop'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/shop",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 708,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/clan",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/clan",
+      "pathExpression": "'/social/arena/clan'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/clan",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 712,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/clan/:clanId",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/clan/:clanId",
+      "pathExpression": "'/social/arena/clan/:clanId'",
+      "pathParameters": [
+        "clanId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/clan/fixture-clanId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 719,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/leaderboard",
+      "intent": "LeaderboardScreen",
+      "path": "/social/arena/leaderboard",
+      "pathExpression": "'/social/arena/leaderboard'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/leaderboard",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 726,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/season",
+      "intent": "EventsScreen",
+      "path": "/social/arena/season",
+      "pathExpression": "'/social/arena/season'",
+      "pathParameters": [],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/season",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 730,
+      "variant": null
+    },
+    {
+      "capabilityId": "synapse.module.arena",
+      "id": "route:/social/arena/replay/:replayId",
+      "intent": "ComingSoonScreen",
+      "path": "/social/arena/replay/:replayId",
+      "pathExpression": "'/social/arena/replay/:replayId'",
+      "pathParameters": [
+        "replayId"
+      ],
+      "presentation": "root",
+      "queryParameters": [],
+      "sampleLocation": "/social/arena/replay/fixture-replayId",
+      "shellBranch": null,
+      "source": "apps/app/lib/router/router.dart",
+      "sourceLine": 734,
+      "variant": null
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-21"
+}

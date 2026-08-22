@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://synapse.local/contracts/curriculum/content-task-plan.schema.v1.json",
+  "title": "Synapse rights-gated content task plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "planId",
+    "status",
+    "generator",
+    "source",
+    "policy",
+    "executionBoundary",
+    "courseTotals",
+    "globalArtifacts",
+    "pilot",
+    "phaseTemplates",
+    "lanes",
+    "gates"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "../../contracts/curriculum/content-task-plan.schema.v1.json"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "planId": {
+      "type": "string",
+      "pattern": "^content-plan\\.[a-z0-9._-]+$"
+    },
+    "status": {
+      "const": "blocked_external_processing"
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "version",
+        "algorithm"
+      ],
+      "properties": {
+        "name": {
+          "const": "synapse-content-task-planner"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "algorithm": {
+          "const": "whole-chapter-lpt-v1"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKey",
+        "courseSourceKey",
+        "sourceScanManifestId",
+        "sourceTreeSha256",
+        "sourceScanSha256",
+        "localRootDistributable"
+      ],
+      "properties": {
+        "sourceKey": {
+          "const": "harrison-sim"
+        },
+        "courseSourceKey": {
+          "type": "string",
+          "pattern": "^harrison-sim/course/[0-9]{2}$"
+        },
+        "sourceScanManifestId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "sourceTreeSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "sourceScanSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "localRootDistributable": {
+          "const": false
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policyId",
+        "policySha256",
+        "allowedAuthoringCapabilities",
+        "forbiddenProductionStages"
+      ],
+      "properties": {
+        "policyId": {
+          "const": "synapse.medical-authoring.v1"
+        },
+        "policySha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "allowedAuthoringCapabilities": {
+          "const": [
+            "lesson_writing",
+            "embedded_quiz_writing",
+            "bounded_reinforcement_summary"
+          ]
+        },
+        "forbiddenProductionStages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "contains": {
+            "const": "enrich_writing"
+          },
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    },
+    "executionBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "remoteMutationAllowed",
+        "julesManifestEmitted",
+        "rawSourceTextIncluded",
+        "automaticPullRequest",
+        "planApprovalRequired",
+        "maxConcurrentTasks",
+        "maxRolling24HourTasks",
+        "schedulerProfile"
+      ],
+      "properties": {
+        "remoteMutationAllowed": {
+          "const": false
+        },
+        "julesManifestEmitted": {
+          "const": false
+        },
+        "rawSourceTextIncluded": {
+          "const": false
+        },
+        "automaticPullRequest": {
+          "const": false
+        },
+        "planApprovalRequired": {
+          "const": true
+        },
+        "maxConcurrentTasks": {
+          "const": 15
+        },
+        "maxRolling24HourTasks": {
+          "const": 100
+        },
+        "schedulerProfile": {
+          "const": "pro"
+        }
+      }
+    },
+    "courseTotals": {
+      "$ref": "#/$defs/counts"
+    },
+    "globalArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentIds",
+        "sourceAtomIds",
+        "counts",
+        "disposition"
+      ],
+      "properties": {
+        "documentIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "sourceAtomIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "counts": {
+          "$ref": "#/$defs/counts"
+        },
+        "disposition": {
+          "const": "course_level_review_before_chapter_merge"
+        }
+      }
+    },
+    "pilot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapterSourceKeys",
+        "selectionReasons",
+        "requiredContentClasses",
+        "sequence",
+        "state"
+      ],
+      "properties": {
+        "chapterSourceKeys": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/chapterSourceKey"
+          }
+        },
+        "selectionReasons": {
+          "type": "object",
+          "minProperties": 2,
+          "additionalProperties": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "requiredContentClasses": {
+          "const": [
+            "mechanism_heavy",
+            "signal_or_image_interpretation",
+            "management_or_safety"
+          ]
+        },
+        "sequence": {
+          "const": [
+            "atom_review_and_decomposition",
+            "integrated_bilingual_authoring",
+            "independent_content_validation"
+          ]
+        },
+        "state": {
+          "const": "planned_not_submitted"
+        }
+      }
+    },
+    "phaseTemplates": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/phase"
+      }
+    },
+    "lanes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 15,
+      "items": {
+        "$ref": "#/$defs/lane"
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/gate"
+      },
+      "contains": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "const": "rights_clearance"
+          },
+          "state": {
+            "const": "blocked"
+          }
+        },
+        "required": [
+          "id",
+          "state"
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "chapterSourceKey": {
+      "type": "string",
+      "pattern": "^harrison-sim/course/[0-9]{2}/chapter/[0-9]{3}$"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapters",
+        "sourceLessons",
+        "documents",
+        "mediaDocuments",
+        "atoms",
+        "requiredAtoms",
+        "duplicateRequiredAtoms",
+        "nonInstructionalAtoms",
+        "clinicalHighAtoms",
+        "safetyCriticalAtoms",
+        "warningAtoms",
+        "planningWeight"
+      ],
+      "properties": {
+        "chapters": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sourceLessons": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "documents": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "mediaDocuments": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "atoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requiredAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicateRequiredAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "nonInstructionalAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "clinicalHighAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "safetyCriticalAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warningAtoms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "planningWeight": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "purpose",
+        "promptTemplate",
+        "inputAuthority",
+        "outputOwnership",
+        "dependsOn",
+        "authoringCapabilities",
+        "acceptance"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "atom_review_and_decomposition",
+            "integrated_bilingual_authoring",
+            "independent_content_validation"
+          ]
+        },
+        "purpose": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "promptTemplate": {
+          "type": "string",
+          "pattern": "^tool/jules/prompts/[a-z0-9_-]+\\.md$"
+        },
+        "inputAuthority": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "outputOwnership": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "dependsOn": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "authoringCapabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "lesson_writing",
+              "embedded_quiz_writing",
+              "bounded_reinforcement_summary"
+            ]
+          }
+        },
+        "acceptance": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapterSourceKey",
+        "ordinal",
+        "directoryName",
+        "counts"
+      ],
+      "properties": {
+        "chapterSourceKey": {
+          "$ref": "#/$defs/chapterSourceKey"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "directoryName": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "counts": {
+          "$ref": "#/$defs/counts"
+        }
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "ordinal",
+        "counts",
+        "chapters"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^lane-[0-9]{2}$"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15
+        },
+        "counts": {
+          "$ref": "#/$defs/counts"
+        },
+        "chapters": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/chapter"
+          }
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "state",
+        "evidenceRequired"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "state": {
+          "enum": [
+            "blocked",
+            "pending",
+            "pass"
+          ]
+        },
+        "evidenceRequired": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    }
+  }
+}

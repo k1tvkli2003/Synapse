@@ -6,6 +6,10 @@ enum UserRole { student, resident, nurse, clinician, other }
 
 enum ThemeModePref { dark, light, system }
 
+/// User-owned presentation intensity. The operating-system accessibility
+/// preference can still reduce [full], but can never increase these settings.
+enum MotionModePref { full, reduced, off }
+
 class NotificationPrefs extends Equatable {
   const NotificationPrefs({
     this.dailyReminder = true,
@@ -38,14 +42,15 @@ class NotificationPrefs extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-        'dailyReminder': dailyReminder,
-        'reminderHour': reminderHour,
-        'streakAlerts': streakAlerts,
-        'social': social,
-        'leagues': leagues,
-      };
+    'dailyReminder': dailyReminder,
+    'reminderHour': reminderHour,
+    'streakAlerts': streakAlerts,
+    'social': social,
+    'leagues': leagues,
+  };
 
-  factory NotificationPrefs.fromJson(Map<String, dynamic> j) => NotificationPrefs(
+  factory NotificationPrefs.fromJson(Map<String, dynamic> j) =>
+      NotificationPrefs(
         dailyReminder: j['dailyReminder'] as bool? ?? true,
         reminderHour: j['reminderHour'] as int? ?? 19,
         streakAlerts: j['streakAlerts'] as bool? ?? true,
@@ -54,8 +59,13 @@ class NotificationPrefs extends Equatable {
       );
 
   @override
-  List<Object?> get props =>
-      [dailyReminder, reminderHour, streakAlerts, social, leagues];
+  List<Object?> get props => [
+    dailyReminder,
+    reminderHour,
+    streakAlerts,
+    social,
+    leagues,
+  ];
 }
 
 class UserPrefs extends Equatable {
@@ -63,18 +73,22 @@ class UserPrefs extends Equatable {
     this.theme = ThemeModePref.dark,
     this.locale = 'en',
     this.analyticsOptIn = false,
-    this.reduceMotion = false,
+    MotionModePref motionMode = MotionModePref.full,
+    bool? reduceMotion,
     this.dailyGoalXp = 50,
     this.notifications = const NotificationPrefs(),
     this.interests = const [],
-  });
+  }) : motionMode = reduceMotion == true ? MotionModePref.reduced : motionMode;
 
   final ThemeModePref theme;
   final String locale;
   final bool analyticsOptIn;
-  final bool reduceMotion;
+  final MotionModePref motionMode;
   final int dailyGoalXp;
   final NotificationPrefs notifications;
+
+  /// Backward-compatible projection for callers and persisted v1 snapshots.
+  bool get reduceMotion => motionMode != MotionModePref.full;
 
   /// Module ids the user picked at onboarding; used to order the Hub grid.
   final List<String> interests;
@@ -83,6 +97,7 @@ class UserPrefs extends Equatable {
     ThemeModePref? theme,
     String? locale,
     bool? analyticsOptIn,
+    MotionModePref? motionMode,
     bool? reduceMotion,
     int? dailyGoalXp,
     NotificationPrefs? notifications,
@@ -92,7 +107,13 @@ class UserPrefs extends Equatable {
       theme: theme ?? this.theme,
       locale: locale ?? this.locale,
       analyticsOptIn: analyticsOptIn ?? this.analyticsOptIn,
-      reduceMotion: reduceMotion ?? this.reduceMotion,
+      motionMode:
+          motionMode ??
+          (reduceMotion == null
+              ? this.motionMode
+              : reduceMotion
+              ? MotionModePref.reduced
+              : MotionModePref.full),
       dailyGoalXp: dailyGoalXp ?? this.dailyGoalXp,
       notifications: notifications ?? this.notifications,
       interests: interests ?? this.interests,
@@ -100,32 +121,54 @@ class UserPrefs extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-        'theme': theme.name,
-        'locale': locale,
-        'analyticsOptIn': analyticsOptIn,
-        'reduceMotion': reduceMotion,
-        'dailyGoalXp': dailyGoalXp,
-        'notifications': notifications.toJson(),
-        'interests': interests,
-      };
+    'theme': theme.name,
+    'locale': locale,
+    'analyticsOptIn': analyticsOptIn,
+    // Full and reduced remain wire-compatible with the archived v1 boolean.
+    // Only `off` needs the new discriminator because the legacy projection
+    // cannot distinguish it from `reduced`.
+    if (motionMode == MotionModePref.off) 'motionMode': motionMode.name,
+    // Keep the legacy projection until all imported preferences migrate.
+    'reduceMotion': reduceMotion,
+    'dailyGoalXp': dailyGoalXp,
+    'notifications': notifications.toJson(),
+    'interests': interests,
+  };
 
   factory UserPrefs.fromJson(Map<String, dynamic> j) => UserPrefs(
-        theme: ThemeModePref.values
-            .firstWhere((t) => t.name == j['theme'], orElse: () => ThemeModePref.dark),
-        locale: j['locale'] as String? ?? 'en',
-        analyticsOptIn: j['analyticsOptIn'] as bool? ?? false,
-        reduceMotion: j['reduceMotion'] as bool? ?? false,
-        dailyGoalXp: j['dailyGoalXp'] as int? ?? 50,
-        notifications: j['notifications'] is Map
-            ? NotificationPrefs.fromJson(
-                Map<String, dynamic>.from(j['notifications'] as Map))
-            : const NotificationPrefs(),
-        interests: (j['interests'] as List?)?.map((e) => e.toString()).toList() ?? const [],
-      );
+    theme: ThemeModePref.values.firstWhere(
+      (t) => t.name == j['theme'],
+      orElse: () => ThemeModePref.dark,
+    ),
+    locale: j['locale'] as String? ?? 'en',
+    analyticsOptIn: j['analyticsOptIn'] as bool? ?? false,
+    motionMode: MotionModePref.values.firstWhere(
+      (mode) => mode.name == j['motionMode'],
+      orElse: () => (j['reduceMotion'] as bool? ?? false)
+          ? MotionModePref.reduced
+          : MotionModePref.full,
+    ),
+    dailyGoalXp: j['dailyGoalXp'] as int? ?? 50,
+    notifications: j['notifications'] is Map
+        ? NotificationPrefs.fromJson(
+            Map<String, dynamic>.from(j['notifications'] as Map),
+          )
+        : const NotificationPrefs(),
+    interests:
+        (j['interests'] as List?)?.map((e) => e.toString()).toList() ??
+        const [],
+  );
 
   @override
-  List<Object?> get props =>
-      [theme, locale, analyticsOptIn, reduceMotion, dailyGoalXp, notifications, interests];
+  List<Object?> get props => [
+    theme,
+    locale,
+    analyticsOptIn,
+    motionMode,
+    dailyGoalXp,
+    notifications,
+    interests,
+  ];
 }
 
 class UserProfile extends Equatable {
@@ -184,37 +227,48 @@ class UserProfile extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'handle': handle,
-        'displayName': displayName,
-        'avatarUrl': avatarUrl,
-        'role': role.name,
-        'specialty': specialty,
-        'year': year,
-        'bio': bio,
-        'prefs': prefs.toJson(),
-        'createdAt': createdAt?.toIso8601String(),
-        'updatedAt': updatedAt?.toIso8601String(),
-      };
+    'id': id,
+    'handle': handle,
+    'displayName': displayName,
+    'avatarUrl': avatarUrl,
+    'role': role.name,
+    'specialty': specialty,
+    'year': year,
+    'bio': bio,
+    'prefs': prefs.toJson(),
+    'createdAt': createdAt?.toIso8601String(),
+    'updatedAt': updatedAt?.toIso8601String(),
+  };
 
   factory UserProfile.fromJson(Map<String, dynamic> j) => UserProfile(
-        id: j['id'] as String,
-        handle: j['handle'] as String,
-        displayName: j['displayName'] as String,
-        avatarUrl: j['avatarUrl'] as String?,
-        role: UserRole.values
-            .firstWhere((r) => r.name == j['role'], orElse: () => UserRole.student),
-        specialty: j['specialty'] as String?,
-        year: j['year'] as int?,
-        bio: j['bio'] as String?,
-        prefs: j['prefs'] is Map
-            ? UserPrefs.fromJson(Map<String, dynamic>.from(j['prefs'] as Map))
-            : const UserPrefs(),
-        createdAt: DateTime.tryParse(j['createdAt']?.toString() ?? ''),
-        updatedAt: DateTime.tryParse(j['updatedAt']?.toString() ?? ''),
-      );
+    id: j['id'] as String,
+    handle: j['handle'] as String,
+    displayName: j['displayName'] as String,
+    avatarUrl: j['avatarUrl'] as String?,
+    role: UserRole.values.firstWhere(
+      (r) => r.name == j['role'],
+      orElse: () => UserRole.student,
+    ),
+    specialty: j['specialty'] as String?,
+    year: j['year'] as int?,
+    bio: j['bio'] as String?,
+    prefs: j['prefs'] is Map
+        ? UserPrefs.fromJson(Map<String, dynamic>.from(j['prefs'] as Map))
+        : const UserPrefs(),
+    createdAt: DateTime.tryParse(j['createdAt']?.toString() ?? ''),
+    updatedAt: DateTime.tryParse(j['updatedAt']?.toString() ?? ''),
+  );
 
   @override
-  List<Object?> get props =>
-      [id, handle, displayName, avatarUrl, role, specialty, year, bio, prefs];
+  List<Object?> get props => [
+    id,
+    handle,
+    displayName,
+    avatarUrl,
+    role,
+    specialty,
+    year,
+    bio,
+    prefs,
+  ];
 }

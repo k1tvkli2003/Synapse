@@ -1,0 +1,185 @@
+{
+  "checks": [
+    {
+      "detail": "contracts/preservation/route-registry.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.route-registry.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/module-registry.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.module-registry.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/persistence-keys.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.persistence-keys.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/supabase-schema.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.supabase-schema.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/archived-domain-fixtures.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.archived-domain-fixtures.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/deep-link-fixtures.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.deep-link-fixtures.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/capability-ledger.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.capability-ledger.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/rollback-bundle.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.rollback-bundle.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "contracts/preservation/preservation-manifest.v1.json exists and equals a fresh source-derived generation",
+      "id": "snapshot.preservation-manifest.v1.json",
+      "status": "pass"
+    },
+    {
+      "detail": "expected 142 GoRoute declarations, found 142",
+      "id": "routes.declarations",
+      "status": "pass"
+    },
+    {
+      "detail": "expected 150 unique concrete route paths after LibraryKind expansion, found 150",
+      "id": "routes.resolved",
+      "status": "pass"
+    },
+    {
+      "detail": "every path/query parameter is inventoried and has a concrete fixture value",
+      "id": "routes.parameters",
+      "status": "pass"
+    },
+    {
+      "detail": "all routes have a known intent and either a protected shell branch or root ownership",
+      "id": "routes.branches",
+      "status": "pass"
+    },
+    {
+      "detail": "all 91 constant/function/extension helper variants resolve to a registered intent",
+      "id": "routes.helpers",
+      "status": "pass"
+    },
+    {
+      "detail": "ModuleKey serialization remains ['copilot', 'terms', 'cards', 'mnemonics', 'ecg', 'sounds', 'labs', 'algorithms', 'orLab', 'rounds', 'buddies', 'arena']",
+      "id": "modules.stable-ids",
+      "status": "pass"
+    },
+    {
+      "detail": "ShellBranch serialization remains ['home', 'learn', 'clinical', 'social', 'profile']",
+      "id": "modules.shell-branches",
+      "status": "pass"
+    },
+    {
+      "detail": "all 45 source enums are snapshotted; protected registries and motion preference values match canonical contracts",
+      "id": "modules.enum-parity",
+      "status": "pass"
+    },
+    {
+      "detail": "all 13 preserved legacy keys plus five Academy/Data Plane v1 keys have owner/type/default/migration metadata",
+      "id": "persistence.complete",
+      "status": "pass"
+    },
+    {
+      "detail": "every persisted key has source call sites and an explicit compatibility rule",
+      "id": "persistence.restore-contract",
+      "status": "pass"
+    },
+    {
+      "detail": "all nine tables and migration-0002 fidelity columns are present",
+      "id": "supabase.schema",
+      "status": "pass"
+    },
+    {
+      "detail": "RLS is enabled on every exposed table and all 11 policies are frozen",
+      "id": "supabase.rls",
+      "status": "pass"
+    },
+    {
+      "detail": "function, execute revocation, triggers, and leaderboard view are captured",
+      "id": "supabase.functions",
+      "status": "pass"
+    },
+    {
+      "detail": "schema fixture contains structural metadata and no detected secret value",
+      "id": "supabase.sanitized",
+      "status": "pass"
+    },
+    {
+      "detail": "four serialized models and all ten SynapseEvent variants have synthetic fixtures",
+      "id": "archives.models-events",
+      "status": "pass"
+    },
+    {
+      "detail": "archived payloads are synthetic and contain no privileged key marker",
+      "id": "archives.synthetic",
+      "status": "pass"
+    },
+    {
+      "detail": "every concrete route has cold-start, web-refresh, and native-location fixtures",
+      "id": "deep-links.matrix",
+      "status": "pass"
+    },
+    {
+      "detail": "all deep-link fixtures preserve route intent and branch ownership",
+      "id": "deep-links.intent-parity",
+      "status": "pass"
+    },
+    {
+      "detail": "76 Synapse/StudyHUB capabilities have stable IDs, honest state, owner, target, and verification ownership",
+      "id": "capabilities.inventory",
+      "status": "pass"
+    },
+    {
+      "detail": "every route is owned by exactly one preserved or registered additive capability",
+      "id": "capabilities.route-coverage",
+      "status": "pass"
+    },
+    {
+      "detail": "route/local/schema/capability rollback baselines are versioned and checksummed",
+      "id": "rollback.checksums",
+      "status": "pass"
+    },
+    {
+      "detail": "manifest output hashes and all source hashes match current bytes",
+      "id": "manifest.integrity",
+      "status": "pass"
+    }
+  ],
+  "counts": {
+    "capabilities": 76,
+    "deepLinkFixtures": 450,
+    "domainModels": 4,
+    "legacyEvents": 10,
+    "modules": 12,
+    "persistenceKeys": 18,
+    "resolvedRoutes": 150,
+    "routeDeclarations": 142,
+    "routeHelpers": 91,
+    "serializedEnums": 45,
+    "shellBranches": 5,
+    "supabasePolicies": 11,
+    "supabaseTables": 9
+  },
+  "limits": [
+    "this gate proves source/fixture compatibility, not native host runtime or production database state",
+    "Dart fixture round-trip tests are a separate required command",
+    "destructive route, key, schema, or user-file changes still require explicit approval and tested restore evidence"
+  ],
+  "manifestSha256": "085C229B2664D60B0A16BC2FF9D0A36959380A08F62C52E8D0F0A2CE6F760987",
+  "p0Findings": [],
+  "rollbackBundleSha256": "B7A6DBC651567F1357943A8717619ED47F565D2BE71CA3FF61824E42FC1A3497",
+  "schemaVersion": 1,
+  "sourceDate": "2026-07-21",
+  "status": "pass"
+}
