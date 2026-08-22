@@ -53,7 +53,7 @@ dependencies:
   supabase_flutter: ^2.15.4
 
 dev_dependencies:
-  drift: 2.34.2
+  drift: 2.34.3
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
